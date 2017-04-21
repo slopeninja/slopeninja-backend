@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015-node": "^6.1.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "koa": "2",
+    "koa-bodyparser": "next",
+    "koa-router": "next"
+  },
+  "scripts": {
+    "start": "gulp && node dist/app.js",
+    "postinstall": "node_modules/.bin/babel app.js -d build/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
