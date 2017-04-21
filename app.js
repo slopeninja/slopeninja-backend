@@ -2,7 +2,7 @@ import Koa from 'koa';
 import KoaRouter from 'koa-router';
 // import koaBodyParser from 'koa-bodyparser';
 // app.use(koaBodyParser());
-const PORT = 1234;
+const PORT = process.env.PORT || 1234;
 
 const app = new Koa();
 const router = new KoaRouter();
