@@ -9,6 +9,9 @@
     "koa-bodyparser": "next",
     "koa-router": "next"
   },
+  "engines": {
+    "node": "7.9.0"
+  },
   "scripts": {
     "start": "gulp && node dist/app.js",
     "postinstall": "node_modules/.bin/babel app.js -d build/",
