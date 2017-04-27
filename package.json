@@ -14,9 +14,13 @@
     "node": "7.9.0"
   },
   "scripts": {
-    "start-prod": "npm run postinstall && node build/app.js",
-    "start-dev": "node_modules/.bin/babel-node app.js",
-    "postinstall": "node_modules/.bin/babel app.js -d build/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-prod": "npm run postinstall && node build/server.js",
+    "start-dev": "node_modules/.bin/babel-node src/server.js",
+    "postinstall": "node_modules/.bin/babel src/server.js -d build/",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "jest": "^19.0.2"
   }
 }

@@ -3,11 +3,9 @@ import koaCors from 'kcors';
 import KoaRouter from 'koa-router';
 // import koaBodyParser from 'koa-bodyparser';
 // koaApp.use(koaBodyParser());
-const PORT = process.env.PORT || 1234;
 
 const koaApp = new Koa();
 const router = new KoaRouter();
-
 
 const SIERRA_AT_TAHOE_COORDS = {
   lat: 38.795716,
@@ -112,7 +110,7 @@ const getResorts = () => {
     const body = {
       resorts: db.resorts
     };
-    
+
     setTimeout(() => resolve(body), 0);
   });
 
@@ -128,6 +126,4 @@ router.get('/resorts', async (ctx) => {
 koaApp.use(koaCors());
 koaApp.use(router.routes());
 
-koaApp.listen(PORT, () => {
-  console.info(`Listening to http://localhost:${PORT}`);
-});
+export default koaApp;
