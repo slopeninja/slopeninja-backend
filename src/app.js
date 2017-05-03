@@ -1,8 +1,7 @@
 import Koa from 'koa';
 import koaCors from 'kcors';
 import KoaRouter from 'koa-router';
-// import koaBodyParser from 'koa-bodyparser';
-// koaApp.use(koaBodyParser());
+import koaBodyParser from 'koa-bodyparser';
 
 const koaApp = new Koa();
 const router = new KoaRouter();
@@ -111,7 +110,7 @@ const getResorts = () => {
       resorts: db.resorts
     };
 
-    setTimeout(() => resolve(body), 0);
+    setTimeout(() => resolve(body), 50);
   });
 
   return promise;
@@ -123,7 +122,15 @@ router.get('/resorts', async (ctx) => {
   ctx.body = resorts;
 });
 
+router.post('/resorts', (ctx) => {
+  // echo json body
+  ctx.body = {
+    ...ctx.request.body,
+  };
+});
+
 koaApp.use(koaCors());
+koaApp.use(koaBodyParser());
 koaApp.use(router.routes());
 
 export default koaApp;
