@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import app from '../app';
+import api from '../api';
 import Promise from 'bluebird';
 
 let server;
@@ -11,8 +11,8 @@ beforeAll(async () => {
   // convention of accepting a callback as last argument and calling that
   // callback with error as the first argument and success value on the
   // second argument.
-  const listen = Promise.promisify(app.listen, { context: app });
-  server = await app.listen();
+  const listen = Promise.promisify(api.listen, { context: api });
+  server = await api.listen();
   port = server.address().port;
   console.warn(`Listening to http://localhost:${port}`);
 });

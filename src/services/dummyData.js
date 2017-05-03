@@ -1,11 +1,3 @@
-import Koa from 'koa';
-import koaCors from 'kcors';
-import KoaRouter from 'koa-router';
-import koaBodyParser from 'koa-bodyparser';
-
-const koaApp = new Koa();
-const router = new KoaRouter();
-
 const SIERRA_AT_TAHOE_COORDS = {
   lat: 38.795716,
   lng: -120.0796698,
@@ -101,36 +93,4 @@ const db = {
   ]
 };
 
-const getResorts = () => {
-  const promise = new Promise((resolve, reject) => {
-    // go fetch info from database
-    // when you come back,
-    // either resolve or reject
-    const body = {
-      resorts: db.resorts
-    };
-
-    setTimeout(() => resolve(body), 50);
-  });
-
-  return promise;
-}
-
-router.get('/resorts', async (ctx) => {
-  const promise = getResorts();
-  const resorts = await promise;
-  ctx.body = resorts;
-});
-
-router.post('/resorts', (ctx) => {
-  // echo json body
-  ctx.body = {
-    ...ctx.request.body,
-  };
-});
-
-koaApp.use(koaCors());
-koaApp.use(koaBodyParser());
-koaApp.use(router.routes());
-
-export default koaApp;
+export default db;
