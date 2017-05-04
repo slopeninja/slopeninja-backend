@@ -1,3 +1,4 @@
+import client from '../db/client';
 import db from './dummyData';
 
 class ResortService {

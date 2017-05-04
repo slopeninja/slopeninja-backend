@@ -8,9 +8,11 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "kcors": "2",
+    "knex": "^0.13.0",
     "koa": "2",
     "koa-bodyparser": "next",
-    "koa-router": "next"
+    "koa-router": "next",
+    "pg": "^6.1.5"
   },
   "engines": {
     "node": "7.9.0"
