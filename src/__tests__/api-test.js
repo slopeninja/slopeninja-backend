@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import api from '../api';
 import Promise from 'bluebird';
+import dummyData from '../services/dummyData';
 
 let server;
 let port;
@@ -14,7 +15,6 @@ beforeAll(async () => {
   const listen = Promise.promisify(api.listen, { context: api });
   server = await api.listen();
   port = server.address().port;
-  console.warn(`Listening to http://localhost:${port}`);
 });
 
 // tear down our tests
@@ -27,15 +27,24 @@ test('passes the sanity check', () => {
   expect(3).toBe(3);
 });
 
-test('passes /resorts endponts returns 2 resorts, one of which is Sierra', async () => {
-
+test('returns 2 resorts, one of which is Sierra', async () => {
   const response = await fetch(`http://localhost:${port}/resorts`);
   const data = await response.json();
 
-  // const expectedData = {
-  //   jake: 'julia',
-  // }
+  expect(data.resorts).toHaveLength(2);
 
-  // expect(data).toBe(expectedData);
-  expect(data.resorts.length).toBe(2);
+  const resort = data.resorts.find(
+    resort => resort.name === 'Sierra-at-Tahoe',
+  );
+
+  expect(resort).toBeDefined();
+});
+
+test('returns a resort for a given resort id', async () => {
+  const expectedResort = dummyData.resorts[0];
+
+  const response = await fetch(`http://localhost:${port}/resorts/${expectedResort.id}`);
+  const data = await response.json();
+
+  expect(data.resort).toEqual(expectedResort);
 });
