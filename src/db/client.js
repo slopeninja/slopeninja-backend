@@ -31,9 +31,6 @@ const run = async () => {
   //     });
   // });
 
-
-
-  // export resorts;
   // const result = await client.raw(`SLECT * FROM test`);
   // const result = await client.select('*').from('test') //.where('id', 'heyhey');
   // console.log(result);

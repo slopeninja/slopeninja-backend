@@ -20,7 +20,7 @@
   "scripts": {
     "start-prod": "npm run postinstall && node build/src/server.js",
     "start-dev": "node_modules/.bin/babel-node src/server.js",
-    "postinstall": "node_modules/.bin/babel src/*.js -d build/",
+    "postinstall": "node_modules/.bin/babel 'src/**/*.js' -d build/ --ignore 'test.js'",
     "test": "jest"
   },
   "devDependencies": {
