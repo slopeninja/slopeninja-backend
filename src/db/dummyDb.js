@@ -8,7 +8,7 @@ const SQUAW_ALPINE_COORDS = {
   lng: -120.248888,
 };
 
-const db = {
+export const DB = {
   resorts: [
     {
       id: '81e32949-79e7-43ff-a677-38c1c27c1fe6',
@@ -92,5 +92,3 @@ const db = {
     },
   ]
 };
-
-export default db;

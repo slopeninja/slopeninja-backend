@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import api from '../api';
 import Promise from 'bluebird';
-import dummyData from '../services/dummyData';
+import { DB } from '../db/dummyDb';
 
 let server;
 let port;
@@ -41,7 +41,7 @@ test('returns 2 resorts, one of which is Sierra', async () => {
 });
 
 test('returns a resort for a given resort id', async () => {
-  const expectedResort = dummyData.resorts[0];
+  const expectedResort = DB.resorts[0];
 
   const response = await fetch(`http://localhost:${port}/resorts/${expectedResort.id}`);
   const data = await response.json();
