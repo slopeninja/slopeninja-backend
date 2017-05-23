@@ -35,11 +35,11 @@ const run = async () => {
   // const result = await client.select('*').from('test') //.where('id', 'heyhey');
   // console.log(result);
 }
-
-try {
-  run();
-} catch (error) {
-  console.error(error);
-}
+//
+// try {
+//   run();
+// } catch (error) {
+//   console.error(error);
+// }
 
 export default client;

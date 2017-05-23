@@ -3,6 +3,8 @@ import api from '../api';
 import Promise from 'bluebird';
 import { DB } from '../db/dummyDb';
 
+import client from '../db/client';
+
 let server;
 let port;
 
@@ -21,6 +23,7 @@ beforeAll(async () => {
 afterAll(async () => {
   const close = Promise.promisify(server.close, { context: server });
   await close();
+  await client.destroy();
 });
 
 test('passes the sanity check', () => {
