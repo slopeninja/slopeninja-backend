@@ -18,10 +18,14 @@ class ResortService {
 
   async findById(resortId) {
     const [resort] = await client
-     .withSchema(SLOPE_NINJA_DB_SCHEMA)
-     .select('*')
-     .from('resorts')
-     .where('id', resortId);
+      .withSchema(SLOPE_NINJA_DB_SCHEMA)
+      .select('*')
+      .from('resorts')
+      .where('id', resortId);
+
+    if(!resort) {
+      return;
+    }
 
     const { id, metaData } = resort;
     return { id, ...metaData };

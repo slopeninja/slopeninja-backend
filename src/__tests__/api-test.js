@@ -2,7 +2,6 @@ import fetch from 'isomorphic-fetch';
 import api from '../api';
 import Promise from 'bluebird';
 import { DB } from '../db/dummyDb';
-
 import client from '../db/client';
 
 let server;
@@ -50,4 +49,64 @@ test('returns a resort for a given resort id', async () => {
   const data = await response.json();
 
   expect(data.resort).toEqual(expectedResort);
+});
+
+test('fails to return a resort for unknown resort id', async () => {
+  const NON_EXISTING_RESORT_ID = '6f535c7a-aedd-409c-875b-09ee2181b3d7';
+  const response = await fetch(`http://localhost:${port}/resorts/${NON_EXISTING_RESORT_ID}`);
+
+  const HTTP_STATUS_CODE_NOT_FOUND = 404;
+  expect(response.status).toEqual(HTTP_STATUS_CODE_NOT_FOUND);
+});
+
+test('subscribes to newsletter with valid email', async () => {
+  const response = await fetch(`http://localhost:${port}/subscribers`, {
+    method: "POST",
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    }),
+    body: JSON.stringify({
+      email: 'xxx@xxx.com',
+    })
+  });
+  const data = await response.json();
+
+  expect(data.email).toMatch('xxx@xxx.com');
+});
+
+test('fails to subscribe to newsletter with invalid email', async () => {
+  const response = await fetch(`http://localhost:${port}/subscribers`, {
+    method: "POST",
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    }),
+    body: JSON.stringify({
+      email: 'xx@xx',
+    })
+  });
+  const data = await response.json();
+
+  const HTTP_STATUS_CODE_BAD_REQUEST = 400;
+  expect(response.status).toEqual(HTTP_STATUS_CODE_BAD_REQUEST);
+  expect(data.error).toEqual('child \"email\" fails because [\"email\" must be a valid email]');
+});
+
+test('fails to subscribe to newsletter with no email', async () => {
+  const response = await fetch(`http://localhost:${port}/subscribers`, {
+    method: "POST",
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    }),
+    body: JSON.stringify({
+      email: '',
+    })
+  });
+  const data = await response.json();
+
+  const HTTP_STATUS_CODE_BAD_REQUEST = 400;
+  expect(response.status).toEqual(HTTP_STATUS_CODE_BAD_REQUEST);
+  expect(data.error).toEqual('child \"email\" fails because [\"email\" is not allowed to be empty]');
 });
