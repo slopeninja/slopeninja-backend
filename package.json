@@ -4,6 +4,7 @@
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.4.0",
+    "basic-auth": "^1.1.0",
     "bluebird": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
@@ -13,7 +14,8 @@
     "koa": "2",
     "koa-bodyparser": "next",
     "koa-router": "next",
-    "pg": "^6.1.5"
+    "pg": "^6.1.5",
+    "statuses": "^1.3.1"
   },
   "engines": {
     "node": "7.9.0"

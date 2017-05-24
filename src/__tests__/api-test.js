@@ -3,6 +3,8 @@ import api from '../api';
 import Promise from 'bluebird';
 import { DB } from '../db/dummyDb';
 import client from '../db/client';
+import uuid from 'uuid';
+import statuses from 'statuses';
 
 let server;
 let port;
@@ -55,11 +57,11 @@ test('fails to return a resort for unknown resort id', async () => {
   const NON_EXISTING_RESORT_ID = '6f535c7a-aedd-409c-875b-09ee2181b3d7';
   const response = await fetch(`http://localhost:${port}/resorts/${NON_EXISTING_RESORT_ID}`);
 
-  const HTTP_STATUS_CODE_NOT_FOUND = 404;
-  expect(response.status).toEqual(HTTP_STATUS_CODE_NOT_FOUND);
+  expect(response.status).toEqual(statuses('Not Found'));
 });
 
 test('subscribes to newsletter with valid email', async () => {
+  const dummyEmail = `${uuid.v4()}@slope.ninja`;
   const response = await fetch(`http://localhost:${port}/subscribers`, {
     method: "POST",
     headers: new Headers({
@@ -67,12 +69,12 @@ test('subscribes to newsletter with valid email', async () => {
       Accept: 'application/json',
     }),
     body: JSON.stringify({
-      email: 'xxx@xxx.com',
+      email: dummyEmail,
     })
   });
   const data = await response.json();
 
-  expect(data.email).toMatch('xxx@xxx.com');
+  expect(data.email).toMatch(dummyEmail);
 });
 
 test('fails to subscribe to newsletter with invalid email', async () => {
@@ -88,8 +90,7 @@ test('fails to subscribe to newsletter with invalid email', async () => {
   });
   const data = await response.json();
 
-  const HTTP_STATUS_CODE_BAD_REQUEST = 400;
-  expect(response.status).toEqual(HTTP_STATUS_CODE_BAD_REQUEST);
+  expect(response.status).toEqual(statuses('Bad Request'));
   expect(data.error).toEqual('child \"email\" fails because [\"email\" must be a valid email]');
 });
 
@@ -106,7 +107,6 @@ test('fails to subscribe to newsletter with no email', async () => {
   });
   const data = await response.json();
 
-  const HTTP_STATUS_CODE_BAD_REQUEST = 400;
-  expect(response.status).toEqual(HTTP_STATUS_CODE_BAD_REQUEST);
+  expect(response.status).toEqual(statuses('Bad Request'));
   expect(data.error).toEqual('child \"email\" fails because [\"email\" is not allowed to be empty]');
 });
