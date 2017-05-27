@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch';
 import Koa from 'koa';
 import koaCors from 'kcors';
 import KoaRouter from 'koa-router';
