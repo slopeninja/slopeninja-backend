@@ -25,6 +25,14 @@ test('tests if valid degree number', () => {
 
 test('tests if valid inch number', () => {
   expect(isInchNumber('100"')).toBe(true);
+  expect(isInchNumber('100in')).toBe(true);
+  expect(isInchNumber('100inch')).toBe(true);
+  expect(isInchNumber('100inches')).toBe(true);
+  expect(isInchNumber('100 in')).toBe(true);
+  expect(isInchNumber('100 inch')).toBe(true);
+  expect(isInchNumber('100 inches')).toBe(true);
+  expect(isInchNumber('100 deg')).toBe(false);
+  expect(isInchNumber('100deg')).toBe(false);
   expect(isInchNumber('abc')).toBe(false);
   expect(isInchNumber()).toBe(false);
   expect(isInchNumber(100)).toBe(false);
