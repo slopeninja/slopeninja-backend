@@ -16,27 +16,27 @@ const initialWeather = {
 
 };
 
-const parseSierraWeather = async ($) => {
-  const temprature = $('.weather-block .value').first().text().trim();
+const parseHomewood = async ($) => {
+  const temprature = $('#current_temp_hi').text().trim();
   //24 Hours
-  const newSnow24Hr = $('.weather-block.weather-block-special .value').first().text().trim();
+  const newSnow24Hr = $('#current_snow_conditions table tr td').slice(4,5).text().trim();
   //Base
-  const snowDepthBase = $('.weather-block.weather-block-small.table-column .value').last().text().trim();
-  const snowDepthSummit = $('.weather-block.weather-block-small.table-column .value').slice( 8,9 ).text().trim();
+  const snowDepthBase = $('#current_snow_conditions table tr td').slice(1,2).text().trim();
+
+  const snowDepthSummit = $('#current_snow_conditions table tr td').slice(2,3).text().trim();
   return {
     ...initialWeather,
     temprature: degreeOrNull(temprature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),
-
   };
 }
 
-export const fetchSierra = async (html) => {
+export const fetchHomewood = async (html) => {
   const $ = cheerio.load(html)
 
-  const weather = await parseSierraWeather($);
+  const weather = await parseHomewood($);
 
   return {
     weather,

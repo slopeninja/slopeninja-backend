@@ -1,7 +1,7 @@
 import {
   isNumber,
-  isDegreeNumber,
-  isInchNumber,
+  parseDegreeNumber,
+  parseInchNumber,
   degreeOrNull,
   inchOrNull,
   numberOrNull,
@@ -17,36 +17,38 @@ test('tests if valid number', () => {
 });
 
 test('tests if valid degree number', () => {
-  expect(isDegreeNumber('100°')).toBe(true);
-  expect(isDegreeNumber('abc')).toBe(false);
-  expect(isDegreeNumber()).toBe(false);
-  expect(isDegreeNumber(100)).toBe(false);
+  expect(parseDegreeNumber('100°')).toBe(100);
+  expect(parseDegreeNumber('abc')).toBeNaN();
+  expect(parseDegreeNumber()).toBeNaN();
+  expect(parseDegreeNumber(100)).toBeNaN();
 });
 
 test('tests if valid inch number', () => {
-  expect(isInchNumber('100"')).toBe(true);
-  expect(isInchNumber('100in')).toBe(true);
-  expect(isInchNumber('100inch')).toBe(true);
-  expect(isInchNumber('100inches')).toBe(true);
-  expect(isInchNumber('100 in')).toBe(true);
-  expect(isInchNumber('100 inch')).toBe(true);
-  expect(isInchNumber('100 inches')).toBe(true);
-  expect(isInchNumber('100 deg')).toBe(false);
-  expect(isInchNumber('100deg')).toBe(false);
-  expect(isInchNumber('abc')).toBe(false);
-  expect(isInchNumber()).toBe(false);
-  expect(isInchNumber(100)).toBe(false);
+  expect(parseInchNumber('a"')).toBeNaN();
+  expect(parseInchNumber('100"')).toBe(100);
+  expect(parseInchNumber('100in')).toBe(100);
+  expect(parseInchNumber('100inch')).toBe(100);
+  expect(parseInchNumber('100inches')).toBe(100);
+  expect(parseInchNumber('100 in')).toBe(100);
+  expect(parseInchNumber('100 inch')).toBe(100);
+  expect(parseInchNumber('100 inches')).toBe(100);
+  expect(parseInchNumber('100 deg')).toBeNaN();
+  expect(parseInchNumber('100deg')).toBeNaN();
+  expect(parseInchNumber('abc')).toBeNaN();
+  expect(parseInchNumber('')).toBeNaN();
+  expect(parseInchNumber()).toBeNaN();
+  expect(parseInchNumber(100)).toBeNaN();
 });
 
 test('returns valid degree value or null', () => {
-  expect(degreeOrNull('100°')).toBe('100°');
+  expect(degreeOrNull('100°')).toBe(100);
   expect(degreeOrNull('100"')).toBe(null);
   expect(degreeOrNull()).toBe(null);
   expect(degreeOrNull('abc')).toBeNull();
 });
 
 test('returns valid inch value or null', () => {
-  expect(inchOrNull('100"')).toBe('100"');
+  expect(inchOrNull('100"')).toBe(100);
   expect(inchOrNull('100°')).toBe(null);
   expect(inchOrNull()).toBe(null);
   expect(inchOrNull('abc')).toBeNull();

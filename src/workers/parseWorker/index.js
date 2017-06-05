@@ -1,7 +1,14 @@
 import fetch from 'isomorphic-fetch';
 import { fetchSierra } from './resorts/sierra';
 import { fetchSquaw } from './resorts/squaw';
+import { fetchDiamond } from './resorts/diamond';
+import { fetchHeavenly } from './resorts/heavenly';
+import { fetchKirkwood } from './resorts/kirkwood';
+import { fetchNorthstar } from './resorts/northstar';
 
+
+
+//FIXME: verify if heavenly/kirkwood/northstar BASE DEPTH is summit or bade depth
 
 const resortsConfig = {
   'sierra': {
@@ -12,6 +19,43 @@ const resortsConfig = {
     weatherUrl: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
     fn: fetchSquaw,
   },
+  'diamond': {
+    weatherUrl: 'http://www.diamondpeak.com/mountain/conditions',
+    fn: fetchDiamond,
+  },
+  'heavenly': {
+    weatherUrl: 'http://www.skiheavenly.com/the-mountain/snow-report/snow-report.aspx',
+    fn: fetchHeavenly,
+  },
+  'kirkwood': {
+    weatherUrl: 'http://www.kirkwood.com/mountain/snow-and-weather-report.aspx',
+    fn: fetchKirkwood,
+  },
+  'northstar': {
+    weatherUrl: 'http://www.northstarcalifornia.com/the-mountain/snow-weather-report.aspx',
+    fn: fecthNorthstar,
+  }
+  'boreal': {
+    weatherUrl: '',
+    fn: fecthBoreal,
+  },
+  'homewood': {
+    weatherUrl: 'http://www.skihomewood.com/mountain/snow-report',
+    fn: fecthHomewood,
+  },
+  'sugar': {
+    weatherUrl: 'http://www.sugarbowl.com/conditions',
+    fn: fecthSugar,
+  },
+  'donner': {
+    weatherUrl: '',
+    fn: fecthDonner,
+  }
+  'mtRose': {
+    weatherUrl: 'http://skirose.com/the-mountain/snow-report/',
+    fn: fecthMtRose,
+  }
+
 };
 
 const fetchResorts = async () => {

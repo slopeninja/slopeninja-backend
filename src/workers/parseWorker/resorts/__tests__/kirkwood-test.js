@@ -1,25 +1,25 @@
 import fs from 'fs';
-import { fetchSierra } from '../sierra';
+import { fetchKirkwood } from '../kirkwood';
 
-test('fetches Sierra data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-weather.html`);
+test('fetches Kirkwood data correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-weather.html`);
 
-  const resortData = await fetchSierra(htmlText);
+  const resortData = await fetchKirkwood(htmlText);
   expect(resortData).toEqual({
     weather: {
       status: null,
       weatherIcon: null,
-      temprature: "43°",
+      temprature: null,
       baseCondition: null,
-      newSnow: '0"',
-      snowDepthBase: '110"',
-      snowDepthSummit: '211"',
+      newSnow: 10,
+      snowDepthBase: null,
+      snowDepthSummit: 1,
     },
   });
 })
 
 test('fetches all null for nonexisting values', async () => {
-  const resortData = await fetchSierra('<html></html>');
+  const resortData = await fetchKirkwood('<html></html>');
   expect(resortData).toEqual({
     weather: {
       status: null,

@@ -18,7 +18,6 @@ const initialWeather = {
 const parseSquawWeather = async ($) => {
 
   const temprature = $('#squaw-elevation-0 .row.current .cellwrapper .cell .value').first().text().trim();
-  console.warn(temprature)
   //24
   const newSnow24Hr = $('.row.snow .cellwrapper .cell .value').slice(1,2).text().trim();
   // //Base
