@@ -7,7 +7,7 @@ test('fetches Kirkwood data correctly', async () => {
   const resortData = await fetchKirkwood(htmlText);
   expect(resortData).toEqual({
     weather: {
-      status: null,
+      status: 'closed',
       weatherIcon: null,
       temprature: null,
       baseCondition: null,

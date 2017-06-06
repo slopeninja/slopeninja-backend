@@ -7,7 +7,7 @@ test('fetches Heavenly data correctly', async () => {
   const resortData = await fetchHeavenly(htmlText);
   expect(resortData).toEqual({
     weather: {
-      status: null,
+      status: 'closed',
       weatherIcon: null,
       temprature: null,
       baseCondition: null,

@@ -3,6 +3,7 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
+  statusOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -17,6 +18,7 @@ const initialWeather = {
 };
 
 const parseMtRoseWeather = async ($) => {
+  const status = $('.sr-mountain-notes.sr-row .sr-text p').first().text().trim();
   const temprature = $('.sr-current-cond.sr-row.row .col-sm-6 .sr-cc-wrapper.row .sr-temp h1').text().trim();
   //24 Hours
   const newSnow24Hr = $('.sr-snow-totals.sr-row.row .sr-snow-total h2').first().text().trim() + '"';
@@ -25,6 +27,7 @@ const parseMtRoseWeather = async ($) => {
   // const snowDepthSummit = $('.snowConditions tbody tr td').slice(3,4).text().trim();
   return {
     ...initialWeather,
+    status: statusOrNull(status),
     temprature: degreeOrNull(temprature),
     newSnow: inchOrNull(newSnow24Hr),
     // snowDepthBase: inchOrNull(snowDepthBase),

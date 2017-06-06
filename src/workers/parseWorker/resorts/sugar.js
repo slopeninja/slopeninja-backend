@@ -3,6 +3,7 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
+  statusOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -17,6 +18,7 @@ const initialWeather = {
 };
 
 const parseSugar = async ($) => {
+  const status = $('#container_312_outer .h3').first().text().trim();
   const temprature = $('#container_314_outer .conditions_col .table_text_01.c4').first().text().trim();
   //24 Hours
   const newSnow24Hr = $('#container_313_outer .conditions_col .table_text_01.c4').slice(3,4).text().trim();
@@ -27,6 +29,7 @@ const parseSugar = async ($) => {
 
   return {
     ...initialWeather,
+    status: statusOrNull(status),
     temprature: degreeOrNull(temprature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),

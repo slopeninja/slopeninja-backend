@@ -7,7 +7,7 @@ test('fetches Diamond data correctly', async () => {
   const resortData = await fetchDiamond(htmlText);
   expect(resortData).toEqual({
     weather: {
-      status: null,
+      status: 'closed',
       weatherIcon: null,
       temprature: 66,
       baseCondition: null,

@@ -5,14 +5,20 @@ import { fetchDiamond } from './resorts/diamond';
 import { fetchHeavenly } from './resorts/heavenly';
 import { fetchKirkwood } from './resorts/kirkwood';
 import { fetchNorthstar } from './resorts/northstar';
+import { fetchHomewood } from './resorts/homewood';
+import { fetchBoreal } from './resorts/boreal';
+import { fetchDonner } from './resorts/donner';
+import { fetchSugar } from './resorts/sugar';
+import { fetchMtRose } from './resorts/mtRose';
 
 
-
-//FIXME: verify if heavenly/kirkwood/northstar BASE DEPTH is summit or bade depth
+//FIXME: verify if heavenly/kirkwood/northstar/boreal 'BASE DEPTH' is summit or base depth
+//currently using summit depth as 'BASE DEPTH'
 
 const resortsConfig = {
   'sierra': {
     weatherUrl: 'https://www.sierraattahoe.com/weather-snow-report/',
+    liftsUrl: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
     fn: fetchSierra,
   },
   'squaw': {
@@ -33,29 +39,29 @@ const resortsConfig = {
   },
   'northstar': {
     weatherUrl: 'http://www.northstarcalifornia.com/the-mountain/snow-weather-report.aspx',
-    fn: fecthNorthstar,
-  }
-  'boreal': {
-    weatherUrl: '',
-    fn: fecthBoreal,
+    fn: fetchNorthstar,
   },
+
   'homewood': {
     weatherUrl: 'http://www.skihomewood.com/mountain/snow-report',
-    fn: fecthHomewood,
+    fn: fetchHomewood,
   },
   'sugar': {
     weatherUrl: 'http://www.sugarbowl.com/conditions',
-    fn: fecthSugar,
+    fn: fetchSugar,
   },
   'donner': {
-    weatherUrl: '',
-    fn: fecthDonner,
-  }
+    weatherUrl: 'https://www.donnerskiranch.com/snow-report/',
+    fn: fetchDonner,
+  },
   'mtRose': {
     weatherUrl: 'http://skirose.com/the-mountain/snow-report/',
-    fn: fecthMtRose,
-  }
-
+    fn: fetchMtRose,
+  },
+  'boreal': {
+    weatherUrl: 'http://api.rideboreal.com/api/v2?location=/&level=0',
+    fn: fetchBoreal,
+  },
 };
 
 const fetchResorts = async () => {
@@ -76,7 +82,6 @@ const fetchResorts = async () => {
   });
 
   const arrayOfResortData = await Promise.all(arrayOfPromises);
-
   return arrayOfResortData;
 }
 

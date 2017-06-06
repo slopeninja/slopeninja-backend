@@ -15,6 +15,10 @@ test('fetches Sierra data correctly', async () => {
       snowDepthBase: 110,
       snowDepthSummit: 211,
     },
+    // lifts: {
+    //   open: 0,
+    //   total: 14,
+    // }
   });
 })
 

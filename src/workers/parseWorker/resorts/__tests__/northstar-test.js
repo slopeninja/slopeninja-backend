@@ -7,7 +7,7 @@ test('fetches Northstar data correctly', async () => {
   const resortData = await fetchNorthstar(htmlText);
   expect(resortData).toEqual({
     weather: {
-      status: null,
+      status: 'closed',
       weatherIcon: null,
       temprature: null,
       baseCondition: null,

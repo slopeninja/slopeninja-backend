@@ -1,8 +1,17 @@
 const DEGREE_SYMBOLS = ['°', 'deg', 'degree', 'degrees'];
 const INCH_SYMBOLS = ['"', '”', 'in', 'inch', 'inches'];
+const RESORT_STATUS = ['open', 'closed']
 
 export const isNumber = (value) => {
   return Number.isInteger(value);
+}
+
+export const parseResortStatus = (string) => {
+  if (!string || typeof string !== 'string') {
+    return null;
+  }
+  const status = RESORT_STATUS.find((status) => string.includes(status));
+  return status;
 }
 
 export const parseDegreeNumber = (value) => {
@@ -37,6 +46,14 @@ export const parseInchNumber = (value) => {
   return Number.parseInt(arr[0])
 }
 
+export const statusOrNull = (string) => {
+  const lowerCaseString = string.toLocaleLowerCase();
+  const status = parseResortStatus(lowerCaseString);
+  if (status) {
+    return status;
+  }
+  return null;
+}
 export const degreeOrNull = (value) => {
   const degreeNumber = parseDegreeNumber(value);
   if(!Number.isNaN(degreeNumber)) {

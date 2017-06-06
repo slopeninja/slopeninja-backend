@@ -7,7 +7,7 @@ test('fetches MtRose data correctly', async () => {
   const resortData = await fetchMtRose(htmlText);
   expect(resortData).toEqual({
     weather: {
-      status: null,
+      status: 'closed',
       weatherIcon: null,
       temprature: 53,
       baseCondition: null,

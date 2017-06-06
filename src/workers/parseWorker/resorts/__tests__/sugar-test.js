@@ -7,7 +7,7 @@ test('fetches Sugar data correctly', async () => {
   const resortData = await fetchSugar(htmlText);
   expect(resortData).toEqual({
     weather: {
-      status: null,
+      status: 'closed',
       weatherIcon: null,
       temprature: 32,
       baseCondition: null,
