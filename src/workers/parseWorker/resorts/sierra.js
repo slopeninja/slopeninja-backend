@@ -14,16 +14,18 @@ const initialWeather = {
   snowDepthBase: null,
   snowDepthSummit: null,
 };
-// const initialLifts = {
-//   total: null,
-//   open: null,
-// };
+
+const initialLifts = {
+  total: null,
+  open: null,
+};
+
 // const initialTrails = {
 //   total: null,
 //   open: null,
 // };
 
-const parseSierraWeather = async ($) => {
+export const parseSierraWeather = async ($) => {
   const temprature = $('.weather-block .value').first().text().trim();
   //24 Hours
   const newSnow24Hr = $('.weather-block.weather-block-special .value').first().text().trim();
@@ -38,25 +40,13 @@ const parseSierraWeather = async ($) => {
     snowDepthSummit: inchOrNull(snowDepthSummit),
   };
 }
-// const parseSierraLifts = async ($) => {
-//   const openLifts = $('.lift-trail-stats .lift-trail-stat .value1').first().text();
-//   console.warn(openLifts)
-//   const totalLifts = $('.lift-trail-stats .lift-trail-stat .value2').first().text().trim();
-//   return {
-//     ...initialLifts,
-//     total: Number.parseInt(openLifts),
-//     open: Number.parseInt(totalLifts),
-//   }
-// }
 
-export const fetchSierra = async (html) => {
-  const $ = cheerio.load(html)
-
-  const weather = await parseSierraWeather($);
-  // const lifts = await parseSierraLifts($);
-
+export const parseSierraLifts = async ($) => {
+  const openLifts = $('.lift-trail-stats .lift-trail-stat .value1').first().text();
+  const totalLifts = $('.lift-trail-stats .lift-trail-stat .value2').first().text().trim();
   return {
-    weather,
-    // lifts
-  };
+    ...initialLifts,
+    total: Number.parseInt(openLifts),
+    open: Number.parseInt(totalLifts),
+  }
 }

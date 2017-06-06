@@ -39,18 +39,3 @@ const parseBoreal = async (data) => {
     snowDepthSummit: Number.parseInt(snowDepthSummit),
   };
 }
-
-export const fetchBoreal = async (data = "{}") => {
-  let json = JSON.parse(data);
-
-  let weatherData;
-  if (json) {
-    weatherData = json.default_data;
-  }
-
-  const weather = await parseBoreal(weatherData);
-
-  return {
-    weather,
-  };
-}

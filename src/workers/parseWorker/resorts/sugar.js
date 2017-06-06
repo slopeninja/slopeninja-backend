@@ -1,4 +1,3 @@
-import cheerio from 'cheerio';
 
 import {
   degreeOrNull,
@@ -14,10 +13,14 @@ const initialWeather = {
   newSnow: null,
   snowDepthBase: null,
   snowDepthSummit: null,
-
 };
 
-const parseSugar = async ($) => {
+const initialLifts = {
+  total: null,
+  open: null,
+};
+
+export const parseSugarWeather = async ($) => {
   const status = $('#container_312_outer .h3').first().text().trim();
   const temprature = $('#container_314_outer .conditions_col .table_text_01.c4').first().text().trim();
   //24 Hours
@@ -37,12 +40,8 @@ const parseSugar = async ($) => {
   };
 }
 
-export const fetchSugar = async (html) => {
-  const $ = cheerio.load(html)
-
-  const weather = await parseSugar($);
-
+export const parseSugarLifts = async ($) => {
   return {
-    weather,
+    ...initialLifts,
   };
 }
