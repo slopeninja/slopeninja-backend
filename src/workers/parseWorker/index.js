@@ -1,17 +1,17 @@
 import fetch from 'isomorphic-fetch';
 import performanceNow from 'performance-now';
 
-import { parseSierraWeather, parseSierraLifts, parseSierraTrails } from './resorts/sierra';
-import { parseSquawWeather, parseSquawLifts, parseSquawTrails } from './resorts/squaw';
-import { parseDiamondWeather, parseDiamondLifts, parseDiamondTrails } from './resorts/diamond';
-import { parseHeavenlyWeather, parseHeavenlyLifts, parseHeavenlyTrails } from './resorts/heavenly';
-import { parseKirkwoodWeather, parseKirkwoodLifts, parseKirkwoodTrails } from './resorts/kirkwood';
-import { parseNorthstarWeather, parseNorthstarLifts, parseNorthstarTrails } from './resorts/northstar';
-import { parseHomewoodWeather, parseHomewoodLifts, parseHomewoodTrails } from './resorts/homewood';
-import { parseDonnerWeather, parseDonnerLifts, parseDonnerTrails } from './resorts/donner';
-import { parseSugarWeather, parseSugarLifts, parseSugarTrails } from './resorts/sugar';
-import { parseMtRoseWeather, parseMtRoseLifts, parseMtRoseTrails } from './resorts/mtRose';
-import { parseBorealWeather, parseBorealLifts, parseBorealTrails } from './resorts/boreal';
+import { parseSierraSnow, parseSierraLifts, parseSierraTrails } from './resorts/sierra';
+import { parseSquawSnow, parseSquawLifts, parseSquawTrails } from './resorts/squaw';
+import { parseDiamondSnow, parseDiamondLifts, parseDiamondTrails } from './resorts/diamond';
+import { parseHeavenlySnow, parseHeavenlyLifts, parseHeavenlyTrails } from './resorts/heavenly';
+import { parseKirkwoodSnow, parseKirkwoodLifts, parseKirkwoodTrails } from './resorts/kirkwood';
+import { parseNorthstarSnow, parseNorthstarLifts, parseNorthstarTrails } from './resorts/northstar';
+import { parseHomewoodSnow, parseHomewoodLifts, parseHomewoodTrails } from './resorts/homewood';
+import { parseDonnerSnow, parseDonnerLifts, parseDonnerTrails } from './resorts/donner';
+import { parseSugarSnow, parseSugarLifts, parseSugarTrails } from './resorts/sugar';
+import { parseMtRoseSnow, parseMtRoseLifts, parseMtRoseTrails } from './resorts/mtRose';
+import { parseBorealSnow, parseBorealLifts, parseBorealTrails } from './resorts/boreal';
 
 import { createHtmlParser, createJSONParser } from './parserFactory';
 
@@ -22,7 +22,7 @@ const resortsConfig = {
   'sierra': [ // fnConfigs
     { // fnConfig
       url: 'https://www.sierraattahoe.com/weather-snow-report/',
-      fn: createHtmlParser('weather', parseSierraWeather),
+      fn: createHtmlParser('snow', parseSierraSnow),
     },
     { // fnConfig
       url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
@@ -36,7 +36,7 @@ const resortsConfig = {
   'squaw': [
     {
       url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
-      fn: createHtmlParser('weather', parseSquawWeather),
+      fn: createHtmlParser('snow', parseSquawSnow),
     },
     { // fnConfig
       url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
@@ -50,7 +50,7 @@ const resortsConfig = {
   'diamond': [
     {
       url: 'http://www.diamondpeak.com/mountain/conditions',
-      fn: createHtmlParser('weather', parseDiamondWeather),
+      fn: createHtmlParser('snow', parseDiamondSnow),
     },
     { // fnConfig
       url: 'http://www.diamondpeak.com/mountain/conditions',
@@ -64,7 +64,7 @@ const resortsConfig = {
   'heavenly': [
     {
       url: 'http://www.skiheavenly.com/the-mountain/snow-report/snow-report.aspx',
-      fn: createHtmlParser('weather', parseHeavenlyWeather),
+      fn: createHtmlParser('snow', parseHeavenlySnow),
     },
     { // fnConfig
       url: 'http://www.skiheavenly.com/the-mountain/terrain-and-lift-status.aspx',
@@ -78,7 +78,7 @@ const resortsConfig = {
   'kirkwood': [
     {
       url: 'http://www.kirkwood.com/mountain/snow-and-weather-report.aspx',
-      fn: createHtmlParser('weather', parseKirkwoodWeather),
+      fn: createHtmlParser('snow', parseKirkwoodSnow),
     },
     { // fnConfig
       url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
@@ -92,7 +92,7 @@ const resortsConfig = {
   'northstar': [
     {
       url: 'http://www.northstarcalifornia.com/the-mountain/snow-weather-report.aspx',
-      fn: createHtmlParser('weather', parseNorthstarWeather),
+      fn: createHtmlParser('snow', parseNorthstarSnow),
     },
     { // fnConfig
       url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
@@ -106,7 +106,7 @@ const resortsConfig = {
   'homewood': [
     {
       url: 'http://www.skihomewood.com/mountain/snow-report',
-      fn: createHtmlParser('weather', parseHomewoodWeather),
+      fn: createHtmlParser('snow', parseHomewoodSnow),
     },
     { // fnConfig
       url: 'http://www.skihomewood.com/mountain/snow-report',
@@ -120,7 +120,7 @@ const resortsConfig = {
   'sugar': [ // fnConfigs
     { // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
-      fn: createHtmlParser('weather', parseSugarWeather),
+      fn: createHtmlParser('snow', parseSugarSnow),
     },
     { // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
@@ -134,7 +134,7 @@ const resortsConfig = {
   'donner': [ // fnConfigs
     { // fnConfig
       url: 'https://www.donnerskiranch.com/snow-report/',
-      fn: createHtmlParser('weather', parseDonnerWeather),
+      fn: createHtmlParser('snow', parseDonnerSnow),
     },
     { // fnConfig
       url: 'https://www.donnerskiranch.com/snow-report/',
@@ -148,7 +148,7 @@ const resortsConfig = {
   'mtRose': [ // fnConfigs
     { // fnConfig
       url: 'http://skirose.com/the-mountain/snow-report/',
-      fn: createHtmlParser('weather', parseMtRoseWeather),
+      fn: createHtmlParser('snow', parseMtRoseSnow),
     },
     { // fnConfig
       url: 'http://skirose.com/the-mountain/snow-report/',
@@ -162,7 +162,7 @@ const resortsConfig = {
   'boreal': [ // fnConfigs
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
-      fn: createJSONParser('weather', parseBorealWeather),
+      fn: createJSONParser('snow', parseBorealSnow),
     },
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/&level=0',

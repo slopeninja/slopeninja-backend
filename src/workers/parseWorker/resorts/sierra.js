@@ -32,7 +32,7 @@ const initialTrails = {
 //   open: null,
 // };
 
-export const parseSierraWeather = async ($) => {
+export const parseSierraSnow = async ($) => {
   const weatherIcon = $('.weather-stat-wrapper .weather-stat p').first().text().trim();
   const temprature = $('.weather-block .value').first().text().trim();
   //24 Hours

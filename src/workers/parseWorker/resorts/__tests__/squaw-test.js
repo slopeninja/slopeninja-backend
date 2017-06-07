@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseSquawWeather, parseSquawLifts, parseSquawTrails } from '../squaw';
+import { parseSquawSnow, parseSquawLifts, parseSquawTrails } from '../squaw';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Squaw weather data correctly', async () => {
+test('fetches Squaw snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/squaw-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseSquawWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseSquawSnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: 'sunny',
       temprature: 52,
@@ -19,10 +19,10 @@ test('fetches Squaw weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseSquawWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseSquawSnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

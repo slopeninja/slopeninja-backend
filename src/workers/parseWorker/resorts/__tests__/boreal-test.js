@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseBorealWeather, parseBorealLifts, parseBorealTrails } from '../boreal';
+import { parseBorealSnow, parseBorealLifts, parseBorealTrails } from '../boreal';
 import { createJSONParser } from '../../parserFactory';
 
-test('fetches Boreal weather data correctly', async () => {
+test('fetches Boreal snow data correctly', async () => {
   const jsonText = fs.readFileSync(`${__dirname}/fixtures/boreal-weather.json`);
 
-  const resortData = await createJSONParser('weather', parseBorealWeather)(jsonText);
+  const resortData = await createJSONParser('snow', parseBorealSnow)(jsonText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: 'closed',
       weatherIcon: 'cloudy',
       temprature: 70,
@@ -20,9 +20,9 @@ test('fetches Boreal weather data correctly', async () => {
 })
 
 test('fetches all null for nonexisting values', async () => {
-  const resortData = await createJSONParser('weather', parseBorealWeather)("{}");
+  const resortData = await createJSONParser('snow', parseBorealSnow)("{}");
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,
@@ -35,9 +35,9 @@ test('fetches all null for nonexisting values', async () => {
 });
 
 test('fetches all null for no data', async () => {
-  const resortData = await createJSONParser('weather', parseBorealWeather)();
+  const resortData = await createJSONParser('snow', parseBorealSnow)();
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

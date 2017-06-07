@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseMtRoseWeather, parseMtRoseLifts, parseMtRoseTrails } from '../mtRose';
+import { parseMtRoseSnow, parseMtRoseLifts, parseMtRoseTrails } from '../mtRose';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches MtRose weather data correctly', async () => {
+test('fetches MtRose snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseMtRoseWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseMtRoseSnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: 'closed',
       weatherIcon: 'sunny',
       temprature: 53,
@@ -19,10 +19,10 @@ test('fetches MtRose weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseMtRoseWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseMtRoseSnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

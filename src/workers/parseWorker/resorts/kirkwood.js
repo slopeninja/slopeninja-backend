@@ -27,7 +27,7 @@ const initialTrails = {
   open: null,
 };
 
-export const parseKirkwoodWeather = async ($) => {
+export const parseKirkwoodSnow = async ($) => {
   const status = $('.snowConditions tr td').first().text().trim();
   // const temprature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
   //24 Hours

@@ -28,7 +28,7 @@ const initialTrails = {
   open: null,
 };
 
-export const parseMtRoseWeather = async ($) => {
+export const parseMtRoseSnow = async ($) => {
   const weatherIcon = $('.sr-current-cond .sr-cc-wrapper .sr-text').first().text().trim();
   const status = $('.sr-mountain-notes.sr-row .sr-text p').first().text().trim();
   const temprature = $('.sr-current-cond.sr-row.row .col-sm-6 .sr-cc-wrapper.row .sr-temp h1').text().trim();

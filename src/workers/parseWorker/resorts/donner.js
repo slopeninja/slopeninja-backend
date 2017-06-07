@@ -25,7 +25,7 @@ const initialTrails = {
   open: null,
 };
 
-export const parseDonnerWeather = async ($) => {
+export const parseDonnerSnow = async ($) => {
   // const temprature =
   //24 Hours
   // const newSnow24Hr =

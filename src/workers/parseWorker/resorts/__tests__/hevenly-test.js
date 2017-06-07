@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseHeavenlyWeather, parseHeavenlyLifts, parseHeavenlyTrails } from '../heavenly';
+import { parseHeavenlySnow, parseHeavenlyLifts, parseHeavenlyTrails } from '../heavenly';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Heavenly weather data correctly', async () => {
+test('fetches Heavenly snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseHeavenlyWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseHeavenlySnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: 'closed',
       weatherIcon: null,
       temprature: null,
@@ -19,10 +19,10 @@ test('fetches Heavenly weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseHeavenlyWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseHeavenlySnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

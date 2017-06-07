@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseSugarWeather, parseSugarLifts, parseSugarTrails } from '../sugar';
+import { parseSugarSnow, parseSugarLifts, parseSugarTrails } from '../sugar';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Sugar weather data correctly', async () => {
+test('fetches Sugar snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/sugar-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseSugarWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseSugarSnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: 'closed',
       weatherIcon: 'snow',
       temprature: 32,
@@ -19,10 +19,10 @@ test('fetches Sugar weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseSugarWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseSugarSnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

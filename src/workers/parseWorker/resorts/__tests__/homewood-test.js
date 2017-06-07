@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseHomewoodWeather, parseHomewoodLifts, parseHomewoodTrails} from '../homewood';
+import { parseHomewoodSnow, parseHomewoodLifts, parseHomewoodTrails} from '../homewood';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Homewood weather data correctly', async () => {
+test('fetches Homewood snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseHomewoodWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseHomewoodSnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: 72,
@@ -19,10 +19,10 @@ test('fetches Homewood weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseHomewoodWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseHomewoodSnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

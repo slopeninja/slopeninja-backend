@@ -1,0 +1,94 @@
+
+{
+  "response": {
+  "version":"0.1",
+  "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+  "features": {
+  "conditions": 1
+  }
+	}
+  ,	"current_observation": {
+		"image": {
+		"url":"http://icons.wxug.com/graphics/wu2/logo_130x80.png",
+		"title":"Weather Underground",
+		"link":"http://www.wunderground.com"
+		},
+		"display_location": {
+		"full":"Twin Bridges, CA",
+		"city":"Twin Bridges",
+		"state":"CA",
+		"state_name":"California",
+		"country":"US",
+		"country_iso3166":"US",
+		"zip":"95735",
+		"magic":"1",
+		"wmo":"99999",
+		"latitude":"38.81000137",
+		"longitude":"-120.12000275",
+		"elevation":"1888.2"
+		},
+		"observation_location": {
+		"full":"Strawberry Tract North, Twin Bridges, California",
+		"city":"Strawberry Tract North, Twin Bridges",
+		"state":"California",
+		"country":"US",
+		"country_iso3166":"US",
+		"latitude":"38.807537",
+		"longitude":"-120.138351",
+		"elevation":"6027 ft"
+		},
+		"estimated": {
+		},
+		"station_id":"KCATWINB4",
+		"observation_time":"Last Updated on June 7, 1:40 PM PDT",
+		"observation_time_rfc822":"Wed, 07 Jun 2017 13:40:59 -0700",
+		"observation_epoch":"1496868059",
+		"local_time_rfc822":"Wed, 07 Jun 2017 13:41:13 -0700",
+		"local_epoch":"1496868073",
+		"local_tz_short":"PDT",
+		"local_tz_long":"America/Los_Angeles",
+		"local_tz_offset":"-0700",
+		"weather":"Clear",
+		"temperature_string":"72.0 F (22.2 C)",
+		"temp_f":72.0,
+		"temp_c":22.2,
+		"relative_humidity":"21%",
+		"wind_string":"Calm",
+		"wind_dir":"East",
+		"wind_degrees":82,
+		"wind_mph":0.0,
+		"wind_gust_mph":0,
+		"wind_kph":0,
+		"wind_gust_kph":0,
+		"pressure_mb":"1014",
+		"pressure_in":"29.94",
+		"pressure_trend":"+",
+		"dewpoint_string":"30 F (-1 C)",
+		"dewpoint_f":30,
+		"dewpoint_c":-1,
+		"heat_index_string":"NA",
+		"heat_index_f":"NA",
+		"heat_index_c":"NA",
+		"windchill_string":"NA",
+		"windchill_f":"NA",
+		"windchill_c":"NA",
+		"feelslike_string":"72.0 F (22.2 C)",
+		"feelslike_f":"72.0",
+		"feelslike_c":"22.2",
+		"visibility_mi":"10.0",
+		"visibility_km":"16.1",
+		"solarradiation":"78",
+		"UV":"1.0","precip_1hr_string":"0.00 in ( 0 mm)",
+		"precip_1hr_in":"0.00",
+		"precip_1hr_metric":" 0",
+		"precip_today_string":"0.00 in (0 mm)",
+		"precip_today_in":"0.00",
+		"precip_today_metric":"0",
+		"icon":"clear",
+		"icon_url":"http://icons.wxug.com/i/c/k/clear.gif",
+		"forecast_url":"http://www.wunderground.com/US/CA/Twin_Bridges.html",
+		"history_url":"http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=KCATWINB4",
+		"ob_url":"http://www.wunderground.com/cgi-bin/findweather/getForecast?query=38.807537,-120.138351",
+		"nowcast":""
+	}
+}

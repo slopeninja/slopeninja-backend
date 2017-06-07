@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseDiamondWeather, parseDiamondLifts, parseDiamondTrails } from '../diamond';
+import { parseDiamondSnow, parseDiamondLifts, parseDiamondTrails } from '../diamond';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Diamond weather data correctly', async () => {
+test('fetches Diamond snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/diamond-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseDiamondWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseDiamondSnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: 'closed',
       weatherIcon: 'clear',
       temprature: 66,
@@ -19,10 +19,10 @@ test('fetches Diamond weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseDiamondWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseDiamondSnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

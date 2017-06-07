@@ -25,7 +25,7 @@ const initialTrails = {
   open: null,
 };
 
-export const parseHomewoodWeather = async ($) => {
+export const parseHomewoodSnow = async ($) => {
   const temprature = $('#current_temp_hi').text().trim();
   //24 Hours
   const newSnow24Hr = $('#current_snow_conditions table tr td').slice(4,5).text().trim();

@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseKirkwoodWeather, parseKirkwoodLifts, parseKirkwoodTrails } from '../kirkwood';
+import { parseKirkwoodSnow, parseKirkwoodLifts, parseKirkwoodTrails } from '../kirkwood';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Kirkwood weather data correctly', async () => {
+test('fetches Kirkwood snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseKirkwoodWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseKirkwoodSnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: 'closed',
       weatherIcon: null,
       temprature: null,
@@ -19,10 +19,10 @@ test('fetches Kirkwood weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseKirkwoodWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseKirkwoodSnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

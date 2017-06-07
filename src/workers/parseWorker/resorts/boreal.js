@@ -29,7 +29,7 @@ const initialTrails = {
 };
 
 
-export const parseBorealWeather = async (data) => {
+export const parseBorealSnow = async (data) => {
   if (!data) {
     return {
       ...initialWeather,

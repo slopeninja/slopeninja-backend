@@ -26,7 +26,7 @@ const initialTrails = {
   open: null,
 };
 
-export const parseSquawWeather = async ($) => {
+export const parseSquawSnow = async ($) => {
   const weatherIcon = $('#squaw-elevation-0 .row.current .cellwrapper .cell h6').first().text().trim();
   const temprature = $('#squaw-elevation-0 .row.current .cellwrapper .cell .value').first().text().trim();
   //24

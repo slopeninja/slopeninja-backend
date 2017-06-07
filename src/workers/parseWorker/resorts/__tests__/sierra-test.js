@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseSierraWeather, parseSierraLifts, parseSierraTrails} from '../sierra';
+import { parseSierraSnow, parseSierraLifts, parseSierraTrails} from '../sierra';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Sierra weather data correctly', async () => {
+test('fetches Sierra snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseSierraWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseSierraSnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: 'sunny',
       temprature: 43,
@@ -19,10 +19,10 @@ test('fetches Sierra weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseSierraWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseSierraSnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

@@ -27,7 +27,7 @@ const initialTrails = {
   open: null,
 };
 
-export const parseDiamondWeather = async ($) => {
+export const parseDiamondSnow = async ($) => {
   const status = $('.surface-conditions p').first().text().trim();
   const weatherIcon = $('.weather-condition .weather-condition-wrapper .weather-forecast').first().text().trim();
   const temprature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();

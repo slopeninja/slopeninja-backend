@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseDonnerWeather, parseDonnerLifts, parseDonnerTrails } from '../donner';
+import { parseDonnerSnow, parseDonnerLifts, parseDonnerTrails } from '../donner';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Donner weather data correctly', async () => {
+test('fetches Donner snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/donner-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseDonnerWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseDonnerSnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,
@@ -19,10 +19,10 @@ test('fetches Donner weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseDonnerWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseDonnerSnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

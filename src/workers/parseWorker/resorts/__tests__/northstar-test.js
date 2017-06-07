@@ -1,13 +1,13 @@
 import fs from 'fs';
-import { parseNorthstarWeather, parseNorthstarLifts, parseNorthstarTrails } from '../northstar';
+import { parseNorthstarSnow, parseNorthstarLifts, parseNorthstarTrails } from '../northstar';
 import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Northstar weather data correctly', async () => {
+test('fetches Northstar snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-weather.html`);
 
-  const resortData = await createHtmlParser('weather', parseNorthstarWeather)(htmlText);
+  const resortData = await createHtmlParser('snow', parseNorthstarSnow)(htmlText);
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: 'closed',
       weatherIcon: null,
       temprature: null,
@@ -19,10 +19,10 @@ test('fetches Northstar weather data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting weather values', async () => {
-  const resortData = await createHtmlParser('weather', parseNorthstarWeather)('<html></html>');
+test('fetches all null for nonexisting snow values', async () => {
+  const resortData = await createHtmlParser('snow', parseNorthstarSnow)('<html></html>');
   expect(resortData).toEqual({
-    weather: {
+    snow: {
       status: null,
       weatherIcon: null,
       temprature: null,

@@ -27,7 +27,7 @@ const initialTrails = {
   open: null,
 };
 
-export const parseSugarWeather = async ($) => {
+export const parseSugarSnow = async ($) => {
   const weatherIcon = $('#conditions_status_col_left #conditions_status_col_left_weather .label_small').first().text().trim();
   const status = $('#container_312_outer .h3').first().text().trim();
   const temprature = $('#container_314_outer .conditions_col .table_text_01.c4').first().text().trim();
