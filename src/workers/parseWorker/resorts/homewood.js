@@ -13,10 +13,19 @@ const initialWeather = {
   newSnow: null,
   snowDepthBase: null,
   snowDepthSummit: null,
-
 };
 
-const parseHomewood = async ($) => {
+const initialLifts = {
+  total: null,
+  open: null,
+};
+
+const initialTrails = {
+  total: null,
+  open: null,
+};
+
+export const parseHomewoodWeather = async ($) => {
   const temprature = $('#current_temp_hi').text().trim();
   //24 Hours
   const newSnow24Hr = $('#current_snow_conditions table tr td').slice(4,5).text().trim();
@@ -33,12 +42,14 @@ const parseHomewood = async ($) => {
   };
 }
 
-export const fetchHomewood = async (html) => {
-  const $ = cheerio.load(html)
-
-  const weather = await parseHomewood($);
-
+export const parseHomewoodLifts = async ($) => {
   return {
-    weather,
+    ...initialLifts,
+  };
+}
+
+export const parseHomewoodTrails = async ($) => {
+  return {
+    ...initialTrails,
   };
 }

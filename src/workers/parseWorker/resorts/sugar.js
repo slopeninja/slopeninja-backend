@@ -3,6 +3,7 @@ import {
   degreeOrNull,
   inchOrNull,
   statusOrNull,
+  numberOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -16,6 +17,11 @@ const initialWeather = {
 };
 
 const initialLifts = {
+  total: null,
+  open: null,
+};
+
+const initialTrails = {
   total: null,
   open: null,
 };
@@ -41,7 +47,15 @@ export const parseSugarWeather = async ($) => {
 }
 
 export const parseSugarLifts = async ($) => {
+  const open = numberOrNull(Number.parseInt($('.c1 #conditions_status_col_left_openlifts .h3').text().trim()));
   return {
     ...initialLifts,
+    open,
+  };
+}
+
+export const parseSugarTrails = async ($) => {
+  return {
+    ...initialTrails,
   };
 }

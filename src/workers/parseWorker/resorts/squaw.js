@@ -2,6 +2,7 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
+  numberOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -12,10 +13,19 @@ const initialWeather = {
   newSnow: null,
   snowDepthBase: null,
   snowDepthSummit: null,
-
 };
 
-const parseSquawWeather = async ($) => {
+const initialLifts = {
+  total: null,
+  open: null,
+};
+
+const initialTrails = {
+  total: null,
+  open: null,
+};
+
+export const parseSquawWeather = async ($) => {
 
   const temprature = $('#squaw-elevation-0 .row.current .cellwrapper .cell .value').first().text().trim();
   //24
@@ -34,12 +44,18 @@ const parseSquawWeather = async ($) => {
   };
 }
 
-export const fetchSquaw = async (html) => {
-  const $ = cheerio.load(html)
-
-  const weather = await parseSquawWeather($);
-
+export const parseSquawLifts = async ($) => {
+  const open = numberOrNull(Number.parseInt($('#squaw-report .global-stats .cell.open-lifts .value').text().trim()));
   return {
-    weather,
+    ...initialLifts,
+    open: numberOrNull(open),
+  };
+}
+
+export const parseSquawTrails = async ($) => {
+  const open = numberOrNull(Number.parseInt($('#squaw-report .global-stats .cell.open-trails .value').text().trim()));
+  return {
+    ...initialTrails,
+    open: numberOrNull(open),
   };
 }

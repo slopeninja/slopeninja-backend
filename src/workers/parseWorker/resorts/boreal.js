@@ -4,6 +4,7 @@ import {
   degreeOrNull,
   inchOrNull,
   statusOrNull,
+  numberOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -16,7 +17,18 @@ const initialWeather = {
   snowDepthSummit: null,
 };
 
-const parseBoreal = async (data) => {
+const initialLifts = {
+  total: null,
+  open: null,
+};
+
+const initialTrails = {
+  total: null,
+  open: null,
+};
+
+
+export const parseBorealWeather = async (data) => {
   if (!data) {
     return {
       ...initialWeather,
@@ -38,4 +50,34 @@ const parseBoreal = async (data) => {
     // snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: Number.parseInt(snowDepthSummit),
   };
+}
+
+export const parseBorealLifts = async (data) => {
+  if (!data) {
+    return {
+      ...initialLifts,
+    };
+  }
+  const openLifts = data[3].trail_open_report.lifts.open;
+  const totalLifts = data[3].trail_open_report.lifts.total;
+  return {
+    ...initialLifts,
+    total: numberOrNull(totalLifts),
+    open: numberOrNull(openLifts),
+  }
+}
+
+export const parseBorealTrails = async (data) => {
+  if (!data) {
+    return {
+      ...initialTrails,
+    };
+  }
+  const openTrails = data[3].trail_open_report.trails.open;
+  const totalTrails = data[3].trail_open_report.trails.total;
+  return {
+    ...initialTrails,
+    total: numberOrNull(totalTrails),
+    open: numberOrNull(openTrails),
+  }
 }

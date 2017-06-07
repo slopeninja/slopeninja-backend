@@ -4,6 +4,7 @@ import {
   degreeOrNull,
   inchOrNull,
   statusOrNull,
+  numberOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -14,14 +15,23 @@ const initialWeather = {
   newSnow: null,
   snowDepthBase: null,
   snowDepthSummit: null,
-
 };
 
-const parseMtRoseWeather = async ($) => {
+const initialLifts = {
+  total: null,
+  open: null,
+};
+
+const initialTrails = {
+  total: null,
+  open: null,
+};
+
+export const parseMtRoseWeather = async ($) => {
   const status = $('.sr-mountain-notes.sr-row .sr-text p').first().text().trim();
   const temprature = $('.sr-current-cond.sr-row.row .col-sm-6 .sr-cc-wrapper.row .sr-temp h1').text().trim();
   //24 Hours
-  const newSnow24Hr = $('.sr-snow-totals.sr-row.row .sr-snow-total h2').first().text().trim() + '"';
+  const newSnow24Hr = $('.sr-snow-totals.sr-row.row .sr-snow-total h2').first().text().trim();
   //Base
   // const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1,2).text().trim();
   // const snowDepthSummit = $('.snowConditions tbody tr td').slice(3,4).text().trim();
@@ -29,18 +39,20 @@ const parseMtRoseWeather = async ($) => {
     ...initialWeather,
     status: statusOrNull(status),
     temprature: degreeOrNull(temprature),
-    newSnow: inchOrNull(newSnow24Hr),
+    newSnow: numberOrNull(Number.parseInt(newSnow24Hr)),
     // snowDepthBase: inchOrNull(snowDepthBase),
     // snowDepthSummit: inchOrNull(snowDepthSummit),
   };
 }
 
-export const fetchMtRose = async (html) => {
-  const $ = cheerio.load(html)
-
-  const weather = await parseMtRoseWeather($);
-
+export const parseMtRoseLifts = async ($) => {
   return {
-    weather,
+    ...initialLifts,
+  };
+}
+
+export const parseMtRoseTrails = async ($) => {
+  return {
+    ...initialTrails,
   };
 }

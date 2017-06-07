@@ -3,6 +3,7 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
+  numberOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -16,6 +17,11 @@ const initialWeather = {
 };
 
 const initialLifts = {
+  total: null,
+  open: null,
+};
+
+const initialTrails = {
   total: null,
   open: null,
 };
@@ -42,11 +48,21 @@ export const parseSierraWeather = async ($) => {
 }
 
 export const parseSierraLifts = async ($) => {
-  const openLifts = $('.lift-trail-stats .lift-trail-stat .value1').first().text();
-  const totalLifts = $('.lift-trail-stats .lift-trail-stat .value2').first().text().trim();
+  const openLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').first().text());
+  const totalLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').first().text().replace('/', ''));
   return {
     ...initialLifts,
-    total: Number.parseInt(openLifts),
-    open: Number.parseInt(totalLifts),
+    total: numberOrNull(totalLifts),
+    open: numberOrNull(openLifts),
+  }
+}
+
+export const parseSierraTrails = async ($) => {
+  const openLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').slice(1,2).text());
+  const totalLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').slice(1,2).text().replace('/', ''));
+  return {
+    ...initialLifts,
+    total: numberOrNull(totalLifts),
+    open: numberOrNull(openLifts),
   }
 }

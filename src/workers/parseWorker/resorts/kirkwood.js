@@ -4,6 +4,7 @@ import {
   degreeOrNull,
   inchOrNull,
   statusOrNull,
+  numberOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -14,19 +15,26 @@ const initialWeather = {
   newSnow: null,
   snowDepthBase: null,
   snowDepthSummit: null,
-
 };
 
-const parseKirkwoodWeather = async ($) => {
-  const status = $('.snowConditions tr td').first().text().trim();
+const initialLifts = {
+  total: null,
+  open: null,
+};
 
+const initialTrails = {
+  total: null,
+  open: null,
+};
+
+export const parseKirkwoodWeather = async ($) => {
+  const status = $('.snowConditions tr td').first().text().trim();
   // const temprature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
   //24 Hours
   const newSnow24Hr = $('.snowReportDataColumn2 .newSnow tbody td').slice(1,2).text().trim();
   //Base
   // const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1,2).text().trim();
 
-  //FIXME: verify if heavenly BASE DEPTH is summit or bade depth
   const snowDepthSummit = $('.snowConditions tbody tr td').slice(3,4).text().trim();
   return {
     ...initialWeather,
@@ -38,12 +46,23 @@ const parseKirkwoodWeather = async ($) => {
   };
 }
 
-export const fetchKirkwood = async (html) => {
-  const $ = cheerio.load(html)
-
-  const weather = await parseKirkwoodWeather($);
+export const parseKirkwoodLifts = async ($) => {
+  const openLifts = Number.parseInt($('.gradBorderModule .terrainConditions .firstItem span').first().text());
+  const totalLifts = Number.parseInt($('.gradBorderModule .terrainConditions .firstItem span').slice(1,2).text());
 
   return {
-    weather,
+    ...initialLifts,
+    total: numberOrNull(totalLifts),
+    open: numberOrNull(openLifts),
+  };
+}
+
+export const parseKirkwoodTrails = async ($) => {
+  const openTrails = Number.parseInt($('.gradBorderModule .terrainConditions li span').slice(2,3).text());
+  const totalTrails = Number.parseInt($('.gradBorderModule .terrainConditions li span').slice(3,4).text());
+  return {
+    ...initialTrails,
+    total: numberOrNull(totalTrails),
+    open: numberOrNull(openTrails),
   };
 }

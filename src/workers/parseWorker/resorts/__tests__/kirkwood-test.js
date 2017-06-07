@@ -1,10 +1,11 @@
 import fs from 'fs';
-import { fetchKirkwood } from '../kirkwood';
+import { parseKirkwoodWeather, parseKirkwoodLifts, parseKirkwoodTrails } from '../kirkwood';
+import { createHtmlParser } from '../../parserFactory';
 
-test('fetches Kirkwood data correctly', async () => {
+test('fetches Kirkwood weather data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-weather.html`);
 
-  const resortData = await fetchKirkwood(htmlText);
+  const resortData = await createHtmlParser('weather', parseKirkwoodWeather)(htmlText);
   expect(resortData).toEqual({
     weather: {
       status: 'closed',
@@ -18,8 +19,8 @@ test('fetches Kirkwood data correctly', async () => {
   });
 })
 
-test('fetches all null for nonexisting values', async () => {
-  const resortData = await fetchKirkwood('<html></html>');
+test('fetches all null for nonexisting weather values', async () => {
+  const resortData = await createHtmlParser('weather', parseKirkwoodWeather)('<html></html>');
   expect(resortData).toEqual({
     weather: {
       status: null,
@@ -29,6 +30,48 @@ test('fetches all null for nonexisting values', async () => {
       newSnow: null,
       snowDepthBase: null,
       snowDepthSummit: null,
+    }
+  });
+});
+
+test('fetches Kirkwood lifts data correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html`);
+  const resortData = await createHtmlParser('lifts', parseKirkwoodLifts)(htmlText);
+  expect(resortData).toEqual({
+    lifts: {
+      total: 15,
+      open: 0,
+    }
+  });
+});
+
+test('fetches all null for nonexisting lift values', async () => {
+  const resortData = await createHtmlParser('lifts', parseKirkwoodLifts)('<html></html>');
+  expect(resortData).toEqual({
+    lifts: {
+      total: null,
+      open: null,
+    }
+  });
+});
+
+test('fetches Kirkwood trails data correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html`);
+  const resortData = await createHtmlParser('trails', parseKirkwoodTrails)(htmlText);
+  expect(resortData).toEqual({
+    trails: {
+      total: 86,
+      open: 0,
+    }
+  });
+});
+
+test('fetches all null for nonexisting trails values', async () => {
+  const resortData = await createHtmlParser('trails', parseKirkwoodTrails)('<html></html>');
+  expect(resortData).toEqual({
+    trails: {
+      total: null,
+      open: null,
     }
   });
 });

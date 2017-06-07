@@ -13,10 +13,19 @@ const initialWeather = {
   newSnow: null,
   snowDepthBase: null,
   snowDepthSummit: null,
-
 };
 
-const parseDonnerWeather = async ($) => {
+const initialLifts = {
+  total: null,
+  open: null,
+};
+
+const initialTrails = {
+  total: null,
+  open: null,
+};
+
+export const parseDonnerWeather = async ($) => {
   // const temprature =
   //24 Hours
   // const newSnow24Hr =
@@ -32,12 +41,14 @@ const parseDonnerWeather = async ($) => {
   };
 }
 
-export const fetchDonner = async (html) => {
-  const $ = cheerio.load(html)
-
-  const weather = await parseDonnerWeather($);
-
+export const parseDonnerLifts = async ($) => {
   return {
-    weather,
+    ...initialLifts,
+  };
+}
+
+export const parseDonnerTrails = async ($) => {
+  return {
+    ...initialTrails,
   };
 }

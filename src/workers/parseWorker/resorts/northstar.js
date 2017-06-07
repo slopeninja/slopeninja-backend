@@ -4,6 +4,7 @@ import {
   degreeOrNull,
   inchOrNull,
   statusOrNull,
+  numberOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -14,10 +15,19 @@ const initialWeather = {
   newSnow: null,
   snowDepthBase: null,
   snowDepthSummit: null,
-
 };
 
-const parseNorthstar = async ($) => {
+const initialLifts = {
+  total: null,
+  open: null,
+};
+
+const initialTrails = {
+  total: null,
+  open: null,
+};
+
+export const parseNorthstarWeather = async ($) => {
   const status = $('.snowConditions tr td').first().text().trim();
   // const temprature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
   //24 Hours
@@ -36,12 +46,23 @@ const parseNorthstar = async ($) => {
   };
 }
 
-export const fetchNorthstar = async (html) => {
-  const $ = cheerio.load(html)
-
-  const weather = await parseNorthstar($);
+export const parseNorthstarLifts = async ($) => {
+  const openLifts = Number.parseInt($('.gradBorderModule .terrainConditions .firstItem span').first().text());
+  const totalLifts = Number.parseInt($('.gradBorderModule .terrainConditions .firstItem span').slice(1,2).text());
 
   return {
-    weather,
+    ...initialLifts,
+    total: numberOrNull(totalLifts),
+    open: numberOrNull(openLifts),
+  };
+}
+
+export const parseNorthstarTrails = async ($) => {
+  const openTrails = Number.parseInt($('.gradBorderModule .terrainConditions li span').slice(2,3).text());
+  const totalTrails = Number.parseInt($('.gradBorderModule .terrainConditions li span').slice(3,4).text());
+  return {
+    ...initialTrails,
+    total: numberOrNull(totalTrails),
+    open: numberOrNull(openTrails),
   };
 }

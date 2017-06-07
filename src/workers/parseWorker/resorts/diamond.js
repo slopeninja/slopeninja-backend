@@ -14,10 +14,19 @@ const initialWeather = {
   newSnow: null,
   snowDepthBase: null,
   snowDepthSummit: null,
-
 };
 
-const parseSeirraWeather = async ($) => {
+const initialLifts = {
+  total: null,
+  open: null,
+};
+
+const initialTrails = {
+  total: null,
+  open: null,
+};
+
+export const parseDiamondWeather = async ($) => {
   const status = $('.surface-conditions p').first().text().trim();
   const temprature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
   //24 Hours
@@ -35,12 +44,14 @@ const parseSeirraWeather = async ($) => {
   };
 }
 
-export const fetchDiamond = async (html) => {
-  const $ = cheerio.load(html)
-
-  const weather = await parseSeirraWeather($);
-
+export const parseDiamondLifts = async ($) => {
   return {
-    weather,
+    ...initialLifts,
+  };
+}
+
+export const parseDiamondTrails = async ($) => {
+  return {
+    ...initialTrails,
   };
 }
