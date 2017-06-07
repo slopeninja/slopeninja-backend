@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import performanceNow from 'performance-now';
 
 import { parseSierraWeather, parseSierraLifts, parseSierraTrails } from './resorts/sierra';
 import { parseSquawWeather, parseSquawLifts, parseSquawTrails } from './resorts/squaw';
@@ -174,22 +175,43 @@ const resortsConfig = {
   ],
 };
 
+const RESPONSE_BODY_CACHE = {
+  // url: response,
+};
+
+const lookUpOrFetch = async (url) => {
+  const cachedText = RESPONSE_BODY_CACHE[url];
+  if (cachedText){
+    // console.log('Cache hit for', url);
+    return cachedText;
+  }
+
+  const response = await fetch(url);
+  const text = await response.text();
+
+  RESPONSE_BODY_CACHE[url] = text;
+  // console.log('Cache miss', url)
+
+  return text;
+}
+
 const fetchResort = async (resortName) => {
   const fnConfigs = resortsConfig[resortName];
 
-  const arrayOfResultPromises = fnConfigs.map(async fnConfig => {
+  // user `for` over `map` to wait before queuing the next fn call
+  // so we can hit the cache
+  const arrayOfResults = [];
+  for(let i = 0; i < fnConfigs.length; i++) {
+    const fnConfig = fnConfigs[i];
 
-    const response = await fetch(fnConfig.url);
-    const text = await response.text();
+    const text = await lookUpOrFetch(fnConfig.url);
 
     const parser = fnConfig.fn;
 
     const result = await parser(text);
 
-    return result;
-  })
-
-  const arrayOfResults = await Promise.all(arrayOfResultPromises);
+    arrayOfResults.push(result);
+  }
 
   // flatten the array
   const resortData = arrayOfResults.reduce((acc, result) => {
@@ -227,12 +249,18 @@ const fetchResorts = async () => {
   return resortsData;
 }
 
+const MILLISECONDS = 1000;
+
 const run = async () => {
+  const start = performanceNow();
   console.log('Worker starts');
 
   const resortsData = await fetchResorts();
 
   console.log(JSON.stringify(resortsData, null, 2));
+  const end = performanceNow();
+
+  console.log(((end - start) / MILLISECONDS).toFixed(3), 'seconds');
   console.log('Worker quits');
 }
 
