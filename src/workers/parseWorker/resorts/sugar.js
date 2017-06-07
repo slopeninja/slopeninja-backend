@@ -2,8 +2,9 @@
 import {
   degreeOrNull,
   inchOrNull,
-  statusOrNull,
+  resortStatusOrNull,
   numberOrNull,
+  weatherStatusOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -27,6 +28,7 @@ const initialTrails = {
 };
 
 export const parseSugarWeather = async ($) => {
+  const weatherIcon = $('#conditions_status_col_left #conditions_status_col_left_weather .label_small').first().text().trim();
   const status = $('#container_312_outer .h3').first().text().trim();
   const temprature = $('#container_314_outer .conditions_col .table_text_01.c4').first().text().trim();
   //24 Hours
@@ -38,7 +40,8 @@ export const parseSugarWeather = async ($) => {
 
   return {
     ...initialWeather,
-    status: statusOrNull(status),
+    weatherIcon: weatherStatusOrNull(weatherIcon),
+    status: resortStatusOrNull(status),
     temprature: degreeOrNull(temprature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),

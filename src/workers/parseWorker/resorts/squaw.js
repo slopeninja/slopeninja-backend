@@ -3,6 +3,7 @@ import {
   degreeOrNull,
   inchOrNull,
   numberOrNull,
+  weatherStatusOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -26,7 +27,7 @@ const initialTrails = {
 };
 
 export const parseSquawWeather = async ($) => {
-
+  const weatherIcon = $('#squaw-elevation-0 .row.current .cellwrapper .cell h6').first().text().trim();
   const temprature = $('#squaw-elevation-0 .row.current .cellwrapper .cell .value').first().text().trim();
   //24
   const newSnow24Hr = $('.row.snow .cellwrapper .cell .value').slice(1,2).text().trim();
@@ -36,6 +37,7 @@ export const parseSquawWeather = async ($) => {
 
   return {
     ...initialWeather,
+    weatherIcon: weatherStatusOrNull(weatherIcon),
     temprature: degreeOrNull(temprature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),

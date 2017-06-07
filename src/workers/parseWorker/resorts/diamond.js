@@ -3,7 +3,8 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
-  statusOrNull,
+  resortStatusOrNull,
+  weatherStatusOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -28,6 +29,7 @@ const initialTrails = {
 
 export const parseDiamondWeather = async ($) => {
   const status = $('.surface-conditions p').first().text().trim();
+  const weatherIcon = $('.weather-condition .weather-condition-wrapper .weather-forecast').first().text().trim();
   const temprature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
   //24 Hours
   const newSnow24Hr = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(3,4).text().trim();
@@ -36,7 +38,8 @@ export const parseDiamondWeather = async ($) => {
   const snowDepthSummit = $('.conditions-overlay .row.weather-row .peak-depth.large-4.columns .weather-data').first().text().trim();
   return {
     ...initialWeather,
-    status: statusOrNull(status),
+    weatherIcon: weatherStatusOrNull(weatherIcon),
+    status: resortStatusOrNull(status),
     temprature: degreeOrNull(temprature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),

@@ -9,7 +9,7 @@ test('fetches Squaw weather data correctly', async () => {
   expect(resortData).toEqual({
     weather: {
       status: null,
-      weatherIcon: null,
+      weatherIcon: 'sunny',
       temprature: 52,
       baseCondition: null,
       newSnow: 0,

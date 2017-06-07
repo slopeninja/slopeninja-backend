@@ -3,8 +3,9 @@
 import {
   degreeOrNull,
   inchOrNull,
-  statusOrNull,
+  resortStatusOrNull,
   numberOrNull,
+  weatherStatusOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -33,7 +34,8 @@ export const parseBorealWeather = async (data) => {
     return {
       ...initialWeather,
     };
-  }
+  };
+  const weatherIcon = data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].conditions;
   const status = data[10].wrapper_content[0].items[5].body;
   const temprature = data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].high.fahrenheit;
   //24 Hours
@@ -44,7 +46,8 @@ export const parseBorealWeather = async (data) => {
   const snowDepthSummit = data[0].snow_report.season.Base.base;
   return {
     ...initialWeather,
-    status: statusOrNull(status),
+    weatherIcon: weatherStatusOrNull(weatherIcon),
+    status: resortStatusOrNull(status),
     temprature: Number.parseInt(temprature),
     newSnow: inchOrNull(newSnow24Hr),
     // snowDepthBase: inchOrNull(snowDepthBase),

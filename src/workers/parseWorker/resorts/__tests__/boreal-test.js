@@ -9,7 +9,7 @@ test('fetches Boreal weather data correctly', async () => {
   expect(resortData).toEqual({
     weather: {
       status: 'closed',
-      weatherIcon: null,
+      weatherIcon: 'cloudy',
       temprature: 70,
       baseCondition: null,
       newSnow: null,

@@ -3,7 +3,7 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
-  statusOrNull,
+  resortStatusOrNull,
   numberOrNull,
 } from '../util';
 
@@ -38,7 +38,7 @@ export const parseKirkwoodWeather = async ($) => {
   const snowDepthSummit = $('.snowConditions tbody tr td').slice(3,4).text().trim();
   return {
     ...initialWeather,
-    status: statusOrNull(status),
+    status: resortStatusOrNull(status),
     // temprature: degreeOrNull(temprature),
     newSnow: inchOrNull(newSnow24Hr),
     // snowDepthBase: inchOrNull(snowDepthBase),

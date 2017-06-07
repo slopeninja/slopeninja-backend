@@ -9,7 +9,7 @@ test('fetches Sugar weather data correctly', async () => {
   expect(resortData).toEqual({
     weather: {
       status: 'closed',
-      weatherIcon: null,
+      weatherIcon: 'snow',
       temprature: 32,
       baseCondition: null,
       newSnow: 7,

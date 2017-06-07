@@ -9,7 +9,7 @@ test('fetches MtRose weather data correctly', async () => {
   expect(resortData).toEqual({
     weather: {
       status: 'closed',
-      weatherIcon: null,
+      weatherIcon: 'sunny',
       temprature: 53,
       baseCondition: null,
       newSnow: 0,
