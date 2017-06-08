@@ -1,7 +1,7 @@
 const DEGREE_SYMBOLS = ['°', 'deg', 'degree', 'degrees'];
 const INCH_SYMBOLS = ['"', '”', 'in', 'inch', 'inches'];
 const RESORT_STATUS = ['open', 'closed'];
-const WEATHER_STATUS = ['sunny', 'clear', 'snow', 'rain', 'cloudy'];
+const WEATHER_STATUS = ['sunny', 'clear', 'snow', 'rain', 'cloudy', 'hunderstorm'];
 
 export const isNumber = (value) => {
   return Number.isInteger(value);

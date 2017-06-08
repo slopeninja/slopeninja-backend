@@ -95,6 +95,10 @@ const resortsConfig = {
     },
   ],
   'heavenly': [
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/South_Lake_Tahoe.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     {
       url: 'http://www.skiheavenly.com/the-mountain/snow-report/snow-report.aspx',
       fn: createHtmlParser('snow', parseHeavenlySnow),
@@ -109,6 +113,10 @@ const resortsConfig = {
     },
   ],
   'kirkwood': [
+    { // fnConfig
+        url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Kirkwood.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     {
       url: 'http://www.kirkwood.com/mountain/snow-and-weather-report.aspx',
       fn: createHtmlParser('snow', parseKirkwoodSnow),
@@ -123,6 +131,10 @@ const resortsConfig = {
     },
   ],
   'northstar': [
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     {
       url: 'http://www.northstarcalifornia.com/the-mountain/snow-weather-report.aspx',
       fn: createHtmlParser('snow', parseNorthstarSnow),
@@ -137,6 +149,10 @@ const resortsConfig = {
     },
   ],
   'homewood': [
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Homewood.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     {
       url: 'http://www.skihomewood.com/mountain/snow-report',
       fn: createHtmlParser('snow', parseHomewoodSnow),
@@ -187,6 +203,10 @@ const resortsConfig = {
     }
   ],
   'mtRose': [ // fnConfigs
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/NV/Reno.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     { // fnConfig
       url: 'http://skirose.com/the-mountain/snow-report/',
       fn: createHtmlParser('snow', parseMtRoseSnow),
