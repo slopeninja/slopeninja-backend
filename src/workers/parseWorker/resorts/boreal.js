@@ -8,7 +8,7 @@ import {
   weatherStatusOrNull,
 } from '../util';
 
-const initialWeather = {
+const initialSnow = {
   status: null,
   weatherIcon: null,
   temprature: null,
@@ -30,22 +30,22 @@ const initialTrails = {
 
 
 export const parseBorealSnow = async (data) => {
-  if (!data) {
+  if (!data.default_data) {
     return {
-      ...initialWeather,
+      ...initialSnow,
     };
   };
-  const weatherIcon = data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].conditions;
-  const status = data[10].wrapper_content[0].items[5].body;
-  const temprature = data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].high.fahrenheit;
+  const weatherIcon = data.default_data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].conditions;
+  const status = data.default_data[10].wrapper_content[0].items[5].body;
+  const temprature = data.default_data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].high.fahrenheit;
   //24 Hours
-  const newSnow24Hr = data[0].snow_report['24_hour'][0];
+  const newSnow24Hr = data.default_data[0].snow_report['24_hour'][0];
   //Base
-  // const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1,2).text().trim();
+  // const snowDepthBase =
 
-  const snowDepthSummit = data[0].snow_report.season.Base.base;
+  const snowDepthSummit = data.default_data[0].snow_report.season.Base.base;
   return {
-    ...initialWeather,
+    ...initialSnow,
     weatherIcon: weatherStatusOrNull(weatherIcon),
     status: resortStatusOrNull(status),
     temprature: Number.parseInt(temprature),
@@ -56,13 +56,13 @@ export const parseBorealSnow = async (data) => {
 }
 
 export const parseBorealLifts = async (data) => {
-  if (!data) {
+  if (!data.default_data) {
     return {
       ...initialLifts,
     };
   }
-  const openLifts = data[3].trail_open_report.lifts.open;
-  const totalLifts = data[3].trail_open_report.lifts.total;
+  const openLifts = data.default_data[3].trail_open_report.lifts.open;
+  const totalLifts = data.default_data[3].trail_open_report.lifts.total;
   return {
     ...initialLifts,
     total: numberOrNull(totalLifts),
@@ -71,13 +71,13 @@ export const parseBorealLifts = async (data) => {
 }
 
 export const parseBorealTrails = async (data) => {
-  if (!data) {
+  if (!data.default_data) {
     return {
       ...initialTrails,
     };
   }
-  const openTrails = data[3].trail_open_report.trails.open;
-  const totalTrails = data[3].trail_open_report.trails.total;
+  const openTrails = data.default_data[3].trail_open_report.trails.open;
+  const totalTrails = data.default_data[3].trail_open_report.trails.total;
   return {
     ...initialTrails,
     total: numberOrNull(totalTrails),

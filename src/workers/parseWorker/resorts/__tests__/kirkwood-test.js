@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { parseKirkwoodSnow, parseKirkwoodLifts, parseKirkwoodTrails } from '../kirkwood';
-import { createHtmlParser } from '../../parserFactory';
+import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches Kirkwood snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-weather.html`);

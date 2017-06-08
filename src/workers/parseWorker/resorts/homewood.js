@@ -5,7 +5,7 @@ import {
   inchOrNull,
 } from '../util';
 
-const initialWeather = {
+const initialSnow = {
   status: null,
   weatherIcon: null,
   temprature: null,
@@ -34,7 +34,7 @@ export const parseHomewoodSnow = async ($) => {
 
   const snowDepthSummit = $('#current_snow_conditions table tr td').slice(2,3).text().trim();
   return {
-    ...initialWeather,
+    ...initialSnow,
     temprature: degreeOrNull(temprature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { parseNorthstarSnow, parseNorthstarLifts, parseNorthstarTrails } from '../northstar';
-import { createHtmlParser } from '../../parserFactory';
+import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches Northstar snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-weather.html`);

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { parseMtRoseSnow, parseMtRoseLifts, parseMtRoseTrails } from '../mtRose';
-import { createHtmlParser } from '../../parserFactory';
+import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches MtRose snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html`);

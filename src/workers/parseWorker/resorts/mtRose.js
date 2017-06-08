@@ -8,7 +8,7 @@ import {
   weatherStatusOrNull,
 } from '../util';
 
-const initialWeather = {
+const initialSnow = {
   status: null,
   weatherIcon: null,
   temprature: null,
@@ -38,7 +38,7 @@ export const parseMtRoseSnow = async ($) => {
   // const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1,2).text().trim();
   // const snowDepthSummit = $('.snowConditions tbody tr td').slice(3,4).text().trim();
   return {
-    ...initialWeather,
+    ...initialSnow,
     weatherIcon: weatherStatusOrNull(weatherIcon),
     status: resortStatusOrNull(status),
     temprature: degreeOrNull(temprature),

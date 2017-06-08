@@ -15,7 +15,7 @@ export const createJSONParser = (key, parser) => async (data = "{}") => {
 
   let d;
   if (json) {
-    d = json.default_data;
+    d = json;
   }
 
   const keyData = await parser(d);

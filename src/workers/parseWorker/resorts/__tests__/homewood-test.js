@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { parseHomewoodSnow, parseHomewoodLifts, parseHomewoodTrails} from '../homewood';
-import { createHtmlParser } from '../../parserFactory';
+import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches Homewood snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html`);

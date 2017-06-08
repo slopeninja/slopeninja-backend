@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { parseHeavenlySnow, parseHeavenlyLifts, parseHeavenlyTrails } from '../heavenly';
-import { createHtmlParser } from '../../parserFactory';
+import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches Heavenly snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-weather.html`);

@@ -3,6 +3,7 @@ import performanceNow from 'performance-now';
 
 import { parseSierraSnow, parseSierraLifts, parseSierraTrails } from './resorts/sierra';
 import { parseSquawSnow, parseSquawLifts, parseSquawTrails } from './resorts/squaw';
+import { parseAlpineSnow, parseAlpineLifts, parseAlpineTrails } from './resorts/alpine';
 import { parseDiamondSnow, parseDiamondLifts, parseDiamondTrails } from './resorts/diamond';
 import { parseHeavenlySnow, parseHeavenlyLifts, parseHeavenlyTrails } from './resorts/heavenly';
 import { parseKirkwoodSnow, parseKirkwoodLifts, parseKirkwoodTrails } from './resorts/kirkwood';
@@ -14,12 +15,18 @@ import { parseMtRoseSnow, parseMtRoseLifts, parseMtRoseTrails } from './resorts/
 import { parseBorealSnow, parseBorealLifts, parseBorealTrails } from './resorts/boreal';
 
 import { createHtmlParser, createJSONParser } from './parserFactory';
+import { parseWeather } from './parseWeather';
+
 
 //FIXME: verify if heavenly/kirkwood/northstar/boreal 'BASE DEPTH' is summit or base depth
 //currently using summit depth as 'BASE DEPTH'
 
 const resortsConfig = {
   'sierra': [ // fnConfigs
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Twin_Bridges.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     { // fnConfig
       url: 'https://www.sierraattahoe.com/weather-snow-report/',
       fn: createHtmlParser('snow', parseSierraSnow),
@@ -34,6 +41,10 @@ const resortsConfig = {
     },
   ],
   'squaw': [
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Olympic_Valley.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     {
       url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
       fn: createHtmlParser('snow', parseSquawSnow),
@@ -47,7 +58,29 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseSquawTrails),
     },
   ],
+  'alpine': [
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Olympic_Valley.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
+    {
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
+      fn: createHtmlParser('snow', parseAlpineSnow),
+    },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('lifts', parseAlpineLifts),
+    },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('trails', parseAlpineTrails),
+    },
+  ],
   'diamond': [
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/NV/Incline_Village.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     {
       url: 'http://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('snow', parseDiamondSnow),
@@ -119,6 +152,10 @@ const resortsConfig = {
   ],
   'sugar': [ // fnConfigs
     { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
+    { // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
       fn: createHtmlParser('snow', parseSugarSnow),
     },
@@ -132,6 +169,10 @@ const resortsConfig = {
     }
   ],
   'donner': [ // fnConfigs
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     { // fnConfig
       url: 'https://www.donnerskiranch.com/snow-report/',
       fn: createHtmlParser('snow', parseDonnerSnow),
@@ -160,6 +201,10 @@ const resortsConfig = {
     }
   ],
   'boreal': [ // fnConfigs
+    { // fnConfig
+      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+      fn: createJSONParser('weather', parseWeather),
+    },
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
       fn: createJSONParser('snow', parseBorealSnow),
