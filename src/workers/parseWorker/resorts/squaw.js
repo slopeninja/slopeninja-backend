@@ -4,6 +4,9 @@ import {
   inchOrNull,
   numberOrNull,
   weatherStatusOrNull,
+  liftTrailStatusOrNull,
+  notEmptyStringOrNull,
+  trailLevelOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -46,6 +49,8 @@ export const parseSquawSnow = async ($) => {
   };
 }
 
+
+
 export const parseSquawLifts = async ($) => {
   const open = numberOrNull(Number.parseInt($('#squaw-report .global-stats .cell.open-lifts .value').text().trim()));
   return {
@@ -60,4 +65,73 @@ export const parseSquawTrails = async ($) => {
     ...initialTrails,
     open: numberOrNull(open),
   };
+}
+
+
+//FIXME remove Terrian parks from the list
+export const parseSquawLiftList = async ($) => {
+  const list = [];
+
+  $('#squaw-report .lift').map((index, rowElement) => {
+    // squaw messed up their lifts list by including a shuttle in it
+    // we need to make sure we exclude that from the list
+    const isShuttle = $(rowElement).text().trim().toLowerCase().includes('shuttle');
+    if(isShuttle) {
+      return;
+    }
+
+    const columnElements = $(rowElement).find('.cell');
+    const nameElement = columnElements[0];
+    const statusContainerElement = columnElements[3];
+
+    const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
+
+    const prevSubheaderCategories = $(rowElement).prevAll('.subheader');
+    const subheaderCategory = prevSubheaderCategories.get(0);
+
+    const status = liftTrailStatusOrNull(statusElement.attr('class'));
+    const name = notEmptyStringOrNull($(nameElement).text().trim());
+    const category = notEmptyStringOrNull($(subheaderCategory).text().trim());
+
+    const lift = {
+      name,
+      status,
+      category,
+    };
+    list.push(lift)
+  });
+
+ return list;
+}
+
+export const parseSquawTrailList = async ($) => {
+  const list = [];
+
+  $('#squaw-report .runs .trail').map((index, rowElement) => {
+    const columnElements = $(rowElement).find('.cell');
+    const nameElement = columnElements[0];
+    const levelElement = columnElements[1];
+    const statusContainerElement = columnElements[3];
+
+    const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
+
+    const status = liftTrailStatusOrNull(statusElement.attr('class'));
+
+    const prevSubheaderCategories = $(rowElement).prevAll('.area').find('h4');
+    const subheaderCategory = prevSubheaderCategories.get(0);
+
+    const name = notEmptyStringOrNull($(nameElement).text().trim());
+    const level = trailLevelOrNull($(levelElement).text().trim());
+    const category = notEmptyStringOrNull($(subheaderCategory).text().trim());
+
+    const trail = {
+      name,
+      status,
+      category,
+      level,
+    };
+    list.push(trail)
+  });
+
+ return list;
 }

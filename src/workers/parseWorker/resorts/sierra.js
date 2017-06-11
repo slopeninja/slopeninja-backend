@@ -5,6 +5,9 @@ import {
   inchOrNull,
   numberOrNull,
   weatherStatusOrNull,
+  liftTrailStatusOrNull,
+  notEmptyStringOrNull,
+  trailLevelOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -27,11 +30,6 @@ const initialTrails = {
   open: null,
 };
 
-// const initialTrails = {
-//   total: null,
-//   open: null,
-// };
-
 export const parseSierraSnow = async ($) => {
   const weatherIcon = $('.weather-stat-wrapper .weather-stat p').first().text().trim();
   const temprature = $('.weather-block .value').first().text().trim();
@@ -53,6 +51,8 @@ export const parseSierraSnow = async ($) => {
 export const parseSierraLifts = async ($) => {
   const openLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').first().text());
   const totalLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').first().text().replace('/', ''));
+  const liftListsCount = $('.lifts-list table tbody tr').length;
+
   return {
     ...initialLifts,
     total: numberOrNull(totalLifts),
@@ -61,11 +61,70 @@ export const parseSierraLifts = async ($) => {
 }
 
 export const parseSierraTrails = async ($) => {
-  const openLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').slice(1,2).text());
-  const totalLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').slice(1,2).text().replace('/', ''));
+  const openTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').slice(1,2).text());
+  const totalTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').slice(1,2).text().replace('/', ''));
   return {
-    ...initialLifts,
-    total: numberOrNull(totalLifts),
-    open: numberOrNull(openLifts),
+    ...initialTrails,
+    total: numberOrNull(totalTrails),
+    open: numberOrNull(openTrails),
   }
+}
+
+export const parseSierraLiftList = async ($) => {
+  const list = [];
+
+  $('.lifts-list tbody > tr').map((index, rowElement) => {
+    const tdElements = $(rowElement).find('td');
+
+    const tdElementName = tdElements[1];
+    const tdElementStatus = tdElements[2];
+
+    const tableElement = tdElementName.parent.parent.parent;
+    const thElementCategory = $(tableElement).find('thead > tr > th').get(1);
+
+    const name = notEmptyStringOrNull($(tdElementName).text().trim());
+    const status = liftTrailStatusOrNull($(tdElementStatus).text().trim());
+    const category = notEmptyStringOrNull($(thElementCategory).text().trim());
+
+    const lift = {
+      name,
+      status,
+      category,
+    };
+
+    list.push(lift)
+  });
+
+ return list;
+}
+
+export const parseSierraTrailList = async ($) => {
+  const list = [];
+
+  $('.trails-list tbody > tr').map((index, rowElement) => {
+    const tdElements = $(rowElement).find('td');
+
+    const tdElementName = tdElements[1];
+    const tdElementStatus = tdElements[2];
+    const tdElementAccess = tdElements[4];
+
+    const tableElement = tdElementName.parent.parent.parent;
+    const thElementCategory = $(tableElement).find('thead > tr > th').get(1);
+
+    const name = notEmptyStringOrNull($(tdElementName).text().trim());
+    const status = liftTrailStatusOrNull($(tdElementStatus).text().trim());
+    const level = trailLevelOrNull($(thElementCategory).text().trim());
+    const category = notEmptyStringOrNull($(tdElementAccess).text().trim());
+
+    const trail = {
+      name,
+      status,
+      category,
+      level,
+    };
+
+    list.push(trail)
+  });
+
+ return list;
 }

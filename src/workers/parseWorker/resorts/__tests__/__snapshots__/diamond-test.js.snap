@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetches Diamond lift list correctly 1`] = `
+Object {
+  "liftList": Array [
+    Object {
+      "category": null,
+      "name": "Crystal Express Lift",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Lakeview Lift",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Lodgepole Lift",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Schoolhouse Lift",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Red Fox Lift",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Ridge Lift",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Terrain Park",
+      "status": "closed",
+    },
+  ],
+}
+`;
+
+exports[`fetches Diamond trail list correctly 1`] = `
+Object {
+  "trailList": Array [
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "intermediate",
+      "name": "Crystal Ridge",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "intermediate",
+      "name": "Golden Eagle Bowl",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "intermediate",
+      "name": "Great Flume",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "intermediate",
+      "name": "Lakeview",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "intermediate",
+      "name": "Spillway",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "intermediate",
+      "name": "Sunnyside",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "advanced",
+      "name": "Battle Born",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "advanced",
+      "name": "Diamondback",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "advanced",
+      "name": "Lightning",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "advanced",
+      "name": "Luggi's",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "advanced",
+      "name": "Powder",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "advanced",
+      "name": "Solitude Canyon",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "advanced",
+      "name": "The Glades",
+      "status": "closed",
+    },
+    Object {
+      "category": "Crystal Express Lift",
+      "level": "advanced",
+      "name": "Thunder",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "intermediate",
+      "name": "Cappy's Corner",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "intermediate",
+      "name": "Dusty's Delight",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "begineer",
+      "name": "Freeway",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "intermediate",
+      "name": "Lower Showoff",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "intermediate",
+      "name": "Penguin",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "intermediate",
+      "name": "Popular",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "intermediate",
+      "name": "Ridge Run",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "intermediate",
+      "name": "Wiggle",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "advanced",
+      "name": "Chute",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "advanced",
+      "name": "Corkscrew",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "advanced",
+      "name": "F.I.S.",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "advanced",
+      "name": "G.S.",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "advanced",
+      "name": "O God",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "advanced",
+      "name": "Slalom Glade",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lakeview Lift",
+      "level": "advanced",
+      "name": "Upper Showoff",
+      "status": "closed",
+    },
+    Object {
+      "category": "Lodgepole Lift",
+      "level": "begineer",
+      "name": "Lodge Pole",
+      "status": "closed",
+    },
+    Object {
+      "category": "Schoolhouse Lift",
+      "level": "begineer",
+      "name": "School Yard",
+      "status": "closed",
+    },
+  ],
+}
+`;

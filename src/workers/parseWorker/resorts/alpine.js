@@ -4,6 +4,9 @@ import {
   inchOrNull,
   numberOrNull,
   weatherStatusOrNull,
+  liftTrailStatusOrNull,
+  notEmptyStringOrNull,
+  trailLevelOrNull,
 } from '../util';
 
 const initialSnow = {
@@ -60,4 +63,69 @@ export const parseAlpineTrails = async ($) => {
     ...initialTrails,
     open: numberOrNull(open),
   };
+}
+export const parseAlpineLiftList = async ($) => {
+  const list = [];
+  $('#alpine-report .lift').map((index, rowElement) => {
+    // alpine messed up their lifts list by including a shuttle in it
+    // we need to make sure we exclude that from the list
+    const isShuttle = $(rowElement).text().trim().toLowerCase().includes('shuttle');
+    if(isShuttle) {
+      return;
+    }
+
+    const columnElements = $(rowElement).find('.cell');
+    const nameElement = columnElements[0];
+    const statusContainerElement = columnElements[3];
+
+    const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
+
+    const prevSubheaderCategories = $(rowElement).prevAll('.subheader');
+
+    const status = liftTrailStatusOrNull(statusElement.attr('class'));
+    const name = notEmptyStringOrNull($(nameElement).text().trim());
+    const category = null;
+
+    const lift = {
+      name,
+      status,
+      category,
+    };
+    list.push(lift)
+  });
+
+ return list;
+}
+
+export const parseAlpineTrailList = async ($) => {
+  const list = [];
+
+  //FIXME remove food and beverges from trail list
+
+  $('#alpine-report .runs .trail').map((index, rowElement) => {
+    const columnElements = $(rowElement).find('.cell');
+    const nameElement = columnElements[0];
+    const levelElement = columnElements[1];
+    const statusContainerElement = columnElements[3];
+
+    const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
+
+    const prevSubheaderCategories = $(rowElement).prevAll('.area').find('h4');
+    const subheaderCategory = prevSubheaderCategories.get(0);
+
+    const status = liftTrailStatusOrNull(statusElement.attr('class'));
+    const name = notEmptyStringOrNull($(nameElement).text().trim());
+    const level = trailLevelOrNull($(levelElement).text().trim());
+    const category = notEmptyStringOrNull($(subheaderCategory).text().trim());
+
+    const trail = {
+      name,
+      status,
+      category,
+      level,
+    };
+    list.push(trail)
+  });
+
+ return list;
 }

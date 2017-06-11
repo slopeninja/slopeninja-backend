@@ -1,10 +1,34 @@
 import fetch from 'isomorphic-fetch';
 import performanceNow from 'performance-now';
 
-import { parseSierraSnow, parseSierraLifts, parseSierraTrails } from './resorts/sierra';
-import { parseSquawSnow, parseSquawLifts, parseSquawTrails } from './resorts/squaw';
-import { parseAlpineSnow, parseAlpineLifts, parseAlpineTrails } from './resorts/alpine';
-import { parseDiamondSnow, parseDiamondLifts, parseDiamondTrails } from './resorts/diamond';
+import {
+  parseSierraSnow,
+  parseSierraLifts,
+  parseSierraTrails,
+  parseSierraLiftList,
+  parseSierraTrailList,
+} from './resorts/sierra';
+import {
+  parseSquawSnow,
+  parseSquawLifts,
+  parseSquawTrails,
+  parseSquawLiftList,
+  parseSquawTrailList,
+} from './resorts/squaw';
+import {
+  parseAlpineSnow,
+  parseAlpineLifts,
+  parseAlpineTrails,
+  parseAlpineLiftList,
+  parseAlpineTrailList,
+} from './resorts/alpine';
+import {
+  parseDiamondSnow,
+  parseDiamondLifts,
+  parseDiamondTrails,
+  parseDiamondLiftList,
+  parseDiamondTrailList,
+} from './resorts/diamond';
 import { parseHeavenlySnow, parseHeavenlyLifts, parseHeavenlyTrails } from './resorts/heavenly';
 import { parseKirkwoodSnow, parseKirkwoodLifts, parseKirkwoodTrails } from './resorts/kirkwood';
 import { parseNorthstarSnow, parseNorthstarLifts, parseNorthstarTrails } from './resorts/northstar';
@@ -39,6 +63,14 @@ const resortsConfig = {
       url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
       fn: createHtmlParser('trails', parseSierraTrails),
     },
+    { // fnConfig
+      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
+      fn: createHtmlParser('liftList', parseSierraLiftList),
+    },
+    { // fnConfig
+      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
+      fn: createHtmlParser('trailList', parseSierraTrailList),
+    },
   ],
   'squaw': [
     { // fnConfig
@@ -56,6 +88,14 @@ const resortsConfig = {
     { // fnConfig
       url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('trails', parseSquawTrails),
+    },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('liftList', parseSquawLiftList),
+    },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('trailList', parseSquawTrailList),
     },
   ],
   'alpine': [
@@ -75,6 +115,14 @@ const resortsConfig = {
       url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('trails', parseAlpineTrails),
     },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('liftList', parseAlpineLiftList),
+    },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('trailList', parseAlpineTrailList),
+    },
   ],
   'diamond': [
     { // fnConfig
@@ -92,6 +140,14 @@ const resortsConfig = {
     { // fnConfig
       url: 'http://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('trails', parseDiamondTrails),
+    },
+    { // fnConfig
+      url: 'http://www.diamondpeak.com/mountain/conditions',
+      fn: createHtmlParser('liftList', parseDiamondLiftList),
+    },
+    { // fnConfig
+      url: 'http://www.diamondpeak.com/mountain/conditions',
+      fn: createHtmlParser('trailList', parseDiamondTrailList),
     },
   ],
   'heavenly': [

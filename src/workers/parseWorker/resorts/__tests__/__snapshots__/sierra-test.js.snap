@@ -1,0 +1,361 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetches Sierra lift list correctly 1`] = `
+Object {
+  "liftList": Array [
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Easy Rider Express",
+      "status": "closed",
+    },
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Easy Street Slider Carpet",
+      "status": "closed",
+    },
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Easy Street Chill Carpet",
+      "status": "closed",
+    },
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Grandview Express",
+      "status": "closed",
+    },
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Nob Hill",
+      "status": "closed",
+    },
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Rock Garden",
+      "status": "closed",
+    },
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Tahoe King",
+      "status": "closed",
+    },
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Thunder Gulch Carpet",
+      "status": "closed",
+    },
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Tubing Hill Tow",
+      "status": "closed",
+    },
+    Object {
+      "category": "Frontside Lifts",
+      "name": "Wild Mountain Carpet",
+      "status": "closed",
+    },
+    Object {
+      "category": "Backside Lifts",
+      "name": "El Dorado",
+      "status": "closed",
+    },
+    Object {
+      "category": "Backside Lifts",
+      "name": "Short Stuff",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "name": "Puma",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "name": "West Bowl Express",
+      "status": "closed",
+    },
+  ],
+}
+`;
+
+exports[`fetches Sierra trail list correctly 1`] = `
+Object {
+  "trailList": Array [
+    Object {
+      "category": "Rock Garden",
+      "level": "begineer",
+      "name": "Aspen",
+      "status": "closed",
+    },
+    Object {
+      "category": "Rock Garden",
+      "level": "begineer",
+      "name": "Aspen West",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "begineer",
+      "name": "Bear",
+      "status": "closed",
+    },
+    Object {
+      "category": "Easy Rider",
+      "level": "begineer",
+      "name": "Broadway",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "begineer",
+      "name": "Corkscrew",
+      "status": "closed",
+    },
+    Object {
+      "category": "Easy Rider",
+      "level": "begineer",
+      "name": "Easy Street",
+      "status": "closed",
+    },
+    Object {
+      "category": "Rock Garden",
+      "level": "begineer",
+      "name": "Echo",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "begineer",
+      "name": "Ego",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "begineer",
+      "name": "Lower Sleighride",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "begineer",
+      "name": "Lower Sugar n' Spice",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "begineer",
+      "name": "Marten",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "begineer",
+      "name": "Royal Trail",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "begineer",
+      "name": "Spur",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "begineer",
+      "name": "The Alley",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "begineer",
+      "name": "Upper Main",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "begineer",
+      "name": "Upper Snowshoe",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "begineer",
+      "name": "Upper Sugar n' Spice",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "begineer",
+      "name": "Wagon Trail",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Bashful",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Beaver",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Coyote",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Dogwood",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Escape",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Hemlock",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Lobo",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Lower Bashful",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "advanced",
+      "name": "Lower Castle",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "advanced",
+      "name": "Lower Main",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Lower Powderhorn",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Lower Snowshoe",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Marmot",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Pyramid",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Shortswing",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Smokey",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Upper Powderhorn",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "advanced",
+      "name": "Upper Sleighride",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Castle",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "advanced",
+      "name": "Chute",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Clipper",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Eastabout",
+      "status": "closed",
+    },
+    Object {
+      "category": "West Bowl",
+      "level": "advanced",
+      "name": "Horsetail",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Jackrabbit",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nob Hill",
+      "level": "advanced",
+      "name": "Lower Dynamite",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Preacher's Passion",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Rerun",
+      "status": "closed",
+    },
+    Object {
+      "category": "Grandview",
+      "level": "advanced",
+      "name": "Upper Dynamite",
+      "status": "closed",
+    },
+  ],
+}
+`;
