@@ -3,8 +3,13 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
-  resortStatusOrNull,
   numberOrNull,
+  resortStatusOrNull,
+  weatherStatusOrNull,
+  liftTrailStatusOrNull,
+  notEmptyStringOrNull,
+  trailLevelOrNull,
+  removeNumberInFrontOfName,
 } from '../util';
 
 const initialSnow = {
@@ -65,4 +70,70 @@ export const parseKirkwoodTrails = async ($) => {
     total: numberOrNull(totalTrails),
     open: numberOrNull(openTrails),
   };
+}
+
+export const parseKirkwoodLiftList = async ($) => {
+  const list = [];
+
+  $('#Lifts tbody tr').map((index, rowElement) => {
+    const tdElements = $(rowElement).find('td');
+    const tdElementName = tdElements[0];
+
+    const tdElementStatus = tdElements[2];
+
+    const thElementCategory = null;
+
+    const rawName = $(tdElementName).text().trim();
+    const constructedName = removeNumberInFrontOfName(rawName);
+    const name = notEmptyStringOrNull(constructedName);
+    const status = liftTrailStatusOrNull($(tdElementStatus).attr('class'));
+    const category = notEmptyStringOrNull($(thElementCategory).text().trim());
+
+    const lift = {
+      name,
+      status,
+      category,
+    };
+    if (lift.name === null) {
+      return;
+    }
+    list.push(lift)
+  });
+
+ return list;
+}
+
+export const parseKirkwoodTrailList = async ($) => {
+  const list = [];
+
+  $('#TerrainStatus tbody td tbody tr').map((index, rowElement) => {
+    const tdElements = $(rowElement).find('td');
+
+    const thElementName = tdElements[1];
+    const thElementStatus = tdElements[2];
+    const thElementLevel = tdElements[0];
+
+    const parentElement = rowElement.parent.parent.parent.parent.parent.parent.parent;
+    const thElementCategory = $(parentElement).find('h2');
+
+    const name = notEmptyStringOrNull($(thElementName).text().trim());
+    const status = liftTrailStatusOrNull($(thElementStatus).attr('class'));
+    const level = trailLevelOrNull($(thElementLevel).attr('class'));
+    // const category = notEmptyStringOrNull($(thElementCategory).text().trim());
+    const category = null;
+
+    const trail = {
+      name,
+      status,
+      category,
+      level,
+    };
+
+    if (trail.name === null) {
+      return;
+    }
+    list.push(trail)
+  });
+
+ return list;
 }

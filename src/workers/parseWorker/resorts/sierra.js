@@ -106,7 +106,7 @@ export const parseSierraTrailList = async ($) => {
 
     const tdElementName = tdElements[1];
     const tdElementStatus = tdElements[2];
-    const tdElementAccess = tdElements[4];
+    const tdElementCatgory = tdElements[4];
 
     const tableElement = tdElementName.parent.parent.parent;
     const thElementCategory = $(tableElement).find('thead > tr > th').get(1);
@@ -114,7 +114,7 @@ export const parseSierraTrailList = async ($) => {
     const name = notEmptyStringOrNull($(tdElementName).text().trim());
     const status = liftTrailStatusOrNull($(tdElementStatus).text().trim());
     const level = trailLevelOrNull($(thElementCategory).text().trim());
-    const category = notEmptyStringOrNull($(tdElementAccess).text().trim());
+    const category = notEmptyStringOrNull($(tdElementCatgory).text().trim());
 
     const trail = {
       name,

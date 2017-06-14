@@ -1,7 +1,12 @@
 import cheerio from 'cheerio';
 
-export const createHtmlParser = (key, parser) => async (html) => {
-  const $ = cheerio.load(html)
+export const removeBackSlashes = (text) => {
+  const decoded = text ? text.toString().replace(/\\/g, '') : null;
+  return decoded;
+}
+
+export const createHtmlParser = (key, parser, preParser = t => t) => async (html) => {
+  const $ = cheerio.load(preParser(html));
 
   const keyData = await parser($);
 

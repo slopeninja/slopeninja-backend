@@ -5,7 +5,17 @@ import {
   degreeOrNull,
   inchOrNull,
   numberOrNull,
+  parseTrailLevel,
+  parseLiftTrailStatus,
+  parseResortStatus,
+  // liftTrailStatusOrNull,
+  // resortStatusOrNull,
+  // weatherStatusOrNull,
+  // notEmptyStringOrNull,
+  // removeNumberInFrontOfName
 } from '../util';
+
+// FIXME write tests for commented out functions
 
 test('tests if valid number', () => {
   expect(isNumber(4)).toBe(true);
@@ -62,3 +72,33 @@ test('returns valid number value or null', () => {
   expect(numberOrNull(100)).toBe(100);
   expect(numberOrNull(-100)).toBe(-100);
 });
+
+test('returns valid trail level', () => {
+  expect(parseTrailLevel()).toBe(null);
+  expect(parseTrailLevel('black')).toBe('advanced');
+  expect(parseTrailLevel('double')).toBe('expert');
+  expect(parseTrailLevel('abc')).toBe(null);
+  expect(parseTrailLevel(100)).toBe(null);
+  expect(parseTrailLevel('2')).toBe('intermediate');
+  expect(parseTrailLevel('100')).toBe('null');
+})
+
+test('returns valid trail lift status', () => {
+  expect(parseLiftTrailStatus()).toBe(null);
+  expect(parseLiftTrailStatus('open')).toBe('open');
+  expect(parseLiftTrailStatus('closed')).toBe('closed');
+  expect(parseLiftTrailStatus('abc')).toBe(null);
+  expect(parseLiftTrailStatus(100)).toBe(null);
+  expect(parseLiftTrailStatus('100')).toBe(null);
+  expect(parseLiftTrailStatus('pending')).toBe('on hold');
+})
+
+test('returns valid resort status', () => {
+  expect(parseResortStatus()).toBe(null);
+  expect(parseResortStatus('open')).toBe('open');
+  expect(parseResortStatus('closed')).toBe('closed');
+  expect(parseResortStatus('abc')).toBe(null);
+  expect(parseResortStatus(100)).toBe(null);
+  expect(parseResortStatus('100')).toBe(null);
+  expect(parseResortStatus('pending')).toBe(null);
+})

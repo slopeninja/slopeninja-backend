@@ -29,10 +29,34 @@ import {
   parseDiamondLiftList,
   parseDiamondTrailList,
 } from './resorts/diamond';
-import { parseHeavenlySnow, parseHeavenlyLifts, parseHeavenlyTrails } from './resorts/heavenly';
-import { parseKirkwoodSnow, parseKirkwoodLifts, parseKirkwoodTrails } from './resorts/kirkwood';
-import { parseNorthstarSnow, parseNorthstarLifts, parseNorthstarTrails } from './resorts/northstar';
-import { parseHomewoodSnow, parseHomewoodLifts, parseHomewoodTrails } from './resorts/homewood';
+import {
+  parseHeavenlySnow,
+  parseHeavenlyLifts,
+  parseHeavenlyTrails,
+  parseHeavenlyLiftList,
+  parseHeavenlyTrailList,
+} from './resorts/heavenly';
+import {
+  parseKirkwoodSnow,
+  parseKirkwoodLifts,
+  parseKirkwoodTrails,
+  parseKirkwoodLiftList,
+  parseKirkwoodTrailList,
+} from './resorts/kirkwood';
+import {
+  parseNorthstarSnow,
+  parseNorthstarLifts,
+  parseNorthstarTrails,
+  parseNorthstarLiftList,
+  parseNorthstarTrailList,
+} from './resorts/northstar';
+import {
+  parseHomewoodSnow,
+  parseHomewoodLifts,
+  parseHomewoodTrails,
+  parseHomewoodLiftList,
+  parseHomewoodTrailList,
+} from './resorts/homewood';
 import { parseDonnerSnow, parseDonnerLifts, parseDonnerTrails } from './resorts/donner';
 import { parseSugarSnow, parseSugarLifts, parseSugarTrails } from './resorts/sugar';
 import { parseMtRoseSnow, parseMtRoseLifts, parseMtRoseTrails } from './resorts/mtRose';
@@ -46,254 +70,286 @@ import { parseWeather } from './parseWeather';
 //currently using summit depth as 'BASE DEPTH'
 
 const resortsConfig = {
-  'sierra': [ // fnConfigs
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Twin_Bridges.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    { // fnConfig
-      url: 'https://www.sierraattahoe.com/weather-snow-report/',
-      fn: createHtmlParser('snow', parseSierraSnow),
-    },
-    { // fnConfig
-      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
-      fn: createHtmlParser('lifts', parseSierraLifts),
-    },
-    { // fnConfig
-      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
-      fn: createHtmlParser('trails', parseSierraTrails),
-    },
-    { // fnConfig
-      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
-      fn: createHtmlParser('liftList', parseSierraLiftList),
-    },
-    { // fnConfig
-      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
-      fn: createHtmlParser('trailList', parseSierraTrailList),
-    },
-  ],
-  'squaw': [
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Olympic_Valley.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    {
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
-      fn: createHtmlParser('snow', parseSquawSnow),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('lifts', parseSquawLifts),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trails', parseSquawTrails),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('liftList', parseSquawLiftList),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trailList', parseSquawTrailList),
-    },
-  ],
-  'alpine': [
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Olympic_Valley.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    {
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
-      fn: createHtmlParser('snow', parseAlpineSnow),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('lifts', parseAlpineLifts),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trails', parseAlpineTrails),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('liftList', parseAlpineLiftList),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trailList', parseAlpineTrailList),
-    },
-  ],
-  'diamond': [
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/NV/Incline_Village.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    {
-      url: 'http://www.diamondpeak.com/mountain/conditions',
-      fn: createHtmlParser('snow', parseDiamondSnow),
-    },
-    { // fnConfig
-      url: 'http://www.diamondpeak.com/mountain/conditions',
-      fn: createHtmlParser('lifts', parseDiamondLifts),
-    },
-    { // fnConfig
-      url: 'http://www.diamondpeak.com/mountain/conditions',
-      fn: createHtmlParser('trails', parseDiamondTrails),
-    },
-    { // fnConfig
-      url: 'http://www.diamondpeak.com/mountain/conditions',
-      fn: createHtmlParser('liftList', parseDiamondLiftList),
-    },
-    { // fnConfig
-      url: 'http://www.diamondpeak.com/mountain/conditions',
-      fn: createHtmlParser('trailList', parseDiamondTrailList),
-    },
-  ],
-  'heavenly': [
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/South_Lake_Tahoe.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    {
-      url: 'http://www.skiheavenly.com/the-mountain/snow-report/snow-report.aspx',
-      fn: createHtmlParser('snow', parseHeavenlySnow),
-    },
-    { // fnConfig
-      url: 'http://www.skiheavenly.com/the-mountain/terrain-and-lift-status.aspx',
-      fn: createHtmlParser('lifts', parseHeavenlyLifts),
-    },
-    { // fnConfig
-      url: 'http://www.skiheavenly.com/the-mountain/terrain-and-lift-status.aspx',
-      fn: createHtmlParser('trails', parseHeavenlyTrails),
-    },
-  ],
-  'kirkwood': [
-    { // fnConfig
-        url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Kirkwood.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    {
-      url: 'http://www.kirkwood.com/mountain/snow-and-weather-report.aspx',
-      fn: createHtmlParser('snow', parseKirkwoodSnow),
-    },
-    { // fnConfig
-      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
-      fn: createHtmlParser('lifts', parseKirkwoodLifts),
-    },
-    { // fnConfig
-      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
-      fn: createHtmlParser('trails', parseKirkwoodTrails),
-    },
-  ],
-  'northstar': [
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    {
-      url: 'http://www.northstarcalifornia.com/the-mountain/snow-weather-report.aspx',
-      fn: createHtmlParser('snow', parseNorthstarSnow),
-    },
-    { // fnConfig
-      url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
-      fn: createHtmlParser('lifts', parseNorthstarLifts),
-    },
-    { // fnConfig
-      url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
-      fn: createHtmlParser('trails', parseNorthstarTrails),
-    },
-  ],
-  'homewood': [
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Homewood.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    {
-      url: 'http://www.skihomewood.com/mountain/snow-report',
-      fn: createHtmlParser('snow', parseHomewoodSnow),
-    },
-    { // fnConfig
-      url: 'http://www.skihomewood.com/mountain/snow-report',
-      fn: createHtmlParser('lifts', parseHomewoodLifts),
-    },
-    { // fnConfig
-      url: 'http://www.skihomewood.com/mountain/snow-report',
-      fn: createHtmlParser('trails', parseHomewoodTrails),
-    },
-  ],
-  'sugar': [ // fnConfigs
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    { // fnConfig
-      url: 'http://www.sugarbowl.com/conditions',
-      fn: createHtmlParser('snow', parseSugarSnow),
-    },
-    { // fnConfig
-      url: 'http://www.sugarbowl.com/conditions',
-      fn: createHtmlParser('lifts', parseSugarLifts),
-    },
-    { // fnConfig
-      url: 'http://www.sugarbowl.com/conditions',
-      fn: createHtmlParser('trails', parseSugarTrails),
-    }
-  ],
-  'donner': [ // fnConfigs
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    { // fnConfig
-      url: 'https://www.donnerskiranch.com/snow-report/',
-      fn: createHtmlParser('snow', parseDonnerSnow),
-    },
-    { // fnConfig
-      url: 'https://www.donnerskiranch.com/snow-report/',
-      fn: createHtmlParser('lifts', parseDonnerLifts),
-    },
-    { // fnConfig
-      url: 'https://www.donnerskiranch.com/snow-report/',
-      fn: createHtmlParser('trails', parseDonnerTrails),
-    }
-  ],
-  'mtRose': [ // fnConfigs
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/NV/Reno.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    { // fnConfig
-      url: 'http://skirose.com/the-mountain/snow-report/',
-      fn: createHtmlParser('snow', parseMtRoseSnow),
-    },
-    { // fnConfig
-      url: 'http://skirose.com/the-mountain/snow-report/',
-      fn: createHtmlParser('lifts', parseMtRoseLifts),
-    },
-    { // fnConfig
-      url: 'http://skirose.com/the-mountain/snow-report/',
-      fn: createHtmlParser('trails', parseMtRoseTrails),
-    }
-  ],
-  'boreal': [ // fnConfigs
-    { // fnConfig
-      url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
-      fn: createJSONParser('weather', parseWeather),
-    },
-    { // fnConfig
-      url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
-      fn: createJSONParser('snow', parseBorealSnow),
-    },
-    { // fnConfig
-      url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
-      fn: createJSONParser('lifts', parseBorealLifts),
-    },
-    { // fnConfig
-      url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
-      fn: createJSONParser('trails', parseBorealTrails),
-    }
-  ],
+  // 'sierra': [ // fnConfigs
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Twin_Bridges.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   { // fnConfig
+  //     url: 'https://www.sierraattahoe.com/weather-snow-report/',
+  //     fn: createHtmlParser('snow', parseSierraSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
+  //     fn: createHtmlParser('lifts', parseSierraLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
+  //     fn: createHtmlParser('trails', parseSierraTrails),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://m.skiheavenly.com/desktop-grooming.html',
+  //     fn: createHtmlParser('liftList', parseSierraLiftList),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://m.skiheavenly.com/desktop-grooming.html',
+  //     fn: createHtmlParser('trailList', parseSierraTrailList),
+  //   },
+  // ],
+  // 'squaw': [
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Olympic_Valley.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   {
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
+  //     fn: createHtmlParser('snow', parseSquawSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+  //     fn: createHtmlParser('lifts', parseSquawLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+  //     fn: createHtmlParser('trails', parseSquawTrails),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+  //     fn: createHtmlParser('liftList', parseSquawLiftList),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+  //     fn: createHtmlParser('trailList', parseSquawTrailList),
+  //   },
+  // ],
+  // 'alpine': [
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Olympic_Valley.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   {
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
+  //     fn: createHtmlParser('snow', parseAlpineSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+  //     fn: createHtmlParser('lifts', parseAlpineLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+  //     fn: createHtmlParser('trails', parseAlpineTrails),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+  //     fn: createHtmlParser('liftList', parseAlpineLiftList),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+  //     fn: createHtmlParser('trailList', parseAlpineTrailList),
+  //   },
+  // ],
+  // 'diamond': [
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/NV/Incline_Village.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   {
+  //     url: 'http://www.diamondpeak.com/mountain/conditions',
+  //     fn: createHtmlParser('snow', parseDiamondSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.diamondpeak.com/mountain/conditions',
+  //     fn: createHtmlParser('lifts', parseDiamondLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.diamondpeak.com/mountain/conditions',
+  //     fn: createHtmlParser('trails', parseDiamondTrails),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.diamondpeak.com/mountain/conditions',
+  //     fn: createHtmlParser('liftList', parseDiamondLiftList),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.diamondpeak.com/mountain/conditions',
+  //     fn: createHtmlParser('trailList', parseDiamondTrailList),
+  //   },
+  // ],
+  // 'heavenly': [
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/South_Lake_Tahoe.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   {
+  //     url: 'http://www.skiheavenly.com/the-mountain/snow-report/snow-report.aspx',
+  //     fn: createHtmlParser('snow', parseHeavenlySnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.skiheavenly.com/the-mountain/terrain-and-lift-status.aspx',
+  //     fn: createHtmlParser('lifts', parseHeavenlyLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.skiheavenly.com/the-mountain/terrain-and-lift-status.aspx',
+  //     fn: createHtmlParser('trails', parseHeavenlyTrails),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
+  //     fn: createHtmlParser('liftList', parseHeavenlyLiftList),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
+  //     fn: createHtmlParser('trailList', parseHeavenlyTrailList),
+  //   },
+  // ],
+  // 'kirkwood': [
+  //   { // fnConfig
+  //       url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Kirkwood.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   {
+  //     url: 'http://www.kirkwood.com/mountain/snow-and-weather-report.aspx',
+  //     fn: createHtmlParser('snow', parseKirkwoodSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+  //     fn: createHtmlParser('lifts', parseKirkwoodLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+  //     fn: createHtmlParser('trails', parseKirkwoodTrails),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+  //     fn: createHtmlParser('liftList', parseKirkwoodLiftList),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+  //     fn: createHtmlParser('trailList', parseKirkwoodTrailList),
+  //   },
+  // ],
+  // 'northstar': [
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   {
+  //     url: 'http://www.northstarcalifornia.com/the-mountain/snow-weather-report.aspx',
+  //     fn: createHtmlParser('snow', parseNorthstarSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+  //     fn: createHtmlParser('lifts', parseNorthstarLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+  //     fn: createHtmlParser('trails', parseNorthstarTrails),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+  //     fn: createHtmlParser('liftList', parseNorthstarLiftList),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+  //     fn: createHtmlParser('trailList', parseNorthstarTrailList),
+  //   },
+  // ],
+  // 'homewood': [
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Homewood.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   {
+  //     url: 'http://www.skihomewood.com/mountain/snow-report',
+  //     fn: createHtmlParser('snow', parseHomewoodSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.skihomewood.com/mountain/snow-report',
+  //     fn: createHtmlParser('lifts', parseHomewoodLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.skihomewood.com/mountain/snow-report',
+  //     fn: createHtmlParser('trails', parseHomewoodTrails),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.skihomewood.com/mountain/snow-report',
+  //     fn: createHtmlParser('liftList', parseHomewoodLiftList),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.skihomewood.com/mountain/snow-report',
+  //     fn: createHtmlParser('trailList', parseHomewoodTrailList),
+  //   },
+  // ],
+  // 'sugar': [ // fnConfigs
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.sugarbowl.com/conditions',
+  //     fn: createHtmlParser('snow', parseSugarSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.sugarbowl.com/conditions',
+  //     fn: createHtmlParser('lifts', parseSugarLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://www.sugarbowl.com/conditions',
+  //     fn: createHtmlParser('trails', parseSugarTrails),
+  //   }
+  // ],
+  // 'donner': [ // fnConfigs
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   { // fnConfig
+  //     url: 'https://www.donnerskiranch.com/snow-report/',
+  //     fn: createHtmlParser('snow', parseDonnerSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'https://www.donnerskiranch.com/snow-report/',
+  //     fn: createHtmlParser('lifts', parseDonnerLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'https://www.donnerskiranch.com/snow-report/',
+  //     fn: createHtmlParser('trails', parseDonnerTrails),
+  //   }
+  // ],
+  // 'mtRose': [ // fnConfigs
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/NV/Reno.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://skirose.com/the-mountain/snow-report/',
+  //     fn: createHtmlParser('snow', parseMtRoseSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://skirose.com/the-mountain/snow-report/',
+  //     fn: createHtmlParser('lifts', parseMtRoseLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://skirose.com/the-mountain/snow-report/',
+  //     fn: createHtmlParser('trails', parseMtRoseTrails),
+  //   }
+  // ],
+  // 'boreal': [ // fnConfigs
+  //   { // fnConfig
+  //     url: 'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+  //     fn: createJSONParser('weather', parseWeather),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
+  //     fn: createJSONParser('snow', parseBorealSnow),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
+  //     fn: createJSONParser('lifts', parseBorealLifts),
+  //   },
+  //   { // fnConfig
+  //     url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
+  //     fn: createJSONParser('trails', parseBorealTrails),
+  //   }
+  // ],
 };
 
 const RESPONSE_BODY_CACHE = {

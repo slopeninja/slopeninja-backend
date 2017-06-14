@@ -4,6 +4,10 @@ import {
   degreeOrNull,
   inchOrNull,
   resortStatusOrNull,
+  weatherStatusOrNull,
+  liftTrailStatusOrNull,
+  notEmptyStringOrNull,
+  trailLevelOrNull,
 } from '../util';
 
 const initialSnow = {
@@ -55,4 +59,55 @@ export const parseHeavenlyTrails = async ($) => {
   return {
     ...initialTrails,
   };
+}
+
+export const parseHeavenlyLiftList = async ($) => {
+  const list = [];
+  $('.liftContainer').map((index, rowElement) => {
+    const liftType = $(rowElement).find('span').text();
+    const statusImg = $(rowElement).find('img');
+
+    const name = notEmptyStringOrNull($(rowElement).text().replace(liftType, ''));
+    const status = liftTrailStatusOrNull($(statusImg).attr('src'));
+    const category = null;
+
+    const lift = {
+      name,
+      status,
+      category,
+    };
+
+    list.push(lift)
+  });
+
+ return list;
+}
+
+export const parseHeavenlyTrailList = async ($) => {
+  const list = [];
+
+  $('.groomingAreaRunContainer .runContainer').map((index, rowElement) => {
+    const columnElements = $(rowElement).find('div');
+    const statusElements = $(columnElements[2]).find('img');
+    const categoryElements = $(columnElements[0]).find('img');
+
+    const parentElement = rowElement.parent;
+    const categoryElement = $(parentElement).prev();
+
+    const name = notEmptyStringOrNull($(rowElement).text());
+    const status = liftTrailStatusOrNull($(statusElements).attr('src'));
+    const level = trailLevelOrNull($(categoryElements).attr('src'));
+    const category = notEmptyStringOrNull($(categoryElement).text().trim());
+
+    const trail = {
+      name,
+      status,
+      category,
+      level,
+    };
+
+    list.push(trail)
+  });
+
+ return list;
 }

@@ -1,9 +1,9 @@
 const DEGREE_SYMBOLS = ['°', 'deg', 'degree', 'degrees'];
 const INCH_SYMBOLS = ['"', '”', 'in', 'inch', 'inches'];
-const RESORT_STATUS = ['open', 'closed'];
-const LIFT_TRAIL_STATUS = ['open', 'opened', 'yes','closed', 'close', 'no', 'scheduled','pending', 'on hold'];
+const RESORT_STATUS = ['open', 'opened', 'yes', 'close', 'closed', 'no'];
+const LIFT_TRAIL_STATUS = ['groomed', 'g','open', 'opened', 'yes', 'o', '1', 'closed', 'close', 'no', 'c', '0', 'scheduled','pending', 'on hold'];
 const WEATHER_STATUS = ['sunny', 'clear', 'snow', 'rain', 'cloudy', 'hunderstorm'];
-const TRAIL_LEVEL_SYMBOLS = ['green', 'beginner', 'easier', 'circle', 'blue', 'intermediate', 'square', 'black', 'advanced', 'difficult', 'diamond'];
+const TRAIL_LEVEL_SYMBOLS = ['green', 'beginner', 'easier', 'easiest', 'circle', '1', 'blue', 'intermediate', 'moreDifficult', 'square', '2', 'black', 'advanced', 'difficult', 'diamond', '3', 'expert', 'double', '4'];
 
 export const isNumber = (value) => {
   return Number.isInteger(value);
@@ -14,9 +14,10 @@ export const parseTrailLevel = (string) => {
     return null;
   }
   const level = TRAIL_LEVEL_SYMBOLS.find((level) => string.includes(level));
-  const BEGINNER_LEVEL = ['green', 'beginner', 'easier', 'circle'];
-  const IMTERNEDIATE_LEVEL = ['blue', 'intermediate', 'square'];
-  const ADVANCED_LEVEL = ['black', 'advanced', 'difficult', 'diamond'];
+  const BEGINNER_LEVEL = ['green', 'beginner', 'easier', 'easiest', 'circle', '1'];
+  const IMTERNEDIATE_LEVEL = ['blue', 'intermediate', 'square', 'more', '2'];
+  const ADVANCED_LEVEL = ['black', 'advanced', 'most', 'diamond', '3'];
+  const EXPERT_LEVEL = ['expert', 'double', '4'];
 
   if (level) {
     let parsedLevel;
@@ -29,6 +30,9 @@ export const parseTrailLevel = (string) => {
     if (ADVANCED_LEVEL.find((level) => string.includes(level))) {
       parsedLevel = 'advanced';
     }
+    if (EXPERT_LEVEL.find((level) => string.includes(level))) {
+      parsedLevel = 'expert';
+    }
     return parsedLevel;
   }
 }
@@ -38,8 +42,8 @@ export const parseLiftTrailStatus = (string) => {
     return null;
   }
   const status = LIFT_TRAIL_STATUS.find((status) => string.includes(status));
-  const OPEN_STATUS = ['open', 'opened', 'yes'];
-  const CLOSED_STATUS = ['close', 'closed', 'no'];
+  const OPEN_STATUS = ['open', 'opened', 'yes', 'o', 'groomed', 'g', '1'];
+  const CLOSED_STATUS = ['close', 'closed', 'no', 'c', '0'];
   const ON_HOLD_STATUS = ['pending', 'scheduled', 'on hold'];
 
   if (status) {
@@ -61,8 +65,18 @@ export const parseResortStatus = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
-  const status = RESORT_STATUS.find((status) => string.includes(status));
-  return status;
+  const OPEN_STATUS = ['open', 'opened', 'yes'];
+  const CLOSED_STATUS = ['close', 'closed', 'no'];
+  if (status) {
+    let parsedStatus;
+    if (OPEN_STATUS.find((status) => string.includes(status))) {
+      parsedStatus = 'open';
+    }
+    if (CLOSED_STATUS.find((status) => string.includes(status))) {
+      parsedStatus = 'closed';
+    }
+    return parsedStatus;
+  }
 }
 
 export const parseWeatherStatus = (string) => {
@@ -107,6 +121,9 @@ export const parseInchNumber = (value) => {
 }
 
 export const trailLevelOrNull = (string) => {
+  if (!string || typeof string !== 'string') {
+    return null;
+  }
   const lowerCaseString = string.toLocaleLowerCase();
   const status = parseTrailLevel(lowerCaseString);
   if (status) {
@@ -116,6 +133,9 @@ export const trailLevelOrNull = (string) => {
 }
 
 export const liftTrailStatusOrNull = (string) => {
+  if (!string || typeof string !== 'string') {
+    return null;
+  }
   const lowerCaseString = string.toLocaleLowerCase();
   const status = parseLiftTrailStatus(lowerCaseString);
   if (status) {
@@ -124,9 +144,10 @@ export const liftTrailStatusOrNull = (string) => {
   return null;
 }
 
-
-
 export const resortStatusOrNull = (string) => {
+  if (!string || typeof string !== 'string') {
+    return null;
+  }
   const lowerCaseString = string.toLocaleLowerCase();
   const status = parseResortStatus(lowerCaseString);
   if (status) {
@@ -135,6 +156,9 @@ export const resortStatusOrNull = (string) => {
   return null;
 }
 export const weatherStatusOrNull = (string) => {
+  if (!string || typeof string !== 'string') {
+    return null;
+  }
   const lowerCaseString = string.toLocaleLowerCase();
   const status = parseWeatherStatus(lowerCaseString);
   if (status) {
@@ -172,3 +196,12 @@ export const numberOrNull = (value) => {
 
   return null;
 };
+
+export const removeNumberInFrontOfName = (string) => {
+  if (!string || typeof string !== 'string') {
+    return null;
+  }
+  const splitedStringArr = string.split(' ');
+  const constructedString = splitedStringArr.slice(1).join(' ');
+  return constructedString;
+}

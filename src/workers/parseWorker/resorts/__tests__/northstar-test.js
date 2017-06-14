@@ -1,5 +1,11 @@
 import fs from 'fs';
-import { parseNorthstarSnow, parseNorthstarLifts, parseNorthstarTrails } from '../northstar';
+import {
+  parseNorthstarSnow,
+  parseNorthstarLifts,
+  parseNorthstarLiftList,
+  parseNorthstarTrailList,
+  parseNorthstarTrails
+} from '../northstar';
 import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches Northstar snow data correctly', async () => {
@@ -74,4 +80,26 @@ test('fetches all null for nonexisting trails values', async () => {
       open: null,
     }
   });
+});
+
+test('fetches Northstar lift list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html`);
+  const resortData = await createHtmlParser('liftList', parseNorthstarLiftList)(htmlText);
+  expect(resortData).toMatchSnapshot();
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('liftList', parseNorthstarLiftList)('<html></html>');
+  expect(resortData).toMatchObject({ liftList: [] });
+});
+
+test('fetches Northstar trail list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html`);
+  const resortData = await createHtmlParser('trailList', parseNorthstarTrailList)(htmlText);
+  expect(resortData).toMatchSnapshot();
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('trailList', parseNorthstarTrailList)('<html></html>');
+  expect(resortData).toMatchObject({ trailList: [] });
 });

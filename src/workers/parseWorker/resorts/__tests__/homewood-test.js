@@ -1,5 +1,11 @@
 import fs from 'fs';
-import { parseHomewoodSnow, parseHomewoodLifts, parseHomewoodTrails} from '../homewood';
+import {
+  parseHomewoodSnow,
+  parseHomewoodLifts,
+  parseHomewoodLiftList,
+  parseHomewoodTrailList,
+  parseHomewoodTrails
+} from '../homewood';
 import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches Homewood snow data correctly', async () => {
@@ -74,4 +80,26 @@ test('fetches all null for nonexisting trails values', async () => {
       open: null,
     }
   });
+});
+
+test('fetches Homewood lift list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html`);
+  const resortData = await createHtmlParser('liftList', parseHomewoodLiftList)(htmlText);
+  expect(resortData).toMatchObject({ liftList: [] });
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('liftList', parseHomewoodLiftList)('<html></html>');
+  expect(resortData).toMatchObject({ liftList: [] });
+});
+
+test('fetches Homewood trail list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html`);
+  const resortData = await createHtmlParser('trailList', parseHomewoodTrailList)(htmlText);
+  expect(resortData).toMatchObject({ trailList: [] });
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('trailList', parseHomewoodTrailList)('<html></html>');
+  expect(resortData).toMatchObject({ trailList: [] });
 });

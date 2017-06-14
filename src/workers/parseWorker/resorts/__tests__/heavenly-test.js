@@ -1,6 +1,12 @@
 import fs from 'fs';
-import { parseHeavenlySnow, parseHeavenlyLifts, parseHeavenlyTrails } from '../heavenly';
-import { createHtmlParser, createJSONParser } from '../../parserFactory';
+import {
+  parseHeavenlySnow,
+  parseHeavenlyLifts,
+  parseHeavenlyLiftList,
+  parseHeavenlyTrailList,
+  parseHeavenlyTrails
+} from '../heavenly';
+import { createHtmlParser, removeBackSlashes } from '../../parserFactory';
 
 test('fetches Heavenly snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-weather.html`);
@@ -74,4 +80,42 @@ test('fetches all null for nonexisting trails values', async () => {
       open: null,
     }
   });
+});
+
+test('fetches Heavenly lift list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-lifts.html`);
+  const resortData = await createHtmlParser(
+    'liftList',
+    parseHeavenlyLiftList,
+    removeBackSlashes,
+  )(htmlText);
+  expect(resortData).toMatchSnapshot();
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser(
+    'liftList',
+    parseHeavenlyLiftList,
+    removeBackSlashes,
+  )('<html></html>');
+  expect(resortData).toMatchObject({ liftList: [] });
+});
+
+test('fetches Heavenly trail list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-lifts.html`);
+  const resortData = await createHtmlParser(
+    'trailList',
+    parseHeavenlyTrailList,
+    removeBackSlashes,
+  )(htmlText);
+  expect(resortData).toMatchSnapshot();
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser(
+    'trailList',
+    parseHeavenlyTrailList,
+    removeBackSlashes,
+  )('<html></html>');
+  expect(resortData).toMatchObject({ trailList: [] });
 });

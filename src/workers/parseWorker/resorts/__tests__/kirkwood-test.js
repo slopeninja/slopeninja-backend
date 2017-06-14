@@ -1,6 +1,12 @@
 import fs from 'fs';
-import { parseKirkwoodSnow, parseKirkwoodLifts, parseKirkwoodTrails } from '../kirkwood';
-import { createHtmlParser, createJSONParser } from '../../parserFactory';
+import {
+  parseKirkwoodSnow,
+  parseKirkwoodLifts,
+  parseKirkwoodLiftList,
+  parseKirkwoodTrailList,
+  parseKirkwoodTrails
+} from '../kirkwood';
+import { createHtmlParser } from '../../parserFactory';
 
 test('fetches Kirkwood snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-weather.html`);
@@ -74,4 +80,26 @@ test('fetches all null for nonexisting trails values', async () => {
       open: null,
     }
   });
+});
+
+test('fetches Kirkwood lift list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html`);
+  const resortData = await createHtmlParser('liftList', parseKirkwoodLiftList)(htmlText);
+  expect(resortData).toMatchSnapshot();
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('liftList', parseKirkwoodLiftList)('<html></html>');
+  expect(resortData).toMatchObject({ liftList: [] });
+});
+
+test('fetches Kirkwood trail list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html`);
+  const resortData = await createHtmlParser('trailList', parseKirkwoodTrailList)(htmlText);
+  expect(resortData).toMatchSnapshot();
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('trailList', parseKirkwoodTrailList)('<html></html>');
+  expect(resortData).toMatchObject({ trailList: [] });
 });
