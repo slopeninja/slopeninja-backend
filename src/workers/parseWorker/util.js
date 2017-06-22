@@ -1,9 +1,25 @@
 const DEGREE_SYMBOLS = ['°', 'deg', 'degree', 'degrees'];
 const INCH_SYMBOLS = ['"', '”', 'in', 'inch', 'inches'];
 const RESORT_STATUS = ['open', 'opened', 'yes', 'close', 'closed', 'no'];
-const LIFT_TRAIL_STATUS = ['groomed', 'g','open', 'opened', 'yes', 'o', '1', 'closed', 'close', 'no', 'c', '0', 'scheduled','pending', 'on hold'];
-const WEATHER_STATUS = ['sunny', 'clear', 'snow', 'rain', 'cloudy', 'hunderstorm'];
-const TRAIL_LEVEL_SYMBOLS = ['green', 'beginner', 'easier', 'easiest', 'circle', '1', 'blue', 'intermediate', 'moreDifficult', 'square', '2', 'black', 'advanced', 'difficult', 'diamond', '3', 'expert', 'double', '4'];
+
+
+const OPEN_STATUS = ['open', 'opened', 'yes', 'groomed', 'status_1', 'o' , 'g'];
+const CLOSED_STATUS = ['close', 'closed', 'no', 'status_0', 'c'];
+const ON_HOLD_STATUS = ['pending', 'scheduled', 'on hold'];
+
+const WEATHER_STATUS = ['sunny', 'clear', 'snow', 'rain', 'cloudy', 'thunderstorm'];
+
+const BEGINNER_LEVEL = ['green', 'beginner', 'easier', 'easiest', 'circle', 'type_1'];
+const IMTERNEDIATE_LEVEL = ['blue', 'intermediate', 'square', 'moredifficult', 'type_2'];
+const ADVANCED_LEVEL = [
+  'black',
+  'advanced',
+  'difficult',
+  'mostdifficult',
+  'diamond',
+  'type_3',
+];
+const EXPERT_LEVEL = ['expert', 'double', 'type_4'];
 
 export const isNumber = (value) => {
   return Number.isInteger(value);
@@ -13,62 +29,60 @@ export const parseTrailLevel = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
-  const level = TRAIL_LEVEL_SYMBOLS.find((level) => string.includes(level));
-  const BEGINNER_LEVEL = ['green', 'beginner', 'easier', 'easiest', 'circle', '1'];
-  const IMTERNEDIATE_LEVEL = ['blue', 'intermediate', 'square', 'more', '2'];
-  const ADVANCED_LEVEL = ['black', 'advanced', 'most', 'diamond', '3'];
-  const EXPERT_LEVEL = ['expert', 'double', '4'];
 
-  if (level) {
-    let parsedLevel;
-    if (BEGINNER_LEVEL.find((level) => string.includes(level))) {
-      parsedLevel = 'begineer';
-    }
-    if (IMTERNEDIATE_LEVEL.find((level) => string.includes(level))) {
-      parsedLevel = 'intermediate';
-    }
-    if (ADVANCED_LEVEL.find((level) => string.includes(level))) {
-      parsedLevel = 'advanced';
-    }
-    if (EXPERT_LEVEL.find((level) => string.includes(level))) {
-      parsedLevel = 'expert';
-    }
-    return parsedLevel;
+  if (BEGINNER_LEVEL.find((level) => string.includes(level))) {
+    return 'beginner';
   }
+  else if (IMTERNEDIATE_LEVEL.find((level) => string.includes(level))) {
+    return 'intermediate';
+  }
+  else if (EXPERT_LEVEL.find((level) => string.includes(level))) {
+    return 'expert';
+  }
+  else if (ADVANCED_LEVEL.find((level) => string.includes(level))) {
+    return 'advanced';
+  }
+
+  return null;
 }
 
 export const parseLiftTrailStatus = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
-  const status = LIFT_TRAIL_STATUS.find((status) => string.includes(status));
-  const OPEN_STATUS = ['open', 'opened', 'yes', 'o', 'groomed', 'g', '1'];
-  const CLOSED_STATUS = ['close', 'closed', 'no', 'c', '0'];
-  const ON_HOLD_STATUS = ['pending', 'scheduled', 'on hold'];
 
-  if (status) {
-    let parsedStatus;
-    if (OPEN_STATUS.find((status) => string.includes(status))) {
-      parsedStatus = 'open';
+  const matchStatus = status => {
+    // make sure single character statueses don't match
+    // pretty much any status that includes that char
+    if(status.length === 1) {
+      return string === status;
     }
-    if (CLOSED_STATUS.find((status) => string.includes(status))) {
-      parsedStatus = 'closed';
-    }
-    if (ON_HOLD_STATUS.find((status) => string.includes(status))) {
-      parsedStatus = 'on hold';
-    }
-    return parsedStatus;
+
+    return string.includes(status);
+  };
+
+  if (OPEN_STATUS.find(matchStatus)) {
+    return 'open';
   }
+  if (CLOSED_STATUS.find(matchStatus)) {
+    return 'closed';
+  }
+  if (ON_HOLD_STATUS.find(matchStatus)) {
+    return 'on hold';
+  }
+
+  return null;
 }
 
 export const parseResortStatus = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
+  const status = RESORT_STATUS.find((status) => string.includes(status));
   const OPEN_STATUS = ['open', 'opened', 'yes'];
   const CLOSED_STATUS = ['close', 'closed', 'no'];
   if (status) {
-    let parsedStatus;
+    let parsedStatus = null;
     if (OPEN_STATUS.find((status) => string.includes(status))) {
       parsedStatus = 'open';
     }
@@ -77,13 +91,13 @@ export const parseResortStatus = (string) => {
     }
     return parsedStatus;
   }
+  return null;
 }
 
 export const parseWeatherStatus = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
-
   let status = WEATHER_STATUS.find(status => string.includes(status));
   return status;
 }
@@ -183,6 +197,9 @@ export const inchOrNull = (value) => {
 };
 
 export const notEmptyStringOrNull = (string) => {
+  if (!string || typeof string !== 'string') {
+    return null;
+  }
   if (string && string.trim().length) {
     return string;
   }
@@ -204,4 +221,16 @@ export const removeNumberInFrontOfName = (string) => {
   const splitedStringArr = string.split(' ');
   const constructedString = splitedStringArr.slice(1).join(' ');
   return constructedString;
+}
+
+export const boralLiftTrailStatusOrNull = (string) => {
+  if (!string || typeof string !== 'string') {
+    return null;
+  }
+  const lift_status = {
+    0: 'closed',
+    1: 'open'
+  }
+
+  return lift_status[string] || null;
 }

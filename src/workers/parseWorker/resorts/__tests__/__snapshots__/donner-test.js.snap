@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetches Donner lift list correctly 1`] = `
+Object {
+  "liftList": Array [
+    Object {
+      "category": null,
+      "name": "Chair 1",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Chair 2",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Chair 3",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Chair 4",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Chair 5",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Chair 6",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Ski Moving Carpet",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Tubing Hill",
+      "status": "closed",
+    },
+  ],
+}
+`;

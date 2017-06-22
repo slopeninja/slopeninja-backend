@@ -100,8 +100,6 @@ export const parseAlpineLiftList = async ($) => {
 export const parseAlpineTrailList = async ($) => {
   const list = [];
 
-  //FIXME remove food and beverges from trail list
-
   $('#alpine-report .runs .trail').map((index, rowElement) => {
     const columnElements = $(rowElement).find('.cell');
     const nameElement = columnElements[0];
@@ -117,6 +115,10 @@ export const parseAlpineTrailList = async ($) => {
     const name = notEmptyStringOrNull($(nameElement).text().trim());
     const level = trailLevelOrNull($(levelElement).text().trim());
     const category = notEmptyStringOrNull($(subheaderCategory).text().trim());
+
+    if (!level) {
+      return;
+    }
 
     const trail = {
       name,

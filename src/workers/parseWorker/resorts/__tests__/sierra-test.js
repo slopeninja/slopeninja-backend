@@ -9,7 +9,7 @@ import {
 import { createHtmlParser } from '../../parserFactory';
 
 test('fetches Sierra snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-weather.html.input`);
 
   const resortData = await createHtmlParser('snow', parseSierraSnow)(htmlText);
   expect(resortData).toEqual({
@@ -41,7 +41,7 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Sierra lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html.input`);
   const resortData = await createHtmlParser('lifts', parseSierraLifts)(htmlText);
   expect(resortData).toEqual({
     lifts: {
@@ -62,7 +62,7 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Sierra lift list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html.input`);
   const resortData = await createHtmlParser('liftList', parseSierraLiftList)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
@@ -73,7 +73,7 @@ test('fetches all null for nonexisting lift list values', async () => {
 });
 
 test('fetches Sierra trail list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html.input`);
   const resortData = await createHtmlParser('trailList', parseSierraTrailList)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
@@ -84,7 +84,7 @@ test('fetches all null for nonexisting lift list values', async () => {
 });
 
 test('fetches Sierra trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html.input`);
   const resortData = await createHtmlParser('trails', parseSierraTrails)(htmlText);
   expect(resortData).toEqual({
     trails: {

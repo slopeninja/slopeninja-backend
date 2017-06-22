@@ -6,6 +6,9 @@ import {
   resortStatusOrNull,
   numberOrNull,
   weatherStatusOrNull,
+  boralLiftTrailStatusOrNull,
+  notEmptyStringOrNull,
+  trailLevelOrNull,
 } from '../util';
 
 const initialSnow = {
@@ -83,4 +86,46 @@ export const parseBorealTrails = async (data) => {
     total: numberOrNull(totalTrails),
     open: numberOrNull(openTrails),
   }
+}
+
+export const parseBorealLiftList = async (data) => {
+  if (!data.level_3) {
+    return [];
+  }
+  const list = [];
+
+  data.level_3.field_dynamic_content.items.map(liftItem => {
+    const name = liftItem.title;
+    const status = boralLiftTrailStatusOrNull(liftItem.field_lift_open);
+    const category = notEmptyStringOrNull(liftItem.field_area);
+    const lift = {
+      name,
+      status,
+      category,
+    };
+    list.push(lift)
+  })
+ return list;
+}
+
+export const parseBorealTrailList = async (data) => {
+  if (!data.level_3) {
+    return [];
+  }
+  const list = [];
+
+  data.level_3.field_dynamic_content.items.map(trailItem => {
+    const name = trailItem.title;
+    const status = boralLiftTrailStatusOrNull(trailItem.field_trail_open);
+    const category = notEmptyStringOrNull(trailItem.field_area);
+    const level = trailLevelOrNull(trailItem.field_participant_level)
+    const trail = {
+      name,
+      status,
+      category,
+      level,
+    };
+    list.push(trail)
+  })
+ return list;
 }

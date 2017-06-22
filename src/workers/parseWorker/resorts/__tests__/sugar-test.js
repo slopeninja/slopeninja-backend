@@ -1,9 +1,15 @@
 import fs from 'fs';
-import { parseSugarSnow, parseSugarLifts, parseSugarTrails } from '../sugar';
+import {
+  parseSugarSnow,
+  parseSugarLifts,
+  parseSugarTrails,
+  parseSugarLiftList,
+  parseSugarTrailList,
+ } from '../sugar';
 import { createHtmlParser } from '../../parserFactory';
 
 test('fetches Sugar snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sugar-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sugar-weather.html.input`);
 
   const resortData = await createHtmlParser('snow', parseSugarSnow)(htmlText);
   expect(resortData).toEqual({
@@ -35,7 +41,7 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Sugar lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sugar-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sugar-weather.html.input`);
   const resortData = await createHtmlParser('lifts', parseSugarLifts)(htmlText);
   expect(resortData).toEqual({
     lifts: {
@@ -56,7 +62,7 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Sugar trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sierra-lifts.html.input`);
   const resortData = await createHtmlParser('trails', parseSugarTrails)(htmlText);
   expect(resortData).toEqual({
     trails: {
@@ -74,4 +80,25 @@ test('fetches all null for nonexisting trails values', async () => {
       open: null,
     }
   });
+});
+test('fetches Sugar lift list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sugar-weather.html.input`);
+  const resortData = await createHtmlParser('liftList', parseSugarLiftList)(htmlText);
+  expect(resortData).toMatchSnapshot();
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('liftList', parseSugarLiftList)('<html></html>');
+  expect(resortData).toMatchObject({ liftList: [] });
+});
+
+test('fetches Sugar trail list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/sugar-weather.html.input`);
+  const resortData = await createHtmlParser('trailList', parseSugarTrailList)(htmlText);
+  expect(resortData).toMatchSnapshot();
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('trailList', parseSugarTrailList)('<html></html>');
+  expect(resortData).toMatchObject({ trailList: [] });
 });

@@ -9,7 +9,7 @@ import {
 import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches Northstar snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-weather.html.input`);
 
   const resortData = await createHtmlParser('snow', parseNorthstarSnow)(htmlText);
   expect(resortData).toEqual({
@@ -41,7 +41,7 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Northstar lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html.input`);
   const resortData = await createHtmlParser('lifts', parseNorthstarLifts)(htmlText);
   expect(resortData).toEqual({
     lifts: {
@@ -62,7 +62,7 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Northstar trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html.input`);
   const resortData = await createHtmlParser('trails', parseNorthstarTrails)(htmlText);
   expect(resortData).toEqual({
     trails: {
@@ -83,7 +83,7 @@ test('fetches all null for nonexisting trails values', async () => {
 });
 
 test('fetches Northstar lift list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html.input`);
   const resortData = await createHtmlParser('liftList', parseNorthstarLiftList)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
@@ -94,7 +94,7 @@ test('fetches all null for nonexisting lift list values', async () => {
 });
 
 test('fetches Northstar trail list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/northstar-lifts.html.input`);
   const resortData = await createHtmlParser('trailList', parseNorthstarTrailList)(htmlText);
   expect(resortData).toMatchSnapshot();
 });

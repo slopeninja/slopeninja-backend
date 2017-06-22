@@ -1,9 +1,15 @@
 import fs from 'fs';
-import { parseMtRoseSnow, parseMtRoseLifts, parseMtRoseTrails } from '../mtRose';
+import {
+  parseMtRoseSnow,
+  parseMtRoseLifts,
+  parseMtRoseTrails,
+  parseMtRoseLiftList,
+  parseMtRoseTrailList,
+} from '../mtRose';
 import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches MtRose snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html.input`);
 
   const resortData = await createHtmlParser('snow', parseMtRoseSnow)(htmlText);
   expect(resortData).toEqual({
@@ -35,7 +41,7 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches MtRose lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html.input`);
   const resortData = await createHtmlParser('lifts', parseMtRoseLifts)(htmlText);
   expect(resortData).toEqual({
     lifts: {
@@ -56,7 +62,7 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches MtRose trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html.input`);
   const resortData = await createHtmlParser('trails', parseMtRoseTrails)(htmlText);
   expect(resortData).toEqual({
     trails: {
@@ -74,4 +80,26 @@ test('fetches all null for nonexisting trails values', async () => {
       open: null,
     }
   });
+});
+
+test('fetches MtRose lift list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html.input`);
+  const resortData = await createHtmlParser('liftList', parseMtRoseLiftList)(htmlText);
+  expect(resortData).toMatchSnapshot();
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('liftList', parseMtRoseLiftList)('<html></html>');
+  expect(resortData).toMatchObject({ liftList: [] });
+});
+
+test('fetches MtRose trail list correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/mtRose-weather.html.input`);
+  const resortData = await createHtmlParser('trailList', parseMtRoseTrailList)(htmlText);
+  expect(resortData).toMatchObject({ trailList: [] });
+});
+
+test('fetches all null for nonexisting lift list values', async () => {
+  const resortData = await createHtmlParser('trailList', parseMtRoseTrailList)('<html></html>');
+  expect(resortData).toMatchObject({ trailList: [] });
 });

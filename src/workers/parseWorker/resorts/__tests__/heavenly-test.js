@@ -9,7 +9,7 @@ import {
 import { createHtmlParser, removeBackSlashes } from '../../parserFactory';
 
 test('fetches Heavenly snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-weather.html.input`);
 
   const resortData = await createHtmlParser('snow', parseHeavenlySnow)(htmlText);
   expect(resortData).toEqual({
@@ -41,7 +41,7 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Heavenly lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-weather.html.input`);
   const resortData = await createHtmlParser('lifts', parseHeavenlyLifts)(htmlText);
   expect(resortData).toEqual({
     lifts: {
@@ -62,7 +62,7 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Heavenly trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-weather.html.input`);
   const resortData = await createHtmlParser('trails', parseHeavenlyTrails)(htmlText);
   expect(resortData).toEqual({
     trails: {
@@ -83,7 +83,7 @@ test('fetches all null for nonexisting trails values', async () => {
 });
 
 test('fetches Heavenly lift list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-lifts.html.input`);
   const resortData = await createHtmlParser(
     'liftList',
     parseHeavenlyLiftList,
@@ -102,7 +102,7 @@ test('fetches all null for nonexisting lift list values', async () => {
 });
 
 test('fetches Heavenly trail list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/heavenly-lifts.html.input`);
   const resortData = await createHtmlParser(
     'trailList',
     parseHeavenlyTrailList,

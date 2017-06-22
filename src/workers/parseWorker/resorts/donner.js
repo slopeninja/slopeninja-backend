@@ -3,6 +3,11 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
+  numberOrNull,
+  weatherStatusOrNull,
+  liftTrailStatusOrNull,
+  notEmptyStringOrNull,
+  trailLevelOrNull,
 } from '../util';
 
 const initialWeather = {
@@ -51,4 +56,35 @@ export const parseDonnerTrails = async ($) => {
   return {
     ...initialTrails,
   };
+}
+
+export const parseDonnerLiftList = async ($) => {
+  const list = [];
+
+  $('.sqs-block-content p').slice(4, 12).map((index, rowElement) => {
+    const rowText = $(rowElement).text().trim();
+    const nameText = rowText.split(':')[0];
+    const statusText = rowText.split(':')[1];
+
+    const name = notEmptyStringOrNull(nameText);
+    const status = liftTrailStatusOrNull(statusText);
+    const category = null;
+
+    const lift = {
+      name,
+      status,
+      category,
+    };
+
+    list.push(lift)
+
+
+  });
+ return list;
+}
+
+export const parseDonnerTrailList = async ($) => {
+  const list = [];
+
+ return list;
 }

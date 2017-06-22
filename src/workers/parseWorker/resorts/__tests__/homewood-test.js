@@ -9,7 +9,7 @@ import {
 import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
 test('fetches Homewood snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html.input`);
 
   const resortData = await createHtmlParser('snow', parseHomewoodSnow)(htmlText);
   expect(resortData).toEqual({
@@ -41,7 +41,7 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Homewood lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html.input`);
   const resortData = await createHtmlParser('lifts', parseHomewoodLifts)(htmlText);
   expect(resortData).toEqual({
     lifts: {
@@ -62,7 +62,7 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Homewood trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html.input`);
   const resortData = await createHtmlParser('trails', parseHomewoodTrails)(htmlText);
   expect(resortData).toEqual({
     trails: {
@@ -83,9 +83,9 @@ test('fetches all null for nonexisting trails values', async () => {
 });
 
 test('fetches Homewood lift list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html.input`);
   const resortData = await createHtmlParser('liftList', parseHomewoodLiftList)(htmlText);
-  expect(resortData).toMatchObject({ liftList: [] });
+  expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
@@ -94,9 +94,9 @@ test('fetches all null for nonexisting lift list values', async () => {
 });
 
 test('fetches Homewood trail list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/homewood-weather.html.input`);
   const resortData = await createHtmlParser('trailList', parseHomewoodTrailList)(htmlText);
-  expect(resortData).toMatchObject({ trailList: [] });
+  expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {

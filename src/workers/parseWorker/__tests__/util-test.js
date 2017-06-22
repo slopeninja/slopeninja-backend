@@ -8,14 +8,12 @@ import {
   parseTrailLevel,
   parseLiftTrailStatus,
   parseResortStatus,
-  // liftTrailStatusOrNull,
-  // resortStatusOrNull,
-  // weatherStatusOrNull,
-  // notEmptyStringOrNull,
-  // removeNumberInFrontOfName
+  liftTrailStatusOrNull,
+  resortStatusOrNull,
+  weatherStatusOrNull,
+  notEmptyStringOrNull,
+  removeNumberInFrontOfName,
 } from '../util';
-
-// FIXME write tests for commented out functions
 
 test('tests if valid number', () => {
   expect(isNumber(4)).toBe(true);
@@ -76,11 +74,17 @@ test('returns valid number value or null', () => {
 test('returns valid trail level', () => {
   expect(parseTrailLevel()).toBe(null);
   expect(parseTrailLevel('black')).toBe('advanced');
+  expect(parseTrailLevel('difficult')).toBe('advanced');
+  expect(parseTrailLevel('mostdifficult')).toBe('advanced');
+  expect(parseTrailLevel('type_1')).toBe('beginner');
+  expect(parseTrailLevel('type_3')).toBe('advanced');
   expect(parseTrailLevel('double')).toBe('expert');
   expect(parseTrailLevel('abc')).toBe(null);
   expect(parseTrailLevel(100)).toBe(null);
-  expect(parseTrailLevel('2')).toBe('intermediate');
-  expect(parseTrailLevel('100')).toBe('null');
+  expect(parseTrailLevel('type_2')).toBe('intermediate');
+  expect(parseTrailLevel('100')).toBe(null);
+  expect(parseTrailLevel('http://sugar3.sugarbowl.com/tahoe/178/site/graphics/2016site/icons/conditions/icon_beginner.png')).toBe('beginner');
+
 })
 
 test('returns valid trail lift status', () => {
@@ -88,9 +92,13 @@ test('returns valid trail lift status', () => {
   expect(parseLiftTrailStatus('open')).toBe('open');
   expect(parseLiftTrailStatus('closed')).toBe('closed');
   expect(parseLiftTrailStatus('abc')).toBe(null);
+  expect(liftTrailStatusOrNull('100')).toBe(null);
   expect(parseLiftTrailStatus(100)).toBe(null);
-  expect(parseLiftTrailStatus('100')).toBe(null);
+  expect(parseLiftTrailStatus('status_1')).toBe('open');
   expect(parseLiftTrailStatus('pending')).toBe('on hold');
+  expect(parseLiftTrailStatus('yesStatus')).toBe('open');
+  expect(parseLiftTrailStatus('icon-status_open')).toBe('open');
+  expect(parseLiftTrailStatus('icon-status_close')).toBe('closed');
 })
 
 test('returns valid resort status', () => {
@@ -102,3 +110,56 @@ test('returns valid resort status', () => {
   expect(parseResortStatus('100')).toBe(null);
   expect(parseResortStatus('pending')).toBe(null);
 })
+
+test('returns valid trail lift status or null', () => {
+  expect(liftTrailStatusOrNull()).toBe(null);
+  expect(liftTrailStatusOrNull('100')).toBe(null);
+  expect(liftTrailStatusOrNull('abc')).toBe(null);
+  expect(liftTrailStatusOrNull('open')).toBe('open');
+  expect(liftTrailStatusOrNull('closed')).toBe('closed');
+  expect(liftTrailStatusOrNull('close')).toBe('closed');
+  expect(liftTrailStatusOrNull('yes')).toBe('open');
+  expect(liftTrailStatusOrNull(100)).toBe(null);
+  expect(liftTrailStatusOrNull(-100)).toBe(null);
+});
+
+test('returns valid resort status or null', () => {
+  expect(resortStatusOrNull()).toBe(null);
+  expect(resortStatusOrNull('100')).toBe(null);
+  expect(resortStatusOrNull('abc')).toBe(null);
+  expect(resortStatusOrNull('open')).toBe('open');
+  expect(resortStatusOrNull('closed')).toBe('closed');
+  expect(resortStatusOrNull('close')).toBe('closed');
+  expect(resortStatusOrNull('yes')).toBe('open');
+  expect(resortStatusOrNull(100)).toBe(null);
+  expect(resortStatusOrNull(-100)).toBe(null);
+});
+
+test('returns valid weather status or null', () => {
+  expect(weatherStatusOrNull()).toBe(null);
+  expect(weatherStatusOrNull('rain')).toBe('rain');
+  expect(weatherStatusOrNull('sunny')).toBe('sunny');
+  expect(weatherStatusOrNull('open')).toBe(null);
+  expect(weatherStatusOrNull('closed')).toBe(null);
+  expect(weatherStatusOrNull('close')).toBe(null);
+  expect(weatherStatusOrNull('yes')).toBe(null);
+  expect(weatherStatusOrNull(100)).toBe(null);
+  expect(weatherStatusOrNull(-100)).toBe(null);
+});
+
+test('returns a not emprty string or null', () => {
+  expect(notEmptyStringOrNull()).toBe(null);
+  expect(notEmptyStringOrNull('rain')).toBe('rain');
+  expect(notEmptyStringOrNull('sunny')).toBe('sunny');
+  expect(notEmptyStringOrNull('open')).toBe('open');
+  expect(notEmptyStringOrNull('')).toBe(null);
+  expect(notEmptyStringOrNull(-100)).toBe(null);
+});
+
+test('removes the first index and returns a string or null', () => {
+  expect(removeNumberInFrontOfName()).toBe(null);
+  expect(removeNumberInFrontOfName('1 rain')).toBe('rain');
+  expect(removeNumberInFrontOfName('567 sunny')).toBe('sunny');
+  expect(removeNumberInFrontOfName('')).toBe(null);
+  expect(removeNumberInFrontOfName(-100)).toBe(null);
+});

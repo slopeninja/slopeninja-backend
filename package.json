@@ -9,6 +9,7 @@
     "cheerio": "^1.0.0-rc.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "html-entities": "^1.2.1",
     "isomorphic-fetch": "^2.2.1",
     "joi": "^10.5.0",
     "kcors": "2",

@@ -3,9 +3,12 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
-  resortStatusOrNull,
   numberOrNull,
   weatherStatusOrNull,
+  liftTrailStatusOrNull,
+  notEmptyStringOrNull,
+  trailLevelOrNull,
+  resortStatusOrNull,
 } from '../util';
 
 const initialSnow = {
@@ -58,4 +61,34 @@ export const parseMtRoseTrails = async ($) => {
   return {
     ...initialTrails,
   };
+}
+
+export const parseMtRoseLiftList = async ($) => {
+  const list = [];
+
+  $('.sr-lifts-wrapper .sr-ski-lift-wrapper').map((index, rowElement) => {
+    const nameText = $(rowElement).find('.sr-lift-name').text().trim();
+    const statusText = $(rowElement).find('.sr-lift-status').text().trim();
+    //
+    const name = notEmptyStringOrNull(nameText);
+    const status = liftTrailStatusOrNull(statusText);
+    const category = null;
+
+    const lift = {
+      name,
+      status,
+      category,
+    };
+
+    list.push(lift)
+
+
+  });
+ return list;
+}
+
+export const parseMtRoseTrailList = async ($) => {
+  const list = [];
+
+ return list;
 }

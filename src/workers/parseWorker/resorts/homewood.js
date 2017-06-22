@@ -85,29 +85,31 @@ export const parseHomewoodLiftList = async ($) => {
 export const parseHomewoodTrailList = async ($) => {
   const list = [];
 
-  $('#lifts_wrapper td').map((index, trailElement) => {
-    console.warn($(trailElement).filter('tr:has(img)').text())
-    const trElement = trailElement.parent;
-    const trElementStatus = $(trElement).find('td[class^="run_status"]');
-    // const tdElementCatgory = tdElements[4];
+  $('#lifts_wrapper .lifts_table tbody').map((index, tableElement) => {
+    $(tableElement).find('td.beginner, td.intermediate, td.advanced, td.expert').map((index, tdElement) => {
 
-    // const tableElement = tdElementName.parent.parent.parent;
-    // const thElementCategory = $(tableElement).find('thead > tr > th').get(1);
+      const statusElement = $(tdElement).next();
+      const nameElement = $(tdElement);
+      const levelElement = $(tdElement);
+      const categoryElement = $(tdElement.parent).siblings().first().find('h4');
 
-    const name = notEmptyStringOrNull($(trailElement).text().trim());
-    const status = liftTrailStatusOrNull($(trElementStatus).text().trim());
-    // const level = trailLevelOrNull($(thElementCategory).text().trim());
-    // const category = notEmptyStringOrNull($(tdElementCatgory).text().trim());
+      const name = notEmptyStringOrNull($(nameElement).text().trim());
+      const status = liftTrailStatusOrNull($(statusElement).text().trim());
+      const level = trailLevelOrNull(levelElement.attr('class'));
+      const category = notEmptyStringOrNull($(categoryElement).text().trim())
 
-    const trail = {
-      name,
-      status,
-      // category,
-      // level,
-    };
 
-    list.push(trail)
+      const trail = {
+        name,
+        status,
+        category,
+        level,
+      };
+
+      list.push(trail)
+
+    })
   });
-
+  
  return list;
 }

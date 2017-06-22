@@ -143,7 +143,7 @@ Object {
     },
     Object {
       "category": "Lakeview Lift",
-      "level": "begineer",
+      "level": "beginner",
       "name": "Freeway",
       "status": "closed",
     },
@@ -221,13 +221,13 @@ Object {
     },
     Object {
       "category": "Lodgepole Lift",
-      "level": "begineer",
+      "level": "beginner",
       "name": "Lodge Pole",
       "status": "closed",
     },
     Object {
       "category": "Schoolhouse Lift",
-      "level": "begineer",
+      "level": "beginner",
       "name": "School Yard",
       "status": "closed",
     },

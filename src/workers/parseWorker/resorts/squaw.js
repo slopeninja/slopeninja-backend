@@ -68,7 +68,6 @@ export const parseSquawTrails = async ($) => {
 }
 
 
-//FIXME remove Terrian parks from the list
 export const parseSquawLiftList = async ($) => {
   const list = [];
 
@@ -123,6 +122,10 @@ export const parseSquawTrailList = async ($) => {
     const name = notEmptyStringOrNull($(nameElement).text().trim());
     const level = trailLevelOrNull($(levelElement).text().trim());
     const category = notEmptyStringOrNull($(subheaderCategory).text().trim());
+
+    if (!level) {
+      return;
+    }
 
     const trail = {
       name,

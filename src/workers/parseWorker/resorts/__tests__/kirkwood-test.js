@@ -9,7 +9,7 @@ import {
 import { createHtmlParser } from '../../parserFactory';
 
 test('fetches Kirkwood snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-weather.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-weather.html.input`);
 
   const resortData = await createHtmlParser('snow', parseKirkwoodSnow)(htmlText);
   expect(resortData).toEqual({
@@ -41,7 +41,7 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Kirkwood lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html.input`);
   const resortData = await createHtmlParser('lifts', parseKirkwoodLifts)(htmlText);
   expect(resortData).toEqual({
     lifts: {
@@ -62,7 +62,7 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Kirkwood trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html.input`);
   const resortData = await createHtmlParser('trails', parseKirkwoodTrails)(htmlText);
   expect(resortData).toEqual({
     trails: {
@@ -83,7 +83,7 @@ test('fetches all null for nonexisting trails values', async () => {
 });
 
 test('fetches Kirkwood lift list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html.input`);
   const resortData = await createHtmlParser('liftList', parseKirkwoodLiftList)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
@@ -94,7 +94,7 @@ test('fetches all null for nonexisting lift list values', async () => {
 });
 
 test('fetches Kirkwood trail list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html`);
+  const htmlText = fs.readFileSync(`${__dirname}/fixtures/kirkwood-lifts.html.input`);
   const resortData = await createHtmlParser('trailList', parseKirkwoodTrailList)(htmlText);
   expect(resortData).toMatchSnapshot();
 });

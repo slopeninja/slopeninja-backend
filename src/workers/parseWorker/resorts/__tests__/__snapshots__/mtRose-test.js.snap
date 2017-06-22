@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetches MtRose lift list correctly 1`] = `
+Object {
+  "liftList": Array [
+    Object {
+      "category": null,
+      "name": "Northwest 6",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Blazing Zephyr 6*",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Lakeview",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Wizard",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Galena",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Flying Jenny",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Chuter",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Northwest 6",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Blazing Zephyr 6*",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Lakeview",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Wizard",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Galena",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Flying Jenny",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Chuter",
+      "status": "closed",
+    },
+  ],
+}
+`;

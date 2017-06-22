@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetches Boreal lift list correctly 1`] = `
+Object {
+  "liftList": Array [
+    Object {
+      "category": "Accelerator Zone",
+      "name": "Accelerator Express Quad Charilift",
+      "status": "closed",
+    },
+    Object {
+      "category": "Beginner Zone",
+      "name": "Castle Peak Quad Chairlift",
+      "status": "closed",
+    },
+    Object {
+      "category": "Beginner Zone",
+      "name": "Nugget Chairlift",
+      "status": "closed",
+    },
+    Object {
+      "category": "49er Zone",
+      "name": "49er Triple Chairlift",
+      "status": "closed",
+    },
+    Object {
+      "category": "Cedar Ridge Zone",
+      "name": "Cedar Ridge Triple Chairlift	",
+      "status": "closed",
+    },
+    Object {
+      "category": "Flying Dutchman Zone",
+      "name": "Flying Dutchman Triple Chairlift",
+      "status": "closed",
+    },
+  ],
+}
+`;
+
+exports[`fetches Boreal trail list correctly 1`] = `
+Object {
+  "trailList": Array [
+    Object {
+      "category": "Accelerator Zone",
+      "level": "beginner",
+      "name": "Lower Cut",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "beginner",
+      "name": "Racer's Return",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "beginner",
+      "name": "Sunrise Blvd.",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "beginner",
+      "name": "Sunset Blvd.",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "intermediate",
+      "name": "Lower Klondike",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "intermediate",
+      "name": "His",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "intermediate",
+      "name": "Prospector",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "intermediate",
+      "name": "Sierra",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "advanced",
+      "name": "East Face",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "advanced",
+      "name": "Klondike",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "advanced",
+      "name": "Race Course",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "advanced",
+      "name": "Road Island",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "advanced",
+      "name": "Stagecoach",
+      "status": "closed",
+    },
+    Object {
+      "category": "Accelerator Zone",
+      "level": "advanced",
+      "name": "West Bowl",
+      "status": "closed",
+    },
+    Object {
+      "category": "Beginner Zone",
+      "level": "beginner",
+      "name": "Kiss A Bear",
+      "status": "closed",
+    },
+    Object {
+      "category": "Beginner Zone",
+      "level": "beginner",
+      "name": "Rick's Return",
+      "status": "closed",
+    },
+    Object {
+      "category": "Beginner Zone",
+      "level": "beginner",
+      "name": "South 40",
+      "status": "closed",
+    },
+    Object {
+      "category": "Beginner Zone",
+      "level": "beginner",
+      "name": "Walt's Run",
+      "status": "closed",
+    },
+    Object {
+      "category": "49er Zone",
+      "level": "intermediate",
+      "name": "Ptarmigan",
+      "status": "closed",
+    },
+    Object {
+      "category": "49er Zone",
+      "level": "intermediate",
+      "name": "West Face",
+      "status": "closed",
+    },
+    Object {
+      "category": "49er Zone",
+      "level": "advanced",
+      "name": "Chukker",
+      "status": "closed",
+    },
+    Object {
+      "category": "49er Zone",
+      "level": "advanced",
+      "name": "Mogul Rock",
+      "status": "closed",
+    },
+    Object {
+      "category": "49er Zone",
+      "level": "advanced",
+      "name": "Waterfall",
+      "status": "closed",
+    },
+    Object {
+      "category": "Cedar Ridge Zone",
+      "level": "intermediate",
+      "name": "Home Run",
+      "status": "closed",
+    },
+    Object {
+      "category": "Cedar Ridge Zone",
+      "level": "intermediate",
+      "name": "Mariposa",
+      "status": "closed",
+    },
+    Object {
+      "category": "Cedar Ridge Zone",
+      "level": "intermediate",
+      "name": "Tamarack",
+      "status": "closed",
+    },
+    Object {
+      "category": "Cedar Ridge Zone",
+      "level": "advanced",
+      "name": "Hers",
+      "status": "closed",
+    },
+    Object {
+      "category": "Cedar Ridge Zone",
+      "level": "advanced",
+      "name": "Juniper",
+      "status": "closed",
+    },
+    Object {
+      "category": "Cedar Ridge Zone",
+      "level": "advanced",
+      "name": "Ponderosa",
+      "status": "closed",
+    },
+    Object {
+      "category": "Cedar Ridge Zone",
+      "level": "advanced",
+      "name": "Yours",
+      "status": "closed",
+    },
+    Object {
+      "category": "Flying Dutchman Zone",
+      "level": "intermediate",
+      "name": "Central Pacific ",
+      "status": "closed",
+    },
+    Object {
+      "category": "Flying Dutchman Zone",
+      "level": "intermediate",
+      "name": "D. & R. G.",
+      "status": "closed",
+    },
+    Object {
+      "category": "Flying Dutchman Zone",
+      "level": "intermediate",
+      "name": "Westword Ho",
+      "status": "closed",
+    },
+  ],
+}
+`;

@@ -23,8 +23,8 @@
 <link rel="shortlink" href="/node/51" />
 <meta property="og:type" content="article" />
   <title>Snow &amp; Grooming Report | Homewood Mountain Ski Resort</title>
-  <script type="text/javascript" src="http://www.skihomewood.com/sites/all/themes/homewood/js/swfobject.js"></script> 
-  <script type="text/javascript" src="http://www.skihomewood.com/sites/all/themes/homewood/js/jquery-1.7.min.js"></script>  
+  <script type="text/javascript" src="http://www.skihomewood.com/sites/all/themes/homewood/js/swfobject.js"></script>
+  <script type="text/javascript" src="http://www.skihomewood.com/sites/all/themes/homewood/js/jquery-1.7.min.js"></script>
   <script type="text/javascript" src="http://www.skihomewood.com/sites/all/themes/homewood/js/jquery.cycle.all.js"></script>
   <script type="text/javascript" src="http://www.skihomewood.com/sites/all/themes/homewood/js/form_handler.js"></script>
   <script type="text/javascript">
@@ -95,7 +95,7 @@ var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-4198876-4"]);_gaq.push(["_se
 jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"homewood","theme_token":"SarW1xoV9GJ8SX4X8zNT2OE3z17tiJ9p58EY2sl5F-4","js":{"sites\/all\/modules\/jquery_update\/replace\/jquery\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/libraries\/chosen\/chosen\/chosen.jquery.js":1,"sites\/all\/modules\/chosen\/chosen.js":1,"sites\/all\/modules\/nice_menus_custom\/superfish\/js\/superfish.js":1,"sites\/all\/modules\/nice_menus_custom\/superfish\/js\/jquery.bgiframe.min.js":1,"sites\/all\/modules\/nice_menus_custom\/superfish\/js\/jquery.hoverIntent.minified.js":1,"sites\/all\/modules\/nice_menus_custom\/nice_menus.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/libraries\/chosen\/chosen\/chosen.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/nice_menus_custom\/nice_menus.css":1,"sites\/all\/modules\/nice_menus_custom\/nice_menus_default.css":1,"sites\/all\/themes\/homewood\/css\/style.css":1,"sites\/all\/themes\/homewood\/css\/print.css":1,"sites\/all\/themes\/homewood\/css\/sr_print.css":1,"sites\/all\/themes\/homewood\/css\/ie.css":1,"sites\/all\/themes\/homewood\/css\/ie6.css":1}},"chosen":{"selector":".applyChosen","minimum":"0"},"nice_menus_options":{"delay":800,"speed":1},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip","trackDomainMode":"1"}});
 //--><!]]>
 </script>
-   
+
 
 
 <script language='javascript'> var lpMTagConfig = {'lpServer' : "server.iad.liveperson.net",'lpNumber' : "45004933",'lpProtocol' : (document.location.toString().indexOf('https:')==0) ? 'https' : 'http'}; function lpAddMonitorTag(src){if(typeof(src)=='undefined'||typeof(src)=='object'){src=lpMTagConfig.lpMTagSrc?lpMTagConfig.lpMTagSrc:'/hcp/html/mTag.js';}if(src.indexOf('http')!=0){src=lpMTagConfig.lpProtocol+"://"+lpMTagConfig.lpServer+src+'?site='+lpMTagConfig.lpNumber;}else{if(src.indexOf('site=')<0){if(src.indexOf('?')<0)src=src+'?';else src=src+'&';src=src+'site='+lpMTagConfig.lpNumber;}};var s=document.createElement('script');s.setAttribute('type','text/javascript');s.setAttribute('charset','iso-8859-1');s.setAttribute('src',src);document.getElementsByTagName('head').item(0).appendChild(s);} if (window.attachEvent) window.attachEvent('onload',lpAddMonitorTag); else window.addEventListener("load",lpAddMonitorTag,false);</script>
@@ -142,7 +142,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
           <div class="region region-nav">
     <div id="block-nice-menus-1" class="block block-nice-menus">
 
-    
+
   <div class="content">
     <ul class="nice-menu nice-menu-down" id="nice-menu-1"><li class="menu-495 menuparent menu-path-node-1 active-trail first  odd "><a href="/mountain">The Mountain</a><ul><li class="menu-563 menu-path-node-8 first  odd "><a href="/mountain/homewood-webcam">Webcam</a></li>
 <li class="menu-900 menu-path-node-312 even "><a href="/hiking-biking-trails" title="Explore the trails overlooking Lake Tahoe">Hiking &amp; Biking Trails</a></li>
@@ -225,7 +225,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
           <div class="region region-content-top-sidebar">
     <div id="block-menu-block-1" class="block block-menu-block">
 
-    
+
   <div class="content">
     <div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-2">
   <ul class="menu clearfix"><li class="first leaf menu-mlid-563"><a href="/mountain/homewood-webcam">Webcam</a></li>
@@ -246,7 +246,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </div>
 <div id="block-menu-block-2" class="block block-menu-block">
 
-    
+
   <div class="content">
     <div class="menu-block-wrapper menu-block-2 menu-name-menu-quick-links parent-mlid-0 menu-level-1">
   <ul class="menu clearfix"><li class="first leaf menu-mlid-498"><a href="/ski-tickets/lift-tickets" title="">Buy Tickets</a></li>
@@ -274,12 +274,12 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
       		      		  		          		  <div class="region region-content">
     <div id="block-system-main" class="block block-system">
 
-    
+
   <div class="content">
     <div id="node-51" class="node node-page node-full clearfix" about="/mountain/snow-report" typeof="foaf:Document">
 
       <span property="dc:title" content="Snow &amp; Grooming Report" class="rdf-meta element-hidden"></span>
-  
+
   <div class="content clearfix">
     <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>
 </p><div id="block-snowreport-render" class="block block-snowreport">
@@ -302,7 +302,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
             document.getElementById('showcast').innerHTML = '<img src="http://www.skihomewood.com/sites/all/modules/snowreport/images/arrow_side.gif" height="11" width="11" border="0" /> Show 5 Day Forecast';
           }
         }
-      
+
 //--><!]]>
 </script><!-- BEGIN WEATHER BLOCK --><div id="weather_wrapper">
 <div id="weather_top">
@@ -481,8 +481,8 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </td>
 </tr><tr><td align="left" valign="top" class="beginner" width="31%">
         <img src="http://www.skihomewood.com/sites/all/modules/snowreport/images/sr_1.gif" border="0" /> Overload      </td>
-<td align="right" valign="top" class="run_status_closed" width="2%">
-       C      </td>
+<td align="right" valign="top" class="run_status_open" width="2%">
+       O      </td>
 <td align="left" valign="top" class="beginner" width="31%">
         <img src="http://www.skihomewood.com/sites/all/modules/snowreport/images/sr_1.gif" border="0" /> Homeward Bound      </td>
 <td align="right" valign="top" class="run_status_closed" width="2%">
@@ -820,8 +820,8 @@ If you'd like to connect with us, please contact Guest Services at (530)-584-680
 
 </div></div></div></div>  </div>
 
-  
-  
+
+
 </div>
   </div>
 </div>
@@ -841,18 +841,18 @@ If you'd like to connect with us, please contact Guest Services at (530)-584-680
     <div id="block-block-3" class="block block-block">
 
     <h2>Homewood Newsletter</h2>
-  
+
   <div class="content">
     <form action="/connect/email-signup" method="post"><input class="footer_newsletter" name="email" onfocus="this.value=''" type="text" value="Enter email to sign up" /><input class="newsletter_go" type="submit" /> </form>
   </div>
 </div>
   </div>
-		  <!-- footer_connect styles -->      
+		  <!-- footer_connect styles -->
           <div class="region region-triptych-middle">
     <div id="block-block-4" class="block block-block">
 
     <h2>Connect</h2>
-  
+
   <div class="content">
     <ul><li id="f_mobile"><a href="/app" target="_blank">Mobile App</a></li>
 <li><a href="http://www.youtube.com/skihomewood" target="_blank"><img alt="Homewood on YouTube" border="0" height="20" src="/sites/all/themes/homewood/images/homewood/f_youtube.gif" width="50" /></a></li>
@@ -861,33 +861,33 @@ If you'd like to connect with us, please contact Guest Services at (530)-584-680
 </ul>  </div>
 </div>
   </div>
-		  <!-- footer_conditions styles -->      
+		  <!-- footer_conditions styles -->
           <div class="region region-triptych-last">
     <div id="block-block-5" class="block block-block">
 
     <h2>Road Conditions</h2>
-  
+
   <div class="content">
     <p><a href="/visit-ski-homewood/road-conditions"><img alt="Lake Tahoe Road Conditions Map" src="/sites/all/themes/homewood/images/homewood/HMR-RoadConditionsGraphic3.jpg" /></a></p>
   </div>
 </div>
   </div>
-	
+
 	  </div>
 	</div>
-	
+
 	<div id="footer_btm">
 		<div id="footer_btm_content" class="clearfix">
         	<div id="footer_btm_left">  <div class="region region-footer-bottom-left">
     <div id="block-block-42" class="block block-block">
 
-    
+
   <div class="content">
           </div>
 </div>
 <div id="block-block-7" class="block block-block">
 
-    
+
   <div class="content">
     <p>5145 West Lake Blvd. Homewood CA 96141<br /><a href="/mountain">The Mountain</a> | <a href="/masterplan" rel="nofollow">The Future</a> | <a href="/lessons">Ski &amp; Snowboard School</a> | <a class="top_level" href="/ski-tickets">Tickets &amp; Passes</a> | <a href="/lake-tahoe-events">Events</a> | <a href="/visit-ski-homewood" rel="nofollow">Visitor Info</a><br /><a href="/homewood-employment" rel="nofollow">Employment</a> | <a href="/privacy" rel="nofollow">Privacy Policy</a> | <a href="/ski-homewood-news" rel="nofollow">Press Room</a> | <a href="/sitemap">Site Map</a> | <a href="/connect" rel="nofollow">Contact Us</a>  |  <a href="http://m.skihomewood.com">Mobile</a><br />© 2015 Homewood Mountain Resort </p>
 <!--_______THIS IS THE LIVEPERSON MONITOR CODE___________--><script type="text/javascript">
@@ -903,7 +903,7 @@ window.lpTag=window.lpTag||{};if(typeof window.lpTag._tagCount==='undefined'){wi
 			<div id="footer_btm_right">  <div class="region region-footer-bottom-right">
     <div id="block-block-6" class="block block-block">
 
-    
+
   <div class="content">
     <p><a href="http://www.jmaventuresllc.com/" rel="nofollow" target="_blank"><img align="absmiddle" alt="JMA Ventures" border="0" height="25" src="/sites/all/themes/homewood/images/homewood/jma_logo.gif" width="77" /></a></p>
 <!--__________Google Code for Remarketing Tag__________--><!--------------------------------------------------
@@ -936,5 +936,3 @@ var google_remarketing_only = true;
 </div>
   </body>
 </html>
-
-

@@ -76,18 +76,6 @@ exports[`fetches Alpine trail list correctly 1`] = `
 Object {
   "trailList": Array [
     Object {
-      "category": "Food and Beverage",
-      "level": null,
-      "name": "Chalet",
-      "status": "closed",
-    },
-    Object {
-      "category": "Food and Beverage",
-      "level": null,
-      "name": "Ice Bar",
-      "status": "closed",
-    },
-    Object {
       "category": "Hot Wheels",
       "level": "intermediate",
       "name": "East Creek",
@@ -167,7 +155,7 @@ Object {
     },
     Object {
       "category": "Meadow",
-      "level": "begineer",
+      "level": "beginner",
       "name": "Meadow Beg Area",
       "status": "closed",
     },
@@ -223,18 +211,6 @@ Object {
       "category": "Roundhouse",
       "level": "advanced",
       "name": "Sympathy Face",
-      "status": "closed",
-    },
-    Object {
-      "category": "Roundhouse",
-      "level": null,
-      "name": "Loop Road Terrain Park",
-      "status": "closed",
-    },
-    Object {
-      "category": "Roundhouse",
-      "level": null,
-      "name": "Tiegle Terrain Park",
       "status": "closed",
     },
     Object {
@@ -395,14 +371,8 @@ Object {
     },
     Object {
       "category": "Subway",
-      "level": "begineer",
+      "level": "beginner",
       "name": "Subway Beg Area",
-      "status": "closed",
-    },
-    Object {
-      "category": "Subway",
-      "level": null,
-      "name": "Subway Terrain Park",
       "status": "closed",
     },
     Object {
@@ -679,30 +649,6 @@ Object {
       "category": "Yellow",
       "level": "intermediate",
       "name": "Yellow Trail",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "level": null,
-      "name": "Loop Road Family Cross",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "level": null,
-      "name": "Red Ridge Park",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "level": null,
-      "name": "Start Park",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "level": null,
-      "name": "Tiegel Park",
       "status": "closed",
     },
   ],
