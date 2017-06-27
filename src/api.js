@@ -25,15 +25,15 @@ router.get('/resorts', async (ctx) => {
   };
 });
 
-router.get('/resorts/:resortId', async (ctx) => {
-  const resortId = ctx.params.resortId;
+router.get('/resorts/:shortName', async (ctx) => {
+  const shortName = ctx.params.shortName;
 
   const resortService = new ResortService();
 
   let resort;
 
   try {
-    resort = await resortService.findById(resortId);
+    resort = await resortService.findByShortName(shortName);
   } catch(error){
     // network or db error
     ctx.status = statuses('Internal Server Error');

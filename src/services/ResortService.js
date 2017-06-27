@@ -12,7 +12,7 @@ class ResortService {
      .from('resorts');
 
     return resorts.map(
-      ({id, metaData}) => ({ id, ...metaData })
+      ({id, metaData, shortName}) => ({ id, shortName, ...metaData })
     );
   }
 
@@ -27,8 +27,23 @@ class ResortService {
       return;
     }
 
+    const { id, metaData, shortName } = resort;
+    return { id, shortName, ...metaData };
+  }
+
+  async findByShortName(shortName) {
+    const [resort] = await client
+      .withSchema(SLOPE_NINJA_DB_SCHEMA)
+      .select('*')
+      .from('resorts')
+      .where('shortName', shortName);
+
+    if(!resort) {
+      return;
+    }
+
     const { id, metaData } = resort;
-    return { id, ...metaData };
+    return { id, shortName, ...metaData };
   }
 }
 
