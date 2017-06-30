@@ -44,10 +44,10 @@ test('returns 2 resorts, one of which is Sierra', async () => {
   expect(resort).toBeDefined();
 });
 
-test('returns a resort for a given resort id', async () => {
+test('returns a resort for a given resort shortName', async () => {
   const expectedResort = DB.resorts[0];
 
-  const response = await fetch(`http://localhost:${port}/resorts/${expectedResort.id}`);
+  const response = await fetch(`http://localhost:${port}/resorts/${expectedResort.shortName}`);
   const data = await response.json();
 
   expect(data.resort).toEqual(expectedResort);

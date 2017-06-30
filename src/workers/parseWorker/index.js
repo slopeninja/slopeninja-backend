@@ -2,6 +2,10 @@ import fetch from 'isomorphic-fetch';
 import performanceNow from 'performance-now';
 
 import {
+  parseCARoadCondition,
+} from './roads/california';
+
+import {
   parseSierraSnow,
   parseSierraLifts,
   parseSierraTrails,
@@ -86,7 +90,12 @@ import {
   parseBorealTrailList,
 } from './resorts/boreal';
 
-import { createHtmlParser, createJSONParser } from './parserFactory';
+import {
+  createHtmlParser,
+  createJSONParser,
+  createTextParser,
+  decodeEntities
+} from './parserFactory';
 import { parseWeather } from './parseWeather';
 
 // FIXME: verify if heavenly/kirkwood/northstar/boreal 'BASE DEPTH' is summit or base depth
@@ -117,6 +126,18 @@ const resortsConfig = {
     { // fnConfig
       url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
       fn: createHtmlParser('trailList', parseSierraTrailList),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
+      fn: createTextParser('highway50', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
+      fn: createTextParser('highway88', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+      fn: createTextParser('highway89', parseCARoadCondition),
     },
   ],
   'squaw': [
@@ -386,7 +407,7 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
-      fn: createJSONParser('snow', parseBorealSnow, decodeEntities),
+      fn: createJSONParser('snow', parseBorealSnow, ),
     },
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/&level=0',

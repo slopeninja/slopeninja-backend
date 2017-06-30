@@ -9,7 +9,7 @@ import {
   notEmptyStringOrNull,
   trailLevelOrNull,
   resortStatusOrNull,
-} from '../util';
+} from '../weatherUtil';
 
 const initialSnow = {
   status: null,

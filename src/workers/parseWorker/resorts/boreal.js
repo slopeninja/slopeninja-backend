@@ -9,7 +9,7 @@ import {
   boralLiftTrailStatusOrNull,
   notEmptyStringOrNull,
   trailLevelOrNull,
-} from '../util';
+} from '../weatherUtil';
 
 const initialSnow = {
   status: null,

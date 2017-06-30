@@ -7,7 +7,7 @@ import {
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
   trailLevelOrNull,
-} from '../util';
+} from '../weatherUtil';
 
 const initialWeather = {
   status: null,

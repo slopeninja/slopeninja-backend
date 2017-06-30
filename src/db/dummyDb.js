@@ -13,6 +13,7 @@ export const DB = {
     {
       id: '81e32949-79e7-43ff-a677-38c1c27c1fe6',
       name: 'Squaw Valley',
+      shortName: 'squaw-valley',
       logo: '/images/resorts/squaw.svg',
       location: 'Olympic Valley, CA 96146',
       status: 'Open',
@@ -53,6 +54,7 @@ export const DB = {
     {
       id: '81e32949-79e7-43ff-a678-38c1c27c1fe6',
       name: 'Sierra-at-Tahoe',
+      shortName: 'sierra-at-tahoe',
       logo: '/images/resorts/sierra.svg',
       location: 'Twin Bridges, CA 96146',
       status: 'Closed',

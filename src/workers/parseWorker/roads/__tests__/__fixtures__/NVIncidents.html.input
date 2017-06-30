@@ -1,0 +1,878 @@
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head id="Head1"><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+<meta name="HandheldFriendly" content="True" />
+<meta http-equiv="cleartype" content="on" />
+<meta name="title" content="NDOT NVRoads.com" />
+<meta name="author" content="ICx Transportation Group" />
+<meta name="description" content="NNG511 NVRoads.com ATIS Portal" />
+<meta name="application-name" content="NVRoads.com" />
+
+<link rel="canonical" href="http://nvroads.com/" />
+<meta name="msapplication-window" content="width=1024;height=768" />
+<meta name="msapplication-starturl" content="./" />
+<meta name="msapplication-navbutton-color" content="#E72C53" />
+<meta name="msapplication-TileColor" content="#E72C53" />
+<meta name="msapplication-TileImage" content='/AppThemes/twbs/icons/apple-touch-icon-144x144-precomposed.png?v=2' />
+<link rel="shortcut icon" href='/AppThemes/twbs/icons/favicon.ico?v=2' />
+<link rel="shortcut icon" href='/AppThemes/twbs/icons/apple-touch-icon-144x144-precomposed.png?v=2' />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href='/AppThemes/twbs/icons/apple-touch-icon-144x144-precomposed.png?v=2' />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href='/AppThemes/twbs/icons/apple-touch-icon-114x114-precomposed.png?v=2' />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href='/AppThemes/twbs/icons/apple-touch-icon-72x72-precomposed.png?v=2' />
+<link rel="apple-touch-icon-precomposed" href='/AppThemes/twbs/icons/apple-touch-icon-57x57-precomposed.png?v=2' />
+<title>
+	All Incidents
+</title><meta name="keywords" content="511, Nevada Traffic Information, Nevada Traveler Information, Nevada Traffic Cameras, Nevada Driving Times, Nevada Traffic Conditions, NDOT, Nevada Department of Transportation" />
+    <style type="text/css">
+        div {
+            zoom: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="/include/styles/smoothness/jquery-ui-1.10.4.min.css" type="text/css" /><link rel="stylesheet" href="/include/styles/ndot/reset.css" /><link href="/twbs/css/bootstrap.min.css" rel="stylesheet" /><link href="/sm/addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet" /><link href="/fa/css/font-awesome.min.css" rel="stylesheet" /><link rel="stylesheet" href="/include/styles/alertbanner-1.2.7.css" /><link rel="stylesheet" href="/include/styles/pts-2.4.0.css" /><link rel="stylesheet" href="/include/styles/webHelp-1.2.0.css" />
+
+    
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/include/javascript/jquery-1.11.1.min.js"></script>
+
+    <script src="/include/javascript/jquery-ui-1.10.4.min.js" type="text/javascript"></script>
+    <script src="/include/javascript/icxtg-1.0.0.min.js" type="text/javascript"></script>
+    <script src="/include/javascript/webHelp-1.1.0.min.js" type="text/javascript"></script>
+
+
+    
+    <link href="/include/styles/textbased-1.0.4.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        function pageLoad() {
+            $("#lastRefresh").html("Last Refresh: " + new Date().toString());
+        }
+    </script>
+<script src="/include/javascript/google-snippet.js?r=636342833820908255" type="text/javascript"></script><link href="../../App_Themes/twbs/global/icxtg-atis.css" type="text/css" rel="stylesheet" /><link href="../../App_Themes/twbs/global/nng511.css" type="text/css" rel="stylesheet" /><link href="../../App_Themes/twbs/global/nng511-footer.css" type="text/css" rel="stylesheet" /><link href="../../App_Themes/twbs/global/nng511-navbar-1.1.0.css" type="text/css" rel="stylesheet" /><link href="/WebResource.axd?d=QNvTef3N0s3Dekql4-s_UM2h1LtdLFQxFKt8ezamzUlhl4bW-f4ZE1Hyr4iba-ryak7oXtAGaKcNV9-2hZnNdF4pU15HDzeT_28UZTJ0-LAEAHwLt4S2lKXbgI44U31gp4e0lXpMJ-yxz1lAjsTK0Q2&amp;t=634860802240000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body>
+    <div id="tearaway-wrapper">
+        <form method="post" action="./IncidentList.aspx?listType=All" id="form1">
+<input type="hidden" name="ExternalRadScriptManager1_TSM" id="ExternalRadScriptManager1_TSM" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="uunm7ljH48o9kLT9/JWPvMFEAXFhiUhhx1beSrAX+AAvnDKgvnFtwrqS60EfGVUIjf6v35AREvNZAu1oIlyhV7q3ewCp8DrJu03CLdG02+LcUcI0s91VW0BJ5kWMCRyFb3J+2c2Xk1cQFfgwkAfHQEoA+J5MmC0P1RYcKtorJ0OLW9JkqN7pLIcFLcFwoXC0CzGV0FjRJJ17vyZMlE44ArDZm7EmQDAdk+raxCn+LK8IdXp69BX2s9IQjHMYTOCdpHSfkPZhJqTEwcItJbbuGFpNpzEaV6HQ80i6o0cyrKV/pKBsihOTo4wAJvyJ7XCrdotqV+CODOSLj+PTwwV1UR60NcP9PqcIBtK7GVkSkmlDboX5LYkjKi7svlSdkDFacB5ihP05xsQ8laOgxGUFYI7YUBFZsCGRGWGKhJjQnteu9MOD0Lez1NCW73Ks+lFZxElYdsT54KW9HDeART2KFTsXQ6AoIvyjY3uuFUFRaDvQj1fJd1Wzuh3yY2KHCrp0ZC8HAZKDSXX0XCk1JD/cf+ZbBqdYJ0MjtoqB1qZP71+XdkKl6eISEq8Qz5xkCPeKnaBoMkjbCdyc/vNB4V7+GJH9PQWH/7drkujWvNXJ0901z1soxPak7uq9MWzrwJSKOth4np681Mzlj/WAVyR0/IzEkmdk1258bi45FGTvpqLsGqD4F+Cp4pXWdcOeS638CU92SslPHARIdnzireALnG3AwVy84eWEQovSohW0WuCK1Q0KwSljQBz/nldJXhbuO+nYMsnQBd6LoAnWpiCc2W9MS1epHU2z4C+gwVhMXk4f/HZBhIRBbh5buCieWIp0kwo5qopy3syWf6elSD4wr2dY+kVdsEbNjgT0wWWtQ0aMbUnb4Cegeezav8HyPPkJAwFdJwUkh9NQb2jBXqFM2aCbdo+CmxVUyK8NMJf+I1K0PG1uncu03WiTxFIgSqE4cTlS+o/TMeHbu6y4StS3cO1RJ53v/LC0Qw31r2gWdZHodlioh1iR6RMH/cU19AlFlRkPTapDdERdmkZE6BRqN2RjYnBvLpmS7jolg/hH2j0WTN6Z5Eeq5W/6i5nJzXmk/7UmO28+/+VVgcbwrzanU3hc9KorupU7KLh1Bm9h2QUnSJP1A9L3ix7b7VIEblGiFvwVVUmW5jMJTSk3nAhkIHMFN6en1Tdy2oNqKaEJhehNUieLebt6AsJElwMxFvtCTk1ETHwh9Wg08NdhKQQgW1m8NcZIsZw9IskPkQHHpuC3qwp0ajtq3pdO/1jylFf+DcKIXxPrtMrK2GmYoEbflk9ieeGH2SLe+XJlVluoWwSaGu8VhyUK2JtUrBXwyL9Jlvec4zyGZalHJDYxTbrQ7CvSifvyVY07B0uCpOGb/rx9pRDKoC6s+1V0llosboWsKVfFa3aGuekaPwEjtK3ieRtbSmtpdywn5wFI7ES5Ic0om9Hr/LjoZISZxFLXA3INpeJCT3L4PsNQZui8IhlF4S/1uopFr3mYMt9OeOyNgYpDSAxSpcW4MXOgTqee4JzDuu1dP0IOlonLz+eIbLoF0utcPA6mzVdvSWnX9BGudo1NXJQZt5Y0FNt9UsdfA0xZfS7R6QHjZ3ZeRsnvhzu0GN8RhF/G7DLiIUWBYHeSY5HbIyMqC8+xYa3YS5q5dX4LV3si8LFLAo7I/AMqMwpeA+nLV/Cx3FPxxAb08hPSw513pufDZT5gt5QV49uGYXh0IlLVnGscpnHHk5EdO48s1MfwNdNSF11J+zMWks08//WRPnm6Bg1PXNbvdLCnjlkkPuOgf67KvNV1qOH4W9yv8lF3EpmulbWPguFsBL7rXIVaS49cDDvGT2uAnJIrofmMykqWDIgwshb11UxxVeiPLclMh83vEyWTBo8TLbaSoazwSfnRIhAHvqDFDnZ26nCR+qe/5nlfqhaI/9RykCv4AQXi0L7zAT+p20WDkB+TaHUnRj9MY3H9i4CfkVKYTgdBYTzbEyjb41Se69vUpFWOW8hj9U6sOgWNi4K0jHUfPwq244VZMFNzVpUKwr6h41mILr+ieWfT9SAog788zBsnAiBaRQzJv1WDGprWPnu1QqiMD1dE/AMnvY5kQse/mG7EHwZs13xyYpHipylOE+U5yW95D3L0XeRCDgAAoxOEQbbHui63bIN2DroQ+djoA/3I8PoEUhrECWZhjomzci6yaToim/QC05n6jA+fgOQeWTbxLnI4Oo+OsmevBiI8ZBGaqcHPkEetKbv8ypmK5fCgyGmag1FRSK8+sP4EsBzo60GhFjwp8ETJN5Fgp0TjWemJs1ctfEXUDk+Xwe2CnPF+seuoX/Ki2H/Lh5GrwjEoW6FibM4ZMagFYprYeK10UttM/+aiEnQMmwFEjybUG5uolJ30SBovlj+voGtApM2QpATGGTxVQuqeSYniTETGEdo+iTQQLpKlhORltcywab0OeYLpvzhQU1eRaLb0GSYHx1EzqoJpfT37L9UqPTRjT1XbkowcdaMOTSfnqGy6AFHpg6SPH9SHa6bZtjXuQL2QSxujgfqNzrXmczFILTyMEO2hlu9K7Fnr8Er6f0MS0j/Rwi0dCFfF8f9c21mtophDP9clXx/b/n/Si9ZHu34owU0XSEypKFclL8X88HvK5O1OMT0aeiY0HKf+FKsU2IQ+tgLwKI4hbCv1VeYyimaCSXFPyzVut1khiQ8Blc5B8Du/cr8M93P02L1Gxx7HR82w8e9RJhLjZpgW0dvPn5HO39efVZhves0cb0OMlF1+EenRDqGKgc7hs1UAr/nhFTdwrs1nyNtYDGTSpPo2oYRnrtKmh8hhL5o1lzMy7ax4lYjph1rc9daW6UV4mQ5wRCcw2hHy6zpcYrdWzxfq6Pro4J+7D27qdhCU381z9k5VPfqMq0DDG8OPNYtXraiHp/incZaNQ8+eIQB+981s+aJdEghvMA74tskCVdXYIgfez4WBKIjceWc+BB0DmjxFF+mFhI3D+LFnK8q5BRpX4uM049sog8HFM/SIw+TIVONknxF0Faq1pTNkVsgfFQlAFMKtgtHqeHcVHeZPSo9Xd8UUhvc4XpUhLIlIdw+6S30jooqfVupouEZrBZgezQqPAPyW9yCLqM0oXtyRTP4O1Hba/DnT" />
+
+<script src="/include/javascript/icxtgTWBSNavMenu-1.0.1.min.js" type="text/javascript"></script><script src="/include/javascript/icxtgATISAlertBanner-1.1.3.min.js" type="text/javascript"></script>
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ExternalRadScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen%3a5b26ea0c-07c7-4ade-acc6-bb37f156b712%3aea597d4b%3bTelerik.Web.UI%2c+Version%3d2012.2.607.40%2c+Culture%3dneutral%2c+PublicKeyToken%3d121fae78165ba3d4%3aen%3a767fb6c3-728b-40e9-af4d-abc498bcae6e%3a16e4e7cd%3af7645509%3aed16cbdc%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen%3a5b26ea0c-07c7-4ade-acc6-bb37f156b712%3a76254418" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F9E7DFC4" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+            
+            <div id="container" class="container-fluid atis-container-fluid">
+                
+                <div id="SFContentViewer2_pnlContentBlock" class="webHeader">
+	
+    <div class="navbar navbar-default navbar-static-top dot-navbar hidden-xs" role="navigation"> <div class="container-fluid"> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand dot-brand" href="#"></a> </div> <div class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-left"> <li> <div class="dot-brand-tagline">By Phone: 511/1-877-NV-ROADS</div> </li> </ul> <ul class="nav navbar-nav navbar-right"> <li><a href="http://nevadadot.com/">Home</a></li> <li><a href="http://nevadadot.com/careers/">Careers</a></li> <li><a href="http://nevadadot.com/about/">About NDOT</a></li> <li><a href="http://nevadadot.com/planning/">Planning</a></li> <li><a href="http://nevadadot.com/public/">Public Involvement</a></li> <li><a href="http://nevadadot.com/news/">News</a></li> <li><a href="http://nevadadot.com/documents/">Documents</a></li> <li><a href="http://nevadadot.com/contact/">Contact Us</a></li> </ul> </div> </div> </div>
+
+</div>
+                <!-- Static navbar -->
+                <div class="navbar navbar-default atis-navbar" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            
+                            <button type="button" id="ATISNavBarHamburger" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand visible-xs atis-brand" href="#"></a>
+                            </div>
+                        <div id="MainMenuCollapse" class="navbar-collapse collapse">
+                            
+                            <ul class="nav navbar-nav atis-navbar-nav"><li><a href="/511-home">511 HOME</a></li><li><a href="/icx/pages/incidentlist.aspx">INCIDENTS</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">DEVICES</a><ul class="dropdown-menu" role="menu"><li><a href="/icx/pages/cameras.aspx">Cameras</a></li><li><a href="/icx/pages/HARList.aspx">Highway Advisory Radios</a></li><li><a href="/icx/pages/DMSList.aspx">Freeway Message Signs</a></li><li><a href="/icx/pages/RWISList.aspx">Weather Sensors</a></li></ul></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TRAVEL LINKS</a><ul class="dropdown-menu" role="menu"><li><a href="http://www.nevadadot.com/Traveler_Info/Maps/State_Map.aspx">Maps</a></li><li><a href="http://www.nevadadot.com/About_NDOT/NDOT_Divisions/Planning/Transit/Transit_Providers.aspx">Transit</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Airports</a><ul class="dropdown-menu" role="menu"><li><a href="http://www.mccarran.com/">McCarran International</a></li><li><a href="http://renoairport.com/">Reno-Tahoe International</a></li><li><a href="http://www.flyelkonevada.com/">Elko</a></li><li><a href="http://www.elyairport.org">Ely</a></li></ul></li><li><a href="http://www.nevadadot.com/About_NDOT/NDOT_Divisions/Planning/NvRail/Passenger.aspx">Rail</a></li><li><a href="http://www.travelnevada.com">Tourism</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Other States/Partners</a><ul class="dropdown-menu" role="menu"><li><a href="http://www.nevadadot.com/Contact_Us/Links.aspx">Partners</a></li><li><a href="http://quickmap.dot.ca.gov/">California</a></li><li><a href="http://www.tripcheck.com/Pages/RCmap.asp?curRegion=0&amp;mainNav=RoadConditions">Oregon</a></li><li><a href="http://www.az511.gov/adot/files/">Arizona</a></li><li><a href="http://511.idaho.gov/">Idaho</a></li><li><a href="http://udottraffic.utah.gov/">Utah</a></li></ul></li><li><a href="http://www.google.com/intl/en/landing/transit/">Google Trip Planner</a></li><li><a href="http://www.nevadadot.com/Projects_and_Programs/Road_Projects/Current_Projects.aspx">Construction Project Information</a></li><li><a href="/icx/pages/RestAreaList.aspx">Rest Areas/Welcome Centers</a></li><li><a href="http://www.nevadadot.com/About_NDOT/NDOT_Divisions/Planning/Freight/Truck_Parking.aspx">Truck Parking</a></li><li><a href="http://www.nevadadot.com/Business/Trucker/">Trucker Services and Information</a></li></ul></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">SAFETY LINKS</a><ul class="dropdown-menu" role="menu"><li><a href="http://dps.nv.gov/alerts">Public Safety Alerts</a></li><li><a href="http://www.zerofatalitiesnv.com">Zero Fatalities</a></li><li><a href="http://www.nevadadot.com/safety/winter/tips.aspx">Winter Driving</a></li><li><a href="http://www.nevadadot.com/safety/winter/chains.aspx">Traction and Chain Requirements</a></li><li><a href="http://www.nevadadot.com/safety/workzone/">Work Zone Driving</a></li><li><a href="http://www.nophonezonenv.com">Distracted Driving</a></li><li><a href="http://nhp.nv.gov">* NHP</a></li><li><a href="http://dps.nv.gov/">Public Safety</a></li></ul></li><li class="dropdown"><a href="/about-511-nevada" class="dropdown-toggle" data-toggle="dropdown">ABOUT 511 NEVADA</a><ul class="dropdown-menu" role="menu"><li><a href="/about-511-nevada/overview">Overview</a></li><li><a href="/about-511-nevada/web-faq">Web FAQ</a></li><li><a href="/about-511-nevada/phone-faq">Phone FAQ</a></li></ul></li><li><a href="/icx/pages/Comment.aspx">SUGGESTIONS</a></li><li><a href="https://nvroads.com/pts">My511NV</a></li><li><a href="http://wiki.511nv.com/index.php/DE:DEHome">DEVELOPER RESOURCES</a></li></ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                    <!--/.container-fluid -->
+                </div>
+
+                <div>
+                    
+    <div id="NNG511Menu_AlertBanner_AlertTab" class="AlertTab alert-button hidden-xs">
+	
+    <img alt="Alert Tab" id="AlertButton" src="/images/alertbanner/alerttab.jpg" />
+
+</div>
+<div id="AlertPane">
+    <div id="accordion"></div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#AlertButton").click(function () {
+            ICxTG.ATIS.AlertBanner.toggleAlertPane();
+        });
+
+        ICxTG.ATIS.AlertBanner.init();
+
+    });
+</script>
+
+
+                </div>
+
+                <div id="tearaway-content">
+
+                    <div id="content" class="container-fluid">
+                        <div class="icxContentWrapper">
+                            <div id="helpWindowModal"></div>
+                            
+    <div id="NNG511Content_RadAjaxLoadingPanel1" style="display:none;">
+	
+        <div class="loading">
+        </div>
+    
+</div>
+    <div id="ctl00_NNG511Content_ctl00_NNG511Content_RadAjaxPanelPanel">
+	<div id="ctl00_NNG511Content_RadAjaxPanel">
+		<!-- 2012.2.607.40 -->
+            <div id="IncidentListPane">
+                <div id="FreshnessDate" style="text-align: right;"><div class="lastRefreshTime" id="lastRefresh"></div></div>
+                <br />
+                <h2>All Incidents</h2>
+                
+                <div style="background-image: url(/images/ptspagebkgd.gif); background-repeat: repeat;
+                    border: 1px solid #999999; margin-bottom: 10px; padding: 5px 10px 5px 10px;">
+                    
+                    
+                    <div style="background-color: #ffffff; border: solid 1px #999999; margin: 10px 0 10px 0; padding: 5px; text-align: right;">
+                        Search Filter: <input name="ctl00$NNG511Content$tbSearchFilter" type="text" id="NNG511Content_tbSearchFilter" /> 
+                        <input type="button" name="ctl00$NNG511Content$btnSearch1" value="Apply Filter" onclick="javascript:__doPostBack(&#39;ctl00$NNG511Content$btnSearch1&#39;,&#39;&#39;)" id="NNG511Content_btnSearch1" />
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 input-md">Select type to display:</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <a href="/icx/pages/IncidentList.aspx?listType=All" target="_parent">
+                                    <img alt="All Icon" src="/images/all.png" title="All Incidents" /></a>
+                            <span id="NNG511Content_Label2" title="View All Events" class="hidden-xs">All</span>
+                        </div>
+                        <div class="col-xs-1 col-sm-2"><a href="/icx/pages/IncidentList.aspx?listType=Incidents" target="_parent">
+                                    <img alt="Incident Icon" src="/images/incident.png" title="Open Incident List" /></a>
+                            <span id="NNG511Content_Label3" title="View Incidents" class="hidden-xs">Incident</span>
+                        </div>
+                        
+                        <div class="col-xs-1 col-sm-2"><a href="/icx/pages/IncidentList.aspx?listType=Construction" target="_parent">
+                                    <img alt="Construction Icon" src="/images/construction.gif" title="Open Construction List" /></a>
+                            <span id="NNG511Content_Label4" title="View Construction" class="hidden-xs">Construction</span>
+                        </div>
+                        <div class="col-xs-1 col-sm-2"><a href="/icx/pages/IncidentList.aspx?listType=Restrictions" target="_parent">
+                                    <img alt="Conditions Icon" src="/images/conditions.png" title="Open Road Conditions List" /></a>
+                            <span id="NNG511Content_Label5" title="View Road Conditions" class="hidden-xs">Conditions</span>
+                        </div>
+                        <div class="col-xs-1 col-sm-2"><a href="/icx/pages/IncidentList.aspx?listType=WeatherRelated" target="_parent">
+                                    <img alt="Weather Icon" src="/images/weather.gif" title="Open Weather List" /></a>
+                            <span id="NNG511Content_Label6" title="View Weather Related" class="hidden-xs">Weather</span>
+                        </div>
+                        <div class="col-xs-1 col-sm-2"><a href="/icx/pages/IncidentList.aspx?listType=SpecialEvents" target="_parent">
+                                    <img alt="Special Event Icon" src="/images/specialevent.gif" title="Open Special Events List" /></a>
+                            <span id="NNG511Content_Label7" title="View Special Event" class="hidden-xs">Special Event</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="IncidentListHeaderBox" style="border: 1px solid #999999;">
+                    <table id="gvIncidentListColumnHeader" width="100%" cellpadding="5" border="1" cellspacing="0"
+                        rules="all">
+                        <tr>
+                            <td class="" style="text-align: center; border-right: 1px solid #DDDDDD; border-collapse: collapse;" valign="bottom" width="50px">
+                            Activity Type
+                               
+                            </td> 
+                            <td class="hidden-xs" style="text-align: center; border-right: 1px solid #DDDDDD; border-collapse: collapse;" valign="bottom" width="100px">
+                            Facility
+                                
+                            </td>
+                            <td class="hidden-xs" style="text-align: center; border-right: 1px solid #DDDDDD; border-collapse: collapse;" valign="bottom" width="100px">
+                            Event Type
+                                
+                            </td>
+                            <td class="" style="text-align: center;" valign="bottom" >
+                            Description
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div id="NNG511Content_gvIncidentListPanel">
+			
+                    <div id="IncidentListBox">
+                                    
+                        <div>
+				<table class="gvIncidentList" cellspacing="0" cellpadding="5" rules="all" border="1" id="NNG511Content_gvIncidentList" width="100%">
+					<tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Weather" src="/images/weather.gif" title="Weather" />
+                                    </td><td class="hidden-xs" align="center" width="100">&nbsp;</td><td class="hidden-xs" align="center" width="100">Weather Related</td><td class="EventDescription">
+                                        .An upper level disturbance moving into northeast Nevada will cause strong southwest winds over much of Mohave County today. ...RED FLAG WARNING NOW IN EFFECT UNTIL 9 PM MST THURSDAY FOR STRONG WINDS AND LOW RH FOR FIRE WEATHER ZONE 102... * AFFECTED AREA...In Arizona...Fire weather zone 102. * TIMING...through this evening. <a href="https://goo.gl/UfWEma" target="_blank">More Details</a><div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;12:40:00 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Weather" src="/images/weather.gif" title="Weather" />
+                                    </td><td class="hidden-xs" align="center" width="100">&nbsp;</td><td class="hidden-xs" align="center" width="100">Weather Related</td><td class="EventDescription">
+                                        ...The Flood Warning continues for the following rivers in Nevada... Walker River Near Mason affecting Lyon County Increased releases from Bridgeport Reservoir will lead to moderate flooding or greater along the East Walker River. Flows have decreased somewhat with the decrease in snow covered area contributing to the runoff and recent temperatures in a more seasonal range in the West <a href="https://goo.gl/1yZ7V8" target="_blank">More Details</a><div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;11:11:00 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Weather" src="/images/weather.gif" title="Weather" />
+                                    </td><td class="hidden-xs" align="center" width="100">&nbsp;</td><td class="hidden-xs" align="center" width="100">Weather Related</td><td class="EventDescription">
+                                        The National Weather Service in Reno has extended the * Flood Advisory for... Rain and Snowmelt in... North central Pershing County in west central Nevada... * Until 945 AM PDT Saturday * The Humboldt River near Imlay was near 10.3 feet on June 28. The <a href="https://goo.gl/Aoxya8" target="_blank">More Details</a><div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;10:56:00 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Weather" src="/images/weather.gif" title="Weather" />
+                                    </td><td class="hidden-xs" align="center" width="100">&nbsp;</td><td class="hidden-xs" align="center" width="100">Weather Related</td><td class="EventDescription">
+                                        ...RED FLAG WARNING NOW IN EFFECT UNTIL 10 PM MDT THURSDAY FOR WIND AND LOW RELATIVE HUMIDITY FOR FIRE WEATHER ZONES 493... 496 AND 498... * AFFECTED AREA...Fire Weather Zone 493 Central Utah Mountains...Fire Weather Zone 496 Color Country Mountains and Fire Weather Zone 498 Grand Staircase. <a href="https://goo.gl/DcQXh6" target="_blank">More Details</a><div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;7:48:00 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Weather" src="/images/weather.gif" title="Weather" />
+                                    </td><td class="hidden-xs" align="center" width="100">&nbsp;</td><td class="hidden-xs" align="center" width="100">Weather Related</td><td class="EventDescription">
+                                        ...THE FLOOD ADVISORY FOR SNOWMELT REMAINS IN EFFECT UNTIL 315 PM PDT THURSDAY FOR DOUGLAS AND CENTRAL LYON COUNTIES... * Flows will increase along the East Walker River due to increased releases from Bridgeport Reservoir. This reach has been upgraded to a Flood Warning. See that product for more details. * On the West Walker River, elevated flows will continue through the <a href="https://goo.gl/XxZGfR" target="_blank">More Details</a><div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;6:28:00 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Weather" src="/images/weather.gif" title="Weather" />
+                                    </td><td class="hidden-xs" align="center" width="100">&nbsp;</td><td class="hidden-xs" align="center" width="100">Weather Related</td><td class="EventDescription">
+                                        The National Weather Service in Reno has issued a * Flood Warning for... Snowmelt in... Northern Mono County in northern California... Southern Lyon County in west central Nevada... * Until 1245 PM PDT Saturday <a href="https://goo.gl/yVVMMK" target="_blank">More Details</a><div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;5:48:00 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Weather" src="/images/weather.gif" title="Weather" />
+                                    </td><td class="hidden-xs" align="center" width="100">&nbsp;</td><td class="hidden-xs" align="center" width="100">Weather Related</td><td class="EventDescription">
+                                        The National Weather Service in Reno has issued a * Flood Warning for... Snowmelt in... Northern Mono County in northern California... Southern Lyon County in west central Nevada... * Until 1245 PM PDT Saturday <a href="https://goo.gl/5AHDRD" target="_blank">More Details</a><div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;5:48:00 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Weather" src="/images/weather.gif" title="Weather" />
+                                    </td><td class="hidden-xs" align="center" width="100">&nbsp;</td><td class="hidden-xs" align="center" width="100">Weather Related</td><td class="EventDescription">
+                                        The National Weather Service in Las Vegas has issued a * Flood Advisory for... Snowmelt in... Northwestern Inyo County in south central California... * Until 145 AM PDT Friday * A prolonged period of heat has increased snowmelt along the <a href="https://goo.gl/ht5Vgz" target="_blank">More Details</a><div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/27/2017&nbsp;6:45:00 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100"> N McCarran Blvd</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on Pyramid Way (SR-445) and N McCarran Blvd (SR-659) in both directions in Sparks Nevada. On McCarran from Rock to 4th St and Pyramid from Greenbrae to Queen - various lane closures, lane shifts, restricted driveway and side street access, and new traffic patterns are possible.  Detours will be provided for any closures.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/7/2017&nbsp;11:25:46 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">Clear Acre Ln (SR-443)</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on Clear Acre Ln (SR-443) in both directions from Scottsdale Rd to N. McCarran Blvd (SR-659) in Nevada.     From 9 PM to 5 AM, Mondays thru Fridays, traffic will be reduced to one lane with a width limit of 14 feet. Expect minor delays. Estimated End Time is   5:00 AM on 06/30/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/19/2017&nbsp;8:31:10 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-15</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on I-15 northbound off ramp to northbound US-95 with nightly lane restrictions from 7pm until 5am, June 10th through June 30th due to continued Project Neon construction. Please use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;11:59:40 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-15</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on I-15 southbound at D Street - on ramp intermittently closed nightly Monday thru Friday from 7pm to 6am until July 30th due to continued Project Neon construction. Please use other routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/10/2017&nbsp;7:25:50 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-15</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on I-15 southbound off ramp to Washington Ave with intermittent nightly closures from 7pm until 5am, June 5th through July 30th due to continued Project Neon construction. Please use other routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/10/2017&nbsp;7:23:56 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-15</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Lane Shift) on I-15 in both directions between SR-573/Craig Rd and Speedway Blvd nightly through December 2017, due to road widening. Use cautionin North Las Vegas, Clark County Nevada.   Estimated End Time is   2:42 AM on 12/31/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;3/10/2017&nbsp;12:16:44 PM&nbsp;PST</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-215</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on I-215 westbound on ramp from westbound Warm Springs Rd will be closed nightly from 9pm until 5am, Sunday through Thursday until the end of June due to continued Airport Connector fly over construction. Please use other routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/9/2017&nbsp;10:17:03 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-215</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on I-215 eastbound off ramp to Warm Springs Rd will be closed beginning 9pm, January 15th until June 2017. Use other routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;3/10/2017&nbsp;12:24:42 PM&nbsp;PST</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-215 Southern Beltway</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on I-215 Southern Beltway in both directions between SR171/Airport Connector and Warm Springs - lane restrictions in effect until July 15th 2017. Use caution; expect delays or use other routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;3/10/2017&nbsp;12:20:53 PM&nbsp;PST</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-580</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on I-580 North at Fairview Dr in Carson City Nevada.     Ramp will be reduced to one lane until new portion of freeway opens.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;2:44:29 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-80</td><td class="hidden-xs" align="center" width="100">Bridge Work</td><td class="EventDescription">
+                                        There is construction (Bridge Work) on I-80 West from Exit 107 - East Lovelock for 1.5 miles in Lovelock, Pershing County Nevada.     One lane closed from 9 am to 4 pm, Monday through Thursday. Estimated End Time is   4:00 PM on 06/29/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/26/2017&nbsp;8:46:46 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-80</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on I-80 in both directions from Exit 17 - Rock Blvd to Exit 20 - Sparks Blvd in Sparks Nevada.     Nightly, from 9 PM to 5 AM,There will be brief on ramp and off ramp closures. Expect minor delays. Estimated End Time is   5:00 AM on 06/30/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/18/2017&nbsp;2:04:54 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-80</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork)Beginning on May 11th and will be daily at 6 am on I-80 in both directions beginning at mile marker 353 to mile marker 356 with flaggers : lanes reduced to one west bound and east bound : no over sized permits : width limit of 14 feet in Elko County Nevada.Estimated End Time is 6 PM on 12/01/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;5/12/2017&nbsp;1:12:11 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-80</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork)Beginning May 1st daily at 5 am on I-80 in both directions from mile marker 367 to mile marker 375 with lanes reduced to one; speed limit 55 mph; width limit 14 feet; height limit 16 feet;Use Caution in Elko County Nevada. Estimated End Time is 7 PM on 12/01/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/24/2017&nbsp;10:20:29 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Road Condition" src="/images/restriction.png" title="Road Condition" />
+                                    </td><td class="hidden-xs" align="center" width="100">I-80</td><td class="hidden-xs" align="center" width="100">Oversized Load</td><td class="EventDescription">
+                                        There is a conditions related event (Oversized Load) Beginning at day light on June 29, starting in Wells going to Carlin on I-80 West in Elko County Nevada.  Estimated End Time is   7:00 PM on 07/03/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;4:42:36 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">Martin Luther King Blvd </td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on Martin Luther King Blvd on ramps to northbound I-15 and southbound US-95 with intermittent nightly closures from 7pm until 5am beginning June 26th through June 30th due to continued Project Neon construction. Please use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/24/2017&nbsp;1:18:44 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">Martin Luther King Blvd </td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on Martin Luther King Blvd in both directions under US-95 with nightly lane restrictions from 7pm to 5am until June 30th due to continued Project Neon construction. Please use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/23/2017&nbsp;12:10:19 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">Martin Luther King Blvd</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on Martin Luther King Blvd in both directions from Fire Station 10 to Oakey Blvd; road will be closed on April 3rd starting at 7 p.m. until August 1st for drainage work - use other routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/14/2017&nbsp;10:25:10 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Road Condition" src="/images/restriction.png" title="Road Condition" />
+                                    </td><td class="hidden-xs" align="center" width="100">Miller Lane</td><td class="hidden-xs" align="center" width="100">Road Closed</td><td class="EventDescription">
+                                        There is a conditions related event (Road Closed, Flooding) on Miller Lane in both directions from US-95A to Aiaizzi Lane in Lyon County Nevada.     Lyon County has closed the road until further notice.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/6/2017&nbsp;3:24:56 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">Oakey Blvd</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on Oakey Blvd in both directions from the I-15 to Westwood Dr; lanes reduced to one lane starting on April 4th until July 24th for drainage work - use caution or other routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/22/2017&nbsp;11:58:01 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Incident" src="/images/incident.png" title="Incident" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-140</td><td class="hidden-xs" align="center" width="100">Minor Delays</td><td class="EventDescription">
+                                        There is an incident (Reduced Speed, Minor delays for vehicle testing) beginning on Monday July 10th at 7:00 AM daily on SR-140 in both directions between Humboldt county marker 12 and 26 in Humboldt County Nevada. Expect traffic control.Estimated End Time is   8:00 PM on 07/24/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;8:11:24 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-159/Charleston Blvd </td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on SR-159/Charleston Blvd in both directions between Shadow Ln and I-15 with nightly on going lane restrictions from 7pm to 5am due to continued Project Neon construction. Please use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;5/20/2017&nbsp;9:32:03 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-160/Blue Diamond Rd </td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-160/Blue Diamond Rd in both directions between mile markers 0 and 14 daily, beginning March 13th through August 2017 for road improvements. Use caution in Pahrump, Nye County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;3/10/2017&nbsp;12:19:50 PM&nbsp;PST</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-160/Pahrump Valley Rd</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-160/Pahrump Valley Rd in both directions at the intersection with US-95, daily beginning March 13 through August 2017 for the installation of turn lanes and acceleration lanes. Please use caution around this area in Pahrump, Nye County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;3:17:54 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-169/Logandale Rd </td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-169/Logandale Rd in both directions between mile marker 21 and 22, also near mile marker 24 for road improvements until July 2017. Use caution around this area in Overton, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/10/2017&nbsp;2:00:58 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-206</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-206 in both directions in Nevada.     SR-206 The contractor will be doing road work on Jacks Valley Road daily starting 7:00 AM June 5 and will end at 3:30 PM on September 15.  Flaggers and pilot car will be in place.  Expect minor delays.Estimated End Time is   3:30 PM on 09/15/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/5/2017&nbsp;11:58:20 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-207</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-207 in both directions between Tramway Dr. and SR-206 in Douglas County Nevada.     From 7 AM to 6 PM, Mondays through Saturdays, all traffic will be escorted by a pilot car and will be stopped while hazardous rocks are being removed. Expect Delays ranging from 5 to 30 minutes. Estimated End Time is   6 PM on 6/30/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;5/1/2017&nbsp;10:08:31 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Road Condition" src="/images/restriction.png" title="Road Condition" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-208</td><td class="hidden-xs" align="center" width="100">Flooding</td><td class="EventDescription">
+                                        There is an incident (Flooding) on SR-208 at the Wilson Canyon rest area in Lyon County Nevada.     Camping area closed. Bathrooms remain open.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/25/2017&nbsp;12:34:47 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Special Event" src="/images/specialevent.gif" title="Special Event" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-223</td><td class="hidden-xs" align="center" width="100">Parade</td><td class="EventDescription">
+                                        There is a special event (Parade, Road Closed) beginning on July 4th at 10:00 AM to 2:00 PM on SR-223 between First Avenue and Clover Ave in both directions in Wells, Elko County Nevada. Please use an alternate route.Estimated End Time is   2:00 PM on 07/04/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/21/2017&nbsp;4:08:39 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-225</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Road Closed) on SR225 beginning June 29th from 2:00 PM to 4:00 PM in both directions between milepost 115 and milepost 116 in Elko County Nevada. Watch For Flaggers and Expect Delays. Estimated End Time is 4:00 PM on 06/29/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/27/2017&nbsp;5:05:25 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-225</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-225 in both directions in Elko County Nevada from milepost 30 through milepost 32 at the chip pad near Adobe Heights Dr NDOW using as temporary aquatic invasive species station start at 6AM to 8PM on June 1st.   Estimated End Time is   8:00 PM on 10/30/17.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/16/2017&nbsp;6:58:38 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-225</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-225 in both directions, on the shoulder, from mile post 30.50 to mile post 38 daily beginning at 6 AM until 6 PM. Use Caution.   Estimated End Time is June 30th.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;5/18/2017&nbsp;10:53:52 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-226</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Minor Delays) paving begins on Monday June 19th from 6:00 AM to 7:30 PM daily on SR-226 in both directions from junction SR-225 to County marker 21 in Elko County Nevada. Expect travel delays of up to 30 minutes. Watch for flaggers and pilot cars. Estimated End Time is   7:30 PM on 06/29/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;11:50:20 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Special Event" src="/images/specialevent.gif" title="Special Event" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-227</td><td class="hidden-xs" align="center" width="100">Festival</td><td class="EventDescription">
+                                        There is a special event (Road Closed, Festival, Parade)Saturday July 1st at 9 AM in Elko on SR-227 in both directions from mile post 0 to milepost .68 Use Caution , Elko County Nevada. Estimated End Time is 3 PM on 07/01/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;12:02:16 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-233</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) striping with flaggers and routing to opposing lanes on SR-233 from EL 10 to EL 34 in both directions in Nevada.   Estimated End Time is   7:00 PM on 06/29/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;10:40:56 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-233</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Minor Delays) daily on SR-233 in both directions from milepost 10 to milepost 25; speed limit 45 mph; with graveled surface; expect delays; use caution; in Elko County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/4/2017&nbsp;1:39:05 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Road Condition" src="/images/restriction.png" title="Road Condition" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-278</td><td class="hidden-xs" align="center" width="100">Oversized Load</td><td class="EventDescription">
+                                        There is a conditions related event (Oversized Load) beginning at day light, starting in Carlin in Elko County going to Eureka in Eureka County on SR-278 South in Nevada.   Estimated End Time is   7:00 PM on 07/03/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;4:46:08 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-28</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Minor Delays) on SR-28 in both directions 1.7 miles east of Nevada/California state line in Washoe County Nevada.     Tree removal on Thursday, June 29 from 6 am to 4:30 pm, alternating one-way traffic with flaggers. Occasional closure of all lanes for up to 30 minutes. Estimated End Time is   4:30 PM on 06/29/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;9:56:14 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-28</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on SR-28 in both directions between Sweetwater Road and US-50 in Incline Village Nevada.     Starting May 1st, there will be 1 lane traffic with flaggers at multiple locations 24 hours a day.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/15/2017&nbsp;11:54:48 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Special Event" src="/images/specialevent.gif" title="Special Event" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-289</td><td class="hidden-xs" align="center" width="100">Road Closed</td><td class="EventDescription">
+                                        There is a special event (Road Closed, Parade) on Tuesday July 4th at 10:00 am, on SR-289 in both directions From West 4th street to SR-794 in Nevada.   Estimated End Time is   1:30 PM on 07/04/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/26/2017&nbsp;11:29:25 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Road Condition" src="/images/restriction.png" title="Road Condition" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-289</td><td class="hidden-xs" align="center" width="100">Road Closed</td><td class="EventDescription">
+                                        There is a conditions related event (Road Closed) on SR-289 in both directions from IR-80 Junction 178 to Junction SR-795 due to flooding on SR-795.  Local traffic only. Consider alternate route in Winnemucca, Humboldt County .<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/13/2017&nbsp;7:55:35 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-376/Tonopah Rd - Austin Rd</td><td class="hidden-xs" align="center" width="100">Moving Roadwork</td><td class="EventDescription">
+                                        There is construction (Moving Roadwork) on SR-376/Tonopah Rd - Austin Rd in both directions from mile post 0 to 18.06 - crews will be laying fresh oil and gravel, Monday through Friday from 6am to 6pm, beginning July 10th until July 20th. Please use caution around crews in Austin, Lander County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;1:34:03 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-376/Tonopah Rd - Austin Rd</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-376/Tonopah Rd - Austin Rd in both directions between mile post 36.7 to 54.88. Lanes will be reduced to 1 travel lane, daily. from 5 a.m., until 7 p.m., Monday thru Thursday; starting from June 15 thru June 30. Posted speed limit will be 35 mph, no passing during this time. Please use caution around work area with flaggers and pilot car escort in Tonopah, Nye County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;1:31:36 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-447</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-447 in both directions near Rodeo Creek road in Washoe County Nevada.     Daily from 730 AM tp 330 PM crews and heavy equipment will be in and out of traffic with shoulder closures. Stay alert, Expect delays. Estimated End Time is   3:30 PM on 06/29/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/25/2017&nbsp;8:31:35 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Special Event" src="/images/specialevent.gif" title="Special Event" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-535</td><td class="hidden-xs" align="center" width="100">Festival</td><td class="EventDescription">
+                                        There is a special event (Road Closed, Festival, Parade)Saturday July 1st at 9 AM in Elko  on SR-535 Idaho Street in both directions from 5th Street to 11th Street in Elko County Nevada.Use Caution Estimated End Time is 3 PM on 07/01/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;12:02:16 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-589/Sahara Ave </td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-589/Sahara Ave eastbound between I-15 and Las Vegas Blvd with reduced lanes from 8am until 1pm, June 29th due to bridge deck spalls repair. Use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/26/2017&nbsp;11:17:48 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-593/Tropicana Ave </td><td class="hidden-xs" align="center" width="100">Bridge Work</td><td class="EventDescription">
+                                        There is construction (Bridge Work, Roadwork) on SR-593/Tropicana Ave in both directions at Las Vegas Blvd. Lane restrictions nightly from 10 pm, Sunday nights through 8 am, Friday mornings for upgrades to the pedestrian bridges. The East Pedestrian Bridge between the Tropicana and the MGM is Closed until June 29th for renovations. The North Pedestrian Bridge between MGM and New York New York is Closed from July 5th thru September 30th for renovations. Please use remaining bridges in the area for access and expect delays in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/27/2017&nbsp;2:57:39 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-604/Las Vegas Blvd </td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on SR-604/Las Vegas Blvd northbound between Belmont St and Pecos Rd will be closed from 7pm, June 28th through 5am, June 29th for road improvements. Please use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;11:23:29 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-604/Las Vegas Blvd</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on SR-604/Las Vegas Blvd northbound between Pecos Rd and Cheyenne Ave will be closed nightly from 7pm until 5am, June 25th through June 30th for road improvements. Please use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;11:08:39 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-647 (4th Street)</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-647 (4th Street) in both directions at Prater Way and Galletti Way in Reno, Washoe County Nevada.     One lane closed under I - 80 from March 22 to October 31.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;3/25/2017&nbsp;9:58:25 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-648/Glendale</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SR-648/Glendale in both directions between Kietzke Lane and East McCarran in Sparks Nevada.     Travel lanes in both directions will be moved to the south side of the roadway. Traffic will be reduced to a single lane in both directions 24/7. North and South access at Rock Blvd and Galletti Way intersections will be closed 24/7 with access for local traffic only. Advise alternate route. Right turn lane from southbound McCarran to eastbound Glendale will be closed starting Saturday, June 3rd. Trucks will be detoured to Greg Street.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/2/2017&nbsp;9:04:51 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Road Condition" src="/images/restriction.png" title="Road Condition" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-726 Bafford Lane</td><td class="hidden-xs" align="center" width="100">Road Closed</td><td class="EventDescription">
+                                        There is a conditions related event (Road Closed, Flooding) on SR-726 Bafford Lane in both directions between Old River Road and Indian Lakes Road in Fallon Nevada. At the Carson River.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/19/2017&nbsp;2:39:40 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Road Condition" src="/images/restriction.png" title="Road Condition" />
+                                    </td><td class="hidden-xs" align="center" width="100">SR-795</td><td class="hidden-xs" align="center" width="100">Road Closed</td><td class="EventDescription">
+                                        There is a conditions related event (Road Closed, Water on Roadway) on SR-795 in both directions in Humboldt County from Junction US-95 to Junction SR-289 in Winnemucca.  Consider Alternate Route.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;5/1/2017&nbsp;2:04:21 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-395</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on US-395 in both directions from Clear Creek Rd to Snyder Ave. in Carson City Nevada.     The far left lanes in both directions will be closed Sundays thru Thursdays, from 8 P M to 5 A M. Slow for the cone zone and give workers a brake.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;3:03:18 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-395</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on US-395 in both directions at Exits 70, 70 A and 70 B - Clear Acre Lane N. McCarran Blvd in Reno Nevada.     From 9 PM to 5 AM Sundays thru Fridays, there will be brief ramp closures with a 14 foot width limit. Stay alert for work crews and use alternate routes. Estimated End Time is   5:00 AM on 06/30/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/19/2017&nbsp;7:59:36 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-50</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on US-50 in both directions at the S Carson St (US-395 / SR-529) intersection in Carson City Nevada.     Traffic will be reduced to one lane, with flagger control, 24 hours a day. Expect Delay.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;3:04:37 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-50</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on US-50 in both directions between SR-28 and Spooner Summit in Douglas County Nevada.     Starting May 1, flaggers may be present for short traffic holds while moving heavy equipment. Delays will be minimal. Estimated End Time is   4:30 PM on 10/20/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;2:01:25 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-50</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on US-50 in both directions at Logan Creek in Logan Creek Nevada.     1 lane traffic with speed limit reduced to 35 miles per hour and width limited to 12 feet.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/12/2017&nbsp;4:05:27 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-50</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork)Daily at 5AM on US-50 in both directions beginning at milepost 63 to milepost 66 with routing to opposing lanes: lanes reduce to one : No over sized permits : No over weight permits , White Pine County Nevada.Estimated End Time is 5 PM on 06/29/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/12/2017&nbsp;12:23:16 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-50</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Minor Delays) on US-50 in both directions between Topaz Street and Airport Way in Silver Springs Nevada.     Lane shift with reduced speed of 25 miles per hour.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/8/2017&nbsp;5:55:08 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-50</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Utility Work) Beginning Monday April 17th and will be daily at 6 am  Monday thru Friday on US-50 adjacent to the roadway in both directions from milepost 35 to milepost 37 Use Caution in Eureka County Nevada.Estimated End Time is 6 PM on 08/17/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/17/2017&nbsp;5:00:17 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-50</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Utility Work)Beginning Monday April 17th and will be daily at 6am Monday thru Friday on US-50 in both directions adjacent to the roadway from milepost 23 to milepost 25 Use Caution in Austin, Lander County Nevada. Estimated End Time is 6 PM on 08/17/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/17/2017&nbsp;4:47:33 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Road Condition" src="/images/restriction.png" title="Road Condition" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-50</td><td class="hidden-xs" align="center" width="100">Oversized Load</td><td class="EventDescription">
+                                        There is a conditions related event (Oversized Load) beginning at day light on June 29, from EU 34 TO LA 0  on US-50 West, to US-50A to US-95A to I-80 to the California state line.   Estimated End Time is   7:00 PM on 07/03/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;4:48:52 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-50A</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on US-50A in both directions between US-50 and Royal Oaks Dr. in Silver Springs and Fernley, Nevada.     Single lane traffic with flaggers and pilot car Monday thru Friday, from 8 AM to 8 PM. Expect 30 minute delays. Slow for the cone zone and give workers a brake. Estimated End Time is   8:00 PM on 06/30/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/24/2017&nbsp;1:55:57 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-6</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on SP-01 off of US-6 in both directions from milepost 0 through milepost 2.47; pilot car; flaggers; routing to opposing lanes; starting at 7 AM to 4:30 PM on Thursday June 29th; on Friday June 30th starting at 5:30 AM through 9:30 PM in White Pine County Nevada.   Estimated End Time is   9:30 PM on 06/30/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;5:42:43 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-6</td><td class="hidden-xs" align="center" width="100">Moving Roadwork</td><td class="EventDescription">
+                                        There is construction (Moving Roadwork) Daily at 6 AM through 7 PM daily on US-6 in both directions from milepost 13 through milepost  37; Use caution; pilot car; flaggers; no passing; consider alternate route in White Pine County Nevada. Estimated End Time is 7 PM on 09/29/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/14/2017&nbsp;10:23:29 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-6</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on US-6 in both directions between mile markers 18 and 44 until October 2017 for road improvement. Use caution around this area in Coaldale Junction, Esmeralda County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/10/2017&nbsp;1:31:23 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-93</td><td class="hidden-xs" align="center" width="100">Moving Roadwork</td><td class="EventDescription">
+                                        There is construction (Moving Roadwork) on US-93 in both directions in White Pine County Nevada from milepost 53 through milepost 54; no oversized permits; routing to opposing lanes; consider alternate route; lanes reduced to one; width limit of open lane is 12 feet; starting on 6/12/17 through 6/29/17 Monday through Friday; 5:30AM through 5PM.   Estimated End Time is   5:00 PM on 06/29/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;8:48:51 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-93</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on US-93 in both directions beginning at 5 AM, Monday thru Friday; from milepost 30.7 to milepost 43; pilot car; flaggers; lanes reduced to one; width limit 12 feet; speed limit 55 mph; travel delay 30 minutes;  in Elko County Nevada.  Estimated End Time is 7 PM on 09/30/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;5/31/2017&nbsp;10:16:57 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-93</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Minor Delays) on US-93 in both directions from Foothills Drive to Silver Line Road; expect delays in Boulder City, Clark County Nevada. Estimated Completion Date: October 2018<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/21/2017&nbsp;5:44:40 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Special Event" src="/images/specialevent.gif" title="Special Event" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-93</td><td class="hidden-xs" align="center" width="100">Parade</td><td class="EventDescription">
+                                        There is a special event (Parade, Road Closed) on US-93 South in Nevada.; Parade will start at 7:00 pm on 06/30/17 at Pinochile St and head south on US 93. The vehicles will turn around in the parking lot of the four jacks casino and head north back onto Pinochile St. Traffic control will be managed by Sheriff and NHP.  Estimated End Time is   7:00 PM on 06/30/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/27/2017&nbsp;5:21:39 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Road Condition" src="/images/restriction.png" title="Road Condition" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-93</td><td class="hidden-xs" align="center" width="100">Oversized Load</td><td class="EventDescription">
+                                        There is a conditions related event (Oversized Load) on US-93 beginning at day light on June 29, From Jackpot to Wells in Nevada.   Estimated End Time is   7:00 PM on 07/03/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/28/2017&nbsp;4:56:34 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on US-95 northbound between Russell Rd and Charleston Blvd ~ reduced to one travel lane nightly beginning 9pm, June 26th through 5am, June 30th due to bridge joint and concrete pavement spall repair. Please use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/26/2017&nbsp;10:10:29 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on US-95 southbound off ramp to Southern Rancho Dr with intermittent nightly closures from 7pm until 8am, through August 31st due to continued Project Neon construction. Please use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/25/2017&nbsp;7:17:37 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on US-95 in both directions between Casino Center Blvd and Las Vegas Blvd will be closed from 11pm, June 28th until 4am, June 29th, as well as both northbound on ramps from Casino Center Blvd and Las Vegas Blvd will be closed during this time due to continued Project Neon construction. Please use other routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/23/2017&nbsp;9:29:44 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on US-95 northbound off ramp to southbound I-15 with intermittent lane restrictions nightly from 7 pm to 5 am, until July 20th due to continued Project Neon construction. Use caution in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/10/2017&nbsp;8:08:21 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on US-95 northbound on ramp from SR-602/Casino Center Blvd with intermittently closures nightly from 7 pm to 5 am until July 7th due to continued Project Neon construction. Please use other routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/10/2017&nbsp;7:33:37 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on US-95 on and off ramps at Eastern Ave, Boulder Hwy and Las Vegas Blvd with nightly closures from 9pm until 5am, Sunday through Friday, until mid-August for ramp improvements. Construction will occur one ramp at a time beginning with the northbound on ramp from Eastern Ave. Please use other routes and caution in this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/9/2017&nbsp;11:11:30 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Moving Roadwork</td><td class="EventDescription">
+                                        There is construction (Moving Roadwork) Daily at 7 AM on US-95 in both directions beginning at milepost 0 to milepost 73 on the shoulder of the roadway; Use Caution; in Humboldt County Nevada. Estimated End Time is 6 PM on 07/10/17<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/9/2017&nbsp;7:38:06 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on US-95 southbound between Valley View and Rancho Drive (Southern) lanes will be reduced 24/7 starting June 12 until late August. Crews are installing Active Traffic Management sign foundation as part of Project Neon. Use caution around work area and seek alternate routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;6/9/2017&nbsp;2:30:05 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork, Reduced Speed) on US-95 in both directions south of US-93 reduced to one lane; expect delays and use caution around flaggers in Boulder City, Clark County Nevada. Estimated Completion Date: October 2018<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/21/2017&nbsp;5:53:35 PM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Overnight Roadwork</td><td class="EventDescription">
+                                        There is construction (Overnight Roadwork) on US-95 northbound near the off ramp to southbound I-15 with nightly intermittent lane restrictions from 7 pm to 5 am until June 30th due to continued Project Neon construction. Please use caution around this area in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;4/15/2017&nbsp;1:11:14 AM&nbsp;PDT</div>
+                                    </td>
+					</tr><tr>
+						<td align="center" valign="middle" width="50">
+                                        <img alt="Construction" src="/images/construction.gif" title="Construction" />
+                                    </td><td class="hidden-xs" align="center" width="100">US-95</td><td class="hidden-xs" align="center" width="100">Roadwork</td><td class="EventDescription">
+                                        There is construction (Roadwork) on US-95 in both directions between Rancho Southern and the I-15; lanes will be reduced 24/7 from March 20th until late January 2018. Restrictions are required for widening the roadways; please use caution around work area and seek alternate routes in Las Vegas, Clark County Nevada.<div class='incidentLastUpdateTime'>Current&nbsp;as&nbsp;of:&nbsp;3/17/2017&nbsp;2:15:24 AM&nbsp;PDT</div>
+                                    </td>
+					</tr>
+				</table>
+			</div>
+                    </div>
+                
+		</div>
+                <div style="text-align: center; margin: 5px 0 5px 0;">This page auto-refreshes every 2 minutes.</div>
+            </div>
+                
+                
+	</div>
+</div>
+                
+                
+                
+                
+            
+            <span id="NNG511Content_Timer1" style="display:none;"></span>
+            
+         
+            <script type="text/javascript">
+                //<![CDATA[
+                $(function () {
+                    $("#searchButton").hide();
+                    $("#cogButton").hide();
+                });
+
+                //]]>
+        </script>
+    
+           
+
+                        </div>
+                    </div>
+                </div>
+                <div class="footer large-footer hidden-xs">
+                    <div class="container">
+                        <div id="SFContentViewer1_pnlContentBlock" class="webFooter">
+	
+    <style type="text/css">
+    .footer {padding-bottom:5px;}
+    .footer .inner { padding-top: 5px; }
+    .footer .officials a {
+    display: block;
+    float: right;
+    width: 40px;}
+</style> <div class="footer"> <div class="footerLinks"> <p style="text-align: center;"><a href="/about-511-nevada/overview" class="url context">Help</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/icx/pages/Comment.aspx" title="Suggestions" class="url context">Suggestions</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/disclaimer" title="Disclaimer" class="url context">Disclaimer</a></p> </div> <div class="inner section"> <div class="vcard column"> <h3 class="fn org"><a href="http://www.nevadadot.com" class="url context">NEVADA &nbsp; DEPARTMENT &nbsp; OF &nbsp; TRANSPORTATION</a> <!-- 
+                <sup>
+                <font size="1" >&copy;
+                
+                </font>
+                </sup>
+                --></h3> <div><span><a href="http://www.nevadadot.com/doing-business/contact-us" class="url context">Contact NDOT</a> </span>&nbsp; &nbsp; <span class="copyright small-text">Copyright &copy; </span>NDOT <!-- Non breaking spaces to push Privacy Policy Link over to the right. Float does not work as desired -->&nbsp; &nbsp;&nbsp; <span><a href="http://nv.gov/privacy-policy/" class="url context">Nevada Privacy Policy</a></span> </div> </div> <div class="officials column last"><a href="http://gov.nv.gov/"><img style="width: 35px" alt="Official Seal of the State of Nevada" src="/images/logos/NVSeal.png" /></a> <div><span><em><strong>Brian Sandoval</strong> - Governor</em></span> <span><em><strong>Rudy Malfabon, P.E.</strong> - Director</em></span> </div> </div> </div> <!--	
+		<p align="center" style="margin-top:-22px;">
+			<span class="copyright small-text" > 
+					
+					
+					Copyright &copy;  Nevada Department of Transportation
+					
+					
+					</span>
+					</p>
+		--></div>
+
+</div>
+                    </div>
+                </div>
+
+                <div class="footer small-footer visible-xs">
+                    <div class="navbar navbar-default navbar-fixed-bottom">
+                        <div class="container-fluid">
+                            <div class="btn-group-justified">
+                                <a href="/511-home" role="button" class="btn btn-default btn-lg"><i class="fa fa-home"></i></a>
+                                <a id="searchButton" href="#" role="button" class="btn btn-default btn-lg search-button"><i class="fa fa-search"></i></a>
+                                <a id="cogButton" href="#" role="button" class="btn btn-default btn-lg"><i class="fa fa-cog"></i></a>
+                                <a id="alertButton" href="/icx/pages/AlertList.aspx" role="button" class="btn btn-default btn-lg alert-button"><i class="fa fa-exclamation-triangle"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="ScriptWrapper" title="Only place scripts and styles in this region">
+                
+                
+                
+            </div>
+
+        
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadAjaxLoadingPanel, {"initialDelayTime":0,"isSticky":false,"minDisplayTime":0,"skin":"","transparency":30,"uniqueID":"ctl00$NNG511Content$RadAjaxLoadingPanel1","zIndex":90000}, null, null, $get("NNG511Content_RadAjaxLoadingPanel1"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadAjaxPanel, {"clientEvents":{OnRequestStart:"",OnResponseEnd:""},"enableAJAX":true,"enableHistory":false,"links":[],"loadingPanelID":"NNG511Content_RadAjaxLoadingPanel1","styles":[],"uniqueID":"ctl00$NNG511Content$RadAjaxPanel"}, null, null, $get("ctl00_NNG511Content_RadAjaxPanel"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._Timer, {"enabled":true,"interval":120000,"uniqueID":"ctl00$NNG511Content$Timer1"}, null, null, $get("NNG511Content_Timer1"));
+});
+//]]>
+</script>
+</form>
+    </div>
+
+
+
+    <script src="/twbs/js/bootstrap.min.js"></script>
+    <script src="/sm/jquery.smartmenus.min.js"></script>
+    <script src="/sm/addons/bootstrap/jquery.smartmenus.bootstrap.min.js"></script>
+
+</body>
+</html>

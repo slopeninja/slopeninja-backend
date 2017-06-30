@@ -25,11 +25,11 @@ export const createHtmlParser = (key, parser, preParser = t => t) => async (html
   const keyData = await parser($);
 
   return {
-    [key]: keyData
+    [key]: keyData,
   };
 }
 
-export const createJSONParser = (key, parser, preParser = t => t) => async (data = "{}") => {
+export const createJSONParser = (key, parser, preParser = t => t) => async (data = '{}') => {
   let json = JSON.parse(preParser(data));
 
   let d;
@@ -40,6 +40,16 @@ export const createJSONParser = (key, parser, preParser = t => t) => async (data
   const keyData = await parser(d);
 
   return {
-    [key]: keyData
+    [key]: keyData,
+  };
+}
+
+export const createTextParser = (key, parser, preParser = t => t) => async (data = '') => {
+  let text = preParser(data.toString());
+
+  const keyData = await parser(text);
+
+  return {
+    [key]: keyData,
   };
 }

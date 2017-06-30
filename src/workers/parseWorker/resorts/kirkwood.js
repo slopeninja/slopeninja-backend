@@ -10,7 +10,7 @@ import {
   notEmptyStringOrNull,
   trailLevelOrNull,
   removeNumberInFrontOfName,
-} from '../util';
+} from '../weatherUtil';
 
 const initialSnow = {
   status: null,

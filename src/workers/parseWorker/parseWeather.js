@@ -1,7 +1,7 @@
 import {
   weatherStatusOrNull,
-  numberOrNull
-} from './util.js';
+  numberOrNull,
+} from './weatherUtil';
 
 const initialWeather = {
   weatherIcon: null,

@@ -9,7 +9,7 @@ import {
 import { createHtmlParser } from '../../parserFactory';
 
 test('fetches Diamond snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/diamond-weather.html.input`);
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/diamond-weather.html.input`);
 
   const resortData = await createHtmlParser('snow', parseDiamondSnow)(htmlText);
   expect(resortData).toEqual({
@@ -41,7 +41,7 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Diamond lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/diamond-weather.html.input`);
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/diamond-weather.html.input`);
   const resortData = await createHtmlParser('lifts', parseDiamondLifts)(htmlText);
   expect(resortData).toEqual({
     lifts: {
@@ -62,7 +62,7 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Diamond trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/diamond-weather.html.input`);
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/diamond-weather.html.input`);
   const resortData = await createHtmlParser('trails', parseDiamondTrails)(htmlText);
   expect(resortData).toEqual({
     trails: {
@@ -83,7 +83,7 @@ test('fetches all null for nonexisting trails values', async () => {
 });
 
 test('fetches Diamond lift list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/diamond-weather.html.input`);
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/diamond-weather.html.input`);
   const resortData = await createHtmlParser('liftList', parseDiamondLiftList)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
@@ -94,7 +94,7 @@ test('fetches all null for nonexisting lift list values', async () => {
 });
 
 test('fetches Diamond trail list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/fixtures/diamond-weather.html.input`);
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/diamond-weather.html.input`);
   const resortData = await createHtmlParser('trailList', parseDiamondTrailList)(htmlText);
   expect(resortData).toMatchSnapshot();
 });

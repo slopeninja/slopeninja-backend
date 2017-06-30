@@ -13,7 +13,7 @@ import {
   weatherStatusOrNull,
   notEmptyStringOrNull,
   removeNumberInFrontOfName,
-} from '../util';
+} from '../weatherUtil';
 
 test('tests if valid number', () => {
   expect(isNumber(4)).toBe(true);
@@ -84,8 +84,7 @@ test('returns valid trail level', () => {
   expect(parseTrailLevel('type_2')).toBe('intermediate');
   expect(parseTrailLevel('100')).toBe(null);
   expect(parseTrailLevel('http://sugar3.sugarbowl.com/tahoe/178/site/graphics/2016site/icons/conditions/icon_beginner.png')).toBe('beginner');
-
-})
+});
 
 test('returns valid trail lift status', () => {
   expect(parseLiftTrailStatus()).toBe(null);
@@ -99,7 +98,7 @@ test('returns valid trail lift status', () => {
   expect(parseLiftTrailStatus('yesStatus')).toBe('open');
   expect(parseLiftTrailStatus('icon-status_open')).toBe('open');
   expect(parseLiftTrailStatus('icon-status_close')).toBe('closed');
-})
+});
 
 test('returns valid resort status', () => {
   expect(parseResortStatus()).toBe(null);
@@ -109,7 +108,7 @@ test('returns valid resort status', () => {
   expect(parseResortStatus(100)).toBe(null);
   expect(parseResortStatus('100')).toBe(null);
   expect(parseResortStatus('pending')).toBe(null);
-})
+});
 
 test('returns valid trail lift status or null', () => {
   expect(liftTrailStatusOrNull()).toBe(null);
