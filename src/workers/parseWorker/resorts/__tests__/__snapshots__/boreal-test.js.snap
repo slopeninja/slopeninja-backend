@@ -2,7 +2,7 @@
 
 exports[`fetches Boreal lift list correctly 1`] = `
 Object {
-  "liftList": Array [
+  "lifts": Array [
     Object {
       "category": "Accelerator Zone",
       "name": "Accelerator Express Quad Charilift",
@@ -39,7 +39,7 @@ Object {
 
 exports[`fetches Boreal trail list correctly 1`] = `
 Object {
-  "trailList": Array [
+  "trails": Array [
     Object {
       "category": "Accelerator Zone",
       "level": "beginner",

@@ -2,7 +2,7 @@
 
 exports[`fetches Sugar lift list correctly 1`] = `
 Object {
-  "liftList": Array [
+  "lifts": Array [
     Object {
       "category": "Village Portal",
       "name": "Lincoln Express",
@@ -54,7 +54,7 @@ Object {
 
 exports[`fetches Sugar trail list correctly 1`] = `
 Object {
-  "trailList": Array [
+  "trails": Array [
     Object {
       "category": "Lincoln Express",
       "level": "expert",

@@ -1,10 +1,10 @@
 import fs from 'fs';
 import {
   parseBorealSnow,
+  parseBorealLiftCounts,
+  parseBorealTrailCounts,
   parseBorealLifts,
   parseBorealTrails,
-  parseBorealLiftList,
-  parseBorealTrailList,
 } from '../boreal';
 import { createJSONParser, decodeEntities } from '../../parserFactory';
 
@@ -57,9 +57,9 @@ test('fetches all null for no data', async () => {
 
 test('fetches Boreal lifts data correctly', async () => {
   const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/boreal-weather.json.input`);
-  const resortData = await createJSONParser('lifts', parseBorealLifts, decodeEntities)(jsonText);
+  const resortData = await createJSONParser('liftCounts', parseBorealLiftCounts, decodeEntities)(jsonText);
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: 6,
       open: 0,
     }
@@ -67,9 +67,9 @@ test('fetches Boreal lifts data correctly', async () => {
 });
 
 test('fetches all null for nonexisting lift values', async () => {
-  const resortData = await createJSONParser('lifts', parseBorealLifts, decodeEntities)("{}");
+  const resortData = await createJSONParser('liftCounts', parseBorealLiftCounts, decodeEntities)("{}");
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: null,
       open: null,
     }
@@ -78,9 +78,9 @@ test('fetches all null for nonexisting lift values', async () => {
 
 test('fetches Boreal trails data correctly', async () => {
   const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/boreal-weather.json.input`);
-  const resortData = await createJSONParser('trails', parseBorealTrails, decodeEntities)(jsonText);
+  const resortData = await createJSONParser('trailCounts', parseBorealTrailCounts, decodeEntities)(jsonText);
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: 33,
       open: 0,
     }
@@ -88,9 +88,9 @@ test('fetches Boreal trails data correctly', async () => {
 });
 
 test('fetches all null for nonexisting trails values', async () => {
-  const resortData = await createJSONParser('trails', parseBorealTrails, decodeEntities)("{}");
+  const resortData = await createJSONParser('trailCounts', parseBorealTrailCounts, decodeEntities)("{}");
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: null,
       open: null,
     }
@@ -99,22 +99,22 @@ test('fetches all null for nonexisting trails values', async () => {
 
 test('fetches Boreal lift list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/boreal-lifts.json.input`);
-  const resortData = await createJSONParser('liftList', parseBorealLiftList, decodeEntities)(htmlText);
+  const resortData = await createJSONParser('lifts', parseBorealLifts, decodeEntities)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createJSONParser('liftList', parseBorealLiftList, decodeEntities)("{}");
-  expect(resortData).toMatchObject({ liftList: [] });
+  const resortData = await createJSONParser('lifts', parseBorealLifts, decodeEntities)("{}");
+  expect(resortData).toMatchObject({ lifts: [] });
 });
 
 test('fetches Boreal trail list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/boreal-trails.json.input`);
-  const resortData = await createJSONParser('trailList', parseBorealTrailList, decodeEntities)(htmlText);
+  const resortData = await createJSONParser('trails', parseBorealTrails, decodeEntities)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createJSONParser('trailList', parseBorealTrailList, decodeEntities)("{}");
-  expect(resortData).toMatchObject({ trailList: [] });
+  const resortData = await createJSONParser('trails', parseBorealTrails, decodeEntities)("{}");
+  expect(resortData).toMatchObject({ trails: [] });
 });

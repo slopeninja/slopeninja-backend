@@ -25,11 +25,11 @@ export const DB = {
         newSnow: 8,
         snowDepth: 180,
       },
-      lifts: {
+      liftCounts: {
         total: 10,
         open: 5,
       },
-      trails: {
+      trailCounts: {
         total: 23,
         open: 18,
       },
@@ -66,11 +66,11 @@ export const DB = {
         newSnow: 12,
         snowDepth: 130,
       },
-      lifts: {
+      liftCounts: {
         total: 8,
         open: 5,
       },
-      trails: {
+      trailCounts: {
         total: 40,
         open: 16,
       },

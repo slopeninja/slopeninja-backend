@@ -1,10 +1,10 @@
 import fs from 'fs';
 import {
   parseKirkwoodSnow,
+  parseKirkwoodLiftCounts,
   parseKirkwoodLifts,
-  parseKirkwoodLiftList,
-  parseKirkwoodTrailList,
-  parseKirkwoodTrails
+  parseKirkwoodTrails,
+  parseKirkwoodTrailCounts
 } from '../kirkwood';
 import { createHtmlParser } from '../../parserFactory';
 
@@ -42,9 +42,9 @@ test('fetches all null for nonexisting snow values', async () => {
 
 test('fetches Kirkwood lifts data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/kirkwood-lifts.html.input`);
-  const resortData = await createHtmlParser('lifts', parseKirkwoodLifts)(htmlText);
+  const resortData = await createHtmlParser('liftCounts', parseKirkwoodLiftCounts)(htmlText);
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: 15,
       open: 0,
     }
@@ -52,9 +52,9 @@ test('fetches Kirkwood lifts data correctly', async () => {
 });
 
 test('fetches all null for nonexisting lift values', async () => {
-  const resortData = await createHtmlParser('lifts', parseKirkwoodLifts)('<html></html>');
+  const resortData = await createHtmlParser('liftCounts', parseKirkwoodLiftCounts)('<html></html>');
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: null,
       open: null,
     }
@@ -63,9 +63,9 @@ test('fetches all null for nonexisting lift values', async () => {
 
 test('fetches Kirkwood trails data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/kirkwood-lifts.html.input`);
-  const resortData = await createHtmlParser('trails', parseKirkwoodTrails)(htmlText);
+  const resortData = await createHtmlParser('trailCounts', parseKirkwoodTrailCounts)(htmlText);
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: 86,
       open: 0,
     }
@@ -73,9 +73,9 @@ test('fetches Kirkwood trails data correctly', async () => {
 });
 
 test('fetches all null for nonexisting trails values', async () => {
-  const resortData = await createHtmlParser('trails', parseKirkwoodTrails)('<html></html>');
+  const resortData = await createHtmlParser('trailCounts', parseKirkwoodTrailCounts)('<html></html>');
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: null,
       open: null,
     }
@@ -84,22 +84,22 @@ test('fetches all null for nonexisting trails values', async () => {
 
 test('fetches Kirkwood lift list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/kirkwood-lifts.html.input`);
-  const resortData = await createHtmlParser('liftList', parseKirkwoodLiftList)(htmlText);
+  const resortData = await createHtmlParser('lifts', parseKirkwoodLifts)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('liftList', parseKirkwoodLiftList)('<html></html>');
-  expect(resortData).toMatchObject({ liftList: [] });
+  const resortData = await createHtmlParser('lifts', parseKirkwoodLifts)('<html></html>');
+  expect(resortData).toMatchObject({ lifts: [] });
 });
 
 test('fetches Kirkwood trail list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/kirkwood-lifts.html.input`);
-  const resortData = await createHtmlParser('trailList', parseKirkwoodTrailList)(htmlText);
+  const resortData = await createHtmlParser('trails', parseKirkwoodTrails)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('trailList', parseKirkwoodTrailList)('<html></html>');
-  expect(resortData).toMatchObject({ trailList: [] });
+  const resortData = await createHtmlParser('trails', parseKirkwoodTrails)('<html></html>');
+  expect(resortData).toMatchObject({ trails: [] });
 });

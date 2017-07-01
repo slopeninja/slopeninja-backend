@@ -1,10 +1,10 @@
 import fs from 'fs';
 import {
   parseHeavenlySnow,
+  parseHeavenlyLiftCounts,
   parseHeavenlyLifts,
-  parseHeavenlyLiftList,
-  parseHeavenlyTrailList,
-  parseHeavenlyTrails
+  parseHeavenlyTrails,
+  parseHeavenlyTrailCounts
 } from '../heavenly';
 import { createHtmlParser, removeBackSlashes } from '../../parserFactory';
 
@@ -42,9 +42,9 @@ test('fetches all null for nonexisting snow values', async () => {
 
 test('fetches Heavenly lifts data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/heavenly-weather.html.input`);
-  const resortData = await createHtmlParser('lifts', parseHeavenlyLifts)(htmlText);
+  const resortData = await createHtmlParser('liftCounts', parseHeavenlyLiftCounts)(htmlText);
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: null,
       open: null,
     }
@@ -52,9 +52,9 @@ test('fetches Heavenly lifts data correctly', async () => {
 });
 
 test('fetches all null for nonexisting lift values', async () => {
-  const resortData = await createHtmlParser('lifts', parseHeavenlyLifts)('<html></html>');
+  const resortData = await createHtmlParser('liftCounts', parseHeavenlyLiftCounts)('<html></html>');
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: null,
       open: null,
     }
@@ -63,9 +63,9 @@ test('fetches all null for nonexisting lift values', async () => {
 
 test('fetches Heavenly trails data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/heavenly-weather.html.input`);
-  const resortData = await createHtmlParser('trails', parseHeavenlyTrails)(htmlText);
+  const resortData = await createHtmlParser('trailCounts', parseHeavenlyTrailCounts)(htmlText);
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: null,
       open: null,
     }
@@ -73,9 +73,9 @@ test('fetches Heavenly trails data correctly', async () => {
 });
 
 test('fetches all null for nonexisting trails values', async () => {
-  const resortData = await createHtmlParser('trails', parseHeavenlyTrails)('<html></html>');
+  const resortData = await createHtmlParser('trailCounts', parseHeavenlyTrailCounts)('<html></html>');
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: null,
       open: null,
     }
@@ -85,8 +85,8 @@ test('fetches all null for nonexisting trails values', async () => {
 test('fetches Heavenly lift list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/heavenly-lifts.html.input`);
   const resortData = await createHtmlParser(
-    'liftList',
-    parseHeavenlyLiftList,
+    'lifts',
+    parseHeavenlyLifts,
     removeBackSlashes,
   )(htmlText);
   expect(resortData).toMatchSnapshot();
@@ -94,18 +94,18 @@ test('fetches Heavenly lift list correctly', async () => {
 
 test('fetches all null for nonexisting lift list values', async () => {
   const resortData = await createHtmlParser(
-    'liftList',
-    parseHeavenlyLiftList,
+    'lifts',
+    parseHeavenlyLifts,
     removeBackSlashes,
   )('<html></html>');
-  expect(resortData).toMatchObject({ liftList: [] });
+  expect(resortData).toMatchObject({ lifts: [] });
 });
 
 test('fetches Heavenly trail list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/heavenly-lifts.html.input`);
   const resortData = await createHtmlParser(
-    'trailList',
-    parseHeavenlyTrailList,
+    'trails',
+    parseHeavenlyTrails,
     removeBackSlashes,
   )(htmlText);
   expect(resortData).toMatchSnapshot();
@@ -113,9 +113,9 @@ test('fetches Heavenly trail list correctly', async () => {
 
 test('fetches all null for nonexisting lift list values', async () => {
   const resortData = await createHtmlParser(
-    'trailList',
-    parseHeavenlyTrailList,
+    'trails',
+    parseHeavenlyTrails,
     removeBackSlashes,
   )('<html></html>');
-  expect(resortData).toMatchObject({ trailList: [] });
+  expect(resortData).toMatchObject({ trails: [] });
 });

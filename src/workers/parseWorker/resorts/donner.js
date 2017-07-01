@@ -46,19 +46,19 @@ export const parseDonnerSnow = async ($) => {
   };
 }
 
-export const parseDonnerLifts = async ($) => {
+export const parseDonnerLiftCounts = async ($) => {
   return {
     ...initialLifts,
   };
 }
 
-export const parseDonnerTrails = async ($) => {
+export const parseDonnerTrailCounts = async ($) => {
   return {
     ...initialTrails,
   };
 }
 
-export const parseDonnerLiftList = async ($) => {
+export const parseDonnerLifts = async ($) => {
   const list = [];
 
   $('.sqs-block-content p').slice(4, 12).map((index, rowElement) => {
@@ -83,7 +83,7 @@ export const parseDonnerLiftList = async ($) => {
  return list;
 }
 
-export const parseDonnerTrailList = async ($) => {
+export const parseDonnerTrails = async ($) => {
   const list = [];
 
  return list;

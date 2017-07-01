@@ -11,87 +11,87 @@ import {
 
 import {
   parseSierraSnow,
+  parseSierraLiftCounts,
+  parseSierraTrailCounts,
   parseSierraLifts,
   parseSierraTrails,
-  parseSierraLiftList,
-  parseSierraTrailList,
 } from './resorts/sierra';
 import {
   parseSquawSnow,
+  parseSquawLiftCounts,
+  parseSquawTrailCounts,
   parseSquawLifts,
   parseSquawTrails,
-  parseSquawLiftList,
-  parseSquawTrailList,
 } from './resorts/squaw';
 import {
   parseAlpineSnow,
+  parseAlpineLiftCounts,
+  parseAlpineTrailCounts,
   parseAlpineLifts,
   parseAlpineTrails,
-  parseAlpineLiftList,
-  parseAlpineTrailList,
 } from './resorts/alpine';
 import {
   parseDiamondSnow,
+  parseDiamondLiftCounts,
+  parseDiamondTrailCounts,
   parseDiamondLifts,
   parseDiamondTrails,
-  parseDiamondLiftList,
-  parseDiamondTrailList,
 } from './resorts/diamond';
 import {
   parseHeavenlySnow,
+  parseHeavenlyLiftCounts,
+  parseHeavenlyTrailCounts,
   parseHeavenlyLifts,
   parseHeavenlyTrails,
-  parseHeavenlyLiftList,
-  parseHeavenlyTrailList,
 } from './resorts/heavenly';
 import {
   parseKirkwoodSnow,
+  parseKirkwoodLiftCounts,
+  parseKirkwoodTrailCounts,
   parseKirkwoodLifts,
   parseKirkwoodTrails,
-  parseKirkwoodLiftList,
-  parseKirkwoodTrailList,
 } from './resorts/kirkwood';
 import {
   parseNorthstarSnow,
+  parseNorthstarLiftCounts,
+  parseNorthstarTrailCounts,
   parseNorthstarLifts,
   parseNorthstarTrails,
-  parseNorthstarLiftList,
-  parseNorthstarTrailList,
 } from './resorts/northstar';
 import {
   parseHomewoodSnow,
+  parseHomewoodLiftCounts,
+  parseHomewoodTrailCounts,
   parseHomewoodLifts,
   parseHomewoodTrails,
-  parseHomewoodLiftList,
-  parseHomewoodTrailList,
 } from './resorts/homewood';
 import {
   parseSugarSnow,
+  parseSugarLiftCounts,
+  parseSugarTrailCounts,
   parseSugarLifts,
   parseSugarTrails,
-  parseSugarLiftList,
-  parseSugarTrailList,
 } from './resorts/sugar';
 import {
   parseDonnerSnow,
+  parseDonnerLiftCounts,
+  parseDonnerTrailCounts,
   parseDonnerLifts,
   parseDonnerTrails,
-  parseDonnerLiftList,
-  parseDonnerTrailList,
 } from './resorts/donner';
 import {
   parseMtRoseSnow,
+  parseMtRoseLiftCounts,
+  parseMtRoseTrailCounts,
   parseMtRoseLifts,
   parseMtRoseTrails,
-  parseMtRoseLiftList,
-  parseMtRoseTrailList,
 } from './resorts/mtRose';
 import {
   parseBorealSnow,
+  parseBorealLiftCounts,
+  parseBorealTrailCounts,
   parseBorealLifts,
   parseBorealTrails,
-  parseBorealLiftList,
-  parseBorealTrailList,
 } from './resorts/boreal';
 
 import {
@@ -117,6 +117,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
+      fn: createHtmlParser('liftCounts', parseSierraLiftCounts),
+    },
+    { // fnConfig
+      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
+      fn: createHtmlParser('trailCounts', parseSierraTrailCounts),
+    },
+    { // fnConfig
+      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
       fn: createHtmlParser('lifts', parseSierraLifts),
     },
     { // fnConfig
@@ -124,24 +132,16 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseSierraTrails),
     },
     { // fnConfig
-      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
-      fn: createHtmlParser('liftList', parseSierraLiftList),
-    },
-    { // fnConfig
-      url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
-      fn: createHtmlParser('trailList', parseSierraTrailList),
-    },
-    { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
-      fn: createTextParser('highway50', parseCARoadCondition('US', '50')),
+      fn: createTextParser('roads', parseCARoadCondition('US', '50')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
-      fn: createTextParser('highway88', parseCARoadCondition('CA', '88')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '88')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'squaw': [
@@ -155,6 +155,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('liftCounts', parseSquawLiftCounts),
+    },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('trailCounts', parseSquawTrailCounts),
+    },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('lifts', parseSquawLifts),
     },
     { // fnConfig
@@ -162,24 +170,16 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseSquawTrails),
     },
     { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('liftList', parseSquawLiftList),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trailList', parseSquawTrailList),
-    },
-    { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
+      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
-      fn: createTextParser('highwa28', parseCARoadCondition('CA', '28')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '28')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'alpine': [
@@ -193,6 +193,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('liftCounts', parseAlpineLiftCounts),
+    },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
+      fn: createHtmlParser('trailCounts', parseAlpineTrailCounts),
+    },
+    { // fnConfig
+      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('lifts', parseAlpineLifts),
     },
     { // fnConfig
@@ -200,24 +208,16 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseAlpineTrails),
     },
     { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('liftList', parseAlpineLiftList),
-    },
-    { // fnConfig
-      url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trailList', parseAlpineTrailList),
-    },
-    { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
+      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
-      fn: createTextParser('highwa28', parseCARoadCondition('CA', '28')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '28')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'diamond': [
@@ -231,6 +231,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.diamondpeak.com/mountain/conditions',
+      fn: createHtmlParser('liftCounts', parseDiamondLiftCounts),
+    },
+    { // fnConfig
+      url: 'http://www.diamondpeak.com/mountain/conditions',
+      fn: createHtmlParser('trailCounts', parseDiamondTrailCounts),
+    },
+    { // fnConfig
+      url: 'http://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('lifts', parseDiamondLifts),
     },
     { // fnConfig
@@ -238,20 +246,12 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseDiamondTrails),
     },
     { // fnConfig
-      url: 'http://www.diamondpeak.com/mountain/conditions',
-      fn: createHtmlParser('liftList', parseDiamondLiftList),
-    },
-    { // fnConfig
-      url: 'http://www.diamondpeak.com/mountain/conditions',
-      fn: createHtmlParser('trailList', parseDiamondTrailList),
+      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      fn: createTextParser('roads', parseNVRoadCondition('NV', '28')),
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highway28', parseNVRoadCondition('NV', '28')),
-    },
-    { // fnConfig
-      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highwa431', parseNVRoadCondition('NV', '431')),
+      fn: createTextParser('roads', parseNVRoadCondition('NV', '431')),
     },
   ],
   'heavenly': [
@@ -265,27 +265,27 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.skiheavenly.com/the-mountain/terrain-and-lift-status.aspx',
-      fn: createHtmlParser('lifts', parseHeavenlyLifts),
+      fn: createHtmlParser('liftCounts', parseHeavenlyLiftCounts),
     },
     { // fnConfig
       url: 'http://www.skiheavenly.com/the-mountain/terrain-and-lift-status.aspx',
+      fn: createHtmlParser('trailCounts', parseHeavenlyTrailCounts),
+    },
+    { // fnConfig
+      url: 'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
+      fn: createHtmlParser('lifts', parseHeavenlyLifts),
+    },
+    { // fnConfig
+      url: 'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
       fn: createHtmlParser('trails', parseHeavenlyTrails),
     },
     { // fnConfig
-      url: 'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
-      fn: createHtmlParser('liftList', parseHeavenlyLiftList),
-    },
-    { // fnConfig
-      url: 'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
-      fn: createHtmlParser('trailList', parseHeavenlyTrailList),
-    },
-    { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
-      fn: createTextParser('highway50', parseCARoadCondition('US', '50')),
+      fn: createTextParser('roads', parseCARoadCondition('US', '50')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr207',
-      fn: createTextParser('highwa207', parseCARoadCondition('CA', '207')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '207')),
     },
   ],
   'kirkwood': [
@@ -299,6 +299,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+      fn: createHtmlParser('liftCounts', parseKirkwoodLiftCounts),
+    },
+    { // fnConfig
+      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+      fn: createHtmlParser('trailCounts', parseKirkwoodTrailCounts),
+    },
+    { // fnConfig
+      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
       fn: createHtmlParser('lifts', parseKirkwoodLifts),
     },
     { // fnConfig
@@ -306,24 +314,16 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseKirkwoodTrails),
     },
     { // fnConfig
-      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
-      fn: createHtmlParser('liftList', parseKirkwoodLiftList),
-    },
-    { // fnConfig
-      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
-      fn: createHtmlParser('trailList', parseKirkwoodTrailList),
-    },
-    { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
-      fn: createTextParser('highway50', parseCARoadCondition('US', '50')),
+      fn: createTextParser('roads', parseCARoadCondition('US', '50')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
-      fn: createTextParser('highway88', parseCARoadCondition('CA', '88')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '88')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'northstar': [
@@ -337,6 +337,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+      fn: createHtmlParser('liftCounts', parseNorthstarLiftCounts),
+    },
+    { // fnConfig
+      url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+      fn: createHtmlParser('trailCounts', parseNorthstarTrailCounts),
+    },
+    { // fnConfig
+      url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
       fn: createHtmlParser('lifts', parseNorthstarLifts),
     },
     { // fnConfig
@@ -344,24 +352,16 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseNorthstarTrails),
     },
     { // fnConfig
-      url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
-      fn: createHtmlParser('liftList', parseNorthstarLiftList),
-    },
-    { // fnConfig
-      url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
-      fn: createHtmlParser('trailList', parseNorthstarTrailList),
-    },
-    { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
-      fn: createTextParser('highway267', parseCARoadCondition('CA', '267')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '267')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
-      fn: createTextParser('highway28', parseCARoadCondition('CA', '28')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '28')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'homewood': [
@@ -375,6 +375,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.skihomewood.com/mountain/snow-report',
+      fn: createHtmlParser('liftCounts', parseHomewoodLiftCounts),
+    },
+    { // fnConfig
+      url: 'http://www.skihomewood.com/mountain/snow-report',
+      fn: createHtmlParser('trailCounts', parseHomewoodTrailCounts),
+    },
+    { // fnConfig
+      url: 'http://www.skihomewood.com/mountain/snow-report',
       fn: createHtmlParser('lifts', parseHomewoodLifts),
     },
     { // fnConfig
@@ -382,16 +390,8 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseHomewoodTrails),
     },
     { // fnConfig
-      url: 'http://www.skihomewood.com/mountain/snow-report',
-      fn: createHtmlParser('liftList', parseHomewoodLiftList),
-    },
-    { // fnConfig
-      url: 'http://www.skihomewood.com/mountain/snow-report',
-      fn: createHtmlParser('trailList', parseHomewoodTrailList),
-    },
-    { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'sugar': [ // fnConfigs
@@ -405,6 +405,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
+      fn: createHtmlParser('liftCounts', parseSugarLiftCounts),
+    },
+    { // fnConfig
+      url: 'http://www.sugarbowl.com/conditions',
+      fn: createHtmlParser('trailCounts', parseSugarTrailCounts),
+    },
+    { // fnConfig
+      url: 'http://www.sugarbowl.com/conditions',
       fn: createHtmlParser('lifts', parseSugarLifts),
     },
     { // fnConfig
@@ -412,20 +420,12 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseSugarTrails),
     },
     { // fnConfig
-      url: 'http://www.sugarbowl.com/conditions',
-      fn: createHtmlParser('liftList', parseSugarLiftList),
-    },
-    { // fnConfig
-      url: 'http://www.sugarbowl.com/conditions',
-      fn: createHtmlParser('trailList', parseSugarTrailList),
-    },
-    { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
+      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'donner': [ // fnConfigs
@@ -439,6 +439,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'https://www.donnerskiranch.com/snow-report/',
+      fn: createHtmlParser('liftCounts', parseDonnerLiftCounts),
+    },
+    { // fnConfig
+      url: 'https://www.donnerskiranch.com/snow-report/',
+      fn: createHtmlParser('trailCounts', parseDonnerTrailCounts),
+    },
+    { // fnConfig
+      url: 'https://www.donnerskiranch.com/snow-report/',
       fn: createHtmlParser('lifts', parseDonnerLifts),
     },
     { // fnConfig
@@ -446,24 +454,16 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseDonnerTrails),
     },
     { // fnConfig
-      url: 'https://www.donnerskiranch.com/snow-report/',
-      fn: createHtmlParser('liftList', parseDonnerLiftList),
-    },
-    { // fnConfig
-      url: 'https://www.donnerskiranch.com/snow-report/',
-      fn: createHtmlParser('trailList', parseDonnerTrailList),
-    },
-    { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
+      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
-      fn: createTextParser('highway267', parseCARoadCondition('CA', '267')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '267')),
     },
   ],
   'mtRose': [ // fnConfigs
@@ -477,6 +477,14 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://skirose.com/the-mountain/snow-report/',
+      fn: createHtmlParser('liftCounts', parseMtRoseLiftCounts),
+    },
+    { // fnConfig
+      url: 'http://skirose.com/the-mountain/snow-report/',
+      fn: createHtmlParser('trailCounts', parseMtRoseTrailCounts),
+    },
+    { // fnConfig
+      url: 'http://skirose.com/the-mountain/snow-report/',
       fn: createHtmlParser('lifts', parseMtRoseLifts),
     },
     { // fnConfig
@@ -484,24 +492,16 @@ const resortsConfig = {
       fn: createHtmlParser('trails', parseMtRoseTrails),
     },
     { // fnConfig
-      url: 'http://skirose.com/the-mountain/snow-report/',
-      fn: createHtmlParser('liftList', parseMtRoseLiftList),
-    },
-    { // fnConfig
-      url: 'http://skirose.com/the-mountain/snow-report/',
-      fn: createHtmlParser('trailList', parseMtRoseTrailList),
+      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      fn: createTextParser('roads', parseNVRoadCondition('NV', '28')),
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highway28', parseNVRoadCondition('NV', '28')),
+      fn: createTextParser('roads', parseNVRoadCondition('NV', '431')),
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highwa431', parseNVRoadCondition('NV', '431')),
-    },
-    { // fnConfig
-      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highwa580', parseNVRoadCondition('I', '580')),
+      fn: createTextParser('roads', parseNVRoadCondition('I', '580')),
     },
   ],
   'boreal': [ // fnConfigs
@@ -515,31 +515,31 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
-      fn: createJSONParser('lifts', parseBorealLifts, decodeEntities),
+      fn: createJSONParser('liftCounts', parseBorealLiftCounts, decodeEntities),
     },
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
-      fn: createJSONParser('trails', parseBorealTrails, decodeEntities),
+      fn: createJSONParser('trailCounts', parseBorealTrailCounts, decodeEntities),
     },
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/the-mountain/trail-lift-info/lifts-hours&level=1',
-      fn: createJSONParser('liftList', parseBorealLiftList, decodeEntities),
+      fn: createJSONParser('lifts', parseBorealLifts, decodeEntities),
     },
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/the-mountain/trail-lift-info/full-trail-report&level=1',
-      fn: createJSONParser('trailList', parseBorealTrailList, decodeEntities),
+      fn: createJSONParser('trails', parseBorealTrails, decodeEntities),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
+      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
-      fn: createTextParser('highway267', parseCARoadCondition('CA', '267')),
+      fn: createTextParser('roads', parseCARoadCondition('CA', '267')),
     },
   ],
 };
@@ -570,7 +570,7 @@ const fetchResort = async (resortName) => {
   // user `for` over `map` to wait before queuing the next fn call
   // so we can hit the cache
   const arrayOfResults = [];
-  for(let i = 0; i < fnConfigs.length; i++) {
+  for (let i = 0; i < fnConfigs.length; i++) {
     const fnConfig = fnConfigs[i];
 
     const text = await lookUpOrFetch(fnConfig.url);
@@ -579,15 +579,43 @@ const fetchResort = async (resortName) => {
 
     const result = await parser(text);
 
+    delete result.lifts;
+
     arrayOfResults.push(result);
   }
 
   // flatten the array
   const resortData = arrayOfResults.reduce((acc, result) => {
-    return {
-      ...acc,
-      ...result,
-    };
+    // result =
+    // {
+    //   [key]: value,
+    // }
+
+    const key = Object.keys(result)[0];
+    const value = result[key];
+
+    if(!acc[key]) {
+      return {
+        ...acc,
+        ...result,
+      };
+    }
+
+    const values = acc[key];
+
+    if (Array.isArray(values)) {
+      values.push(value)
+
+      return {
+        ...acc,
+        [key]: values,
+      };
+    } else {
+      return {
+        ...acc,
+        [key]: [acc[key], value]
+      }
+    }
   }, {})
 
   return {

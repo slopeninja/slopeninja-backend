@@ -49,7 +49,7 @@ export const parseAlpineSnow = async ($) => {
   };
 }
 
-export const parseAlpineLifts = async ($) => {
+export const parseAlpineLiftCounts = async ($) => {
   const open = numberOrNull(Number.parseInt($('#alpine-report .global-stats .cell.open-lifts .value').text().trim()));
   return {
     ...initialLifts,
@@ -57,14 +57,14 @@ export const parseAlpineLifts = async ($) => {
   };
 }
 
-export const parseAlpineTrails = async ($) => {
+export const parseAlpineTrailCounts = async ($) => {
   const open = numberOrNull(Number.parseInt($('#alpine-report .global-stats .cell.open-trails .value').text().trim()));
   return {
     ...initialTrails,
     open: numberOrNull(open),
   };
 }
-export const parseAlpineLiftList = async ($) => {
+export const parseAlpineLifts = async ($) => {
   const list = [];
   $('#alpine-report .lift').map((index, rowElement) => {
     // alpine messed up their lifts list by including a shuttle in it
@@ -97,7 +97,7 @@ export const parseAlpineLiftList = async ($) => {
  return list;
 }
 
-export const parseAlpineTrailList = async ($) => {
+export const parseAlpineTrails = async ($) => {
   const list = [];
 
   $('#alpine-report .runs .trail').map((index, rowElement) => {

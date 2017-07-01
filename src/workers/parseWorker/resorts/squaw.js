@@ -51,7 +51,7 @@ export const parseSquawSnow = async ($) => {
 
 
 
-export const parseSquawLifts = async ($) => {
+export const parseSquawLiftCounts = async ($) => {
   const open = numberOrNull(Number.parseInt($('#squaw-report .global-stats .cell.open-lifts .value').text().trim()));
   return {
     ...initialLifts,
@@ -59,7 +59,7 @@ export const parseSquawLifts = async ($) => {
   };
 }
 
-export const parseSquawTrails = async ($) => {
+export const parseSquawTrailCounts = async ($) => {
   const open = numberOrNull(Number.parseInt($('#squaw-report .global-stats .cell.open-trails .value').text().trim()));
   return {
     ...initialTrails,
@@ -68,7 +68,7 @@ export const parseSquawTrails = async ($) => {
 }
 
 
-export const parseSquawLiftList = async ($) => {
+export const parseSquawLifts = async ($) => {
   const list = [];
 
   $('#squaw-report .lift').map((index, rowElement) => {
@@ -103,7 +103,7 @@ export const parseSquawLiftList = async ($) => {
  return list;
 }
 
-export const parseSquawTrailList = async ($) => {
+export const parseSquawTrails = async ($) => {
   const list = [];
 
   $('#squaw-report .runs .trail').map((index, rowElement) => {

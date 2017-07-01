@@ -1,10 +1,10 @@
 import fs from 'fs';
 import {
   parseDonnerSnow,
+  parseDonnerLiftCounts,
+  parseDonnerTrailCounts,
   parseDonnerLifts,
   parseDonnerTrails,
-  parseDonnerLiftList,
-  parseDonnerTrailList,
 } from '../donner';
 import { createHtmlParser } from '../../parserFactory';
 
@@ -42,9 +42,9 @@ test('fetches all null for nonexisting snow values', async () => {
 
 test('fetches Donner lifts data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/donner-weather.html.input`);
-  const resortData = await createHtmlParser('lifts', parseDonnerLifts)(htmlText);
+  const resortData = await createHtmlParser('liftCounts', parseDonnerLiftCounts)(htmlText);
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: null,
       open: null,
     }
@@ -52,9 +52,9 @@ test('fetches Donner lifts data correctly', async () => {
 });
 
 test('fetches all null for nonexisting lift values', async () => {
-  const resortData = await createHtmlParser('lifts', parseDonnerLifts)('<html></html>');
+  const resortData = await createHtmlParser('liftCounts', parseDonnerLiftCounts)('<html></html>');
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: null,
       open: null,
     }
@@ -63,9 +63,9 @@ test('fetches all null for nonexisting lift values', async () => {
 
 test('fetches Donner trails data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/donner-weather.html.input`);
-  const resortData = await createHtmlParser('trails', parseDonnerTrails)(htmlText);
+  const resortData = await createHtmlParser('trailCounts', parseDonnerTrailCounts)(htmlText);
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: null,
       open: null,
     }
@@ -73,9 +73,9 @@ test('fetches Donner trails data correctly', async () => {
 });
 
 test('fetches all null for nonexisting trails values', async () => {
-  const resortData = await createHtmlParser('trails', parseDonnerTrails)('<html></html>');
+  const resortData = await createHtmlParser('trailCounts', parseDonnerTrailCounts)('<html></html>');
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: null,
       open: null,
     }
@@ -84,22 +84,22 @@ test('fetches all null for nonexisting trails values', async () => {
 
 test('fetches Donner lift list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/donner-weather.html.input`);
-  const resortData = await createHtmlParser('liftList', parseDonnerLiftList)(htmlText);
+  const resortData = await createHtmlParser('lifts', parseDonnerLifts)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('liftList', parseDonnerLiftList)('<html></html>');
-  expect(resortData).toMatchObject({ liftList: [] });
+  const resortData = await createHtmlParser('lifts', parseDonnerLifts)('<html></html>');
+  expect(resortData).toMatchObject({ lifts: [] });
 });
 
 test('fetches Donner trail list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/donner-weather.html.input`);
-  const resortData = await createHtmlParser('trailList', parseDonnerTrailList)(htmlText);
-  expect(resortData).toMatchObject({ trailList: [] });
+  const resortData = await createHtmlParser('trails', parseDonnerTrails)(htmlText);
+  expect(resortData).toMatchObject({ trails: [] });
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('trailList', parseDonnerTrailList)('<html></html>');
-  expect(resortData).toMatchObject({ trailList: [] });
+  const resortData = await createHtmlParser('trails', parseDonnerTrails)('<html></html>');
+  expect(resortData).toMatchObject({ trails: [] });
 });

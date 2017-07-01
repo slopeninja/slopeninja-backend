@@ -58,7 +58,7 @@ export const parseBorealSnow = async (data) => {
   };
 }
 
-export const parseBorealLifts = async (data) => {
+export const parseBorealLiftCounts = async (data) => {
   if (!data.default_data) {
     return {
       ...initialLifts,
@@ -73,7 +73,7 @@ export const parseBorealLifts = async (data) => {
   }
 }
 
-export const parseBorealTrails = async (data) => {
+export const parseBorealTrailCounts = async (data) => {
   if (!data.default_data) {
     return {
       ...initialTrails,
@@ -88,7 +88,7 @@ export const parseBorealTrails = async (data) => {
   }
 }
 
-export const parseBorealLiftList = async (data) => {
+export const parseBorealLifts = async (data) => {
   if (!data.level_3) {
     return [];
   }
@@ -108,7 +108,7 @@ export const parseBorealLiftList = async (data) => {
  return list;
 }
 
-export const parseBorealTrailList = async (data) => {
+export const parseBorealTrails = async (data) => {
   if (!data.level_3) {
     return [];
   }

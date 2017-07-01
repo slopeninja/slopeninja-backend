@@ -49,19 +49,19 @@ export const parseHeavenlySnow = async ($) => {
   };
 }
 
-export const parseHeavenlyLifts = async ($) => {
+export const parseHeavenlyLiftCounts = async ($) => {
   return {
     ...initialLifts,
   };
 }
 
-export const parseHeavenlyTrails = async ($) => {
+export const parseHeavenlyTrailCounts = async ($) => {
   return {
     ...initialTrails,
   };
 }
 
-export const parseHeavenlyLiftList = async ($) => {
+export const parseHeavenlyLifts = async ($) => {
   const list = [];
   $('.liftContainer').map((index, rowElement) => {
     const liftType = $(rowElement).find('span').text();
@@ -83,7 +83,7 @@ export const parseHeavenlyLiftList = async ($) => {
  return list;
 }
 
-export const parseHeavenlyTrailList = async ($) => {
+export const parseHeavenlyTrails = async ($) => {
   const list = [];
 
   $('.groomingAreaRunContainer .runContainer').map((index, rowElement) => {

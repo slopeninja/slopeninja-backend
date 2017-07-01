@@ -50,7 +50,7 @@ export const parseNorthstarSnow = async ($) => {
   };
 }
 
-export const parseNorthstarLifts = async ($) => {
+export const parseNorthstarLiftCounts = async ($) => {
   const openLifts = Number.parseInt($('.gradBorderModule .terrainConditions .firstItem span').first().text());
   const totalLifts = Number.parseInt($('.gradBorderModule .terrainConditions .firstItem span').slice(1,2).text());
 
@@ -61,7 +61,7 @@ export const parseNorthstarLifts = async ($) => {
   };
 }
 
-export const parseNorthstarTrails = async ($) => {
+export const parseNorthstarTrailCounts = async ($) => {
   const openTrails = Number.parseInt($('.gradBorderModule .terrainConditions li span').slice(2,3).text());
   const totalTrails = Number.parseInt($('.gradBorderModule .terrainConditions li span').slice(3,4).text());
   return {
@@ -71,7 +71,7 @@ export const parseNorthstarTrails = async ($) => {
   };
 }
 
-export const parseNorthstarLiftList = async ($) => {
+export const parseNorthstarLifts = async ($) => {
   const list = [];
 
   $('#Lifts tbody tr').map((index, rowElement) => {
@@ -100,7 +100,7 @@ export const parseNorthstarLiftList = async ($) => {
  return list;
 }
 
-export const parseNorthstarTrailList = async ($) => {
+export const parseNorthstarTrails = async ($) => {
   const list = [];
 
   $('#TerrainStatus tbody td tbody tr').map((index, rowElement) => {

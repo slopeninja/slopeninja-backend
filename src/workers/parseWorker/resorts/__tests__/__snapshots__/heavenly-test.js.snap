@@ -2,7 +2,7 @@
 
 exports[`fetches Heavenly lift list correctly 1`] = `
 Object {
-  "liftList": Array [
+  "lifts": Array [
     Object {
       "category": null,
       "name": "Tamarack",
@@ -154,7 +154,7 @@ Object {
 
 exports[`fetches Heavenly trail list correctly 1`] = `
 Object {
-  "trailList": Array [
+  "trails": Array [
     Object {
       "category": "Top Of Gondola",
       "level": "beginner",

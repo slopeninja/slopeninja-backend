@@ -47,19 +47,19 @@ export const parseHomewoodSnow = async ($) => {
   };
 }
 
-export const parseHomewoodLifts = async ($) => {
+export const parseHomewoodLiftCounts = async ($) => {
   return {
     ...initialLifts,
   };
 }
 
-export const parseHomewoodTrails = async ($) => {
+export const parseHomewoodTrailCounts = async ($) => {
   return {
     ...initialTrails,
   };
 }
 
-export const parseHomewoodLiftList = async ($) => {
+export const parseHomewoodLifts = async ($) => {
   const list = [];
 
   $('.lifts_table .lift_header').map((index, liftHeaderElement) => {
@@ -82,7 +82,7 @@ export const parseHomewoodLiftList = async ($) => {
  return list;
 }
 
-export const parseHomewoodTrailList = async ($) => {
+export const parseHomewoodTrails = async ($) => {
   const list = [];
 
   $('#lifts_wrapper .lifts_table tbody').map((index, tableElement) => {

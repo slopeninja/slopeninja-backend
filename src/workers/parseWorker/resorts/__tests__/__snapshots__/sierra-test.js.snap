@@ -2,7 +2,7 @@
 
 exports[`fetches Sierra lift list correctly 1`] = `
 Object {
-  "liftList": Array [
+  "lifts": Array [
     Object {
       "category": "Frontside Lifts",
       "name": "Easy Rider Express",
@@ -79,7 +79,7 @@ Object {
 
 exports[`fetches Sierra trail list correctly 1`] = `
 Object {
-  "trailList": Array [
+  "trails": Array [
     Object {
       "category": "Rock Garden",
       "level": "beginner",

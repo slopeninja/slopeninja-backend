@@ -52,7 +52,7 @@ export const parseSugarSnow = async ($) => {
   };
 }
 
-export const parseSugarLifts = async ($) => {
+export const parseSugarLiftCounts = async ($) => {
   const open = numberOrNull(Number.parseInt($('.c1 #conditions_status_col_left_openlifts .h3').text().trim()));
   return {
     ...initialLifts,
@@ -60,13 +60,13 @@ export const parseSugarLifts = async ($) => {
   };
 }
 
-export const parseSugarTrails = async ($) => {
+export const parseSugarTrailCounts = async ($) => {
   return {
     ...initialTrails,
   };
 }
 
-export const parseSugarLiftList = async ($) => {
+export const parseSugarLifts = async ($) => {
 
   const canonicalLiftNames = [];
   $('.c').map((index, rowElement) => {
@@ -114,7 +114,7 @@ export const parseSugarLiftList = async ($) => {
  return list;
 }
 
-export const parseSugarTrailList = async ($) => {
+export const parseSugarTrails = async ($) => {
   const list = [];
   $('.c').map((index, rowElement) => {
     let levelElement;

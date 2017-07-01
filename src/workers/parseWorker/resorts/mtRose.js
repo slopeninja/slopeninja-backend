@@ -51,19 +51,19 @@ export const parseMtRoseSnow = async ($) => {
   };
 }
 
-export const parseMtRoseLifts = async ($) => {
+export const parseMtRoseLiftCounts = async ($) => {
   return {
     ...initialLifts,
   };
 }
 
-export const parseMtRoseTrails = async ($) => {
+export const parseMtRoseTrailCounts = async ($) => {
   return {
     ...initialTrails,
   };
 }
 
-export const parseMtRoseLiftList = async ($) => {
+export const parseMtRoseLifts = async ($) => {
   const list = [];
 
   $('.sr-lifts-wrapper .sr-ski-lift-wrapper').map((index, rowElement) => {
@@ -87,7 +87,7 @@ export const parseMtRoseLiftList = async ($) => {
  return list;
 }
 
-export const parseMtRoseTrailList = async ($) => {
+export const parseMtRoseTrails = async ($) => {
   const list = [];
 
  return list;

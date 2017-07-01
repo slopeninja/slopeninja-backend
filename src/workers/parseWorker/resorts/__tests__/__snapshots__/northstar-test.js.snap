@@ -2,7 +2,7 @@
 
 exports[`fetches Northstar lift list correctly 1`] = `
 Object {
-  "liftList": Array [
+  "lifts": Array [
     Object {
       "category": null,
       "name": "Arrow Express",
@@ -109,7 +109,7 @@ Object {
 
 exports[`fetches Northstar trail list correctly 1`] = `
 Object {
-  "trailList": Array [
+  "trails": Array [
     Object {
       "category": null,
       "level": "intermediate",

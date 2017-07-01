@@ -50,19 +50,19 @@ export const parseDiamondSnow = async ($) => {
   };
 }
 
-export const parseDiamondLifts = async ($) => {
+export const parseDiamondLiftCounts = async ($) => {
   return {
     ...initialLifts,
   };
 }
 
-export const parseDiamondTrails = async ($) => {
+export const parseDiamondTrailCounts = async ($) => {
   return {
     ...initialTrails,
   };
 }
 
-export const parseDiamondLiftList = async ($) => {
+export const parseDiamondLifts = async ($) => {
   const list = [];
 
   $('.lift-trail-conditions .lift-header').map((index, rowElement) => {
@@ -85,7 +85,7 @@ export const parseDiamondLiftList = async ($) => {
  return list;
 }
 
-export const parseDiamondTrailList = async ($) => {
+export const parseDiamondTrails = async ($) => {
   const list = [];
 
   $('.trail').map((index, rowElement) => {

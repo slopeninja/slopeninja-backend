@@ -1,10 +1,10 @@
 import fs from 'fs';
 import {
   parseNorthstarSnow,
+  parseNorthstarLiftCounts,
   parseNorthstarLifts,
-  parseNorthstarLiftList,
-  parseNorthstarTrailList,
-  parseNorthstarTrails
+  parseNorthstarTrails,
+  parseNorthstarTrailCounts
 } from '../northstar';
 import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
@@ -42,9 +42,9 @@ test('fetches all null for nonexisting snow values', async () => {
 
 test('fetches Northstar lifts data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/northstar-lifts.html.input`);
-  const resortData = await createHtmlParser('lifts', parseNorthstarLifts)(htmlText);
+  const resortData = await createHtmlParser('liftCounts', parseNorthstarLiftCounts)(htmlText);
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: 20,
       open: 0,
     }
@@ -52,9 +52,9 @@ test('fetches Northstar lifts data correctly', async () => {
 });
 
 test('fetches all null for nonexisting lift values', async () => {
-  const resortData = await createHtmlParser('lifts', parseNorthstarLifts)('<html></html>');
+  const resortData = await createHtmlParser('liftCounts', parseNorthstarLiftCounts)('<html></html>');
   expect(resortData).toEqual({
-    lifts: {
+    liftCounts: {
       total: null,
       open: null,
     }
@@ -63,9 +63,9 @@ test('fetches all null for nonexisting lift values', async () => {
 
 test('fetches Northstar trails data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/northstar-lifts.html.input`);
-  const resortData = await createHtmlParser('trails', parseNorthstarTrails)(htmlText);
+  const resortData = await createHtmlParser('trailCounts', parseNorthstarTrailCounts)(htmlText);
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: 100,
       open: 0,
     }
@@ -73,9 +73,9 @@ test('fetches Northstar trails data correctly', async () => {
 });
 
 test('fetches all null for nonexisting trails values', async () => {
-  const resortData = await createHtmlParser('trails', parseNorthstarTrails)('<html></html>');
+  const resortData = await createHtmlParser('trailCounts', parseNorthstarTrailCounts)('<html></html>');
   expect(resortData).toEqual({
-    trails: {
+    trailCounts: {
       total: null,
       open: null,
     }
@@ -84,22 +84,22 @@ test('fetches all null for nonexisting trails values', async () => {
 
 test('fetches Northstar lift list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/northstar-lifts.html.input`);
-  const resortData = await createHtmlParser('liftList', parseNorthstarLiftList)(htmlText);
+  const resortData = await createHtmlParser('lifts', parseNorthstarLifts)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('liftList', parseNorthstarLiftList)('<html></html>');
-  expect(resortData).toMatchObject({ liftList: [] });
+  const resortData = await createHtmlParser('lifts', parseNorthstarLifts)('<html></html>');
+  expect(resortData).toMatchObject({ lifts: [] });
 });
 
 test('fetches Northstar trail list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/northstar-lifts.html.input`);
-  const resortData = await createHtmlParser('trailList', parseNorthstarTrailList)(htmlText);
+  const resortData = await createHtmlParser('trails', parseNorthstarTrails)(htmlText);
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('trailList', parseNorthstarTrailList)('<html></html>');
-  expect(resortData).toMatchObject({ trailList: [] });
+  const resortData = await createHtmlParser('trails', parseNorthstarTrails)('<html></html>');
+  expect(resortData).toMatchObject({ trails: [] });
 });

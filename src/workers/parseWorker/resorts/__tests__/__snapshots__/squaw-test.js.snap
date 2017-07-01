@@ -2,7 +2,7 @@
 
 exports[`fetches Squaw lift list correctly 1`] = `
 Object {
-  "liftList": Array [
+  "lifts": Array [
     Object {
       "category": "Lifts-Lower Mountain",
       "name": "Aerial Tram",
@@ -164,7 +164,7 @@ Object {
 
 exports[`fetches Squaw trail list correctly 1`] = `
 Object {
-  "trailList": Array [
+  "trails": Array [
     Object {
       "category": "Broken Arrow",
       "level": "advanced",

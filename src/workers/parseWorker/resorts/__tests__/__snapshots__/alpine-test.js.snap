@@ -2,7 +2,7 @@
 
 exports[`fetches Alpine lift list correctly 1`] = `
 Object {
-  "liftList": Array [
+  "lifts": Array [
     Object {
       "category": null,
       "name": "Hot Wheels",
@@ -74,7 +74,7 @@ Object {
 
 exports[`fetches Alpine trail list correctly 1`] = `
 Object {
-  "trailList": Array [
+  "trails": Array [
     Object {
       "category": "Hot Wheels",
       "level": "intermediate",

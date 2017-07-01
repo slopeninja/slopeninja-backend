@@ -48,7 +48,7 @@ export const parseSierraSnow = async ($) => {
   };
 }
 
-export const parseSierraLifts = async ($) => {
+export const parseSierraLiftCounts = async ($) => {
   const openLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').first().text());
   const totalLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').first().text().replace('/', ''));
   const liftListsCount = $('.lifts-list table tbody tr').length;
@@ -60,7 +60,7 @@ export const parseSierraLifts = async ($) => {
   }
 }
 
-export const parseSierraTrails = async ($) => {
+export const parseSierraTrailCounts = async ($) => {
   const openTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').slice(1,2).text());
   const totalTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').slice(1,2).text().replace('/', ''));
   return {
@@ -70,7 +70,7 @@ export const parseSierraTrails = async ($) => {
   }
 }
 
-export const parseSierraLiftList = async ($) => {
+export const parseSierraLifts = async ($) => {
   const list = [];
 
   $('.lifts-list tbody > tr').map((index, rowElement) => {
@@ -98,7 +98,7 @@ export const parseSierraLiftList = async ($) => {
  return list;
 }
 
-export const parseSierraTrailList = async ($) => {
+export const parseSierraTrails = async ($) => {
   const list = [];
 
   $('.trails-list tbody > tr').map((index, rowElement) => {
