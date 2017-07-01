@@ -42,23 +42,27 @@ export const parseNVRoadConditionList = (
   return nevadaRoadList[highway].join();
 }
 
-// FIXME move this to parserFactory
-export const filterNevadaHighway = (name) => (htmlText) => {
-  const $ = cheerio.load(htmlText, { decodeEntities: true });
-  return parseNVRoadConditionList($, name);
-};
+export const parseNVRoadCondition = (prefix, number) => async ($) => {
+  // if state road, then the prefix should be normalized to SR
+  let normalizedPrefix = prefix === 'NV' ? 'SR' : prefix;
 
-export const parseNVRoadCondition = async (data) => {
+  const name = `${normalizedPrefix}${number}`;
 
-  if(!data) {
+  const filteredData = parseNVRoadConditionList($, name);
+
+  if(!filteredData) {
     return {
+      prefix,
+      number,
       status: 'open',
       chainStatus: null,
     }
   }
 
   return {
-    status: nevadaRoadStatusOrNull(data),
-    chainStatus: nevadaChainStatusOrNull(data),
+    prefix,
+    number,
+    status: nevadaRoadStatusOrNull(filteredData),
+    chainStatus: nevadaChainStatusOrNull(filteredData),
   }
 }

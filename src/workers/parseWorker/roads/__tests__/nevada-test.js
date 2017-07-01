@@ -1,16 +1,17 @@
 import fs from 'fs';
 import {
   parseNVRoadCondition,
-  filterNevadaHighway,
 } from '../nevada';
-import { createTextParser } from '../../parserFactory';
+import { createHtmlParser } from '../../parserFactory';
 
 test('parses road and chain condition correctly I80', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/NVIncidents.html.input`);
 
-  const resortData = await createTextParser('highway80', parseNVRoadCondition, filterNevadaHighway('I80'))(htmlText);
+  const resortData = await createHtmlParser('highway80', parseNVRoadCondition('I', '80'))(htmlText);
   expect(resortData).toEqual({
     highway80: {
+      prefix: 'I',
+      number: '80',
       status: 'incident',
       chainStatus: null,
     }
@@ -20,21 +21,25 @@ test('parses road and chain condition correctly I80', async () => {
 test('parses road and chain condition correctly SR289', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/NVIncidents.html.input`);
 
-  const resortData = await createTextParser('highway289', parseNVRoadCondition, filterNevadaHighway('SR289'))(htmlText);
+  const resortData = await createHtmlParser('highway289', parseNVRoadCondition('NV', '289'))(htmlText);
   expect(resortData).toEqual({
     highway289: {
+      prefix: 'NV',
+      number: '289',
       status: 'closed',
       chainStatus: null,
     }
   });
 });
 
-test('parses road and chain condition correctly SR289', async () => {
+test('parses road and chain condition correctly for highways that have no reported incidents', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/NVIncidents.html.input`);
 
-  const resortData = await createTextParser('highway380', parseNVRoadCondition, filterNevadaHighway('SR380'))(htmlText);
+  const resortData = await createHtmlParser('highway380', parseNVRoadCondition('NV', '380'))(htmlText);
   expect(resortData).toEqual({
     highway380: {
+      prefix: 'NV',
+      number: '380',
       status: 'open',
       chainStatus: null,
     }

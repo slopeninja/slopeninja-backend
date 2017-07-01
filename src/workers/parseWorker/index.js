@@ -6,7 +6,6 @@ import {
 } from './roads/california';
 
 import {
-  filterNevadaHighway,
   parseNVRoadCondition,
 } from './roads/nevada';
 
@@ -134,15 +133,15 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
-      fn: createTextParser('highway50', parseCARoadCondition),
+      fn: createTextParser('highway50', parseCARoadCondition('US', '50')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
-      fn: createTextParser('highway88', parseCARoadCondition),
+      fn: createTextParser('highway88', parseCARoadCondition('CA', '88')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition),
+      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
     },
   ],
   'squaw': [
@@ -172,15 +171,15 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition),
+      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
-      fn: createTextParser('highwa28', parseCARoadCondition),
+      fn: createTextParser('highwa28', parseCARoadCondition('CA', '28')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition),
+      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
     },
   ],
   'alpine': [
@@ -210,15 +209,15 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition),
+      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
-      fn: createTextParser('highwa28', parseCARoadCondition),
+      fn: createTextParser('highwa28', parseCARoadCondition('CA', '28')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition),
+      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
     },
   ],
   'diamond': [
@@ -248,11 +247,11 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highway28', parseNVRoadCondition, filterNevadaHighway('SR28')),
+      fn: createTextParser('highway28', parseNVRoadCondition('NV', '28')),
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highwa431', parseNVRoadCondition, filterNevadaHighway('SR431')),
+      fn: createTextParser('highwa431', parseNVRoadCondition('NV', '431')),
     },
   ],
   'heavenly': [
@@ -282,11 +281,11 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
-      fn: createTextParser('highway50', parseCARoadCondition),
+      fn: createTextParser('highway50', parseCARoadCondition('US', '50')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr207',
-      fn: createTextParser('highwa207', parseCARoadCondition),
+      fn: createTextParser('highwa207', parseCARoadCondition('CA', '207')),
     },
   ],
   'kirkwood': [
@@ -316,15 +315,15 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
-      fn: createTextParser('highway50', parseCARoadCondition),
+      fn: createTextParser('highway50', parseCARoadCondition('US', '50')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
-      fn: createTextParser('highway88', parseCARoadCondition),
+      fn: createTextParser('highway88', parseCARoadCondition('CA', '88')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition),
+      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
     },
   ],
   'northstar': [
@@ -354,15 +353,15 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
-      fn: createTextParser('highway267', parseCARoadCondition),
+      fn: createTextParser('highway267', parseCARoadCondition('CA', '267')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
-      fn: createTextParser('highway28', parseCARoadCondition),
+      fn: createTextParser('highway28', parseCARoadCondition('CA', '28')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition),
+      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
     },
   ],
   'homewood': [
@@ -392,7 +391,7 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition),
+      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
     },
   ],
   'sugar': [ // fnConfigs
@@ -422,11 +421,11 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition),
+      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition),
+      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
     },
   ],
   'donner': [ // fnConfigs
@@ -456,15 +455,15 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition),
+      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition),
+      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
-      fn: createTextParser('highway267', parseCARoadCondition),
+      fn: createTextParser('highway267', parseCARoadCondition('CA', '267')),
     },
   ],
   'mtRose': [ // fnConfigs
@@ -494,15 +493,15 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highway28', parseNVRoadCondition, filterNevadaHighway('SR28')),
+      fn: createTextParser('highway28', parseNVRoadCondition('NV', '28')),
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highwa431', parseNVRoadCondition, filterNevadaHighway('SR431')),
+      fn: createTextParser('highwa431', parseNVRoadCondition('NV', '431')),
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('highwa580', parseNVRoadCondition, filterNevadaHighway('I580')),
+      fn: createTextParser('highwa580', parseNVRoadCondition('I', '580')),
     },
   ],
   'boreal': [ // fnConfigs
@@ -532,15 +531,15 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('highway80', parseCARoadCondition),
+      fn: createTextParser('highway80', parseCARoadCondition('I', '80')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('highway89', parseCARoadCondition),
+      fn: createTextParser('highway89', parseCARoadCondition('CA', '89')),
     },
     { // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
-      fn: createTextParser('highway267', parseCARoadCondition),
+      fn: createTextParser('highway267', parseCARoadCondition('CA', '267')),
     },
   ],
 };
