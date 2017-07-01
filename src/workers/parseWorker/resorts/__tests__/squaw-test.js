@@ -16,7 +16,7 @@ test('fetches Squaw snow data correctly', async () => {
     snow: {
       status: null,
       weatherIcon: 'sunny',
-      temprature: 52,
+      temperature: 52,
       baseCondition: null,
       newSnow: 0,
       snowDepthBase: null,
@@ -31,7 +31,7 @@ test('fetches all null for nonexisting snow values', async () => {
     snow: {
       status: null,
       weatherIcon: null,
-      temprature: null,
+      temperature: null,
       baseCondition: null,
       newSnow: null,
       snowDepthBase: null,

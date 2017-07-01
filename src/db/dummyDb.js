@@ -20,7 +20,7 @@ export const DB = {
       coords: SQUAW_ALPINE_COORDS,
       weather: {
         condition: 'snow',
-        temprature: 28,
+        temperature: 28,
         base: 'Powder',
         newSnow: 8,
         snowDepth: 180,
@@ -61,7 +61,7 @@ export const DB = {
       coords: SIERRA_AT_TAHOE_COORDS,
       weather: {
         condition: 'thunderstorm',
-        temprature: 40,
+        temperature: 40,
         base: 'Slush',
         newSnow: 12,
         snowDepth: 130,

@@ -6,6 +6,11 @@ import {
 } from './roads/california';
 
 import {
+  filterNevadaHighway,
+  parseNVRoadCondition,
+} from './roads/nevada';
+
+import {
   parseSierraSnow,
   parseSierraLifts,
   parseSierraTrails,
@@ -165,6 +170,18 @@ const resortsConfig = {
       url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('trailList', parseSquawTrailList),
     },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
+      fn: createTextParser('highway80', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
+      fn: createTextParser('highwa28', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+      fn: createTextParser('highway89', parseCARoadCondition),
+    },
   ],
   'alpine': [
     { // fnConfig
@@ -190,6 +207,18 @@ const resortsConfig = {
     { // fnConfig
       url: 'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('trailList', parseAlpineTrailList),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
+      fn: createTextParser('highway80', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
+      fn: createTextParser('highwa28', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+      fn: createTextParser('highway89', parseCARoadCondition),
     },
   ],
   'diamond': [
@@ -217,6 +246,14 @@ const resortsConfig = {
       url: 'http://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('trailList', parseDiamondTrailList),
     },
+    { // fnConfig
+      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      fn: createTextParser('highway28', parseNVRoadCondition, filterNevadaHighway('SR28')),
+    },
+    { // fnConfig
+      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      fn: createTextParser('highwa431', parseNVRoadCondition, filterNevadaHighway('SR431')),
+    },
   ],
   'heavenly': [
     { // fnConfig
@@ -242,6 +279,14 @@ const resortsConfig = {
     { // fnConfig
       url: 'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
       fn: createHtmlParser('trailList', parseHeavenlyTrailList),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
+      fn: createTextParser('highway50', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr207',
+      fn: createTextParser('highwa207', parseCARoadCondition),
     },
   ],
   'kirkwood': [
@@ -269,6 +314,18 @@ const resortsConfig = {
       url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
       fn: createHtmlParser('trailList', parseKirkwoodTrailList),
     },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
+      fn: createTextParser('highway50', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
+      fn: createTextParser('highway88', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+      fn: createTextParser('highway89', parseCARoadCondition),
+    },
   ],
   'northstar': [
     { // fnConfig
@@ -294,6 +351,18 @@ const resortsConfig = {
     { // fnConfig
       url: 'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
       fn: createHtmlParser('trailList', parseNorthstarTrailList),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
+      fn: createTextParser('highway267', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
+      fn: createTextParser('highway28', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+      fn: createTextParser('highway89', parseCARoadCondition),
     },
   ],
   'homewood': [
@@ -321,6 +390,10 @@ const resortsConfig = {
       url: 'http://www.skihomewood.com/mountain/snow-report',
       fn: createHtmlParser('trailList', parseHomewoodTrailList),
     },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+      fn: createTextParser('highway89', parseCARoadCondition),
+    },
   ],
   'sugar': [ // fnConfigs
     { // fnConfig
@@ -346,6 +419,14 @@ const resortsConfig = {
     { // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
       fn: createHtmlParser('trailList', parseSugarTrailList),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
+      fn: createTextParser('highway80', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+      fn: createTextParser('highway89', parseCARoadCondition),
     },
   ],
   'donner': [ // fnConfigs
@@ -373,6 +454,18 @@ const resortsConfig = {
       url: 'https://www.donnerskiranch.com/snow-report/',
       fn: createHtmlParser('trailList', parseDonnerTrailList),
     },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
+      fn: createTextParser('highway80', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+      fn: createTextParser('highway89', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
+      fn: createTextParser('highway267', parseCARoadCondition),
+    },
   ],
   'mtRose': [ // fnConfigs
     { // fnConfig
@@ -399,6 +492,18 @@ const resortsConfig = {
       url: 'http://skirose.com/the-mountain/snow-report/',
       fn: createHtmlParser('trailList', parseMtRoseTrailList),
     },
+    { // fnConfig
+      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      fn: createTextParser('highway28', parseNVRoadCondition, filterNevadaHighway('SR28')),
+    },
+    { // fnConfig
+      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      fn: createTextParser('highwa431', parseNVRoadCondition, filterNevadaHighway('SR431')),
+    },
+    { // fnConfig
+      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      fn: createTextParser('highwa580', parseNVRoadCondition, filterNevadaHighway('I580')),
+    },
   ],
   'boreal': [ // fnConfigs
     { // fnConfig
@@ -424,6 +529,18 @@ const resortsConfig = {
     { // fnConfig
       url: 'http://api.rideboreal.com/api/v2?location=/the-mountain/trail-lift-info/full-trail-report&level=1',
       fn: createJSONParser('trailList', parseBorealTrailList, decodeEntities),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
+      fn: createTextParser('highway80', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+      fn: createTextParser('highway89', parseCARoadCondition),
+    },
+    { // fnConfig
+      url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
+      fn: createTextParser('highway267', parseCARoadCondition),
     },
   ],
 };

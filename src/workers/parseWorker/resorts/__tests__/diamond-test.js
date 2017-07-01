@@ -16,7 +16,7 @@ test('fetches Diamond snow data correctly', async () => {
     snow: {
       status: 'closed',
       weatherIcon: 'clear',
-      temprature: 66,
+      temperature: 66,
       baseCondition: null,
       newSnow: 0,
       snowDepthBase: 84,
@@ -31,7 +31,7 @@ test('fetches all null for nonexisting snow values', async () => {
     snow: {
       status: null,
       weatherIcon: null,
-      temprature: null,
+      temperature: null,
       baseCondition: null,
       newSnow: null,
       snowDepthBase: null,

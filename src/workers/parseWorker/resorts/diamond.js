@@ -13,7 +13,7 @@ import {
 const initialWeather = {
   status: null,
   weatherIcon: null,
-  temprature: null,
+  temperature: null,
   baseCondition: null,
   newSnow: null,
   snowDepthBase: null,
@@ -33,7 +33,7 @@ const initialTrails = {
 export const parseDiamondSnow = async ($) => {
   const status = $('.surface-conditions p').first().text().trim();
   const weatherIcon = $('.weather-condition .weather-condition-wrapper .weather-forecast').first().text().trim();
-  const temprature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
+  const temperature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
   //24 Hours
   const newSnow24Hr = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(3,4).text().trim();
   //Base
@@ -43,7 +43,7 @@ export const parseDiamondSnow = async ($) => {
     ...initialWeather,
     weatherIcon: weatherStatusOrNull(weatherIcon),
     status: resortStatusOrNull(status),
-    temprature: degreeOrNull(temprature),
+    temperature: degreeOrNull(temperature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),

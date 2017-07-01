@@ -16,7 +16,7 @@ test('fetches Boreal snow data correctly', async () => {
     snow: {
       status: 'closed',
       weatherIcon: 'cloudy',
-      temprature: 70,
+      temperature: 70,
       baseCondition: null,
       newSnow: null,
       snowDepthBase: null,
@@ -31,7 +31,7 @@ test('fetches all null for nonexisting values', async () => {
     snow: {
       status: null,
       weatherIcon: null,
-      temprature: null,
+      temperature: null,
       baseCondition: null,
       newSnow: null,
       snowDepthBase: null,
@@ -46,7 +46,7 @@ test('fetches all null for no data', async () => {
     snow: {
       status: null,
       weatherIcon: null,
-      temprature: null,
+      temperature: null,
       baseCondition: null,
       newSnow: null,
       snowDepthBase: null,

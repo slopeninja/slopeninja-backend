@@ -13,7 +13,7 @@ import {
 const initialSnow = {
   status: null,
   weatherIcon: null,
-  temprature: null,
+  temperature: null,
   baseCondition: null,
   newSnow: null,
   snowDepthBase: null,
@@ -31,7 +31,7 @@ const initialTrails = {
 };
 
 export const parseHomewoodSnow = async ($) => {
-  const temprature = $('#current_temp_hi').text().trim();
+  const temperature = $('#current_temp_hi').text().trim();
   //24 Hours
   const newSnow24Hr = $('#current_snow_conditions table tr td').slice(4,5).text().trim();
   //Base
@@ -40,7 +40,7 @@ export const parseHomewoodSnow = async ($) => {
   const snowDepthSummit = $('#current_snow_conditions table tr td').slice(2,3).text().trim();
   return {
     ...initialSnow,
-    temprature: degreeOrNull(temprature),
+    temperature: degreeOrNull(temperature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),

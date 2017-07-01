@@ -12,7 +12,7 @@ import {
 const initialWeather = {
   status: null,
   weatherIcon: null,
-  temprature: null,
+  temperature: null,
   baseCondition: null,
   newSnow: null,
   snowDepthBase: null,
@@ -31,7 +31,7 @@ const initialTrails = {
 
 export const parseSquawSnow = async ($) => {
   const weatherIcon = $('#squaw-elevation-0 .row.current .cellwrapper .cell h6').first().text().trim();
-  const temprature = $('#squaw-elevation-0 .row.current .cellwrapper .cell .value').first().text().trim();
+  const temperature = $('#squaw-elevation-0 .row.current .cellwrapper .cell .value').first().text().trim();
   //24
   const newSnow24Hr = $('.row.snow .cellwrapper .cell .value').slice(1,2).text().trim();
   // //Base
@@ -41,7 +41,7 @@ export const parseSquawSnow = async ($) => {
   return {
     ...initialWeather,
     weatherIcon: weatherStatusOrNull(weatherIcon),
-    temprature: degreeOrNull(temprature),
+    temperature: degreeOrNull(temperature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),

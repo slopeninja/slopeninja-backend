@@ -16,7 +16,7 @@ test('fetches Sierra snow data correctly', async () => {
     snow: {
       status: null,
       weatherIcon: 'sunny',
-      temprature: 43,
+      temperature: 43,
       baseCondition: null,
       newSnow: 0,
       snowDepthBase: 110,
@@ -31,7 +31,7 @@ test('fetches all null for nonexisting snow values', async () => {
     snow: {
       status: null,
       weatherIcon: null,
-      temprature: null,
+      temperature: null,
       baseCondition: null,
       newSnow: null,
       snowDepthBase: null,

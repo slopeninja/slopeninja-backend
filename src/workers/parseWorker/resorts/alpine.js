@@ -12,7 +12,7 @@ import {
 const initialSnow = {
   status: null,
   weatherIcon: null,
-  temprature: null,
+  temperature: null,
   baseCondition: null,
   newSnow: null,
   snowDepthBase: null,
@@ -31,7 +31,7 @@ const initialTrails = {
 
 export const parseAlpineSnow = async ($) => {
   const weatherIcon = $('#alpine-report .row.current .cellwrapper .cell h6').first().text().trim();
-  const temprature = $('#alpine-report .row.current .cellwrapper .cell .value').first().text().trim();
+  const temperature = $('#alpine-report .row.current .cellwrapper .cell .value').first().text().trim();
   //24
   const newSnow24Hr = $('.row.snow .cellwrapper .cell .value').slice(1,2).text().trim();
   // //Base
@@ -41,7 +41,7 @@ export const parseAlpineSnow = async ($) => {
   return {
     ...initialSnow,
     weatherIcon: weatherStatusOrNull(weatherIcon),
-    temprature: degreeOrNull(temprature),
+    temperature: degreeOrNull(temperature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),

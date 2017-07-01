@@ -13,7 +13,7 @@ import {
 const initialWeather = {
   status: null,
   weatherIcon: null,
-  temprature: null,
+  temperature: null,
   baseCondition: null,
   newSnow: null,
   snowDepthBase: null,
@@ -32,7 +32,7 @@ const initialTrails = {
 
 export const parseSierraSnow = async ($) => {
   const weatherIcon = $('.weather-stat-wrapper .weather-stat p').first().text().trim();
-  const temprature = $('.weather-block .value').first().text().trim();
+  const temperature = $('.weather-block .value').first().text().trim();
   //24 Hours
   const newSnow24Hr = $('.weather-block.weather-block-special .value').first().text().trim();
   //Base
@@ -41,7 +41,7 @@ export const parseSierraSnow = async ($) => {
   return {
     ...initialWeather,
     weatherIcon: weatherStatusOrNull(weatherIcon),
-    temprature: degreeOrNull(temprature),
+    temperature: degreeOrNull(temperature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),

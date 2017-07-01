@@ -14,7 +14,7 @@ import {
 const initialSnow = {
   status: null,
   weatherIcon: null,
-  temprature: null,
+  temperature: null,
   baseCondition: null,
   newSnow: null,
   snowDepthBase: null,
@@ -33,7 +33,7 @@ const initialTrails = {
 
 export const parseNorthstarSnow = async ($) => {
   const status = $('.snowConditions tr td').first().text().trim();
-  // const temprature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
+  // const temperature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
   //24 Hours
   const newSnow24Hr = $('.snowReportDataColumn2 .newSnow tbody td').slice(1,2).text().trim();
   //Base
@@ -43,7 +43,7 @@ export const parseNorthstarSnow = async ($) => {
   return {
     ...initialSnow,
     status: resortStatusOrNull(status),
-    // temprature: degreeOrNull(temprature),
+    // temperature: degreeOrNull(temperature),
     newSnow: inchOrNull(newSnow24Hr),
     // snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),

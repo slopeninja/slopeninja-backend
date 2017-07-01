@@ -3,13 +3,10 @@ import { AllHtmlEntities } from 'html-entities';
 
 const htmlEntities = new AllHtmlEntities();
 
+/* preparsers */
+
 export const removeBackSlashes = (text) => {
   const decoded = text ? text.toString().replace(/\\/g, '') : null;
-  return decoded;
-}
-
-export const xyz = (text) => {
-  const decoded = text ? text.toString().replace(/\u0026amp;/gu, '__JAKE__') : null;
   return decoded;
 }
 
@@ -19,8 +16,10 @@ export const decodeEntities = (text) => {
   return htmlEntities.decode(unicodeInput);
 }
 
-export const createHtmlParser = (key, parser, preParser = t => t) => async (html) => {
-  const $ = cheerio.load(preParser(html), { decodeEntities: true });
+/* parsers */
+
+export const createHtmlParser = (key, parser, preParser = t => t) => async (htmlText) => {
+  const $ = cheerio.load(preParser(htmlText), { decodeEntities: true });
 
   const keyData = await parser($);
 

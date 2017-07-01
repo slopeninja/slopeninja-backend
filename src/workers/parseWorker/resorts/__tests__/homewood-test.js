@@ -16,7 +16,7 @@ test('fetches Homewood snow data correctly', async () => {
     snow: {
       status: null,
       weatherIcon: null,
-      temprature: 72,
+      temperature: 72,
       baseCondition: null,
       newSnow: 0,
       snowDepthBase: 81,
@@ -31,7 +31,7 @@ test('fetches all null for nonexisting snow values', async () => {
     snow: {
       status: null,
       weatherIcon: null,
-      temprature: null,
+      temperature: null,
       baseCondition: null,
       newSnow: null,
       snowDepthBase: null,

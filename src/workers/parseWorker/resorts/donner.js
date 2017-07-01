@@ -13,7 +13,7 @@ import {
 const initialWeather = {
   status: null,
   weatherIcon: null,
-  temprature: null,
+  temperature: null,
   baseCondition: null,
   newSnow: null,
   snowDepthBase: null,
@@ -31,7 +31,7 @@ const initialTrails = {
 };
 
 export const parseDonnerSnow = async ($) => {
-  // const temprature =
+  // const temperature =
   //24 Hours
   // const newSnow24Hr =
   //Base
@@ -39,7 +39,7 @@ export const parseDonnerSnow = async ($) => {
   // const snowDepthSummit =
   return {
     ...initialWeather,
-    // temprature: degreeOrNull(temprature),
+    // temperature: degreeOrNull(temperature),
     // newSnow: inchOrNull(newSnow24Hr),
     // snowDepthBase: inchOrNull(snowDepthBase),
     // snowDepthSummit: inchOrNull(snowDepthSummit),

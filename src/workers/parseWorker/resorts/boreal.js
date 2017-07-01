@@ -14,7 +14,7 @@ import {
 const initialSnow = {
   status: null,
   weatherIcon: null,
-  temprature: null,
+  temperature: null,
   baseCondition: null,
   newSnow: null,
   snowDepthBase: null,
@@ -40,7 +40,7 @@ export const parseBorealSnow = async (data) => {
   };
   const weatherIcon = data.default_data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].conditions;
   const status = data.default_data[10].wrapper_content[0].items[5].body;
-  const temprature = data.default_data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].high.fahrenheit;
+  const temperature = data.default_data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].high.fahrenheit;
   //24 Hours
   const newSnow24Hr = data.default_data[0].snow_report['24_hour'][0];
   //Base
@@ -51,7 +51,7 @@ export const parseBorealSnow = async (data) => {
     ...initialSnow,
     weatherIcon: weatherStatusOrNull(weatherIcon),
     status: resortStatusOrNull(status),
-    temprature: Number.parseInt(temprature),
+    temperature: Number.parseInt(temperature),
     newSnow: inchOrNull(newSnow24Hr),
     // snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: Number.parseInt(snowDepthSummit),

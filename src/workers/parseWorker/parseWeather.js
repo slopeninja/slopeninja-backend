@@ -5,7 +5,7 @@ import {
 
 const initialWeather = {
   weatherIcon: null,
-  temprature: null,
+  temperature: null,
 };
 
 export const parseWeather = async (data) => {
@@ -15,10 +15,10 @@ export const parseWeather = async (data) => {
     };
   };
   const weatherIcon = data.current_observation.icon;
-  const temprature = Number.parseInt(data.current_observation.temp_f);
+  const temperature = Number.parseInt(data.current_observation.temp_f);
   return {
     ...initialWeather,
     weatherIcon: weatherStatusOrNull(weatherIcon),
-    temprature: numberOrNull(temprature),
+    temperature: numberOrNull(temperature),
   }
 }

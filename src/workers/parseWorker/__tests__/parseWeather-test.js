@@ -9,7 +9,7 @@ test('fetches weather data from wunderground correctly', async () => {
   expect(resortData).toEqual({
     weather: {
       weatherIcon: 'clear',
-      temprature: 72,
+      temperature: 72,
     },
   });
 })
