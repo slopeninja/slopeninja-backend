@@ -247,11 +247,11 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('roads', parseNVRoadCondition('NV', '28')),
+      fn: createHtmlParser('roads', parseNVRoadCondition('NV', '28')),
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('roads', parseNVRoadCondition('NV', '431')),
+      fn: createHtmlParser('roads', parseNVRoadCondition('NV', '431')),
     },
   ],
   'heavenly': [
@@ -493,15 +493,15 @@ const resortsConfig = {
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('roads', parseNVRoadCondition('NV', '28')),
+      fn: createHtmlParser('roads', parseNVRoadCondition('NV', '28')),
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('roads', parseNVRoadCondition('NV', '431')),
+      fn: createHtmlParser('roads', parseNVRoadCondition('NV', '431')),
     },
     { // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
-      fn: createTextParser('roads', parseNVRoadCondition('I', '580')),
+      fn: createHtmlParser('roads', parseNVRoadCondition('I', '580')),
     },
   ],
   'boreal': [ // fnConfigs
@@ -575,13 +575,14 @@ const fetchResort = async (resortName) => {
 
     const text = await lookUpOrFetch(fnConfig.url);
 
+
     const parser = fnConfig.fn;
-
-    const result = await parser(text);
-
-    delete result.lifts;
-
-    arrayOfResults.push(result);
+    try {
+      const result = await parser(text);
+      arrayOfResults.push(result);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // flatten the array
