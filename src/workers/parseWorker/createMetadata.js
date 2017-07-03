@@ -73,7 +73,7 @@ const metadata = {
   }
 };
 
-export const createMetadata = (shortName, resort) => {
+const createMetadata = (shortName, resort) => {
   let weatherIcon = resort.snow.weatherIcon;
   if (!weatherIcon) {
     weatherIcon = resort.weather.weatherIcon;
@@ -84,7 +84,7 @@ export const createMetadata = (shortName, resort) => {
   }
   let openLiftCounts = resort.liftCounts.open;
   if (!openLiftCounts) {
-    openLifts = resort.lifts.filter(lift => lift.status === 'open');
+    const openLifts = resort.lifts.filter(lift => lift.status === 'open');
     openLiftCounts = openLifts.length;
   }
   let totalLiftCounts = resort.liftCounts.total;
@@ -93,7 +93,7 @@ export const createMetadata = (shortName, resort) => {
   }
   let openTrailsCounts = resort.trailCounts.open;
   if (!openTrailsCounts) {
-    openTrails = resort.trails.filter(lift => lift.status === 'open');
+    const openTrails = resort.trails.filter(lift => lift.status === 'open');
     openTrailsCounts = openTrails.length;
   }
   let totalTrailCounts = resort.trailCounts.total;
@@ -122,3 +122,5 @@ export const createMetadata = (shortName, resort) => {
     roads: resort.roads
   };
 };
+
+export default createMetadata;

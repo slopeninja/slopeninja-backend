@@ -1,3 +1,4 @@
+import client from '../../db/client';
 import fetch from 'isomorphic-fetch';
 import performanceNow from 'performance-now';
 
@@ -802,12 +803,14 @@ const run = async () => {
   const arrayOfPromises = resortKeys.map(async shortName => {
     const metadatum = createMetadata(shortName, resortsData[shortName]);
 
-    await updateResort(shortName, metadata);
+    await updateResort(shortName, metadatum);
 
     return metadatum;
   });
 
   const metadata = await Promise.all(arrayOfPromises);
+
+  await client.destroy();
 
   console.log(JSON.stringify(metadata, null, 2));
   const end = performanceNow();

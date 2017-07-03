@@ -31,14 +31,14 @@ test('passes the sanity check', () => {
   expect(3).toBe(3);
 });
 
-test('returns 2 resorts, one of which is Sierra', async () => {
+test('returns 12 resorts, one of which is Squaw', async () => {
   const response = await fetch(`http://localhost:${port}/resorts`);
   const data = await response.json();
 
-  expect(data.resorts).toHaveLength(2);
+  expect(data.resorts).toHaveLength(12);
 
   const resort = data.resorts.find(
-    resort => resort.name === 'Sierra-at-Tahoe',
+    resort => resort.shortName === 'squaw-valley'
   );
 
   expect(resort).toBeDefined();
@@ -47,7 +47,9 @@ test('returns 2 resorts, one of which is Sierra', async () => {
 test('returns a resort for a given resort shortName', async () => {
   const expectedResort = DB.resorts[0];
 
-  const response = await fetch(`http://localhost:${port}/resorts/${expectedResort.shortName}`);
+  const response = await fetch(
+    `http://localhost:${port}/resorts/${expectedResort.shortName}`
+  );
   const data = await response.json();
 
   expect(data.resort).toEqual(expectedResort);
@@ -55,7 +57,9 @@ test('returns a resort for a given resort shortName', async () => {
 
 test('fails to return a resort for unknown resort id', async () => {
   const NON_EXISTING_RESORT_ID = '6f535c7a-aedd-409c-875b-09ee2181b3d7';
-  const response = await fetch(`http://localhost:${port}/resorts/${NON_EXISTING_RESORT_ID}`);
+  const response = await fetch(
+    `http://localhost:${port}/resorts/${NON_EXISTING_RESORT_ID}`
+  );
 
   expect(response.status).toEqual(statuses('Not Found'));
 });
@@ -63,13 +67,13 @@ test('fails to return a resort for unknown resort id', async () => {
 test('subscribes to newsletter with valid email', async () => {
   const dummyEmail = `${uuid.v4()}@slope.ninja`;
   const response = await fetch(`http://localhost:${port}/subscribers`, {
-    method: "POST",
+    method: 'POST',
     headers: new Headers({
       'Content-Type': 'application/json',
-      Accept: 'application/json',
+      Accept: 'application/json'
     }),
     body: JSON.stringify({
-      email: dummyEmail,
+      email: dummyEmail
     })
   });
   const data = await response.json();
@@ -79,34 +83,38 @@ test('subscribes to newsletter with valid email', async () => {
 
 test('fails to subscribe to newsletter with invalid email', async () => {
   const response = await fetch(`http://localhost:${port}/subscribers`, {
-    method: "POST",
+    method: 'POST',
     headers: new Headers({
       'Content-Type': 'application/json',
-      Accept: 'application/json',
+      Accept: 'application/json'
     }),
     body: JSON.stringify({
-      email: 'xx@xx',
+      email: 'xx@xx'
     })
   });
   const data = await response.json();
 
   expect(response.status).toEqual(statuses('Bad Request'));
-  expect(data.error).toEqual('child \"email\" fails because [\"email\" must be a valid email]');
+  expect(data.error).toEqual(
+    'child "email" fails because ["email" must be a valid email]'
+  );
 });
 
 test('fails to subscribe to newsletter with no email', async () => {
   const response = await fetch(`http://localhost:${port}/subscribers`, {
-    method: "POST",
+    method: 'POST',
     headers: new Headers({
       'Content-Type': 'application/json',
-      Accept: 'application/json',
+      Accept: 'application/json'
     }),
     body: JSON.stringify({
-      email: '',
+      email: ''
     })
   });
   const data = await response.json();
 
   expect(response.status).toEqual(statuses('Bad Request'));
-  expect(data.error).toEqual('child \"email\" fails because [\"email\" is not allowed to be empty]');
+  expect(data.error).toEqual(
+    'child "email" fails because ["email" is not allowed to be empty]'
+  );
 });

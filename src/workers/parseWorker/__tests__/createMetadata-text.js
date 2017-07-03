@@ -1,4 +1,4 @@
-import { createMetadata } from '../createMetadata';
+import createMetadata from '../createMetadata';
 
 const SQUAW_INPUT_DATA_SAMPLE = {
   'squaw-valley': {
