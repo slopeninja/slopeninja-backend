@@ -101,6 +101,8 @@ const createMetadata = (shortName, resort) => {
     totalTrailCounts = resort.trails.length;
   }
 
+  const roads = Array.isArray(resort.roads) ? resort.roads : [resort.roads];
+
   return {
     ...metadata[shortName],
     status: resort.snow.status,
@@ -119,7 +121,7 @@ const createMetadata = (shortName, resort) => {
       open: openTrailsCounts,
       total: totalTrailCounts
     },
-    roads: resort.roads
+    roads,
   };
 };
 
