@@ -8,49 +8,49 @@ const metadata = {
   'squaw-valley': {
     name: 'Squaw Valley',
     logo: '/images/resorts/squaw.svg',
-    coords: { lat: 39.197607, lng: -120.235442 },
+    coords: { lat: 39.1969822, lng: -120.2431388 },
     location: 'Olympic Valley, CA 96146'
   },
   'alpine-meadows': {
     name: 'Alpine Meadows',
     logo: '/images/resorts/squaw.svg',
-    coords: { lat: 39.164428, lng: -120.2411641 },
+    coords: { lat: 39.154969, lng: -120.238209 },
     location: 'Alpine Meadows, CA 96146'
   },
   'diamond-peak': {
     name: 'Diamond Peak',
     logo: '/images/resorts/diamond.svg',
-    coords: { lat: 39.254483, lng: -119.913972 },
+    coords: { lat: 39.253813, lng: -119.92171 },
     location: 'Incline Village, NV 89451'
   },
   heavenly: {
     name: 'Heavenly',
     logo: '/images/resorts/heavenly.svg',
-    coords: { lat: 38.956813, lng: -119.942654 },
+    coords: { lat: 38.929011, lng: -119.906233 },
     location: 'Stateline, NV 89449'
   },
   kirkwood: {
     name: 'Kirkwood',
     logo: '/images/resorts/kirkwood.svg',
-    coords: { lat: 38.684751, lng: -120.065167 },
+    coords: { lat: 38.678233, lng: -120.063198 },
     location: 'Kirkwood, CA 95646'
   },
   northstar: {
     name: 'Northstar',
     logo: '/images/resorts/northstar.svg',
-    coords: { lat: 39.274839, lng: -120.120605 },
+    coords: { lat: 39.258638, lng: -120.133293 },
     location: 'Truckee, CA 96161'
   },
   homewood: {
     name: 'Homewood',
     logo: '/images/resorts/homewood.svg',
-    coords: { lat: 33.471773, lng: -86.800823 },
+    coords: { lat: 39.077952, lng: -120.171985 },
     location: 'Homewood, CA 96141'
   },
   'sugar-bowl': {
     name: 'Sugar Bowl',
     logo: '/images/resorts/sugarbowl.svg',
-    coords: { lat: 39.300444, lng: -120.333402 },
+    coords: { lat: 39.3000277, lng: -120.3437774 },
     location: 'Norden, CA 95724'
   },
   'donner-ski-ranch': {
@@ -62,13 +62,13 @@ const metadata = {
   'mt-rose': {
     name: 'Mt Rose',
     logo: '/images/resorts/mt-rose.svg',
-    coords: { lat: 39.328435, lng: -119.885375 },
+    coords: { lat: 39.319149, lng: -119.884521 },
     location: 'Reno, NV 89511'
   },
   boreal: {
     name: 'Boreal',
     logo: '/images/resorts/boreal.svg',
-    coords: { lat: 39.336454, lng: -120.349835 },
+    coords: { lat: 39.332769, lng: -120.347075 },
     location: 'Soda Springs, CA 95728'
   }
 };
