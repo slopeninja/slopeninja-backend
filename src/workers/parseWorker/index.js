@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import client from '../../db/client';
 import fetch from 'isomorphic-fetch';
 import performanceNow from 'performance-now';
@@ -105,13 +106,15 @@ import { parseWeather } from './parseWeather';
 // FIXME: verify if heavenly/kirkwood/northstar/boreal 'BASE DEPTH' is summit or base depth
 // currently using summit depth as 'BASE DEPTH'
 
+const WUNDERGROUND_API_KEY = process.env.WUNDERGROUND_API_KEY;
+
 const resortsConfig = {
   'sierra-at-tahoe': [
     // fnConfigs
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Twin_Bridges.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/Twin_Bridges.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -159,7 +162,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Olympic_Valley.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/Olympic_Valley.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -211,7 +214,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Olympic_Valley.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/Olympic_Valley.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -263,7 +266,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/NV/Incline_Village.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/NV/Incline_Village.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -305,7 +308,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/South_Lake_Tahoe.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/South_Lake_Tahoe.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -357,7 +360,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Kirkwood.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/Kirkwood.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -404,7 +407,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/Truckee.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -456,7 +459,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Homewood.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/Homewood.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -494,7 +497,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/Truckee.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -538,7 +541,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/Truckee.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -587,7 +590,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/NV/Reno.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/NV/Reno.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -636,7 +639,7 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.wunderground.com/api/555b4e1b8a4d6734/conditions/q/CA/Truckee.json',
+        `http://api.wunderground.com/api/${WUNDERGROUND_API_KEY}/conditions/q/CA/Truckee.json`,
       fn: createJSONParser('weather', parseWeather)
     },
     {
@@ -688,22 +691,27 @@ const resortsConfig = {
   ]
 };
 
+const hash = (str) => crypto.createHash('md5').update(str).digest('hex');
+
 const RESPONSE_BODY_CACHE = {
-  // url: response,
+  // hashedUrl: response,
 };
 
 const lookUpOrFetch = async url => {
-  const cachedText = RESPONSE_BODY_CACHE[url];
+  const hashedUrl = hash(url);
+
+  const cachedText = RESPONSE_BODY_CACHE[hashedUrl];
+
   if (cachedText) {
-    // console.log('Cache hit for', url);
+    console.log('Cache hit for', url, hashedUrl);
     return cachedText;
   }
 
   const response = await fetch(url);
   const text = await response.text();
 
-  RESPONSE_BODY_CACHE[url] = text;
-  // console.log('Cache miss', url)
+  RESPONSE_BODY_CACHE[hashedUrl] = text;
+  console.log('Cache miss', url, hashedUrl)
 
   return text;
 };
@@ -770,14 +778,14 @@ const fetchResort = async resortName => {
 const fetchResorts = async () => {
   const resorts = Object.keys(resortsConfig);
 
-  const arrayOfPromises = resorts.map(async resortName => {
+  const arrayOfResortData = [];
+  // user `for` over `map` to wait before queuing the next fn call
+  // so we can hit the cache
+  for (let i = 0; i < resorts.length; i++) {
+    const resortName = resorts[i];
     const resortData = await fetchResort(resortName);
-    return {
-      ...resortData
-    };
-  });
-
-  const arrayOfResortData = await Promise.all(arrayOfPromises);
+    arrayOfResortData.push(resortData);
+  }
 
   // flatten the array
   const resortsData = arrayOfResortData.reduce((acc, result) => {
