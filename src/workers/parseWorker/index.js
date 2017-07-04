@@ -99,7 +99,8 @@ import {
   createHtmlParser,
   createJSONParser,
   createTextParser,
-  decodeEntities
+  decodeEntities,
+  removeBackSlashes
 } from './parserFactory';
 import { parseWeather } from './parseWeather';
 
@@ -332,13 +333,13 @@ const resortsConfig = {
       // fnConfig
       url:
         'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
-      fn: createHtmlParser('lifts', parseHeavenlyLifts)
+      fn: createHtmlParser('lifts', parseHeavenlyLifts, removeBackSlashes)
     },
     {
       // fnConfig
       url:
         'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
-      fn: createHtmlParser('trails', parseHeavenlyTrails)
+      fn: createHtmlParser('trails', parseHeavenlyTrails, removeBackSlashes)
     },
     {
       // fnConfig
