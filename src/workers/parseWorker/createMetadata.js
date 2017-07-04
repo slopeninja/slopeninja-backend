@@ -62,7 +62,7 @@ const metadata = {
   'mt-rose': {
     name: 'Mt Rose',
     logo: '/images/resorts/mt-rose.svg',
-    coords: { lat: 39.319149, lng: -119.884521 },
+    coords: { lat: 39.314905, lng: -119.881005 },
     location: 'Reno, NV 89511'
   },
   boreal: {
@@ -78,34 +78,44 @@ const createMetadata = (shortName, resort) => {
   if (!weatherIcon) {
     weatherIcon = resort.weather.weatherIcon;
   }
+  
   let temperature = resort.snow.temperature;
   if (!temperature) {
     temperature = resort.weather.temperature;
   }
+
   let openLiftCounts = resort.liftCounts.open;
   if (!openLiftCounts) {
     const openLifts = resort.lifts.filter(lift => lift.status === 'open');
     openLiftCounts = openLifts.length;
   }
+
   let totalLiftCounts = resort.liftCounts.total;
   if (!totalLiftCounts) {
     totalLiftCounts = resort.lifts.length;
   }
+
   let openTrailsCounts = resort.trailCounts.open;
   if (!openTrailsCounts) {
     const openTrails = resort.trails.filter(lift => lift.status === 'open');
     openTrailsCounts = openTrails.length;
   }
+
   let totalTrailCounts = resort.trailCounts.total;
   if (!totalTrailCounts) {
     totalTrailCounts = resort.trails.length;
+  }
+
+  let status = 'closed';
+  if (openLiftCounts > 0) {
+    status = 'open';
   }
 
   const roads = Array.isArray(resort.roads) ? resort.roads : [resort.roads];
 
   return {
     ...metadata[shortName],
-    status: resort.snow.status,
+    status,
     weather: {
       base: resort.snow.baseCondition,
       newSnow: resort.snow.newSnow,
