@@ -18,17 +18,17 @@ export const decodeEntities = (text) => {
 
 /* parsers */
 
-export const createHtmlParser = (key, parser, preParser = t => t) => async (htmlText) => {
+export const createHtmlParser = (key, parser, preParser = t => t) => async (htmlText, url) => {
   const $ = cheerio.load(preParser(htmlText), { decodeEntities: true });
 
-  const keyData = await parser($);
+  const keyData = await parser($, url);
 
   return {
     [key]: keyData,
   };
 }
 
-export const createJSONParser = (key, parser, preParser = t => t) => async (data = '{}') => {
+export const createJSONParser = (key, parser, preParser = t => t) => async (data = '{}', url) => {
   let json = JSON.parse(preParser(data));
 
   let d;
@@ -36,17 +36,17 @@ export const createJSONParser = (key, parser, preParser = t => t) => async (data
     d = json;
   }
 
-  const keyData = await parser(d);
+  const keyData = await parser(d, url);
 
   return {
     [key]: keyData,
   };
 }
 
-export const createTextParser = (key, parser, preParser = t => t) => async (data = '') => {
+export const createTextParser = (key, parser, preParser = t => t) => async (data = '', url) => {
   let text = preParser(data.toString());
 
-  const keyData = await parser(text);
+  const keyData = await parser(text, url);
 
   return {
     [key]: keyData,
