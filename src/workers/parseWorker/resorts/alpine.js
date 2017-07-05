@@ -64,6 +64,7 @@ export const parseAlpineTrailCounts = async ($) => {
     open: numberOrNull(open),
   };
 }
+
 export const parseAlpineLifts = async ($) => {
   const list = [];
   $('#alpine-report .lift').map((index, rowElement) => {

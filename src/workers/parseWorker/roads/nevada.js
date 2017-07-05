@@ -6,7 +6,7 @@ import {
   finalizeNevadaRoadStatus,
 } from '../roadUtil';
 
-export const parseNVRoadConditionList = (
+const parseNVRoadConditionList = (
   $,
   highway
 ) => {
@@ -42,7 +42,7 @@ export const parseNVRoadConditionList = (
   return nevadaRoadList[highway].join();
 }
 
-export const parseNVRoadCondition = (prefix, number) => async ($) => {
+export const parseNVRoadCondition = (prefix, number) => async ($, url) => {
   // if state road, then the prefix should be normalized to SR
   let normalizedPrefix = prefix === 'NV' ? 'SR' : prefix;
 
@@ -54,6 +54,7 @@ export const parseNVRoadCondition = (prefix, number) => async ($) => {
     return {
       prefix,
       number,
+      sourceUrl: url,
       status: 'open',
       chainStatus: null,
     }
@@ -62,6 +63,7 @@ export const parseNVRoadCondition = (prefix, number) => async ($) => {
   return {
     prefix,
     number,
+    sourceUrl: url,
     status: nevadaRoadStatusOrNull(filteredData),
     chainStatus: nevadaChainStatusOrNull(filteredData),
   }

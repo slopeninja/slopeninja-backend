@@ -2,8 +2,6 @@ import client, {
   SLOPE_NINJA_DB_SCHEMA
 } from '../db/client';
 
-import { DB } from '../db/dummyDb';
-
 class ResortService {
   async getResorts() {
     const resorts = await client

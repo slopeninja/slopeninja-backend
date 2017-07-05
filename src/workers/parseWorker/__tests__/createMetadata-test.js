@@ -1019,9 +1019,9 @@ const SQUAW_OUTPUT_DATA_SAMPLE = {
   'squaw-valley': {
     logo: '/images/resorts/squaw.svg',
     name: 'Squaw Valley',
-    coords: { lat: 39.197607, lng: -120.235442 },
+    coords: { lat: 39.1969822, lng: -120.2431388 },
     location: 'Olympic Valley, CA 96146',
-    status: null,
+    status: 'open',
     roads: [
       {
         prefix: 'I',

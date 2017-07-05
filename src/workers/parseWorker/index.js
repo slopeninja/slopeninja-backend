@@ -717,7 +717,7 @@ const lookUpOrFetch = async url => {
   return text;
 };
 
-const fetchResort = async resortName => {
+const fetchResort = async (resortName) => {
   const fnConfigs = resortsConfig[resortName];
 
   // user `for` over `map` to wait before queuing the next fn call
@@ -730,7 +730,7 @@ const fetchResort = async resortName => {
 
     const parser = fnConfig.fn;
     try {
-      const result = await parser(text);
+      const result = await parser(text, fnConfig.url);
       arrayOfResults.push(result);
     } catch (error) {
       console.log(error);
@@ -792,7 +792,7 @@ const fetchResorts = async () => {
   const resortsData = arrayOfResortData.reduce((acc, result) => {
     return {
       ...acc,
-      ...result
+      ...result,
     };
   }, {});
 

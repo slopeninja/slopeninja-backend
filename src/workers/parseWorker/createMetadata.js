@@ -78,7 +78,7 @@ const createMetadata = (shortName, resort) => {
   if (!weatherIcon) {
     weatherIcon = resort.weather.weatherIcon;
   }
-  
+
   let temperature = resort.snow.temperature;
   if (!temperature) {
     temperature = resort.weather.temperature;

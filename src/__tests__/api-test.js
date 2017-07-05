@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import api from '../api';
 import Promise from 'bluebird';
-import { DB } from '../db/dummyDb';
 import client from '../db/client';
 import uuid from 'uuid';
 import statuses from 'statuses';
@@ -45,14 +44,20 @@ test('returns 12 resorts, one of which is Squaw', async () => {
 });
 
 test('returns a resort for a given resort shortName', async () => {
-  const expectedResort = DB.resorts[0];
+  const expectedResort = {
+    location: 'Olympic Valley, CA 96146',
+    name: 'Squaw Valley',
+    shortName: 'squaw-valley',
+  };
 
   const response = await fetch(
     `http://localhost:${port}/resorts/${expectedResort.shortName}`
   );
   const data = await response.json();
 
-  expect(data.resort).toEqual(expectedResort);
+  expect(data.resort.location).toEqual(expectedResort.location);
+  expect(data.resort.name).toEqual(expectedResort.name);
+  expect(data.resort.shortName).toEqual(expectedResort.shortName);
 });
 
 test('fails to return a resort for unknown resort id', async () => {
