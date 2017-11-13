@@ -138,19 +138,22 @@ router.post('/user-devices', async (ctx) => {
     return;
   }
 
-  console.log(
-    ctx.request.body.deviceName,
-    ctx.request.body.notificationToken,
-  );
+  const userDeviceService = new UserDeviceService();
+
+  try {
+    userDeviceService.create(ctx.request.body.deviceName, ctx.request.body.notificationToken);
+  } catch (error) {
+    ctx.status = statuses('Internal Server Error');
+    ctx.body = {
+      error: 'Opps. Something\'s not right.'
+    };
+  }
 
   ctx.status = statuses('OK');
   ctx.body = {
     deviceName: ctx.request.body.deviceName,
     notificationToken: 'valid',
   };
-
-  const userDeviceService = new UserDeviceService();
-  userDeviceService.create(ctx.request.body.deviceName, ctx.request.body.notificationToken);
 });
 
 koaApp.use(koaCors());
