@@ -147,6 +147,7 @@ router.post('/user-devices', async (ctx) => {
     ctx.body = {
       error: 'Opps. Something\'s not right.'
     };
+    return;
   }
 
   ctx.status = statuses('OK');
