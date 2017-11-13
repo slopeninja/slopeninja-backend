@@ -9,6 +9,7 @@ import statuses from 'statuses';
 import Joi from 'joi';
 
 import ResortService from './services/ResortService';
+import UserDeviceService from './services/UserDeviceService';
 
 const MAILCHIMP_PRIVATE_KEY = process.env.MAILCHIMP_PRIVATE_KEY;
 
@@ -116,6 +117,40 @@ router.post('/subscribers', async (ctx) => {
   ctx.body = {
     email: ctx.request.body.email,
   };
+});
+
+router.post('/user-devices', async (ctx) => {
+  const schema = Joi.object().keys({
+    deviceName: Joi.string(),
+    notificationToken: Joi.string().required(),
+  });
+
+  const { error, value } = Joi.validate({
+    deviceName: ctx.request.body.deviceName,
+    notificationToken: ctx.request.body.notificationToken,
+  }, schema);
+
+  if(error) {
+    ctx.status = statuses('Bad Request');
+    ctx.body = {
+      error: error.message,
+    };
+    return;
+  }
+
+  console.log(
+    ctx.request.body.deviceName,
+    ctx.request.body.notificationToken,
+  );
+
+  ctx.status = statuses('OK');
+  ctx.body = {
+    deviceName: ctx.request.body.deviceName,
+    notificationToken: 'valid',
+  };
+
+  const userDeviceService = new UserDeviceService();
+  userDeviceService.create(ctx.request.body.deviceName, ctx.request.body.notificationToken);
 });
 
 koaApp.use(koaCors());
