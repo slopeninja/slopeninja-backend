@@ -12,18 +12,16 @@ class UserDeviceService {
   }
 
   async create(deviceName, notificationToken) {
-    try {
-      const numberOfRowsUpdated = await client
-        .table('userDevices')
-        .withSchema(SLOPE_NINJA_DB_SCHEMA)
-        .insert({
-          id: uuid.v4(),
-          deviceName,
-          notificationToken,
-        });
-    } catch (error) {
-      console.error('Failed to update data for', deviceName, error);
-    }
+    const numberOfRowsUpdated = await client
+      .table('userDevices')
+      .withSchema(SLOPE_NINJA_DB_SCHEMA)
+      .insert({
+        id: uuid.v4(),
+        deviceName,
+        notificationToken,
+      });
+
+    return numberOfRowsUpdated;
   }
 }
 
