@@ -141,7 +141,7 @@ router.post('/user-devices', async (ctx) => {
   const userDeviceService = new UserDeviceService();
 
   try {
-    userDeviceService.create(ctx.request.body.deviceName, ctx.request.body.notificationToken);
+    await userDeviceService.create(ctx.request.body.deviceName, ctx.request.body.notificationToken);
   } catch (error) {
     ctx.status = statuses('Internal Server Error');
     ctx.body = {
