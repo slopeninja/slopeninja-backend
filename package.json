@@ -31,7 +31,8 @@
     "start-prod": "npm run postinstall && node build/src/server.js",
     "start-dev": "node_modules/.bin/babel-node src/server.js",
     "postinstall": "node_modules/.bin/babel 'src/**/*.js' -d build/ --ignore 'test.js'",
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "devDependencies": {
     "jest": "^20.0.3"
