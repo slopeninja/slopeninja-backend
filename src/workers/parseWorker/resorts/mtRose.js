@@ -38,16 +38,16 @@ export const parseMtRoseSnow = async ($) => {
   //24 Hours
   const newSnow24Hr = $('.sr-snow-totals.sr-row.row .sr-snow-total h2').first().text().trim();
   //Base
-  // const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1,2).text().trim();
-  // const snowDepthSummit = $('.snowConditions tbody tr td').slice(3,4).text().trim();
+  const snowDepthBase = $('.sr-snow-totals.sr-row.row .sr-snow-total h2').slice(2,3).text().trim();
+  const snowDepthSummit = $('.sr-snow-totals.sr-row.row .sr-snow-total h2').slice(2,3).text().slice(3).trim();
   return {
     ...initialSnow,
     weatherIcon: weatherStatusOrNull(weatherIcon),
     status: resortStatusOrNull(status),
     temperature: degreeOrNull(temperature),
     newSnow: numberOrNull(Number.parseInt(newSnow24Hr)),
-    // snowDepthBase: inchOrNull(snowDepthBase),
-    // snowDepthSummit: inchOrNull(snowDepthSummit),
+    snowDepthBase: inchOrNull(snowDepthBase),
+    snowDepthSummit: inchOrNull(snowDepthSummit),
   };
 }
 

@@ -15,12 +15,12 @@ test('fetches MtRose snow data correctly', async () => {
   expect(resortData).toEqual({
     snow: {
       status: 'closed',
-      weatherIcon: 'sunny',
-      temperature: 53,
+      weatherIcon: 'cloudy',
+      temperature: 25,
       baseCondition: null,
       newSnow: 0,
-      snowDepthBase: null,
-      snowDepthSummit: null,
+      snowDepthBase: 12,
+      snowDepthSummit: 18,
     },
   });
 })

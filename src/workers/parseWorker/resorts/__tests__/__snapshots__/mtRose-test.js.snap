@@ -5,6 +5,11 @@ Object {
   "lifts": Array [
     Object {
       "category": null,
+      "name": "Wizard",
+      "status": "open",
+    },
+    Object {
+      "category": null,
       "name": "Northwest 6",
       "status": "closed",
     },
@@ -20,17 +25,12 @@ Object {
     },
     Object {
       "category": null,
-      "name": "Wizard",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
       "name": "Galena",
       "status": "closed",
     },
     Object {
       "category": null,
-      "name": "Flying Jenny",
+      "name": "Magic",
       "status": "closed",
     },
     Object {
@@ -40,6 +40,11 @@ Object {
     },
     Object {
       "category": null,
+      "name": "Wizard",
+      "status": "open",
+    },
+    Object {
+      "category": null,
       "name": "Northwest 6",
       "status": "closed",
     },
@@ -55,17 +60,12 @@ Object {
     },
     Object {
       "category": null,
-      "name": "Wizard",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
       "name": "Galena",
       "status": "closed",
     },
     Object {
       "category": null,
-      "name": "Flying Jenny",
+      "name": "Magic",
       "status": "closed",
     },
     Object {
