@@ -9,7 +9,7 @@ const EPOCH_HOUR = 3600;
 const run = async (metadata) => {
 
   const resortService = new ResortService();
-  const lastSnow = resortService.getSnowMetadata;
+  const lastSnow = await resortService.getSnowMetadata;
 
   if (lastSnow.snowLastSeen) {
     await resortService.setSnowMetadata({
