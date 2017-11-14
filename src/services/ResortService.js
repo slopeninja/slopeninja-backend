@@ -2,6 +2,8 @@ import client, {
   SLOPE_NINJA_DB_SCHEMA
 } from '../db/client';
 
+import redisClient from '../db/redisClient';
+
 class ResortService {
   async getResorts() {
     const resorts = await client
@@ -42,6 +44,27 @@ class ResortService {
 
     const { id, metaData } = resort;
     return { id, shortName, ...metaData };
+  }
+
+  async setSnowMetadata(lastSnow) {
+    const lastSnowRaw = JSON.stringify(lastSnow);
+    const result = await redisClient.set('snow-metadata:lastSnow', lastSnowRaw);
+
+    return result;
+  }
+
+  async getSnowMetadata() {
+    const lastSnowRaw = await redisClient.get('snow-metadata:lastSnow');
+
+    let lastSnow;
+
+    try {
+      lastSnow = JSON.parse(lastSnowRaw);
+    } catch(error) {
+      console.log('Error parsing last snow metadata');
+    }
+
+    return lastSnow;
   }
 }
 

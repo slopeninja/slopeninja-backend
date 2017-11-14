@@ -2,7 +2,7 @@ import client, { SLOPE_NINJA_DB_SCHEMA } from '../db/client';
 import uuid from 'uuid';
 
 class UserDeviceService {
-  async getResorts() {
+  async getUserDevices() {
     const userDevices = await client
      .withSchema(SLOPE_NINJA_DB_SCHEMA)
      .select('*')

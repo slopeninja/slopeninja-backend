@@ -5,6 +5,7 @@ import performanceNow from 'performance-now';
 
 import createMetadata from './createMetadata';
 import updateResort from './updateResort';
+import updateSnowLastSeen from './updateSnowLastSeen';
 
 import { parseCARoadCondition } from './roads/california';
 
@@ -818,6 +819,7 @@ const run = async () => {
   });
 
   const metadata = await Promise.all(arrayOfPromises);
+  await updateSnowLastSeen(metadata);
 
   await client.destroy();
 
