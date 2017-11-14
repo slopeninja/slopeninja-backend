@@ -7,6 +7,8 @@
     "basic-auth": "^1.1.0",
     "bluebird": "^3.5.0",
     "cheerio": "^1.0.0-rc.1",
+    "datasets-female-first-names-en": "^1.0.0",
+    "datasets-male-first-names-en": "^1.0.1",
     "expo-server-sdk": "^2.3.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
