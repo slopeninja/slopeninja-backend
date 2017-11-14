@@ -14,3 +14,5 @@ const updateSnowLastSeen = async (metadata) => {
     resortService.setSnowMetadata(lastSnow);
   }
 };
+
+export default updateSnowLastSeen;
