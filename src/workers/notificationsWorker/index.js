@@ -3,8 +3,23 @@ import UserDeviceService from '../../services/UserDeviceService';
 import NotificationService from '../../services/NotificationService';
 import { extractFirstNameFromDeviceName } from './extractFirstNameFromDeviceName';
 
-//3600 is an hour in epoch time
+// 3600 is an hour in epoch time
 const EPOCH_HOUR = 3600;
+
+const generateMessage = (userDevice, freshSnow = false) => {
+  const firstName = extractFirstNameFromDeviceName(userDevice.deviceName);
+  let greeting = freshSnow ? 'Yay!' : 'Woah!'
+  
+  if (firstName) {
+    greeting = freshSnow ? `High five ${firstName}!` : `It is your lucky day, ${firstName}!`;
+  }
+  
+  const freshSnowMessage = `${greeting} It's snowing in Tahoe. ❄️`
+  const defaultMessage = `${greeting} Looks like it's a pow day.`
+
+  const message = freshSnow ? freshSnowMessage : defaultMessage;
+  return message;
+}
 
 const run = async (metadata) => {
 
@@ -23,23 +38,15 @@ const run = async (metadata) => {
     const epoch = now.getTime();
 
     const snowedWithinAnHour = Math.abs(epoch - lastSnow.snowLastSeen) <= EPOCH_HOUR;
-    const snowedWithinAnHourMessage = "Hi Five! It's snowing in Tahoe. ❄️"
-    const snowedNotWithinAnHourMessage = "It's your lucky day. It snowed in Tahoe."
-
-    const message = snowedWithinAnHour ?
-    snowedWithinAnHourMessage :
-    snowedNotWithinAnHourMessage;
 
     // Construct a message (see https://docs.expo.io/versions/latest/guides/push-notifications.html)
     const notifications = userDevices.map(userDevice => {
-      const userFirstName = extractFirstNameFromDeviceName(userDevice.deviceName) ?
-      ` ${extractFirstNameFromDeviceName(userDevice.deviceName)}` :
-      '';
+      const message = generateMessage(userDevice, snowedWithinAnHour);
 
       return ({
         to: userDevice.notificationToken,
         sound: 'default',
-        body: `Hey${userFirstName}, ${message}`,
+        body: message,
         data: { withSome: 'data' },
       })
     });
@@ -47,8 +54,12 @@ const run = async (metadata) => {
     const notificationService = new NotificationService();
     const receipts = await notificationService.broadcast(notifications);
 
+    console.log(receipts);
+
     return receipts;
   }
 };
 
 run();
+
+
