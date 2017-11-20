@@ -66,6 +66,15 @@ export const parseLiftTrailStatus = (string) => {
     return null;
   }
 
+  if (string.length === 1) {
+    if (string === '0') {
+      return 'closed';
+    }
+    else if (string === '1') {
+      return 'open';
+    }
+  }
+
   const matchStatus = status => {
     // make sure single character statueses don't match
     // pretty much any status that includes that char

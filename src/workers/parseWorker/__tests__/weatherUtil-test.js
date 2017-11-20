@@ -96,6 +96,8 @@ test('returns valid trail lift status', () => {
   expect(parseLiftTrailStatus('false')).toBe('closed');
   expect(parseLiftTrailStatus('abc')).toBe(null);
   expect(liftTrailStatusOrNull('100')).toBe(null);
+  expect(liftTrailStatusOrNull('0')).toBe('closed');
+  expect(liftTrailStatusOrNull('1')).toBe('open');
   expect(parseLiftTrailStatus(100)).toBe(null);
   expect(parseLiftTrailStatus('status_1')).toBe('open');
   expect(parseLiftTrailStatus('pending')).toBe('on hold');
