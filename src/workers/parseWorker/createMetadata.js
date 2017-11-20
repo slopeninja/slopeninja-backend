@@ -86,26 +86,26 @@ const createMetadata = (shortName, resort) => {
     temperature = resort.weather.temperature;
   }
 
-  let openLiftCounts = resort.liftCounts.open;
+  const openLifts = resort.lifts.filter(lift => lift.status === 'open');
+  let openLiftCounts = openLifts.length;
   if (!openLiftCounts) {
-    const openLifts = resort.lifts.filter(lift => lift.status === 'open');
-    openLiftCounts = openLifts.length;
+    openLiftCounts = resort.liftCounts.open;
   }
 
-  let totalLiftCounts = resort.liftCounts.total;
+  let totalLiftCounts = resort.lifts.length;
   if (!totalLiftCounts) {
-    totalLiftCounts = resort.lifts.length;
+    totalLiftCounts = resort.liftCounts.total;
   }
 
-  let openTrailsCounts = resort.trailCounts.open;
+  const openTrails = resort.trails.filter(lift => lift.status === 'open');
+  let openTrailsCounts = openTrails.length;
   if (!openTrailsCounts) {
-    const openTrails = resort.trails.filter(lift => lift.status === 'open');
-    openTrailsCounts = openTrails.length;
+    openTrailsCounts = resort.trailCounts.open;
   }
 
-  let totalTrailCounts = resort.trailCounts.total;
+  let totalTrailCounts = resort.trails.length;
   if (!totalTrailCounts) {
-    totalTrailCounts = resort.trails.length;
+    totalTrailCounts = resort.trailCounts.total;
   }
 
   let status = 'closed';
