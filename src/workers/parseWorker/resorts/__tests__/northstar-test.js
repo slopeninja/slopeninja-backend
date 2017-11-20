@@ -14,7 +14,7 @@ test('fetches Northstar snow data correctly', async () => {
   const resortData = await createHtmlParser('snow', parseNorthstarSnow)(htmlText);
   expect(resortData).toEqual({
     snow: {
-      status: 'closed',
+      status: null,
       weatherIcon: null,
       temperature: null,
       baseCondition: null,

@@ -414,31 +414,31 @@ const resortsConfig = {
     },
     {
       url:
-        'http://www.northstarcalifornia.com/the-mountain/snow-weather-report.aspx',
+        'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/snow-and-weather-report.aspx',
       fn: createHtmlParser('snow', parseNorthstarSnow)
     },
     {
       // fnConfig
       url:
-        'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+        'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('liftCounts', parseNorthstarLiftCounts)
     },
     {
       // fnConfig
       url:
-        'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+        'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trailCounts', parseNorthstarTrailCounts)
     },
     {
       // fnConfig
       url:
-        'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+        'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('lifts', parseNorthstarLifts)
     },
     {
       // fnConfig
       url:
-        'http://www.northstarcalifornia.com/the-mountain/terrain-status.aspx#/Lifts',
+        'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trails', parseNorthstarTrails)
     },
     {
