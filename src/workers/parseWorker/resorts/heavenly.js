@@ -31,7 +31,7 @@ const initialTrails = {
   open: null,
 };
 
-const extractJSONFromScriptElement = (
+export const extractJSONFromScriptElement = (
   $,
   scriptCue,
   jsonStartCue,
