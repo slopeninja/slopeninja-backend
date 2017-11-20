@@ -79,6 +79,8 @@ test('returns valid trail level', () => {
   expect(parseTrailLevel('type_1')).toBe('beginner');
   expect(parseTrailLevel('type_3')).toBe('advanced');
   expect(parseTrailLevel('double')).toBe('expert');
+  expect(parseTrailLevel('2')).toBe('intermediate');
+  expect(parseTrailLevel('1')).toBe('beginner');
   expect(parseTrailLevel('abc')).toBe(null);
   expect(parseTrailLevel(100)).toBe(null);
   expect(parseTrailLevel('type_2')).toBe('intermediate');
@@ -90,6 +92,8 @@ test('returns valid trail lift status', () => {
   expect(parseLiftTrailStatus()).toBe(null);
   expect(parseLiftTrailStatus('open')).toBe('open');
   expect(parseLiftTrailStatus('closed')).toBe('closed');
+  expect(parseLiftTrailStatus('true')).toBe('open');
+  expect(parseLiftTrailStatus('false')).toBe('closed');
   expect(parseLiftTrailStatus('abc')).toBe(null);
   expect(liftTrailStatusOrNull('100')).toBe(null);
   expect(parseLiftTrailStatus(100)).toBe(null);
@@ -104,6 +108,8 @@ test('returns valid resort status', () => {
   expect(parseResortStatus()).toBe(null);
   expect(parseResortStatus('open')).toBe('open');
   expect(parseResortStatus('closed')).toBe('closed');
+  expect(parseResortStatus('true')).toBe('open');
+  expect(parseResortStatus('false')).toBe('closed');
   expect(parseResortStatus('abc')).toBe(null);
   expect(parseResortStatus(100)).toBe(null);
   expect(parseResortStatus('100')).toBe(null);
@@ -117,6 +123,8 @@ test('returns valid trail lift status or null', () => {
   expect(liftTrailStatusOrNull('open')).toBe('open');
   expect(liftTrailStatusOrNull('closed')).toBe('closed');
   expect(liftTrailStatusOrNull('close')).toBe('closed');
+  expect(parseResortStatus('true')).toBe('open');
+  expect(parseResortStatus('false')).toBe('closed');
   expect(liftTrailStatusOrNull('yes')).toBe('open');
   expect(liftTrailStatusOrNull(100)).toBe(null);
   expect(liftTrailStatusOrNull(-100)).toBe(null);

@@ -1,10 +1,10 @@
 const DEGREE_SYMBOLS = ['°', 'deg', 'degree', 'degrees'];
 const INCH_SYMBOLS = ['"', '”', 'in', 'inch', 'inches'];
-const RESORT_STATUS = ['open', 'opened', 'yes', 'close', 'closed', 'no'];
+const RESORT_STATUS = ['open', 'opened', 'true', 'yes', 'close', 'closed', 'false', 'no'];
 
 
-const OPEN_STATUS = ['open', 'opened', 'yes', 'groomed', 'status_1', 'o' , 'g'];
-const CLOSED_STATUS = ['close', 'closed', 'no', 'status_0', 'c'];
+const OPEN_STATUS = ['open', 'opened', 'yes', 'groomed', 'status_1', 'o' , 'g', 'true'];
+const CLOSED_STATUS = ['close', 'closed', 'no', 'status_0', 'c', 'false'];
 const ON_HOLD_STATUS = ['pending', 'scheduled', 'on hold'];
 
 const WEATHER_STATUS = ['sunny', 'clear', 'snow', 'rain', 'cloudy', 'thunderstorm'];
@@ -17,7 +17,7 @@ const ADVANCED_LEVEL = [
   'difficult',
   'mostdifficult',
   'diamond',
-  'type_3',
+  'type_3'
 ];
 const EXPERT_LEVEL = ['expert', 'double', 'type_4'];
 
@@ -28,6 +28,21 @@ export const isNumber = (value) => {
 export const parseTrailLevel = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
+  }
+
+  if (string.length === 1) {
+    if (string === '1') {
+      return 'beginner';
+    }
+    else if (string === '2') {
+      return 'intermediate';
+    }
+    else if (string === '3') {
+      return 'expert';
+    }
+    else if (string === '4') {
+      return 'advanced';
+    }
   }
 
   if (BEGINNER_LEVEL.find((level) => string.includes(level))) {
@@ -79,8 +94,8 @@ export const parseResortStatus = (string) => {
     return null;
   }
   const status = RESORT_STATUS.find((status) => string.includes(status));
-  const OPEN_STATUS = ['open', 'opened', 'yes'];
-  const CLOSED_STATUS = ['close', 'closed', 'no'];
+  const OPEN_STATUS = ['open', 'opened', 'yes', 'true'];
+  const CLOSED_STATUS = ['close', 'closed', 'no', 'false'];
   if (status) {
     let parsedStatus = null;
     if (OPEN_STATUS.find((status) => string.includes(status))) {
