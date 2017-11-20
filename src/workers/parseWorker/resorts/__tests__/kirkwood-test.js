@@ -14,13 +14,13 @@ test('fetches Kirkwood snow data correctly', async () => {
   const resortData = await createHtmlParser('snow', parseKirkwoodSnow)(htmlText);
   expect(resortData).toEqual({
     snow: {
-      status: 'closed',
+      status: null,
       weatherIcon: null,
       temperature: null,
       baseCondition: null,
-      newSnow: 10,
+      newSnow: 0,
       snowDepthBase: null,
-      snowDepthSummit: 1,
+      snowDepthSummit: 0,
     },
   });
 })

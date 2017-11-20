@@ -3,14 +3,16 @@ import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
-  numberOrNull,
   resortStatusOrNull,
   weatherStatusOrNull,
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
   trailLevelOrNull,
+  numberOrNull,
   removeNumberInFrontOfName,
 } from '../weatherUtil';
+
+import { extractJSONFromScriptElement } from './heavenly';
 
 const initialSnow = {
   status: null,
@@ -32,108 +34,126 @@ const initialTrails = {
   open: null,
 };
 
-export const parseKirkwoodSnow = async ($) => {
-  const status = $('.snowConditions tr td').first().text().trim();
-  // const temperature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
-  //24 Hours
-  const newSnow24Hr = $('.snowReportDataColumn2 .newSnow tbody td').slice(1,2).text().trim();
-  //Base
-  // const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1,2).text().trim();
+export const parseKirkwoodSnow = async $ => {
+  const snowReportData = extractJSONFromScriptElement(
+    $,
+    'snowReportSettings',
+    'FR.snowReportData = {',
+    '};',
+    ['{', '}'],
+  );
 
-  const snowDepthSummit = $('.snowConditions tbody tr td').slice(3,4).text().trim();
   return {
     ...initialSnow,
-    status: resortStatusOrNull(status),
+    // status: resortStatusOrNull(),
     // temperature: degreeOrNull(temperature),
-    newSnow: inchOrNull(newSnow24Hr),
+    newSnow: inchOrNull(
+      snowReportData ?
+      `${snowReportData.TwentyFourHourSnowfall.Inches} inches` :
+      null,
+    ),
     // snowDepthBase: inchOrNull(snowDepthBase),
-    snowDepthSummit: inchOrNull(snowDepthSummit),
+    snowDepthSummit: inchOrNull(
+      snowReportData ?
+      `${snowReportData.BaseDepth.Inches} inches` :
+      null,
+    ),
   };
-}
+};
 
-export const parseKirkwoodLiftCounts = async ($) => {
-  const openLifts = Number.parseInt($('.gradBorderModule .terrainConditions .firstItem span').first().text());
-  const totalLifts = Number.parseInt($('.gradBorderModule .terrainConditions .firstItem span').slice(1,2).text());
+export const parseKirkwoodLiftCounts = async $ => {
+  const openLifts = Number.parseInt(
+    $('.c118__number1--v1')
+      .first()
+      .text(),
+  );
+  const totalLifts = Number.parseInt(
+    $('.c118__number2--v1')
+      .first()
+      .text()
+      .replace('/', ''),
+  );
 
   return {
     ...initialLifts,
     total: numberOrNull(totalLifts),
     open: numberOrNull(openLifts),
   };
-}
+};
 
-export const parseKirkwoodTrailCounts = async ($) => {
-  const openTrails = Number.parseInt($('.gradBorderModule .terrainConditions li span').slice(2,3).text());
-  const totalTrails = Number.parseInt($('.gradBorderModule .terrainConditions li span').slice(3,4).text());
+export const parseKirkwoodTrailCounts = async $ => {
+  const openTrails = Number.parseInt(
+    $('.c118__number1--v1')
+      .slice(1, 2)
+      .text(),
+  );
+  const totalTrails = Number.parseInt(
+    $('.c118__number2--v1')
+      .slice(1, 2)
+      .text()
+      .replace('/', ''),
+  );
   return {
     ...initialTrails,
     total: numberOrNull(totalTrails),
     open: numberOrNull(openTrails),
   };
-}
+};
 
-export const parseKirkwoodLifts = async ($) => {
-  const list = [];
+export const parseKirkwoodLifts = async $ => {
+  const liftsReportData = extractJSONFromScriptElement(
+    $,
+    'TerrainStatusFeed',
+    'FR.TerrainStatusFeed = {',
+    '};',
+    ['{', '}'],
+  );
 
-  $('#Lifts tbody tr').map((index, rowElement) => {
-    const tdElements = $(rowElement).find('td');
-    const tdElementName = tdElements[0];
+  let allLifts = []
+  if (liftsReportData) {
+    allLifts = liftsReportData.Lifts.map(
+      lift => ({
+        name: removeNumberInFrontOfName(lift.Name),
+        category: lift.Mountain,
+        status: liftTrailStatusOrNull(`${lift.Status}`),
+      })
+    )
+  }
+  return allLifts;
+};
 
-    const tdElementStatus = tdElements[2];
+export const parseKirkwoodTrails = async $ => {
+  const trailsReportData = extractJSONFromScriptElement(
+    $,
+    'TerrainStatusFeed',
+    'FR.TerrainStatusFeed = {',
+    '};',
+    ['{', '}'],
+  );
 
-    const thElementCategory = null;
+  let allTrails = []
+  if (trailsReportData) {
+    allTrails = trailsReportData.GroomingAreas.reduce((trails, category) => {
+      category.Runs.map(
+        run => {
+          const trail = {
+            name: run.Name,
+            status: liftTrailStatusOrNull(`${run.IsOpen}`),
+            category: category.Name,
+            level: trailLevelOrNull(`${run.Type}`),
+          };
+          trails.push(trail);
+        }
+      )
+      return trails;
+    }, []);
 
-    const rawName = $(tdElementName).text().trim();
-    const constructedName = removeNumberInFrontOfName(rawName);
-    const name = notEmptyStringOrNull(constructedName);
-    const status = liftTrailStatusOrNull($(tdElementStatus).attr('class'));
-    const category = notEmptyStringOrNull($(thElementCategory).text().trim());
+    const trailsExcludingParks = allTrails.filter(
+      trail =>
+      !trail.name.includes('Terrain Park')
+    );
+    return trailsExcludingParks;
+  }
 
-    const lift = {
-      name,
-      status,
-      category,
-    };
-    if (lift.name === null) {
-      return;
-    }
-    list.push(lift)
-  });
-
- return list;
-}
-
-export const parseKirkwoodTrails = async ($) => {
-  const list = [];
-
-  $('#TerrainStatus tbody td tbody tr').map((index, rowElement) => {
-    const tdElements = $(rowElement).find('td');
-
-    const thElementName = tdElements[1];
-    const thElementStatus = tdElements[2];
-    const thElementLevel = tdElements[0];
-
-    const parentElement = rowElement.parent.parent.parent.parent.parent.parent.parent;
-    const thElementCategory = $(parentElement).find('h2');
-
-    const name = notEmptyStringOrNull($(thElementName).text().trim());
-    const status = liftTrailStatusOrNull($(thElementStatus).attr('class'));
-    const level = trailLevelOrNull($(thElementLevel).attr('class'));
-    // const category = notEmptyStringOrNull($(thElementCategory).text().trim());
-    const category = null;
-
-    const trail = {
-      name,
-      status,
-      category,
-      level,
-    };
-
-    if (trail.name === null) {
-      return;
-    }
-    list.push(trail)
-  });
-
- return list;
-}
+  return allTrails;
+};

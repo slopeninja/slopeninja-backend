@@ -366,27 +366,27 @@ const resortsConfig = {
       fn: createJSONParser('weather', parseWeather)
     },
     {
-      url: 'http://www.kirkwood.com/mountain/snow-and-weather-report.aspx',
+      url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/snow-and-weather-report.aspx',
       fn: createHtmlParser('snow', parseKirkwoodSnow)
     },
     {
       // fnConfig
-      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+      url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('liftCounts', parseKirkwoodLiftCounts)
     },
     {
       // fnConfig
-      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+      url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trailCounts', parseKirkwoodTrailCounts)
     },
     {
       // fnConfig
-      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+      url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('lifts', parseKirkwoodLifts)
     },
     {
       // fnConfig
-      url: 'http://www.kirkwood.com/mountain/terrain-status.aspx#/Lifts',
+      url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trails', parseKirkwoodTrails)
     },
     {
