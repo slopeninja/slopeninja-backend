@@ -315,32 +315,32 @@ const resortsConfig = {
     },
     {
       url:
-        'http://www.skiheavenly.com/the-mountain/snow-report/snow-report.aspx',
+        'https://www.skiheavenly.com/the-mountain/mountain-conditions/snow-and-weather-report.aspx',
       fn: createHtmlParser('snow', parseHeavenlySnow)
     },
     {
       // fnConfig
       url:
-        'http://www.skiheavenly.com/the-mountain/terrain-and-lift-status.aspx',
+        'https://www.skiheavenly.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('liftCounts', parseHeavenlyLiftCounts)
     },
     {
       // fnConfig
       url:
-        'http://www.skiheavenly.com/the-mountain/terrain-and-lift-status.aspx',
+        'https://www.skiheavenly.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trailCounts', parseHeavenlyTrailCounts)
     },
     {
       // fnConfig
       url:
         'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
-      fn: createHtmlParser('lifts', parseHeavenlyLifts, removeBackSlashes)
+      fn: createHtmlParser('lifts', parseHeavenlyLifts)
     },
     {
       // fnConfig
       url:
         'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
-      fn: createHtmlParser('trails', parseHeavenlyTrails, removeBackSlashes)
+      fn: createHtmlParser('trails', parseHeavenlyTrails)
     },
     {
       // fnConfig

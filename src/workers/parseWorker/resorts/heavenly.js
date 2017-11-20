@@ -8,6 +8,7 @@ import {
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
   trailLevelOrNull,
+  numberOrNull,
 } from '../weatherUtil';
 
 const initialSnow = {
@@ -30,84 +31,171 @@ const initialTrails = {
   open: null,
 };
 
-export const parseHeavenlySnow = async ($) => {
-  const status = $('.snowConditions tr td').first().text().trim();
-  // const temperature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
-  //24 Hours
-  const newSnow24Hr = $('.snowReportDataColumn2 .newSnow tbody td').slice(1,2).text().trim();
-  //Base
-  // const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1,2).text().trim();
+const extractJSONFromScriptElement = (
+  $,
+  scriptCue,
+  jsonStartCue,
+  jsonEndCue,
+  bracket,
+) => {
+  const scriptsWithInlineSourceElements = $('script')
+    .filter((index, element) => {
+      return (
+        element.attribs &&
+        !element.attribs.src &&
+        // element.attribs.type === 'text/javascript' &&
+        element.children &&
+        element.children.length > 0 &&
+        element.children[0].data
+      );
+    })
+    .toArray();
 
-  const snowDepthSummit = $('.snowConditions tbody tr td').slice(3,4).text().trim();
+  const scriptWithInlineSource = scriptsWithInlineSourceElements
+    .map(
+      element => element.children[0].data
+    )
+    .find(inlineSourceRaw => inlineSourceRaw.includes(scriptCue));
+
+  let jsonDataRaw;
+  try {
+    const jsonBodyRaw = scriptWithInlineSource
+      .split(jsonStartCue)[1]
+      .split(jsonEndCue)[0];
+    jsonDataRaw = JSON.parse(`${bracket[0]} ${jsonBodyRaw} ${bracket[1]}`);
+  } catch (error) {}
+
+  return jsonDataRaw;
+};
+
+export const parseHeavenlySnow = async $ => {
+  const snowReportData = extractJSONFromScriptElement(
+    $,
+    'snowReportSettings',
+    'FR.snowReportData = {',
+    '};',
+    ['{', '}'],
+  );
+
+  // const forecasts = extractJSONFromScriptElement(
+  //   $,
+  //   'FR.forecasts = FR.forecasts',
+  //   'FR.forecasts || [',
+  //   '];',
+  //   ['[', ']'],
+  // );
+
   return {
     ...initialSnow,
-    status: resortStatusOrNull(status),
+    // status: resortStatusOrNull(),
     // temperature: degreeOrNull(temperature),
-    newSnow: inchOrNull(newSnow24Hr),
+    newSnow: inchOrNull(
+      snowReportData ?
+      `${snowReportData.TwentyFourHourSnowfall.Inches} inches` :
+      null,
+    ),
     // snowDepthBase: inchOrNull(snowDepthBase),
-    snowDepthSummit: inchOrNull(snowDepthSummit),
+    snowDepthSummit: inchOrNull(
+      snowReportData ?
+      `${snowReportData.BaseDepth.Inches} inches` :
+      null,
+    ),
   };
-}
+};
 
-export const parseHeavenlyLiftCounts = async ($) => {
+export const parseHeavenlyLiftCounts = async $ => {
+  const openLifts = Number.parseInt(
+    $('.c118__number1--v1')
+      .first()
+      .text(),
+  );
+  const totalLifts = Number.parseInt(
+    $('.c118__number2--v1')
+      .first()
+      .text()
+      .replace('/', ''),
+  );
+
   return {
     ...initialLifts,
+    total: numberOrNull(totalLifts),
+    open: numberOrNull(openLifts),
   };
-}
+};
 
-export const parseHeavenlyTrailCounts = async ($) => {
+export const parseHeavenlyTrailCounts = async $ => {
+  const openTrails = Number.parseInt(
+    $('.c118__number1--v1')
+      .slice(1, 2)
+      .text(),
+  );
+  const totalTrails = Number.parseInt(
+    $('.c118__number2--v1')
+      .slice(1, 2)
+      .text()
+      .replace('/', ''),
+  );
   return {
     ...initialTrails,
+    total: numberOrNull(totalTrails),
+    open: numberOrNull(openTrails),
   };
-}
+};
 
-export const parseHeavenlyLifts = async ($) => {
-  const list = [];
-  $('.liftContainer').map((index, rowElement) => {
-    const liftType = $(rowElement).find('span').text();
-    const statusImg = $(rowElement).find('img');
+export const parseHeavenlyLifts = async $ => {
+  const liftsReportData = extractJSONFromScriptElement(
+    $,
+    'TerrainStatusFeed',
+    'FR.TerrainStatusFeed = {',
+    '};',
+    ['{', '}'],
+  );
 
-    const name = notEmptyStringOrNull($(rowElement).text().replace(liftType, ''));
-    const status = liftTrailStatusOrNull($(statusImg).attr('src'));
-    const category = null;
+  let allLifts = []
+  if (liftsReportData) {
+    allLifts = liftsReportData.Lifts.map(
+      lift => ({
+        name: lift.Name,
+        category: lift.Mountain,
+        status: liftTrailStatusOrNull(`${lift.Status}`),
+      })
+    )
+  }
+  return allLifts;
+};
 
-    const lift = {
-      name,
-      status,
-      category,
-    };
+export const parseHeavenlyTrails = async $ => {
+  const trailsReportData = extractJSONFromScriptElement(
+    $,
+    'TerrainStatusFeed',
+    'FR.TerrainStatusFeed = {',
+    '};',
+    ['{', '}'],
+  );
 
-    list.push(lift)
-  });
+  let allTrails = []
+  if (trailsReportData) {
+    allTrails = trailsReportData.GroomingAreas.reduce((trails, category) => {
+      category.Runs.map(
+        run => {
+          const trail = {
+            name: run.Name,
+            status: liftTrailStatusOrNull(`${run.IsOpen}`),
+            category: category.Name,
+            level: trailLevelOrNull(`${run.Type}`),
+          };
+          trails.push(trail);
+        }
+      )
+      return trails;
+    }, []);
 
- return list;
-}
+    const trailsExcludingParks = allTrails.filter(
+      trail =>
+      !trail.name.includes('Terrain Park')
+    );
+    return trailsExcludingParks;
+  }
 
-export const parseHeavenlyTrails = async ($) => {
-  const list = [];
-
-  $('.groomingAreaRunContainer .runContainer').map((index, rowElement) => {
-    const columnElements = $(rowElement).find('div');
-    const statusElements = $(columnElements[2]).find('img');
-    const categoryElements = $(columnElements[0]).find('img');
-
-    const parentElement = rowElement.parent;
-    const categoryElement = $(parentElement).prev();
-
-    const name = notEmptyStringOrNull($(rowElement).text());
-    const status = liftTrailStatusOrNull($(statusElements).attr('src'));
-    const level = trailLevelOrNull($(categoryElements).attr('src'));
-    const category = notEmptyStringOrNull($(categoryElement).text().trim());
-
-    const trail = {
-      name,
-      status,
-      category,
-      level,
-    };
-
-    list.push(trail)
-  });
-
- return list;
-}
+  return allTrails;
+};

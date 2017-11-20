@@ -14,13 +14,13 @@ test('fetches Heavenly snow data correctly', async () => {
   const resortData = await createHtmlParser('snow', parseHeavenlySnow)(htmlText);
   expect(resortData).toEqual({
     snow: {
-      status: 'closed',
+      status: null,
       weatherIcon: null,
       temperature: null,
       baseCondition: null,
-      newSnow: 0,
+      newSnow: 11,
       snowDepthBase: null,
-      snowDepthSummit: 0,
+      snowDepthSummit: 5,
     },
   });
 })
@@ -41,12 +41,12 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Heavenly lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/heavenly-weather.html.input`);
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/heavenly-lifts.html.input`);
   const resortData = await createHtmlParser('liftCounts', parseHeavenlyLiftCounts)(htmlText);
   expect(resortData).toEqual({
     liftCounts: {
-      total: null,
-      open: null,
+      total: 28,
+      open: 2,
     }
   });
 });
@@ -62,12 +62,12 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Heavenly trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/heavenly-weather.html.input`);
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/heavenly-lifts.html.input`);
   const resortData = await createHtmlParser('trailCounts', parseHeavenlyTrailCounts)(htmlText);
   expect(resortData).toEqual({
     trailCounts: {
-      total: null,
-      open: null,
+      total: 97,
+      open: 2,
     }
   });
 });
@@ -87,7 +87,6 @@ test('fetches Heavenly lift list correctly', async () => {
   const resortData = await createHtmlParser(
     'lifts',
     parseHeavenlyLifts,
-    removeBackSlashes,
   )(htmlText);
   expect(resortData).toMatchSnapshot();
 });
@@ -96,7 +95,6 @@ test('fetches all null for nonexisting lift list values', async () => {
   const resortData = await createHtmlParser(
     'lifts',
     parseHeavenlyLifts,
-    removeBackSlashes,
   )('<html></html>');
   expect(resortData).toMatchObject({ lifts: [] });
 });
@@ -106,7 +104,7 @@ test('fetches Heavenly trail list correctly', async () => {
   const resortData = await createHtmlParser(
     'trails',
     parseHeavenlyTrails,
-    removeBackSlashes,
+    // removeBackSlashes, // REMOVE FROM INDEX
   )(htmlText);
   expect(resortData).toMatchSnapshot();
 });
@@ -115,7 +113,6 @@ test('fetches all null for nonexisting lift list values', async () => {
   const resortData = await createHtmlParser(
     'trails',
     parseHeavenlyTrails,
-    removeBackSlashes,
   )('<html></html>');
   expect(resortData).toMatchObject({ trails: [] });
 });
