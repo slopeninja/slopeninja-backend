@@ -88,23 +88,27 @@ const createMetadata = (shortName, resort) => {
 
   const openLifts = resort.lifts.filter(lift => lift.status === 'open');
   let openLiftCounts = openLifts.length;
-  if (openLiftCounts !== 0 && !openLiftCounts) {
+  if (!openLiftCounts && resort.liftCounts.open) {
     openLiftCounts = resort.liftCounts.open;
   }
 
   let totalLiftCounts = resort.lifts.length;
-  if (openLiftCounts !== 0 && !totalLiftCounts) {
+  if (!totalLiftCounts && !resort.liftCounts.total) {
+    totalLiftCounts = null;
+  } else if (!totalLiftCounts && resort.liftCounts.total) {
     totalLiftCounts = resort.liftCounts.total;
   }
 
   const openTrails = resort.trails.filter(lift => lift.status === 'open');
   let openTrailsCounts = openTrails.length;
-  if (openTrailsCounts !== 0 && !openTrailsCounts) {
+  if (!openTrailsCounts && resort.trailCounts.open) {
     openTrailsCounts = resort.trailCounts.open;
   }
 
   let totalTrailCounts = resort.trails.length;
-  if (openTrailsCounts !== 0 && !totalTrailCounts) {
+  if (!totalTrailCounts && !resort.trailCounts.total) {
+    totalTrailCounts = null;
+  } else if (!totalTrailCounts && resort.trailCounts.total) {
     totalTrailCounts = resort.trailCounts.total;
   }
 

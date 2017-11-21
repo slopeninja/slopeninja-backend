@@ -1049,7 +1049,7 @@ const SQUAW_OUTPUT_DATA_SAMPLE = {
       snowDepth: null,
       temperature: 59
     },
-    liftCounts: { open: 0, total: 31 },
+    liftCounts: { open: 5, total: 31 },
     trailCounts: { open: 12, total: 135 }
   }
 };
