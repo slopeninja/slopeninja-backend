@@ -88,28 +88,28 @@ const createMetadata = (shortName, resort) => {
 
   const openLifts = resort.lifts.filter(lift => lift.status === 'open');
   let openLiftCounts = openLifts.length;
-  if (!openLiftCounts) {
+  if (openLiftCounts !== 0 && !openLiftCounts) {
     openLiftCounts = resort.liftCounts.open;
   }
 
   let totalLiftCounts = resort.lifts.length;
-  if (!totalLiftCounts) {
+  if (openLiftCounts !== 0 && !totalLiftCounts) {
     totalLiftCounts = resort.liftCounts.total;
   }
 
   const openTrails = resort.trails.filter(lift => lift.status === 'open');
   let openTrailsCounts = openTrails.length;
-  if (!openTrailsCounts) {
+  if (openTrailsCounts !== 0 && !openTrailsCounts) {
     openTrailsCounts = resort.trailCounts.open;
   }
 
   let totalTrailCounts = resort.trails.length;
-  if (!totalTrailCounts) {
+  if (openTrailsCounts !== 0 && !totalTrailCounts) {
     totalTrailCounts = resort.trailCounts.total;
   }
 
   let status = 'closed';
-  if (openLiftCounts > 0) {
+  if (openLiftCounts > 0 || openTrailsCounts > 0) {
     status = 'open';
   }
 
