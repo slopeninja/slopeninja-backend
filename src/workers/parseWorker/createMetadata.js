@@ -81,9 +81,9 @@ const createMetadata = (shortName, resort) => {
     weatherIcon = 'cloudy';
   }
 
-  let temperature = resort.snow.temperature;
+  let temperature = resort.weather.temperature;
   if (!temperature) {
-    temperature = resort.weather.temperature;
+    temperature = resort.snow.temperature;
   }
 
   const openLifts = resort.lifts.filter(lift => lift.status === 'open');
