@@ -23,7 +23,7 @@ beforeAll(async () => {
 afterAll(async () => {
   const close = Promise.promisify(server.close, { context: server });
   await close();
-  await client.destroy();
+  // await client.destroy();
 });
 
 test('passes the sanity check', () => {
