@@ -8,14 +8,21 @@ const EPOCH_HOUR = 3600;
 
 const generateMessage = (userDevice, freshSnow = false) => {
   const firstName = extractFirstNameFromDeviceName(userDevice.deviceName);
-  let greeting = freshSnow ? 'Yay!' : 'Woah!'
-  
+  // 5AM-4PM
+  //      has name? Good news, Julia! More snow landed on the slopes today.
+  //          else: Yay! More snow landed on the slopes today.
+  // 4PM-5PM
+  //      has name? Hey Julia! It's snowing in Tahoe.
+  //          else: Mother Nature is at it! It's snowing in Tahoe.
+
+  let greeting = freshSnow ? 'Mother Nature is at it!' : 'Yay!'
+
   if (firstName) {
-    greeting = freshSnow ? `High five ${firstName}!` : `It is your lucky day, ${firstName}!`;
+    greeting = freshSnow ? `Hey ${firstName}!` : `Good news, ${firstName}!`;
   }
-  
+
   const freshSnowMessage = `${greeting} It's snowing in Tahoe. ❄️`
-  const defaultMessage = `${greeting} Looks like it's a pow day.`
+  const defaultMessage = `${greeting} More snow landed on the slopes today.`
 
   const message = freshSnow ? freshSnowMessage : defaultMessage;
   return message;
@@ -61,5 +68,3 @@ const run = async (metadata) => {
 };
 
 run();
-
-
