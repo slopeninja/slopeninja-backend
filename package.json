@@ -27,7 +27,7 @@
     "strong-soap": "^1.2.6"
   },
   "engines": {
-    "node": "7.9.0"
+    "node": "8.9.1"
   },
   "scripts": {
     "start-prod": "npm run postinstall && node build/src/server.js",
