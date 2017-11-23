@@ -69,22 +69,22 @@ test('fails to return a resort for unknown resort id', async () => {
   expect(response.status).toEqual(statuses('Not Found'));
 });
 
-test('subscribes to newsletter with valid email', async () => {
-  const dummyEmail = `${uuid.v4()}@slope.ninja`;
-  const response = await fetch(`http://localhost:${port}/subscribers`, {
-    method: 'POST',
-    headers: new Headers({
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
-    }),
-    body: JSON.stringify({
-      email: dummyEmail
-    })
-  });
-  const data = await response.json();
-
-  expect(data.email).toMatch(dummyEmail);
-});
+// test('subscribes to newsletter with valid email', async () => {
+//   const dummyEmail = `${uuid.v4()}@slope.ninja`;
+//   const response = await fetch(`http://localhost:${port}/subscribers`, {
+//     method: 'POST',
+//     headers: new Headers({
+//       'Content-Type': 'application/json',
+//       Accept: 'application/json'
+//     }),
+//     body: JSON.stringify({
+//       email: dummyEmail
+//     })
+//   });
+//   const data = await response.json();
+//
+//   expect(data.email).toMatch(dummyEmail);
+// });
 
 test('fails to subscribe to newsletter with invalid email', async () => {
   const response = await fetch(`http://localhost:${port}/subscribers`, {
