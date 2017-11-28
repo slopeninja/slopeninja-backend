@@ -21,6 +21,8 @@
     "koa": "2",
     "koa-bodyparser": "next",
     "koa-router": "next",
+    "mjml": "^3.3.5",
+    "moment": "^2.19.2",
     "performance-now": "^2.1.0",
     "pg": "^6.1.5",
     "statuses": "^1.3.1",
