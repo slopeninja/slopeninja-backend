@@ -99,8 +99,8 @@ const run = async () => {
   // Forward the post reqest to MailChimp api
   const token = new Buffer(`anystring:${MAILCHIMP_PRIVATE_KEY}`).toString('base64');
 
-  const TEMPLATE_FOLDER_ID = 'd01c23837c'; /* Daily Snow Updates Templates */
-  const CAMPAIGN_FOLDER_ID = '37045c44fa'; /* Daily Snow Updates */
+  const TEMPLATE_FOLDER_ID = 'd01c23837c'; /* Daily Snow Update Templates */
+  const CAMPAIGN_FOLDER_ID = '37045c44fa'; /* Daily Snow Update */
   const LIST_ID = 'b56b3d32c5';
 
   const templateCreationRequest = await fetch(`http://us15.api.mailchimp.com/3.0/templates`, {
