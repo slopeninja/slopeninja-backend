@@ -6,7 +6,7 @@ const generateHeader = (dateTime) => `
     <mj-column width="80%">
        <mj-text line-height='16px' padding="12px">
         <p style="font-size: 22px; font-weight: 400; color: #4A4A4A; font-family: Lato, Arial, sans-serif;" >
-          Snow Updates
+          Snow Update
         </p>
         <p style="font-size: 14px; font-weight: 300; color: #9B9B9B; font-family: Lato, Arial, sans-serif;">
           ${dateTime}
