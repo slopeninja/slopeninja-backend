@@ -36,6 +36,36 @@ test('parses road and chain condition closed correctly SR2', async () => {
   });
 });
 
+test('parses road and chain condition correctly I80', async () => {
+  const text = fs.readFileSync(`${__dirname}/__fixtures__/I80CA.txt.input`);
+
+  const resortData = await createTextParser('highway80', parseCARoadCondition('I', '80'))(text, SOURCE_URL);
+  expect(resortData).toEqual({
+    highway80: {
+      prefix: 'I',
+      number: '80',
+      sourceUrl: SOURCE_URL,
+      status: 'open',
+      chainStatus: 'R1',
+    }
+  });
+});
+
+test('parses road and chain condition correctly SR89', async () => {
+  const text = fs.readFileSync(`${__dirname}/__fixtures__/SR89CA.txt.input`);
+
+  const resortData = await createTextParser('highway89', parseCARoadCondition('CA', '89'))(text, SOURCE_URL);
+  expect(resortData).toEqual({
+    highway89: {
+      prefix: 'CA',
+      number: '89',
+      sourceUrl: SOURCE_URL,
+      status: 'closed',
+      chainStatus: 'R1',
+    }
+  });
+});
+
 test('parses road and chain condition incident correctly SR88', async () => {
   const text = fs.readFileSync(`${__dirname}/__fixtures__/SR88CA.txt.input`);
 
