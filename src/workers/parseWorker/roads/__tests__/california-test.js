@@ -46,7 +46,7 @@ test('parses road and chain condition correctly I80', async () => {
       number: '80',
       sourceUrl: SOURCE_URL,
       status: 'open',
-      chainStatus: 'R1',
+      chainStatus: 'R2',
     }
   });
 });
@@ -61,7 +61,7 @@ test('parses road and chain condition correctly SR89', async () => {
       number: '89',
       sourceUrl: SOURCE_URL,
       status: 'closed',
-      chainStatus: 'R1',
+      chainStatus: 'R2',
     }
   });
 });
