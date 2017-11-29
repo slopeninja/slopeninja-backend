@@ -8,7 +8,8 @@ class NewsletterService {
 
   async getNewsletterSample() {
     const lastCampaign = await redisClient.get('emailHtml:lastCampaign');
-    const lastCampaignWithReplacedLink = lastCampaign.replace("*|UNSUB|*", "http://slope.ninja");
+    const lastCampaignWithReplacedLink = lastCampaign.replace("{subject}", "Snow Update - Slope Ninja");
+    const lastCampaignWithReplacedTitle = lastCampaign.replace("*|UNSUB|*", "http://slope.ninja");
     return lastCampaignWithReplacedLink;
   }
 }
