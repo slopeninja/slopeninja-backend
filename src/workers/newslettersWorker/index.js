@@ -2,6 +2,7 @@ import React from 'react';
 import { mjml2html } from 'mjml'
 import fetch from 'isomorphic-fetch';
 import ResortService from '../../services/ResortService';
+import NewsletterService from '../../services/NewsletterService';
 
 import generateEmail from './generateTemplate';
 import moment from 'moment';
@@ -100,6 +101,9 @@ const run = async () => {
   const html = mjml2html(mjml)
 
   const rawHtml = makeMailchimpHappy(html.html)
+
+  const newsletterService = new NewsletterService();
+  await newsletterService.setNewsletterSample(rawHtml);
 
   // Forward the post reqest to MailChimp api
   const token = new Buffer(`anystring:${MAILCHIMP_PRIVATE_KEY}`).toString('base64');

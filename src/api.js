@@ -10,6 +10,7 @@ import Joi from 'joi';
 
 import ResortService from './services/ResortService';
 import UserDeviceService from './services/UserDeviceService';
+import NewsletterService from './services/NewsletterService';
 
 const MAILCHIMP_PRIVATE_KEY = process.env.MAILCHIMP_PRIVATE_KEY;
 
@@ -155,6 +156,13 @@ router.post('/user-devices', async (ctx) => {
     deviceName: ctx.request.body.deviceName,
     notificationToken: 'valid',
   };
+});
+
+router.get('/newsletters/latest', async (ctx) => {
+  const newsletterService = new NewsletterService();
+  const newsletterSample = await newsletterService.getNewsletterSample();
+  ctx.status = statuses('OK');
+  ctx.body = newsletterSample;
 });
 
 koaApp.use(koaCors());
