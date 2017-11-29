@@ -49,6 +49,11 @@ const makeMailchimpHappy = (rawHtml) => rawHtml.replace('@import url(https://fon
 const run = async () => {
   const resortService = new ResortService();
   const resorts = await resortService.getResorts();
+
+  if (!resorts.find(resort => resort.weather.newSnow > 0)) {
+    return;
+  }
+  
   const resortRows = resorts.map(resort => {
     return {
       resortName: resort.name,
