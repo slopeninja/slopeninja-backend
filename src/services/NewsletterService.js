@@ -7,10 +7,11 @@ class NewsletterService {
   }
 
   async getNewsletterSample() {
-    const lastCampaign = await redisClient.get('emailHtml:lastCampaign');
-    const lastCampaignWithReplacedLink = lastCampaign.replace("{subject}", "Snow Update - Slope Ninja");
-    const lastCampaignWithReplacedTitle = lastCampaign.replace("*|UNSUB|*", "http://slope.ninja");
-    return lastCampaignWithReplacedLink;
+    const lastCampaignText = await redisClient.get('emailHtml:lastCampaign');
+    
+    return lastCampaignText
+              .replace("{subject}", "Latest Snow Update - Slope Ninja")
+              .replace("*|UNSUB|*", "http://slope.ninja");
   }
 }
 
