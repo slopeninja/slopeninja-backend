@@ -7,7 +7,10 @@ const CA_ROAD_INCIDENT = [
 ];
 const CA_ROAD_CLOSED = ['IS CLOSED'];
 
-const CHAIN_R1 = 'R1';
+const CHAIN_R1 = [
+  'R1',
+  'CHAINS OR SNOW TIRES ARE REQUIRED'
+];
 const CHAIN_R2 = [
   'R2',
   'CHAINS ARE REQUIRED ON ALL VEHICLES EXCEPT 4-WHEEL-DRIVE VEHICLES WITH SNOW'
@@ -76,7 +79,7 @@ export const californiaRoadStatusOrNull = text => {
 };
 
 export const isCaliforniaChainR1 = text => {
-  return text.includes(CHAIN_R1) ? true : false;
+  return CHAIN_R1.find(condition => text.includes(condition)) ? true : false;
 };
 
 export const isCaliforniaChainR2 = text => {
