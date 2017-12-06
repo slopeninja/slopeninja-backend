@@ -1,13 +1,13 @@
-import redisClient from '../db/redisClient';
+import dataGridClient from '../db/dataGridClient';
 
 class NewsletterService {
   async setNewsletterSample(emailHtml) {
-    const result = await redisClient.set('emailHtml:lastCampaign', emailHtml);
+    const result = await dataGridClient.set('emailHtml:lastCampaign', emailHtml);
     return result;
   }
 
   async getNewsletterSample() {
-    const lastCampaignText = await redisClient.get('emailHtml:lastCampaign');
+    const lastCampaignText = await dataGridClient.get('emailHtml:lastCampaign');
     
     return lastCampaignText
               .replace("{subject}", "Latest Snow Update - Slope Ninja")

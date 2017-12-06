@@ -2,7 +2,7 @@ import client, {
   SLOPE_NINJA_DB_SCHEMA
 } from '../db/client';
 
-import redisClient from '../db/redisClient';
+import dataGridClient from '../db/dataGridClient';
 
 class ResortService {
   async getResorts() {
@@ -48,13 +48,13 @@ class ResortService {
 
   async setSnowMetadata(lastSnow) {
     const lastSnowRaw = JSON.stringify(lastSnow);
-    const result = await redisClient.set('snow-metadata:lastSnow', lastSnowRaw);
+    const result = await dataGridClient.set('snow-metadata:lastSnow', lastSnowRaw);
 
     return result;
   }
 
   async getSnowMetadata() {
-    const lastSnowRaw = await redisClient.get('snow-metadata:lastSnow');
+    const lastSnowRaw = await dataGridClient.get('snow-metadata:lastSnow');
 
     let lastSnow;
 
