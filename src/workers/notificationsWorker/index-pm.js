@@ -28,7 +28,8 @@ const generateMessage = (userDevice, freshSnow = false) => {
   return message;
 }
 
-const run = async (metadata) => {
+export const run = async (metadata) => {
+  console.log('notificationsWroker-pm starts');
 
   const resortService = new ResortService();
   const lastSnow = await resortService.getSnowMetadata();
@@ -66,5 +67,3 @@ const run = async (metadata) => {
     return receipts;
   }
 };
-
-run();

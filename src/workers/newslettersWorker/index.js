@@ -47,14 +47,16 @@ const COLOR_PALETTE = [
 
 const makeMailchimpHappy = (rawHtml) => rawHtml.replace('@import url(https://fonts.googleapis.com/css?family=Lato:300,400);', '').replace('@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);', '')
 
-const run = async () => {
+export const run = async () => {
+  console.log('newslettersWorker starts');
+
   const resortService = new ResortService();
   const resorts = await resortService.getResorts();
 
   if (!resorts.find(resort => resort.weather.newSnow > 0)) {
     return;
   }
-  
+
   const resortRows = resorts.map(resort => {
     return {
       resortName: resort.name,
@@ -180,5 +182,3 @@ const run = async () => {
 
   console.log(`Campaign Sent ${campaignId}:${templateId}`);
 }
-
-run();

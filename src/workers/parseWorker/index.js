@@ -802,9 +802,9 @@ const fetchResorts = async () => {
 
 const MILLISECONDS = 1000;
 
-const run = async () => {
+export const run = async () => {
   const start = performanceNow();
-  console.log('Worker starts');
+  console.log('parseWorker starts');
 
   const resortsData = await fetchResorts();
 
@@ -829,5 +829,3 @@ const run = async () => {
   console.log(((end - start) / MILLISECONDS).toFixed(3), 'seconds');
   console.log('Worker quits');
 };
-
-run();
