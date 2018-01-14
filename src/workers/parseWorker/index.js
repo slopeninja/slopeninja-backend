@@ -821,8 +821,6 @@ export const run = async () => {
   const metadata = await Promise.all(arrayOfPromises);
   await updateSnowLastSeen(metadata);
 
-  await client.destroy();
-
   console.log(JSON.stringify(metadata, null, 2));
   const end = performanceNow();
 
