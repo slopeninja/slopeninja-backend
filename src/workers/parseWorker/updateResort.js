@@ -14,7 +14,7 @@ const updateResort = async (shortName, resort) => {
       console.log(shortName, 'is not in database. Skipped metadata update.');
     }
   } catch (error) {
-    console.error('Failed to update metadata for', shortname, error);
+    console.error('Failed to update metadata for', shortName, error);
   }
 };
 
