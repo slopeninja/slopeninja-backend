@@ -26,6 +26,7 @@
     "moment": "^2.19.2",
     "performance-now": "^2.1.0",
     "pg": "^6.1.5",
+    "raven": "^2.3.0",
     "statuses": "^1.3.1"
   },
   "engines": {
@@ -36,7 +37,7 @@
     "start-dev": "node_modules/.bin/babel-node src/server.js",
     "now-start": "NODE_ENV='production' node build/src/server.js",
     "postinstall": "node_modules/.bin/babel 'src/**/*.js' -d build/ --ignore 'test.js'",
-    "deploy": "now -e DATABASE_URL=@sn_backend_database_url -e MAILCHIMP_PRIVATE_KEY=@sn_backend_mailchimp_private_key -e REDIS_URL=@sn_backend_redis_url -e WUNDERGROUND_API_KEY=@sn_backend_wunderground_api_key",
+    "deploy": "now -e DATABASE_URL=@sn_backend_database_url -e MAILCHIMP_PRIVATE_KEY=@sn_backend_mailchimp_private_key -e REDIS_URL=@sn_backend_redis_url -e WUNDERGROUND_API_KEY=@sn_backend_wunderground_api_key -e SENTRY_URL=@sn_backend_sentry_url",
     "test": "jest",
     "test-watch": "jest --watch"
   },
