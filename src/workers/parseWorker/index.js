@@ -2,6 +2,7 @@ import crypto from 'crypto';
 import client from '../../db/client';
 import fetch from 'isomorphic-fetch';
 import performanceNow from 'performance-now';
+import Raven from 'raven';
 
 import createMetadata from './createMetadata';
 import updateResort from './updateResort';
@@ -735,6 +736,7 @@ const fetchResort = async (resortName) => {
       arrayOfResults.push(result);
     } catch (error) {
       console.log(error);
+      Raven.captureException(error);
     }
   }
 

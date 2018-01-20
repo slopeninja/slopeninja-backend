@@ -1,3 +1,4 @@
+import Raven from 'raven';
 import client, { SLOPE_NINJA_DB_SCHEMA } from '../../db/client';
 
 const updateResort = async (shortName, resort) => {
@@ -15,6 +16,7 @@ const updateResort = async (shortName, resort) => {
     }
   } catch (error) {
     console.error('Failed to update metadata for', shortName, error);
+    Raven.captureException(error);
   }
 };
 
