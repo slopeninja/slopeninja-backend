@@ -826,6 +826,9 @@ export const run = async () => {
   console.log(JSON.stringify(metadata, null, 2));
   const end = performanceNow();
 
+  // reset the cache for next run
+  RESPONSE_BODY_CACHE = {};
+
   console.log(((end - start) / MILLISECONDS).toFixed(3), 'seconds');
   console.log('Worker quits');
 };
