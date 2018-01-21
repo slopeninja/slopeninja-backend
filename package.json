@@ -38,10 +38,14 @@
     "now-start": "NODE_ENV='production' node build/src/server.js",
     "postinstall": "node_modules/.bin/babel 'src/**/*.js' -d build/ --ignore 'test.js'",
     "deploy": "now -e DATABASE_URL=@sn_backend_database_url -e MAILCHIMP_PRIVATE_KEY=@sn_backend_mailchimp_private_key -e REDIS_URL=@sn_backend_redis_url -e WUNDERGROUND_API_KEY=@sn_backend_wunderground_api_key -e SENTRY_URL=@sn_backend_sentry_url",
-    "test": "jest",
-    "test-watch": "jest --watch"
+    "test": "npm run lint && jest",
+    "test-watch": "jest --watch",
+    "lint": "node_modules/.bin/eslint src/"
   },
   "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "jest": "^20.0.3"
   }
 }
