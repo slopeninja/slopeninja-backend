@@ -12,4 +12,4 @@ test('fetches weather data from wunderground correctly', async () => {
       temperature: 72,
     },
   });
-})
+});

@@ -4,7 +4,7 @@ import {
   parseDiamondLiftCounts,
   parseDiamondLifts,
   parseDiamondTrails,
-  parseDiamondTrailCounts
+  parseDiamondTrailCounts,
 } from '../diamond';
 import { createHtmlParser } from '../../parserFactory';
 
@@ -23,7 +23,7 @@ test('fetches Diamond snow data correctly', async () => {
       snowDepthSummit: 132,
     },
   });
-})
+});
 
 test('fetches all null for nonexisting snow values', async () => {
   const resortData = await createHtmlParser('snow', parseDiamondSnow)('<html></html>');
@@ -36,7 +36,7 @@ test('fetches all null for nonexisting snow values', async () => {
       newSnow: null,
       snowDepthBase: null,
       snowDepthSummit: null,
-    }
+    },
   });
 });
 
@@ -47,7 +47,7 @@ test('fetches Diamond lifts data correctly', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -57,7 +57,7 @@ test('fetches all null for nonexisting lift values', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -68,7 +68,7 @@ test('fetches Diamond trails data correctly', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -78,7 +78,7 @@ test('fetches all null for nonexisting trails values', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 

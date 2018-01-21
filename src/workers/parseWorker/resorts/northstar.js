@@ -34,7 +34,7 @@ const initialTrails = {
   open: null,
 };
 
-export const parseNorthstarSnow = async $ => {
+export const parseNorthstarSnow = async ($) => {
   const snowReportData = extractJSONFromScriptElement(
     $,
     'snowReportSettings',
@@ -47,32 +47,24 @@ export const parseNorthstarSnow = async $ => {
     ...initialSnow,
     // status: resortStatusOrNull(),
     // temperature: degreeOrNull(temperature),
-    newSnow: inchOrNull(
-      snowReportData ?
+    newSnow: inchOrNull(snowReportData ?
       `${snowReportData.TwentyFourHourSnowfall.Inches} inches` :
-      null,
-    ),
+      null),
     // snowDepthBase: inchOrNull(snowDepthBase),
-    snowDepthSummit: inchOrNull(
-      snowReportData ?
+    snowDepthSummit: inchOrNull(snowReportData ?
       `${snowReportData.BaseDepth.Inches} inches` :
-      null,
-    ),
+      null),
   };
 };
 
-export const parseNorthstarLiftCounts = async $ => {
-  const openLifts = Number.parseInt(
-    $('.c118__number1--v1')
-      .first()
-      .text(),
-  );
-  const totalLifts = Number.parseInt(
-    $('.c118__number2--v1')
-      .first()
-      .text()
-      .replace('/', ''),
-  );
+export const parseNorthstarLiftCounts = async ($) => {
+  const openLifts = Number.parseInt($('.c118__number1--v1')
+    .first()
+    .text());
+  const totalLifts = Number.parseInt($('.c118__number2--v1')
+    .first()
+    .text()
+    .replace('/', ''));
 
   return {
     ...initialLifts,
@@ -81,18 +73,14 @@ export const parseNorthstarLiftCounts = async $ => {
   };
 };
 
-export const parseNorthstarTrailCounts = async $ => {
-  const openTrails = Number.parseInt(
-    $('.c118__number1--v1')
-      .slice(1, 2)
-      .text(),
-  );
-  const totalTrails = Number.parseInt(
-    $('.c118__number2--v1')
-      .slice(1, 2)
-      .text()
-      .replace('/', ''),
-  );
+export const parseNorthstarTrailCounts = async ($) => {
+  const openTrails = Number.parseInt($('.c118__number1--v1')
+    .slice(1, 2)
+    .text());
+  const totalTrails = Number.parseInt($('.c118__number2--v1')
+    .slice(1, 2)
+    .text()
+    .replace('/', ''));
   return {
     ...initialTrails,
     total: numberOrNull(totalTrails),
@@ -100,7 +88,7 @@ export const parseNorthstarTrailCounts = async $ => {
   };
 };
 
-export const parseNorthstarLifts = async $ => {
+export const parseNorthstarLifts = async ($) => {
   const liftsReportData = extractJSONFromScriptElement(
     $,
     'TerrainStatusFeed',
@@ -109,20 +97,18 @@ export const parseNorthstarLifts = async $ => {
     ['{', '}'],
   );
 
-  let allLifts = []
+  let allLifts = [];
   if (liftsReportData) {
-    allLifts = liftsReportData.Lifts.map(
-      lift => ({
-        name: lift.Name,
-        category: lift.Mountain,
-        status: liftTrailStatusOrNull(`${lift.Status}`),
-      })
-    )
+    allLifts = liftsReportData.Lifts.map(lift => ({
+      name: lift.Name,
+      category: lift.Mountain,
+      status: liftTrailStatusOrNull(`${lift.Status}`),
+    }));
   }
   return allLifts;
 };
 
-export const parseNorthstarTrails = async $ => {
+export const parseNorthstarTrails = async ($) => {
   const trailsReportData = extractJSONFromScriptElement(
     $,
     'TerrainStatusFeed',
@@ -131,27 +117,23 @@ export const parseNorthstarTrails = async $ => {
     ['{', '}'],
   );
 
-  let allTrails = []
+  let allTrails = [];
   if (trailsReportData) {
     allTrails = trailsReportData.GroomingAreas.reduce((trails, category) => {
-      category.Runs.map(
-        run => {
-          const trail = {
-            name: run.Name,
-            status: liftTrailStatusOrNull(`${run.IsOpen}`),
-            category: category.Name,
-            level: trailLevelOrNull(`${run.Type}`),
-          };
-          trails.push(trail);
-        }
-      )
+      category.Runs.map((run) => {
+        const trail = {
+          name: run.Name,
+          status: liftTrailStatusOrNull(`${run.IsOpen}`),
+          category: category.Name,
+          level: trailLevelOrNull(`${run.Type}`),
+        };
+        trails.push(trail);
+      });
       return trails;
     }, []);
 
-    const trailsExcludingParks = allTrails.filter(
-      trail =>
-      !trail.name.includes('Terrain Park')
-    );
+    const trailsExcludingParks = allTrails.filter(trail =>
+      !trail.name.includes('Terrain Park'));
     return trailsExcludingParks;
   }
 

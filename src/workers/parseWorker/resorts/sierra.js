@@ -33,11 +33,11 @@ const initialTrails = {
 export const parseSierraSnow = async ($) => {
   const weatherIcon = $('.weather-stat-wrapper .weather-stat p').first().text().trim();
   const temperature = $('.weather-block .value').first().text().trim();
-  //24 Hours
+  // 24 Hours
   const newSnow24Hr = $('.weather-block.weather-block-special .value').first().text().trim();
-  //Base
+  // Base
   const snowDepthBase = $('.weather-block.weather-block-small.table-column .value').last().text().trim();
-  const snowDepthSummit = $('.weather-block.weather-block-small.table-column .value').slice( 8,9 ).text().trim();
+  const snowDepthSummit = $('.weather-block.weather-block-small.table-column .value').slice(8, 9).text().trim();
   return {
     ...initialWeather,
     weatherIcon: weatherStatusOrNull(weatherIcon),
@@ -46,7 +46,7 @@ export const parseSierraSnow = async ($) => {
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),
   };
-}
+};
 
 export const parseSierraLiftCounts = async ($) => {
   const openLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').first().text());
@@ -57,18 +57,18 @@ export const parseSierraLiftCounts = async ($) => {
     ...initialLifts,
     total: numberOrNull(totalLifts),
     open: numberOrNull(openLifts),
-  }
-}
+  };
+};
 
 export const parseSierraTrailCounts = async ($) => {
-  const openTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').slice(1,2).text());
-  const totalTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').slice(1,2).text().replace('/', ''));
+  const openTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').slice(1, 2).text());
+  const totalTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').slice(1, 2).text().replace('/', ''));
   return {
     ...initialTrails,
     total: numberOrNull(totalTrails),
     open: numberOrNull(openTrails),
-  }
-}
+  };
+};
 
 export const parseSierraLifts = async ($) => {
   const list = [];
@@ -92,11 +92,11 @@ export const parseSierraLifts = async ($) => {
       category,
     };
 
-    list.push(lift)
+    list.push(lift);
   });
 
- return list;
-}
+  return list;
+};
 
 export const parseSierraTrails = async ($) => {
   const list = [];
@@ -123,8 +123,8 @@ export const parseSierraTrails = async ($) => {
       level,
     };
 
-    list.push(trail)
+    list.push(trail);
   });
 
- return list;
-}
+  return list;
+};

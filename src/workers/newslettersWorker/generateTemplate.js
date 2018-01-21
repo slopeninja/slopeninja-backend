@@ -1,4 +1,4 @@
-const generateHeader = (dateTime) => `
+const generateHeader = dateTime => `
 <mj-section background-color="#FFFFFF" padding="0 0 10px 0" >
 
   <mj-group width="100%" vertical-align="middle">
@@ -60,7 +60,7 @@ const generateFooter = () => `
 </mj-section>
 `;
 
-const generateRows = (resortRows) => resortRows.map(row => `
+const generateRows = resortRows => resortRows.map(row => `
   <tr style="border-bottom: 1px solid #EDEDED;">
     <td style="padding: 12px 0 6px 0;">
       <img style="width: 22px" src=${row.resortLogoUrl} />
@@ -76,7 +76,7 @@ const generateRows = (resortRows) => resortRows.map(row => `
   </tr>
 `).join('');
 
-const generateBody = (resortRows) => `
+const generateBody = resortRows => `
 <mj-section background-color="#FFF" background-repeat="repeat" padding="0px 0 40px 0" text-align="center" vertical-align="top">
 
   <mj-column width="100%">

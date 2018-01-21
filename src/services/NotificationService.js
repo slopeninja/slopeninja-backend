@@ -13,23 +13,23 @@ class NotificationService {
     // recommend you batch your notifications to reduce the number of requests
     // and to compress them (notifications with similar content will get
     // compressed).
-    let chunks = this.expo.chunkPushNotifications(notifications);
+    const chunks = this.expo.chunkPushNotifications(notifications);
 
     // Send the chunks to the Expo push notification service. There are
     // different strategies you could use. A simple one is to send one chunk at a
     // time, which nicely spreads the load out over time:
     let receipts = [];
-    for (let chunk of chunks) {
+    for (const chunk of chunks) {
       try {
-        let receiptsChunk = await this.expo.sendPushNotificationsAsync(chunk);
-      
-        console.log("chunk", receiptsChunk);
+        const receiptsChunk = await this.expo.sendPushNotificationsAsync(chunk);
+
+        console.log('chunk', receiptsChunk);
         receipts = [...receipts, ...receiptsChunk];
       } catch (error) {
         console.error(error);
       }
     }
-    
+
     return receipts;
   }
 }

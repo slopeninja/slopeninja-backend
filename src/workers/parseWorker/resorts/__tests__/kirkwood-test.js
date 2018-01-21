@@ -4,7 +4,7 @@ import {
   parseKirkwoodLiftCounts,
   parseKirkwoodLifts,
   parseKirkwoodTrails,
-  parseKirkwoodTrailCounts
+  parseKirkwoodTrailCounts,
 } from '../kirkwood';
 import { createHtmlParser } from '../../parserFactory';
 
@@ -23,7 +23,7 @@ test('fetches Kirkwood snow data correctly', async () => {
       snowDepthSummit: 0,
     },
   });
-})
+});
 
 test('fetches all null for nonexisting snow values', async () => {
   const resortData = await createHtmlParser('snow', parseKirkwoodSnow)('<html></html>');
@@ -36,7 +36,7 @@ test('fetches all null for nonexisting snow values', async () => {
       newSnow: null,
       snowDepthBase: null,
       snowDepthSummit: null,
-    }
+    },
   });
 });
 
@@ -47,7 +47,7 @@ test('fetches Kirkwood lifts data correctly', async () => {
     liftCounts: {
       total: 15,
       open: 0,
-    }
+    },
   });
 });
 
@@ -57,7 +57,7 @@ test('fetches all null for nonexisting lift values', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -68,7 +68,7 @@ test('fetches Kirkwood trails data correctly', async () => {
     trailCounts: {
       total: 86,
       open: 0,
-    }
+    },
   });
 });
 
@@ -78,7 +78,7 @@ test('fetches all null for nonexisting trails values', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 

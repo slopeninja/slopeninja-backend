@@ -17,7 +17,7 @@ test('parses road and chain condition correctly I80', async () => {
       sourceUrl: SOURCE_URL,
       status: 'incident',
       chainStatus: null,
-    }
+    },
   });
 });
 
@@ -32,7 +32,7 @@ test('parses road and chain condition correctly SR289', async () => {
       sourceUrl: SOURCE_URL,
       status: 'closed',
       chainStatus: null,
-    }
+    },
   });
 });
 
@@ -47,6 +47,6 @@ test('parses road and chain condition correctly for highways that have no report
       sourceUrl: SOURCE_URL,
       status: 'open',
       chainStatus: null,
-    }
+    },
   });
 });

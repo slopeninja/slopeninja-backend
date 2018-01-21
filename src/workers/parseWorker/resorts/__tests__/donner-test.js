@@ -23,7 +23,7 @@ test('fetches Donner snow data correctly', async () => {
       snowDepthSummit: null,
     },
   });
-})
+});
 
 test('fetches all null for nonexisting snow values', async () => {
   const resortData = await createHtmlParser('snow', parseDonnerSnow)('<html></html>');
@@ -36,7 +36,7 @@ test('fetches all null for nonexisting snow values', async () => {
       newSnow: null,
       snowDepthBase: null,
       snowDepthSummit: null,
-    }
+    },
   });
 });
 
@@ -47,7 +47,7 @@ test('fetches Donner lifts data correctly', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -57,7 +57,7 @@ test('fetches all null for nonexisting lift values', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -68,7 +68,7 @@ test('fetches Donner trails data correctly', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -78,7 +78,7 @@ test('fetches all null for nonexisting trails values', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 

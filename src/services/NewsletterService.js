@@ -8,10 +8,10 @@ class NewsletterService {
 
   async getNewsletterSample() {
     const lastCampaignText = await redisClient.get('emailHtml:lastCampaign');
-    
+
     return lastCampaignText
-              .replace("{subject}", "Latest Snow Update - Slope Ninja")
-              .replace("*|UNSUB|*", "http://slope.ninja");
+      .replace('{subject}', 'Latest Snow Update - Slope Ninja')
+      .replace('*|UNSUB|*', 'http://slope.ninja');
   }
 }
 

@@ -4,7 +4,7 @@ import {
   parseSierraLiftCounts,
   parseSierraLifts,
   parseSierraTrails,
-  parseSierraTrailCounts
+  parseSierraTrailCounts,
 } from '../sierra';
 import { createHtmlParser } from '../../parserFactory';
 
@@ -21,9 +21,9 @@ test('fetches Sierra snow data correctly', async () => {
       newSnow: 0,
       snowDepthBase: 110,
       snowDepthSummit: 211,
-    }
+    },
   });
-})
+});
 
 test('fetches all null for nonexisting snow values', async () => {
   const resortData = await createHtmlParser('snow', parseSierraSnow)('<html></html>');
@@ -36,7 +36,7 @@ test('fetches all null for nonexisting snow values', async () => {
       newSnow: null,
       snowDepthBase: null,
       snowDepthSummit: null,
-    }
+    },
   });
 });
 
@@ -47,7 +47,7 @@ test('fetches Sierra lifts data correctly', async () => {
     liftCounts: {
       total: 14,
       open: 0,
-    }
+    },
   });
 });
 
@@ -57,7 +57,7 @@ test('fetches all null for nonexisting lift values', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -90,7 +90,7 @@ test('fetches Sierra trails data correctly', async () => {
     trailCounts: {
       total: 46,
       open: 0,
-    }
+    },
   });
 });
 
@@ -100,6 +100,6 @@ test('fetches all null for nonexisting trails values', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });

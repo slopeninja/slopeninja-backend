@@ -51,4 +51,4 @@ export const run = () => {
   newslettersJob.start();
   notificationsAMJob.start();
   notificationsPMJob.start();
-}
+};

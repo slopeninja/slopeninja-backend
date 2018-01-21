@@ -32,11 +32,11 @@ const initialTrails = {
 export const parseAlpineSnow = async ($) => {
   const weatherIcon = $('#alpine-report .row.current .cellwrapper .cell h6').first().text().trim();
   const temperature = $('#alpine-report .row.current .cellwrapper .cell .value').first().text().trim();
-  //24
-  const newSnow24Hr = $('.row.snow .cellwrapper .cell .value').slice(1,2).text().trim();
+  // 24
+  const newSnow24Hr = $('.row.snow .cellwrapper .cell .value').slice(1, 2).text().trim();
   // //Base
-  const snowDepthBase = $('#alpine-elevation-2 .row.snow .cellwrapper .cell .value').slice(3,4).text().trim();
-  const snowDepthSummit = $('#alpine-elevation-1 .row.snow .cellwrapper .cell .value').slice(3,4).text().trim();
+  const snowDepthBase = $('#alpine-elevation-2 .row.snow .cellwrapper .cell .value').slice(3, 4).text().trim();
+  const snowDepthSummit = $('#alpine-elevation-1 .row.snow .cellwrapper .cell .value').slice(3, 4).text().trim();
 
   return {
     ...initialSnow,
@@ -47,7 +47,7 @@ export const parseAlpineSnow = async ($) => {
     snowDepthSummit: inchOrNull(snowDepthSummit),
 
   };
-}
+};
 
 export const parseAlpineLiftCounts = async ($) => {
   const open = numberOrNull(Number.parseInt($('#alpine-report .global-stats .cell.open-lifts .value').text().trim()));
@@ -55,7 +55,7 @@ export const parseAlpineLiftCounts = async ($) => {
     ...initialLifts,
     open: numberOrNull(open),
   };
-}
+};
 
 export const parseAlpineTrailCounts = async ($) => {
   const open = numberOrNull(Number.parseInt($('#alpine-report .global-stats .cell.open-trails .value').text().trim()));
@@ -63,15 +63,16 @@ export const parseAlpineTrailCounts = async ($) => {
     ...initialTrails,
     open: numberOrNull(open),
   };
-}
+};
 
 export const parseAlpineLifts = async ($) => {
   const list = [];
   $('#alpine-report .lift').map((index, rowElement) => {
     // alpine messed up their lifts list by including a shuttle in it
     // we need to make sure we exclude that from the list
-    const isShuttle = $(rowElement).text().trim().toLowerCase().includes('shuttle');
-    if(isShuttle) {
+    const isShuttle = $(rowElement).text().trim().toLowerCase()
+      .includes('shuttle');
+    if (isShuttle) {
       return;
     }
 
@@ -92,11 +93,11 @@ export const parseAlpineLifts = async ($) => {
       status,
       category,
     };
-    list.push(lift)
+    list.push(lift);
   });
 
- return list;
-}
+  return list;
+};
 
 export const parseAlpineTrails = async ($) => {
   const list = [];
@@ -127,8 +128,8 @@ export const parseAlpineTrails = async ($) => {
       category,
       level,
     };
-    list.push(trail)
+    list.push(trail);
   });
 
- return list;
-}
+  return list;
+};

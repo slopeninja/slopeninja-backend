@@ -4,7 +4,7 @@ import {
   parseNorthstarLiftCounts,
   parseNorthstarLifts,
   parseNorthstarTrails,
-  parseNorthstarTrailCounts
+  parseNorthstarTrailCounts,
 } from '../northstar';
 import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
@@ -23,7 +23,7 @@ test('fetches Northstar snow data correctly', async () => {
       snowDepthSummit: 0,
     },
   });
-})
+});
 
 test('fetches all null for nonexisting snow values', async () => {
   const resortData = await createHtmlParser('snow', parseNorthstarSnow)('<html></html>');
@@ -36,7 +36,7 @@ test('fetches all null for nonexisting snow values', async () => {
       newSnow: null,
       snowDepthBase: null,
       snowDepthSummit: null,
-    }
+    },
   });
 });
 
@@ -47,7 +47,7 @@ test('fetches Northstar lifts data correctly', async () => {
     liftCounts: {
       total: 20,
       open: 0,
-    }
+    },
   });
 });
 
@@ -57,7 +57,7 @@ test('fetches all null for nonexisting lift values', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -68,7 +68,7 @@ test('fetches Northstar trails data correctly', async () => {
     trailCounts: {
       total: 100,
       open: 0,
-    }
+    },
   });
 });
 
@@ -78,7 +78,7 @@ test('fetches all null for nonexisting trails values', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 

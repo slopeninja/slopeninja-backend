@@ -34,10 +34,10 @@ export const parseDiamondSnow = async ($) => {
   const status = $('.surface-conditions p').first().text().trim();
   const weatherIcon = $('.weather-condition .weather-condition-wrapper .weather-forecast').first().text().trim();
   const temperature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
-  //24 Hours
-  const newSnow24Hr = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(3,4).text().trim();
-  //Base
-  const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1,2).text().trim();
+  // 24 Hours
+  const newSnow24Hr = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(3, 4).text().trim();
+  // Base
+  const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1, 2).text().trim();
   const snowDepthSummit = $('.conditions-overlay .row.weather-row .peak-depth.large-4.columns .weather-data').first().text().trim();
   return {
     ...initialWeather,
@@ -48,19 +48,19 @@ export const parseDiamondSnow = async ($) => {
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),
   };
-}
+};
 
 export const parseDiamondLiftCounts = async ($) => {
   return {
     ...initialLifts,
   };
-}
+};
 
 export const parseDiamondTrailCounts = async ($) => {
   return {
     ...initialTrails,
   };
-}
+};
 
 export const parseDiamondLifts = async ($) => {
   const list = [];
@@ -79,11 +79,11 @@ export const parseDiamondLifts = async ($) => {
       category,
     };
 
-    list.push(lift)
+    list.push(lift);
   });
 
- return list;
-}
+  return list;
+};
 
 export const parseDiamondTrails = async ($) => {
   const list = [];
@@ -110,8 +110,8 @@ export const parseDiamondTrails = async ($) => {
       level,
     };
 
-    list.push(trail)
+    list.push(trail);
   });
 
- return list;
-}
+  return list;
+};

@@ -23,7 +23,7 @@ test('fetches Squaw snow data correctly', async () => {
       snowDepthSummit: 161,
     },
   });
-})
+});
 
 test('fetches all null for nonexisting snow values', async () => {
   const resortData = await createHtmlParser('snow', parseSquawSnow)('<html></html>');
@@ -36,7 +36,7 @@ test('fetches all null for nonexisting snow values', async () => {
       newSnow: null,
       snowDepthBase: null,
       snowDepthSummit: null,
-    }
+    },
   });
 });
 
@@ -47,7 +47,7 @@ test('fetches Squaw lifts data correctly', async () => {
     liftCounts: {
       total: null,
       open: 1,
-    }
+    },
   });
 });
 
@@ -57,7 +57,7 @@ test('fetches all null for nonexisting lift values', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -91,7 +91,7 @@ test('fetches Squaw trails data correctly', async () => {
     trailCounts: {
       total: null,
       open: 0,
-    }
+    },
   });
 });
 
@@ -101,6 +101,6 @@ test('fetches all null for nonexisting trails values', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });

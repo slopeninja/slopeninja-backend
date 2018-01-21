@@ -3,7 +3,7 @@ const INCH_SYMBOLS = ['"', '”', 'in', 'inch', 'inches'];
 const RESORT_STATUS = ['open', 'opened', 'true', 'yes', 'close', 'closed', 'false', 'no'];
 
 
-const OPEN_STATUS = ['open', 'opened', 'yes', 'groomed', 'status_1', 'o' , 'g', 'true'];
+const OPEN_STATUS = ['open', 'opened', 'yes', 'groomed', 'status_1', 'o', 'g', 'true'];
 const CLOSED_STATUS = ['close', 'closed', 'no', 'status_0', 'c', 'false'];
 const ON_HOLD_STATUS = ['pending', 'scheduled', 'on hold'];
 
@@ -17,13 +17,13 @@ const ADVANCED_LEVEL = [
   'difficult',
   'mostdifficult',
   'diamond',
-  'type_3'
+  'type_3',
 ];
 const EXPERT_LEVEL = ['expert', 'double', 'type_4'];
 
 export const isNumber = (value) => {
   return Number.isInteger(value);
-}
+};
 
 export const parseTrailLevel = (string) => {
   if (!string || typeof string !== 'string') {
@@ -33,33 +33,27 @@ export const parseTrailLevel = (string) => {
   if (string.length === 1) {
     if (string === '1') {
       return 'beginner';
-    }
-    else if (string === '2') {
+    } else if (string === '2') {
       return 'intermediate';
-    }
-    else if (string === '3') {
+    } else if (string === '3') {
       return 'expert';
-    }
-    else if (string === '4') {
+    } else if (string === '4') {
       return 'advanced';
     }
   }
 
-  if (BEGINNER_LEVEL.find((level) => string.includes(level))) {
+  if (BEGINNER_LEVEL.find(level => string.includes(level))) {
     return 'beginner';
-  }
-  else if (IMTERNEDIATE_LEVEL.find((level) => string.includes(level))) {
+  } else if (IMTERNEDIATE_LEVEL.find(level => string.includes(level))) {
     return 'intermediate';
-  }
-  else if (EXPERT_LEVEL.find((level) => string.includes(level))) {
+  } else if (EXPERT_LEVEL.find(level => string.includes(level))) {
     return 'expert';
-  }
-  else if (ADVANCED_LEVEL.find((level) => string.includes(level))) {
+  } else if (ADVANCED_LEVEL.find(level => string.includes(level))) {
     return 'advanced';
   }
 
   return null;
-}
+};
 
 export const parseLiftTrailStatus = (string) => {
   if (!string || typeof string !== 'string') {
@@ -69,16 +63,15 @@ export const parseLiftTrailStatus = (string) => {
   if (string.length === 1) {
     if (string === '0') {
       return 'closed';
-    }
-    else if (string === '1') {
+    } else if (string === '1') {
       return 'open';
     }
   }
 
-  const matchStatus = status => {
+  const matchStatus = (status) => {
     // make sure single character statueses don't match
     // pretty much any status that includes that char
-    if(status.length === 1) {
+    if (status.length === 1) {
       return string === status;
     }
 
@@ -96,67 +89,67 @@ export const parseLiftTrailStatus = (string) => {
   }
 
   return null;
-}
+};
 
 export const parseResortStatus = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
-  const status = RESORT_STATUS.find((status) => string.includes(status));
+  const status = RESORT_STATUS.find(status => string.includes(status));
   const OPEN_STATUS = ['open', 'opened', 'yes', 'true'];
   const CLOSED_STATUS = ['close', 'closed', 'no', 'false'];
   if (status) {
     let parsedStatus = null;
-    if (OPEN_STATUS.find((status) => string.includes(status))) {
+    if (OPEN_STATUS.find(status => string.includes(status))) {
       parsedStatus = 'open';
     }
-    if (CLOSED_STATUS.find((status) => string.includes(status))) {
+    if (CLOSED_STATUS.find(status => string.includes(status))) {
       parsedStatus = 'closed';
     }
     return parsedStatus;
   }
   return null;
-}
+};
 
 export const parseWeatherStatus = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
-  let status = WEATHER_STATUS.find(status => string.includes(status));
+  const status = WEATHER_STATUS.find(status => string.includes(status));
   return status;
-}
+};
 
 export const parseDegreeNumber = (value) => {
   if (!value || typeof value !== 'string') {
     return NaN;
   }
 
-  let symbol = DEGREE_SYMBOLS.find(symbol => value.split(symbol).length === 2);
+  const symbol = DEGREE_SYMBOLS.find(symbol => value.split(symbol).length === 2);
 
   const arr = value.split(symbol);
 
-  if(arr.length !== 2) {
+  if (arr.length !== 2) {
     return NaN;
   }
 
   return Number.parseInt(arr[0]);
-}
+};
 
 export const parseInchNumber = (value) => {
   if (!value || typeof value !== 'string') {
     return NaN;
   }
 
-  let symbol = INCH_SYMBOLS.find(symbol => value.split(symbol).length === 2);
+  const symbol = INCH_SYMBOLS.find(symbol => value.split(symbol).length === 2);
 
   const arr = value.split(symbol);
 
-  if(arr.length !== 2) {
+  if (arr.length !== 2) {
     return NaN;
   }
 
-  return Number.parseInt(arr[0])
-}
+  return Number.parseInt(arr[0]);
+};
 
 export const trailLevelOrNull = (string) => {
   if (!string || typeof string !== 'string') {
@@ -168,7 +161,7 @@ export const trailLevelOrNull = (string) => {
     return status;
   }
   return null;
-}
+};
 
 export const liftTrailStatusOrNull = (string) => {
   if (!string || typeof string !== 'string') {
@@ -180,7 +173,7 @@ export const liftTrailStatusOrNull = (string) => {
     return status;
   }
   return null;
-}
+};
 
 export const resortStatusOrNull = (string) => {
   if (!string || typeof string !== 'string') {
@@ -192,7 +185,7 @@ export const resortStatusOrNull = (string) => {
     return status;
   }
   return null;
-}
+};
 export const weatherStatusOrNull = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
@@ -203,10 +196,10 @@ export const weatherStatusOrNull = (string) => {
     return status;
   }
   return null;
-}
+};
 export const degreeOrNull = (value) => {
   const degreeNumber = parseDegreeNumber(value);
-  if(!Number.isNaN(degreeNumber)) {
+  if (!Number.isNaN(degreeNumber)) {
     return degreeNumber;
   }
   return null;
@@ -214,7 +207,7 @@ export const degreeOrNull = (value) => {
 
 export const inchOrNull = (value) => {
   const inchNumber = parseInchNumber(value);
-  if(!Number.isNaN(inchNumber)) {
+  if (!Number.isNaN(inchNumber)) {
     return inchNumber;
   }
   return null;
@@ -231,7 +224,7 @@ export const notEmptyStringOrNull = (string) => {
 };
 
 export const numberOrNull = (value) => {
-  if(isNumber(value)) {
+  if (isNumber(value)) {
     return value;
   }
 
@@ -245,7 +238,7 @@ export const removeNumberInFrontOfName = (string) => {
   const splitedStringArr = string.split(' ');
   const constructedString = splitedStringArr.slice(1).join(' ');
   return constructedString;
-}
+};
 
 export const boralLiftTrailStatusOrNull = (string) => {
   if (!string || typeof string !== 'string') {
@@ -253,8 +246,8 @@ export const boralLiftTrailStatusOrNull = (string) => {
   }
   const lift_status = {
     0: 'closed',
-    1: 'open'
-  }
+    1: 'open',
+  };
 
   return lift_status[string] || null;
-}
+};

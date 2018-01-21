@@ -10,5 +10,5 @@ export const parseCARoadCondition = (prefix, number) => async (data, url) => {
     sourceUrl: url,
     status: californiaRoadStatusOrNull(data),
     chainStatus: californiaChainStatusOrNull(data),
-  }
-}
+  };
+};

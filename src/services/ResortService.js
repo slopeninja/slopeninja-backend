@@ -1,5 +1,5 @@
 import client, {
-  SLOPE_NINJA_DB_SCHEMA
+  SLOPE_NINJA_DB_SCHEMA,
 } from '../db/client';
 
 import redisClient from '../db/redisClient';
@@ -7,13 +7,11 @@ import redisClient from '../db/redisClient';
 class ResortService {
   async getResorts() {
     const resorts = await client
-     .withSchema(SLOPE_NINJA_DB_SCHEMA)
-     .select('*')
-     .from('resorts');
+      .withSchema(SLOPE_NINJA_DB_SCHEMA)
+      .select('*')
+      .from('resorts');
 
-    return resorts.map(
-      ({id, metaData, shortName}) => ({ id, shortName, ...metaData })
-    );
+    return resorts.map(({ id, metaData, shortName }) => ({ id, shortName, ...metaData }));
   }
 
   async findById(resortId) {
@@ -23,7 +21,7 @@ class ResortService {
       .from('resorts')
       .where('id', resortId);
 
-    if(!resort) {
+    if (!resort) {
       return;
     }
 
@@ -38,7 +36,7 @@ class ResortService {
       .from('resorts')
       .where('shortName', shortName);
 
-    if(!resort) {
+    if (!resort) {
       return;
     }
 
@@ -60,7 +58,7 @@ class ResortService {
 
     try {
       lastSnow = JSON.parse(lastSnowRaw);
-    } catch(error) {
+    } catch (error) {
       console.log('Error parsing last snow metadata');
     }
 

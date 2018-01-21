@@ -15,18 +15,18 @@ const generateMessage = (userDevice, freshSnow = false) => {
   //      has name? High five, Julia! It's snowing in Tahoe.
   //          else: Yay! It's snowing in Tahoe.
 
-  let greeting = freshSnow ? 'Yay!' : 'Woah more snow overnight!'
+  let greeting = freshSnow ? 'Yay!' : 'Woah more snow overnight!';
 
   if (firstName) {
     greeting = freshSnow ? `High five ${firstName}!` : `Another night of snow, ${firstName}!`;
   }
 
-  const freshSnowMessage = `${greeting} It's snowing in Tahoe. ❄️`
-  const defaultMessage = `${greeting} We sure hope you waxed your gears.`
+  const freshSnowMessage = `${greeting} It's snowing in Tahoe. ❄️`;
+  const defaultMessage = `${greeting} We sure hope you waxed your gears.`;
 
   const message = freshSnow ? freshSnowMessage : defaultMessage;
   return message;
-}
+};
 
 export const run = async (metadata) => {
   console.log('notificationsWroker-am starts');
@@ -48,7 +48,7 @@ export const run = async (metadata) => {
     const snowedWithinAnHour = Math.abs(epoch - lastSnow.snowLastSeen) <= EPOCH_HOUR;
 
     // Construct a message (see https://docs.expo.io/versions/latest/guides/push-notifications.html)
-    const notifications = userDevices.map(userDevice => {
+    const notifications = userDevices.map((userDevice) => {
       const message = generateMessage(userDevice, snowedWithinAnHour);
 
       return ({
@@ -56,7 +56,7 @@ export const run = async (metadata) => {
         sound: 'default',
         body: message,
         data: { withSome: 'data' },
-      })
+      });
     });
 
     const notificationService = new NotificationService();

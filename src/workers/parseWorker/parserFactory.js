@@ -8,13 +8,13 @@ const htmlEntities = new AllHtmlEntities();
 export const removeBackSlashes = (text) => {
   const decoded = text ? text.toString().replace(/\\/g, '') : null;
   return decoded;
-}
+};
 
 export const decodeEntities = (text) => {
   // best way I found to normalize unicode in input
   const unicodeInput = JSON.stringify(JSON.parse(text.toString()));
   return htmlEntities.decode(unicodeInput);
-}
+};
 
 /* parsers */
 
@@ -26,10 +26,10 @@ export const createHtmlParser = (key, parser, preParser = t => t) => async (html
   return {
     [key]: keyData,
   };
-}
+};
 
 export const createJSONParser = (key, parser, preParser = t => t) => async (data = '{}', url) => {
-  let json = JSON.parse(preParser(data));
+  const json = JSON.parse(preParser(data));
 
   let d;
   if (json) {
@@ -41,14 +41,14 @@ export const createJSONParser = (key, parser, preParser = t => t) => async (data
   return {
     [key]: keyData,
   };
-}
+};
 
 export const createTextParser = (key, parser, preParser = t => t) => async (data = '', url) => {
-  let text = preParser(data.toString());
+  const text = preParser(data.toString());
 
   const keyData = await parser(text, url);
 
   return {
     [key]: keyData,
   };
-}
+};

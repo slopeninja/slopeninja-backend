@@ -1,5 +1,5 @@
 import React from 'react';
-import { mjml2html } from 'mjml'
+import { mjml2html } from 'mjml';
 import fetch from 'isomorphic-fetch';
 import ResortService from '../../services/ResortService';
 import NewsletterService from '../../services/NewsletterService';
@@ -14,14 +14,14 @@ const EMAIL_ASSETS_BASE_URL = 'http://www.slope.ninja/emailAssets';
 const RESORT_LOGOS = {
   'squaw-valley': `${EMAIL_ASSETS_BASE_URL}/resortLogos/squaw.png`,
   'alpine-meadows': `${EMAIL_ASSETS_BASE_URL}/resortLogos/squaw.png`,
-  'boreal': `${EMAIL_ASSETS_BASE_URL}/resortLogos/boreal.png`,
+  boreal: `${EMAIL_ASSETS_BASE_URL}/resortLogos/boreal.png`,
   'diamond-peak': `${EMAIL_ASSETS_BASE_URL}/resortLogos/diamond.png`,
   'donner-ski-ranch': `${EMAIL_ASSETS_BASE_URL}/resortLogos/donner.png`,
-  'heavenly': `${EMAIL_ASSETS_BASE_URL}/resortLogos/heavenly.png`,
-  'homewood': `${EMAIL_ASSETS_BASE_URL}/resortLogos/homewood.png`,
-  'kirkwood': `${EMAIL_ASSETS_BASE_URL}/resortLogos/kirkwood.png`,
+  heavenly: `${EMAIL_ASSETS_BASE_URL}/resortLogos/heavenly.png`,
+  homewood: `${EMAIL_ASSETS_BASE_URL}/resortLogos/homewood.png`,
+  kirkwood: `${EMAIL_ASSETS_BASE_URL}/resortLogos/kirkwood.png`,
   'mt-rose': `${EMAIL_ASSETS_BASE_URL}/resortLogos/mt-rose.png`,
-  'northstar': `${EMAIL_ASSETS_BASE_URL}/resortLogos/northstar.png`,
+  northstar: `${EMAIL_ASSETS_BASE_URL}/resortLogos/northstar.png`,
   'sierra-at-tahoe': `${EMAIL_ASSETS_BASE_URL}/resortLogos/sierra.png`,
   'sugar-bowl': `${EMAIL_ASSETS_BASE_URL}/resortLogos/sugarbowl.png`,
 };
@@ -45,7 +45,7 @@ const COLOR_PALETTE = [
   '#FFCF61',
 ];
 
-const makeMailchimpHappy = (rawHtml) => rawHtml.replace('@import url(https://fonts.googleapis.com/css?family=Lato:300,400);', '').replace('@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);', '')
+const makeMailchimpHappy = rawHtml => rawHtml.replace('@import url(https://fonts.googleapis.com/css?family=Lato:300,400);', '').replace('@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);', '');
 
 export const run = async () => {
   console.log('newslettersWorker starts');
@@ -57,7 +57,7 @@ export const run = async () => {
     return;
   }
 
-  const resortRows = resorts.map(resort => {
+  const resortRows = resorts.map((resort) => {
     return {
       resortName: resort.name,
       resortUrl: `http://slope.ninja/resorts/${resort.shortName}`,
@@ -100,9 +100,9 @@ export const run = async () => {
   const SUBJECT_LINE = `Snow Update — ${currentDateFormatted}`;
 
   const mjml = generateEmail(SUBJECT_LINE, COLOR_PALETTE[weekOfDay], dateTimeFormatted, resortRows);
-  const html = mjml2html(mjml)
+  const html = mjml2html(mjml);
 
-  const rawHtml = makeMailchimpHappy(html.html)
+  const rawHtml = makeMailchimpHappy(html.html);
 
   const newsletterService = new NewsletterService();
   await newsletterService.setNewsletterSample(rawHtml);
@@ -114,7 +114,7 @@ export const run = async () => {
   const CAMPAIGN_FOLDER_ID = '37045c44fa'; /* Daily Snow Update */
   const LIST_ID = 'b56b3d32c5';
 
-  const templateCreationRequest = await fetch(`http://us15.api.mailchimp.com/3.0/templates`, {
+  const templateCreationRequest = await fetch('http://us15.api.mailchimp.com/3.0/templates', {
     method: 'POST',
     headers: new Headers({
       authorization: `Basic ${token}`,
@@ -130,39 +130,39 @@ export const run = async () => {
   const templateCreationResponseBody = await templateCreationRequest.json();
   const templateId = templateCreationResponseBody.id;
 
-  const campaignCreationRequest = await fetch(`http://us15.api.mailchimp.com/3.0/campaigns`, {
+  const campaignCreationRequest = await fetch('http://us15.api.mailchimp.com/3.0/campaigns', {
     method: 'POST',
     headers: new Headers({
       authorization: `Basic ${token}`,
       'content-type': 'application/json',
     }),
     body: JSON.stringify({
-    	'type': 'regular',
-    	'recipients': {
-    		'list_id': LIST_ID,
+    	type: 'regular',
+    	recipients: {
+    		list_id: LIST_ID,
     	},
-    	'settings': {
-    		'subject_line': SUBJECT_LINE,
-    		'preview_text': '',
-    		'title': SUBJECT_LINE,
-    		'from_name': 'Slope Ninja',
-    		'reply_to': 'donotreply@slope.ninja',
-    		'use_conversation':  false,
-    		'to_name': '',
-    		'folder_id': CAMPAIGN_FOLDER_ID,
-    		'authenticate': true,
-    		'auto_footer': false,
-    		'inline_css': false,
-    		'auto_tweet': false,
-    		'fb_comments': false,
-    		'template_id': templateId,
+    	settings: {
+    		subject_line: SUBJECT_LINE,
+    		preview_text: '',
+    		title: SUBJECT_LINE,
+    		from_name: 'Slope Ninja',
+    		reply_to: 'donotreply@slope.ninja',
+    		use_conversation: false,
+    		to_name: '',
+    		folder_id: CAMPAIGN_FOLDER_ID,
+    		authenticate: true,
+    		auto_footer: false,
+    		inline_css: false,
+    		auto_tweet: false,
+    		fb_comments: false,
+    		template_id: templateId,
     	},
-    	'tracking': {
-    		'opens': true,
-    		'html_clicks': true,
-    		'text_clicks': false,
-    		'goal_tracking': false,
-    		'ecomm360': false,
+    	tracking: {
+    		opens: true,
+    		html_clicks: true,
+    		text_clicks: false,
+    		goal_tracking: false,
+    		ecomm360: false,
     	},
     }),
   });
@@ -181,4 +181,4 @@ export const run = async () => {
   console.log(campaignDeliverResponseBody);
 
   console.log(`Campaign Sent ${campaignId}:${templateId}`);
-}
+};

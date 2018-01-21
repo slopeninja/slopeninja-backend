@@ -4,9 +4,9 @@ import uuid from 'uuid';
 class UserDeviceService {
   async getUserDevices() {
     const userDevices = await client
-     .withSchema(SLOPE_NINJA_DB_SCHEMA)
-     .select('*')
-     .from('userDevices');
+      .withSchema(SLOPE_NINJA_DB_SCHEMA)
+      .select('*')
+      .from('userDevices');
 
     return userDevices;
   }

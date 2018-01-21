@@ -4,7 +4,7 @@ import {
   parseHomewoodLiftCounts,
   parseHomewoodLifts,
   parseHomewoodTrails,
-  parseHomewoodTrailCounts
+  parseHomewoodTrailCounts,
 } from '../homewood';
 import { createHtmlParser, createJSONParser } from '../../parserFactory';
 
@@ -23,7 +23,7 @@ test('fetches Homewood snow data correctly', async () => {
       snowDepthSummit: 185,
     },
   });
-})
+});
 
 test('fetches all null for nonexisting snow values', async () => {
   const resortData = await createHtmlParser('snow', parseHomewoodSnow)('<html></html>');
@@ -36,7 +36,7 @@ test('fetches all null for nonexisting snow values', async () => {
       newSnow: null,
       snowDepthBase: null,
       snowDepthSummit: null,
-    }
+    },
   });
 });
 
@@ -47,7 +47,7 @@ test('fetches Homewood lifts data correctly', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -57,7 +57,7 @@ test('fetches all null for nonexisting lift values', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -68,7 +68,7 @@ test('fetches Homewood trails data correctly', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -78,7 +78,7 @@ test('fetches all null for nonexisting trails values', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 

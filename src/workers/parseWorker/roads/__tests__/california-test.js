@@ -17,7 +17,7 @@ test('parses road and chain condition correctly US50', async () => {
       sourceUrl: SOURCE_URL,
       status: 'incident',
       chainStatus: 'R1',
-    }
+    },
   });
 });
 
@@ -32,7 +32,7 @@ test('parses road and chain condition closed correctly SR2', async () => {
       sourceUrl: SOURCE_URL,
       status: 'closed',
       chainStatus: null,
-    }
+    },
   });
 });
 
@@ -47,7 +47,7 @@ test('parses road and chain condition correctly I80', async () => {
       sourceUrl: SOURCE_URL,
       status: 'open',
       chainStatus: 'R2',
-    }
+    },
   });
 });
 
@@ -62,7 +62,7 @@ test('parses road and chain condition correctly SR89', async () => {
       sourceUrl: SOURCE_URL,
       status: 'closed',
       chainStatus: 'R2',
-    }
+    },
   });
 });
 
@@ -77,7 +77,7 @@ test('parses road and chain condition incident correctly SR88', async () => {
       sourceUrl: SOURCE_URL,
       status: 'incident',
       chainStatus: null,
-    }
+    },
   });
 });
 
@@ -92,6 +92,6 @@ test('parses road and chain condition open correctly SR87', async () => {
       sourceUrl: SOURCE_URL,
       status: 'open',
       chainStatus: null,
-    }
+    },
   });
 });

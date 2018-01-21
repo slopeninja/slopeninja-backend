@@ -34,9 +34,9 @@ export const parseSugarSnow = async ($) => {
   const weatherIcon = $('#conditions_status_col_left #conditions_status_col_left_weather .label_small').first().text().trim();
   const status = $('#container_312_outer .h3').first().text().trim();
   const temperature = $('#container_314_outer .conditions_col .table_text_01.c4').first().text().trim();
-  //24 Hours
-  const newSnow24Hr = $('#container_313_outer .conditions_col .table_text_01.c4').slice(3,4).text().trim();
-  //Base
+  // 24 Hours
+  const newSnow24Hr = $('#container_313_outer .conditions_col .table_text_01.c4').slice(3, 4).text().trim();
+  // Base
   const snowDepthBase = $('#container_314_outer .conditions_col.conditions_col_break1 .table_text_01.c4').text().trim();
 
   const snowDepthSummit = $('#container_313_outer .conditions_col.conditions_col_break1 .table_text_01.c4').text().trim();
@@ -50,7 +50,7 @@ export const parseSugarSnow = async ($) => {
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),
   };
-}
+};
 
 export const parseSugarLiftCounts = async ($) => {
   const open = numberOrNull(Number.parseInt($('.c1 #conditions_status_col_left_openlifts .h3').text().trim()));
@@ -58,16 +58,15 @@ export const parseSugarLiftCounts = async ($) => {
     ...initialLifts,
     open,
   };
-}
+};
 
 export const parseSugarTrailCounts = async ($) => {
   return {
     ...initialTrails,
   };
-}
+};
 
 export const parseSugarLifts = async ($) => {
-
   const canonicalLiftNames = [];
   $('.c').map((index, rowElement) => {
     $(rowElement)
@@ -88,7 +87,7 @@ export const parseSugarLifts = async ($) => {
     const nameText = $(rowElement).find('.h3').text().trim();
     let name = notEmptyStringOrNull(nameText);
 
-    if(blacklist.find(liftish => name === liftish)) {
+    if (blacklist.find(liftish => name === liftish)) {
       return;
     }
 
@@ -108,11 +107,11 @@ export const parseSugarLifts = async ($) => {
       category,
     };
 
-    list.push(lift)
+    list.push(lift);
   });
 
- return list;
-}
+  return list;
+};
 
 export const parseSugarTrails = async ($) => {
   const list = [];
@@ -124,11 +123,10 @@ export const parseSugarTrails = async ($) => {
       .find('div[class^="runs_"]')
       .filter((index, liftElement) => liftElement.children.length !== 0)
       .map((ii, liftElement) => {
-
         let statusElement;
         let nameElement;
 
-        if(liftElement.children.length === 5) {
+        if (liftElement.children.length === 5) {
           levelElement = liftElement.children[1];
           statusElement = liftElement.children[3];
           nameElement = liftElement.children[4];
@@ -138,7 +136,7 @@ export const parseSugarTrails = async ($) => {
         }
         const categoryElement = $(liftElement).prevAll('.label_small').get(0);
 
-        const name = notEmptyStringOrNull($(nameElement).text().trim())
+        const name = notEmptyStringOrNull($(nameElement).text().trim());
         const status = liftTrailStatusOrNull($(statusElement).find('img').attr('src'));
         const level = trailLevelOrNull($(levelElement).find('img').attr('src'));
         const category = notEmptyStringOrNull($(categoryElement).text().trim());
@@ -152,5 +150,5 @@ export const parseSugarTrails = async ($) => {
         list.push(trail);
       });
   });
- return list;
-}
+  return list;
+};

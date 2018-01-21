@@ -32,9 +32,9 @@ const initialTrails = {
 
 export const parseDonnerSnow = async ($) => {
   // const temperature =
-  //24 Hours
+  // 24 Hours
   // const newSnow24Hr =
-  //Base
+  // Base
   // const snowDepthBase =
   // const snowDepthSummit =
   return {
@@ -44,19 +44,19 @@ export const parseDonnerSnow = async ($) => {
     // snowDepthBase: inchOrNull(snowDepthBase),
     // snowDepthSummit: inchOrNull(snowDepthSummit),
   };
-}
+};
 
 export const parseDonnerLiftCounts = async ($) => {
   return {
     ...initialLifts,
   };
-}
+};
 
 export const parseDonnerTrailCounts = async ($) => {
   return {
     ...initialTrails,
   };
-}
+};
 
 export const parseDonnerLifts = async ($) => {
   const list = [];
@@ -76,15 +76,13 @@ export const parseDonnerLifts = async ($) => {
       category,
     };
 
-    list.push(lift)
-
-
+    list.push(lift);
   });
- return list;
-}
+  return list;
+};
 
 export const parseDonnerTrails = async ($) => {
   const list = [];
 
- return list;
-}
+  return list;
+};

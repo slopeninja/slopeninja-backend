@@ -9,7 +9,7 @@ export const extractFirstNameFromDeviceName = (string) => {
   const femaleName = femaleNames.find(name => trimedString.toLowerCase() === name.toLowerCase());
   const maleName = maleNames.find(name => trimedString.toLowerCase() === name.toLowerCase());
 
-  let name = femaleName ? femaleName : maleName;
+  let name = femaleName || maleName;
   if (!name) {
     name = null;
   }

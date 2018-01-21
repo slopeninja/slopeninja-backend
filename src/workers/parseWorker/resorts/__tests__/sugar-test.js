@@ -5,7 +5,7 @@ import {
   parseSugarTrailCounts,
   parseSugarLifts,
   parseSugarTrails,
- } from '../sugar';
+} from '../sugar';
 import { createHtmlParser } from '../../parserFactory';
 
 test('fetches Sugar snow data correctly', async () => {
@@ -21,7 +21,7 @@ test('fetches Sugar snow data correctly', async () => {
       newSnow: 7,
       snowDepthBase: 87,
       snowDepthSummit: 195,
-    }
+    },
   });
 });
 
@@ -36,7 +36,7 @@ test('fetches all null for nonexisting snow values', async () => {
       newSnow: null,
       snowDepthBase: null,
       snowDepthSummit: null,
-    }
+    },
   });
 });
 
@@ -47,7 +47,7 @@ test('fetches Sugar lifts data correctly', async () => {
     liftCounts: {
       total: null,
       open: 0,
-    }
+    },
   });
 });
 
@@ -57,7 +57,7 @@ test('fetches all null for nonexisting lift values', async () => {
     liftCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -68,7 +68,7 @@ test('fetches Sugar trails data correctly', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 
@@ -78,7 +78,7 @@ test('fetches all null for nonexisting trails values', async () => {
     trailCounts: {
       total: null,
       open: null,
-    }
+    },
   });
 });
 test('fetches Sugar lift list correctly', async () => {

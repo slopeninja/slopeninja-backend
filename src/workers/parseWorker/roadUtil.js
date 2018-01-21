@@ -3,17 +3,17 @@ const CA_ROAD_OPEN = [
 ];
 const CA_ROAD_INCIDENT = [
   '1-WAY CONTROLLED',
-  'REDUCED'
+  'REDUCED',
 ];
 const CA_ROAD_CLOSED = ['IS CLOSED'];
 
 const CHAIN_R1 = [
   'R1',
-  'CHAINS OR SNOW TIRES ARE REQUIRED'
+  'CHAINS OR SNOW TIRES ARE REQUIRED',
 ];
 const CHAIN_R2 = [
   'R2',
-  'CHAINS ARE REQUIRED ON ALL VEHICLES EXCEPT 4-WHEEL-DRIVE VEHICLES WITH SNOW'
+  'CHAINS ARE REQUIRED ON ALL VEHICLES EXCEPT 4-WHEEL-DRIVE VEHICLES WITH SNOW',
 //   CHAINS ARE REQUIRED ON ALL VEHICLES EXCEPT 4-WHEEL-DRIVE VEHICLES WITH SNOW
 // TIRES ON ALL 4 WHEELS
 // unicode break between SNOW and TIRES
@@ -26,32 +26,32 @@ const NV_ROAD_INCIDENT = [
 ];
 const NV_ROAD_CLOSED = ['Road Closed'];
 
-export const isCaliforniaRoadClosed = text => {
-  if(!text) {
+export const isCaliforniaRoadClosed = (text) => {
+  if (!text) {
     return null;
   }
   const openKeyword = CA_ROAD_CLOSED.find(str => text.includes(str));
-  return openKeyword ? true: false;
+  return !!openKeyword;
 };
 
-export const isCaliforniaRoadOpen = text => {
-  if(!text) {
+export const isCaliforniaRoadOpen = (text) => {
+  if (!text) {
     return null;
   }
   const closedKeyword = CA_ROAD_OPEN.find(str => text.includes(str));
-  return closedKeyword ? true: false;
+  return !!closedKeyword;
 };
 
-export const isCaliforniaRoadIncident = text => {
-  if(!text) {
+export const isCaliforniaRoadIncident = (text) => {
+  if (!text) {
     return null;
   }
   const incidentKeyword = CA_ROAD_INCIDENT.find(str => text.includes(str));
-  return incidentKeyword ? true: false;
+  return !!incidentKeyword;
 };
 
-export const californiaRoadStatusOrNull = text => {
-  if(!text) {
+export const californiaRoadStatusOrNull = (text) => {
+  if (!text) {
     return null;
   }
   const upperCaseText = text.toUpperCase();
@@ -78,20 +78,20 @@ export const californiaRoadStatusOrNull = text => {
   return null;
 };
 
-export const isCaliforniaChainR1 = text => {
-  return CHAIN_R1.find(condition => text.includes(condition)) ? true : false;
+export const isCaliforniaChainR1 = (text) => {
+  return !!CHAIN_R1.find(condition => text.includes(condition));
 };
 
-export const isCaliforniaChainR2 = text => {
-  return CHAIN_R2.find(condition => text.includes(condition)) ? true : false;
+export const isCaliforniaChainR2 = (text) => {
+  return !!CHAIN_R2.find(condition => text.includes(condition));
 };
 
-export const isCaliforniaChainR3 = text => {
-  return text.includes(CHAIN_R3) ? true : false;
+export const isCaliforniaChainR3 = (text) => {
+  return !!text.includes(CHAIN_R3);
 };
 
-export const californiaChainStatusOrNull = text => {
-  if(!text) {
+export const californiaChainStatusOrNull = (text) => {
+  if (!text) {
     return null;
   }
   const upperCaseText = text.toUpperCase();
@@ -109,34 +109,34 @@ export const californiaChainStatusOrNull = text => {
     return 'R1';
   }
   return null;
-}
+};
 
 
-export const isNevadaRoadClosed = text => {
-  if(!text) {
+export const isNevadaRoadClosed = (text) => {
+  if (!text) {
     return null;
   }
   const closedKeyword = NV_ROAD_CLOSED.find(str => text.includes(str));
-  return closedKeyword ? true: false;
+  return !!closedKeyword;
 };
 
-export const isNevadaRoadIncident = text => {
-  if(!text) {
+export const isNevadaRoadIncident = (text) => {
+  if (!text) {
     return null;
   }
   const incidentKeyword = NV_ROAD_INCIDENT.find(str => text.includes(str));
-  return incidentKeyword ? true: false;
+  return !!incidentKeyword;
 };
 
-export const isNevadaRoadOpen = text => {
+export const isNevadaRoadOpen = (text) => {
   if (text) {
     return false;
   }
   return null;
 };
 
-export const nevadaRoadStatusOrNull = text => {
-  if(!text) {
+export const nevadaRoadStatusOrNull = (text) => {
+  if (!text) {
     return null;
   }
   const isOpen = isNevadaRoadOpen(text);
@@ -158,19 +158,19 @@ export const nevadaRoadStatusOrNull = text => {
   return null;
 };
 
-export const isNevadaChainR1 = text => {
-  return text.includes(CHAIN_R1) ? true : false;
+export const isNevadaChainR1 = (text) => {
+  return !!text.includes(CHAIN_R1);
 };
 
-export const isNevadaChainR2 = text => {
-  return text.includes(CHAIN_R2) ? true : false;
+export const isNevadaChainR2 = (text) => {
+  return !!text.includes(CHAIN_R2);
 };
 
-export const isNevadaChainR3 = text => {
-  return text.includes(CHAIN_R3) ? true : false;
+export const isNevadaChainR3 = (text) => {
+  return !!text.includes(CHAIN_R3);
 };
 
-export const nevadaChainStatusOrNull = text => {
+export const nevadaChainStatusOrNull = (text) => {
   const upperCaseText = text.toUpperCase();
   const R1 = isNevadaChainR1(upperCaseText);
   const R2 = isNevadaChainR2(upperCaseText);
@@ -186,7 +186,7 @@ export const nevadaChainStatusOrNull = text => {
     return 'R1';
   }
   return null;
-}
+};
 
 export const splitHighwayBody = (text) => {
   const bodies = {};
@@ -196,13 +196,12 @@ export const splitHighwayBody = (text) => {
   let match = regex.exec(text);
 
   while (match !== null) {
-
     const name = match[1];
     const report = match[2];
 
     const body = {
       name,
-      report
+      report,
     };
 
     const key = name.trim().toLowerCase().replace(' ', '');
@@ -213,4 +212,4 @@ export const splitHighwayBody = (text) => {
   }
 
   return bodies;
-}
+};
