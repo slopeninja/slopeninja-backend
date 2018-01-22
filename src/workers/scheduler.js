@@ -1,4 +1,5 @@
 import { CronJob } from 'cron';
+import Raven from 'raven';
 
 // workers
 import { run as runParseWorker } from './parseWorker';
@@ -16,7 +17,16 @@ const EVERYDAY_AT_5_PM = '0 17 * * *';
 
 const parserJob = new CronJob(
   EVERY_HALF_HOUR,
-  runParseWorker,
+  async () => {
+    try {
+      await runParseWorker();
+    } catch (error) {
+      /* eslint-disable no-console */
+      console.log(error);
+      /* eslint-enable */
+      Raven.captureException(error);
+    }
+  },
   null,
   false, /* Start the job right now */
   TIMEZONE,
@@ -24,7 +34,16 @@ const parserJob = new CronJob(
 
 const newslettersJob = new CronJob(
   EVERYDAY_AT_1_PM,
-  runNewslettersWorker,
+  async () => {
+    try {
+      await runNewslettersWorker();
+    } catch (error) {
+      /* eslint-disable no-console */
+      console.log(error);
+      /* eslint-enable */
+      Raven.captureException(error);
+    }
+  },
   null,
   false,
   TIMEZONE,
@@ -32,7 +51,16 @@ const newslettersJob = new CronJob(
 
 const notificationsAMJob = new CronJob(
   EVERYDAY_AT_5_AM,
-  runNotificationsWorkerAM,
+  async () => {
+    try {
+      await runNotificationsWorkerAM();
+    } catch (error) {
+      /* eslint-disable no-console */
+      console.log(error);
+      /* eslint-enable */
+      Raven.captureException(error);
+    }
+  },
   null,
   false,
   TIMEZONE,
@@ -40,7 +68,16 @@ const notificationsAMJob = new CronJob(
 
 const notificationsPMJob = new CronJob(
   EVERYDAY_AT_5_PM,
-  runNotificationsWorkerPM,
+  async () => {
+    try {
+      await runNotificationsWorkerPM();
+    } catch (error) {
+      /* eslint-disable no-console */
+      console.log(error);
+      /* eslint-enable */
+      Raven.captureException(error);
+    }
+  },
   null,
   false,
   TIMEZONE,
