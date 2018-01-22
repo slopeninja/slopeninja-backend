@@ -1,5 +1,8 @@
 import redisClient from '../db/redisClient';
 
+// Temporarily disable class-methods-use-this before we fix it across the project
+/* eslint-disable class-methods-use-this */
+
 class NewsletterService {
   async setNewsletterSample(emailHtml) {
     const result = await redisClient.set('emailHtml:lastCampaign', emailHtml);

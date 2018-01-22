@@ -1,5 +1,3 @@
-import cheerio from 'cheerio';
-
 import {
   degreeOrNull,
   inchOrNull,
@@ -49,9 +47,16 @@ export const parseSierraSnow = async ($) => {
 };
 
 export const parseSierraLiftCounts = async ($) => {
-  const openLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').first().text());
-  const totalLifts = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').first().text().replace('/', ''));
-  const liftListsCount = $('.lifts-list table tbody tr').length;
+  const openLifts = Number.parseInt(
+    $('.lift-trail-stats .lift-trail-stat .value1').first().text(),
+    10,
+  );
+  const totalLifts = Number.parseInt(
+    $('.lift-trail-stats .lift-trail-stat .value2').first().text().replace('/', ''),
+    10,
+  );
+
+  // const liftListsCount = $('.lifts-list table tbody tr').length;
 
   return {
     ...initialLifts,
@@ -61,8 +66,15 @@ export const parseSierraLiftCounts = async ($) => {
 };
 
 export const parseSierraTrailCounts = async ($) => {
-  const openTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value1').slice(1, 2).text());
-  const totalTrails = Number.parseInt($('.lift-trail-stats .lift-trail-stat .value2').slice(1, 2).text().replace('/', ''));
+  const openTrails = Number.parseInt(
+    $('.lift-trail-stats .lift-trail-stat .value1').slice(1, 2).text(),
+    10,
+  );
+  const totalTrails = Number.parseInt(
+    $('.lift-trail-stats .lift-trail-stat .value2').slice(1, 2).text().replace('/', ''),
+    10,
+  );
+
   return {
     ...initialTrails,
     total: numberOrNull(totalTrails),
@@ -73,7 +85,7 @@ export const parseSierraTrailCounts = async ($) => {
 export const parseSierraLifts = async ($) => {
   const list = [];
 
-  $('.lifts-list tbody > tr').map((index, rowElement) => {
+  $('.lifts-list tbody > tr').each((index, rowElement) => {
     const tdElements = $(rowElement).find('td');
 
     const tdElementName = tdElements[1];
@@ -101,7 +113,7 @@ export const parseSierraLifts = async ($) => {
 export const parseSierraTrails = async ($) => {
   const list = [];
 
-  $('.trails-list tbody > tr').map((index, rowElement) => {
+  $('.trails-list tbody > tr').each((index, rowElement) => {
     const tdElements = $(rowElement).find('td');
 
     const tdElementName = tdElements[1];

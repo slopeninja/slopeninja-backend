@@ -1,15 +1,8 @@
-import cheerio from 'cheerio';
-
 import {
-  degreeOrNull,
   inchOrNull,
-  resortStatusOrNull,
-  weatherStatusOrNull,
   liftTrailStatusOrNull,
-  notEmptyStringOrNull,
   trailLevelOrNull,
   numberOrNull,
-  removeNumberInFrontOfName,
 } from '../weatherUtil';
 
 import { extractJSONFromScriptElement } from './heavenly';
@@ -58,13 +51,14 @@ export const parseNorthstarSnow = async ($) => {
 };
 
 export const parseNorthstarLiftCounts = async ($) => {
-  const openLifts = Number.parseInt($('.c118__number1--v1')
-    .first()
-    .text());
-  const totalLifts = Number.parseInt($('.c118__number2--v1')
-    .first()
-    .text()
-    .replace('/', ''));
+  const openLifts = Number.parseInt(
+    $('.c118__number1--v1').first().text(),
+    10,
+  );
+  const totalLifts = Number.parseInt(
+    $('.c118__number2--v1').first().text().replace('/', ''),
+    10,
+  );
 
   return {
     ...initialLifts,
@@ -74,13 +68,15 @@ export const parseNorthstarLiftCounts = async ($) => {
 };
 
 export const parseNorthstarTrailCounts = async ($) => {
-  const openTrails = Number.parseInt($('.c118__number1--v1')
-    .slice(1, 2)
-    .text());
-  const totalTrails = Number.parseInt($('.c118__number2--v1')
-    .slice(1, 2)
-    .text()
-    .replace('/', ''));
+  const openTrails = Number.parseInt(
+    $('.c118__number1--v1').slice(1, 2).text(),
+    10,
+  );
+  const totalTrails = Number.parseInt(
+    $('.c118__number2--v1').slice(1, 2).text().replace('/', ''),
+    10,
+  );
+
   return {
     ...initialTrails,
     total: numberOrNull(totalTrails),
@@ -120,7 +116,7 @@ export const parseNorthstarTrails = async ($) => {
   let allTrails = [];
   if (trailsReportData) {
     allTrails = trailsReportData.GroomingAreas.reduce((trails, category) => {
-      category.Runs.map((run) => {
+      category.Runs.forEach((run) => {
         const trail = {
           name: run.Name,
           status: liftTrailStatusOrNull(`${run.IsOpen}`),

@@ -53,14 +53,18 @@ export const parseSugarSnow = async ($) => {
 };
 
 export const parseSugarLiftCounts = async ($) => {
-  const open = numberOrNull(Number.parseInt($('.c1 #conditions_status_col_left_openlifts .h3').text().trim()));
+  const open = numberOrNull(Number.parseInt(
+    $('.c1 #conditions_status_col_left_openlifts .h3').text().trim(),
+    10,
+  ));
+
   return {
     ...initialLifts,
     open,
   };
 };
 
-export const parseSugarTrailCounts = async ($) => {
+export const parseSugarTrailCounts = async () => {
   return {
     ...initialTrails,
   };
@@ -68,11 +72,11 @@ export const parseSugarTrailCounts = async ($) => {
 
 export const parseSugarLifts = async ($) => {
   const canonicalLiftNames = [];
-  $('.c').map((index, rowElement) => {
+  $('.c').each((i, rowElement) => {
     $(rowElement)
       .find('div[class^="conditions_grooming"]')
       .find('div[class^="label_small"]')
-      .map((index, nameElement) => {
+      .each((ii, nameElement) => {
         const nameText = $(nameElement).text().trim();
         const name = notEmptyStringOrNull(nameText);
 
@@ -83,7 +87,7 @@ export const parseSugarLifts = async ($) => {
   const blacklist = ['Village Tow', 'Gondola', 'Flume Carpet'];
 
   const list = [];
-  $('.lifts_info').map((index, rowElement) => {
+  $('.lifts_info').each((i, rowElement) => {
     const nameText = $(rowElement).find('.h3').text().trim();
     let name = notEmptyStringOrNull(nameText);
 
@@ -115,17 +119,18 @@ export const parseSugarLifts = async ($) => {
 
 export const parseSugarTrails = async ($) => {
   const list = [];
-  $('.c').map((index, rowElement) => {
+  $('.c').each((index, rowElement) => {
     let levelElement;
 
     $(rowElement)
       .find('div[class^="conditions_grooming"]')
       .find('div[class^="runs_"]')
-      .filter((index, liftElement) => liftElement.children.length !== 0)
-      .map((ii, liftElement) => {
+      .filter((i, liftElement) => liftElement.children.length !== 0)
+      .each((ii, liftElement) => {
         let statusElement;
         let nameElement;
 
+        /* eslint-disable prefer-destructuring */
         if (liftElement.children.length === 5) {
           levelElement = liftElement.children[1];
           statusElement = liftElement.children[3];
@@ -134,6 +139,8 @@ export const parseSugarTrails = async ($) => {
           statusElement = liftElement.children[1];
           nameElement = liftElement.children[2];
         }
+        /* eslint-enable */
+
         const categoryElement = $(liftElement).prevAll('.label_small').get(0);
 
         const name = notEmptyStringOrNull($(nameElement).text().trim());

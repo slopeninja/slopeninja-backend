@@ -1,10 +1,6 @@
-import cheerio from 'cheerio';
-
 import {
   degreeOrNull,
   inchOrNull,
-  numberOrNull,
-  weatherStatusOrNull,
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
   trailLevelOrNull,
@@ -47,13 +43,13 @@ export const parseHomewoodSnow = async ($) => {
   };
 };
 
-export const parseHomewoodLiftCounts = async ($) => {
+export const parseHomewoodLiftCounts = async () => {
   return {
     ...initialLifts,
   };
 };
 
-export const parseHomewoodTrailCounts = async ($) => {
+export const parseHomewoodTrailCounts = async () => {
   return {
     ...initialTrails,
   };
@@ -62,7 +58,7 @@ export const parseHomewoodTrailCounts = async ($) => {
 export const parseHomewoodLifts = async ($) => {
   const list = [];
 
-  $('.lifts_table .lift_header').map((index, liftHeaderElement) => {
+  $('.lifts_table .lift_header').each((index, liftHeaderElement) => {
     const nameElements = $(liftHeaderElement).find('h4');
     const statusElements = $(liftHeaderElement).find('div');
 
@@ -85,8 +81,8 @@ export const parseHomewoodLifts = async ($) => {
 export const parseHomewoodTrails = async ($) => {
   const list = [];
 
-  $('#lifts_wrapper .lifts_table tbody').map((index, tableElement) => {
-    $(tableElement).find('td.beginner, td.intermediate, td.advanced, td.expert').map((index, tdElement) => {
+  $('#lifts_wrapper .lifts_table tbody').each((index, tableElement) => {
+    $(tableElement).find('td.beginner, td.intermediate, td.advanced, td.expert').each((i, tdElement) => {
       const statusElement = $(tdElement).next();
       const nameElement = $(tdElement);
       const levelElement = $(tdElement);

@@ -74,17 +74,8 @@ const metadata = {
 };
 
 const createMetadata = (shortName, resort) => {
-  let weatherIcon = resort.snow.weatherIcon;
-  if (!weatherIcon && resort.weather.weatherIcon) {
-    weatherIcon = resort.weather.weatherIcon;
-  } else if (!weatherIcon && !resort.weather.weatherIcon) {
-    weatherIcon = 'cloudy';
-  }
-
-  let temperature = resort.weather.temperature;
-  if (!temperature) {
-    temperature = resort.snow.temperature;
-  }
+  const weatherIcon = resort.snow.weatherIcon || resort.weather.weatherIcon || 'cloudy';
+  const temperature = resort.weather.temperature || resort.snow.temperature;
 
   const openLifts = resort.lifts.filter(lift => lift.status === 'open');
   let openLiftCounts = openLifts.length;

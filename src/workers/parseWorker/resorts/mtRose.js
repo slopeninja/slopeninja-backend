@@ -1,5 +1,3 @@
-import cheerio from 'cheerio';
-
 import {
   degreeOrNull,
   inchOrNull,
@@ -7,7 +5,6 @@ import {
   weatherStatusOrNull,
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
-  trailLevelOrNull,
   resortStatusOrNull,
 } from '../weatherUtil';
 
@@ -46,19 +43,19 @@ export const parseMtRoseSnow = async ($) => {
     weatherIcon: weatherStatusOrNull(weatherIcon),
     status: resortStatusOrNull(status),
     temperature: degreeOrNull(temperature),
-    newSnow: numberOrNull(Number.parseInt(newSnow24Hr)),
+    newSnow: numberOrNull(Number.parseInt(newSnow24Hr, 10)),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),
   };
 };
 
-export const parseMtRoseLiftCounts = async ($) => {
+export const parseMtRoseLiftCounts = async () => {
   return {
     ...initialLifts,
   };
 };
 
-export const parseMtRoseTrailCounts = async ($) => {
+export const parseMtRoseTrailCounts = async () => {
   return {
     ...initialTrails,
   };
@@ -67,7 +64,7 @@ export const parseMtRoseTrailCounts = async ($) => {
 export const parseMtRoseLifts = async ($) => {
   const list = [];
 
-  $('.sr-lifts-wrapper .sr-ski-lift-wrapper').map((index, rowElement) => {
+  $('.sr-lifts-wrapper .sr-ski-lift-wrapper').each((index, rowElement) => {
     const nameText = $(rowElement).find('.sr-lift-name').text().trim();
     const statusText = $(rowElement).find('.sr-lift-status').text().trim();
     //
@@ -83,10 +80,11 @@ export const parseMtRoseLifts = async ($) => {
 
     list.push(lift);
   });
+
   return list;
 };
 
-export const parseMtRoseTrails = async ($) => {
+export const parseMtRoseTrails = async () => {
   const list = [];
 
   return list;

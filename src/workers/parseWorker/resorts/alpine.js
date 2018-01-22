@@ -1,4 +1,3 @@
-import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
@@ -50,7 +49,11 @@ export const parseAlpineSnow = async ($) => {
 };
 
 export const parseAlpineLiftCounts = async ($) => {
-  const open = numberOrNull(Number.parseInt($('#alpine-report .global-stats .cell.open-lifts .value').text().trim()));
+  const open = numberOrNull(Number.parseInt(
+    $('#alpine-report .global-stats .cell.open-lifts .value').text().trim(),
+    10,
+  ));
+
   return {
     ...initialLifts,
     open: numberOrNull(open),
@@ -58,7 +61,11 @@ export const parseAlpineLiftCounts = async ($) => {
 };
 
 export const parseAlpineTrailCounts = async ($) => {
-  const open = numberOrNull(Number.parseInt($('#alpine-report .global-stats .cell.open-trails .value').text().trim()));
+  const open = numberOrNull(Number.parseInt(
+    $('#alpine-report .global-stats .cell.open-trails .value').text().trim(),
+    10,
+  ));
+
   return {
     ...initialTrails,
     open: numberOrNull(open),
@@ -67,7 +74,7 @@ export const parseAlpineTrailCounts = async ($) => {
 
 export const parseAlpineLifts = async ($) => {
   const list = [];
-  $('#alpine-report .lift').map((index, rowElement) => {
+  $('#alpine-report .lift').each((index, rowElement) => {
     // alpine messed up their lifts list by including a shuttle in it
     // we need to make sure we exclude that from the list
     const isShuttle = $(rowElement).text().trim().toLowerCase()
@@ -78,11 +85,11 @@ export const parseAlpineLifts = async ($) => {
 
     const columnElements = $(rowElement).find('.cell');
     const nameElement = columnElements[0];
-    const statusContainerElement = columnElements[3];
+    // const statusContainerElement = columnElements[3];
 
     const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
 
-    const prevSubheaderCategories = $(rowElement).prevAll('.subheader');
+    // const prevSubheaderCategories = $(rowElement).prevAll('.subheader');
 
     const status = liftTrailStatusOrNull(statusElement.attr('class'));
     const name = notEmptyStringOrNull($(nameElement).text().trim());
@@ -102,11 +109,11 @@ export const parseAlpineLifts = async ($) => {
 export const parseAlpineTrails = async ($) => {
   const list = [];
 
-  $('#alpine-report .runs .trail').map((index, rowElement) => {
+  $('#alpine-report .runs .trail').each((index, rowElement) => {
     const columnElements = $(rowElement).find('.cell');
     const nameElement = columnElements[0];
     const levelElement = columnElements[1];
-    const statusContainerElement = columnElements[3];
+    // const statusContainerElement = columnElements[3];
 
     const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
 

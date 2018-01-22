@@ -1,12 +1,10 @@
 import {
-  splitHighwayBody,
   isCaliforniaRoadClosed,
   isCaliforniaRoadOpen,
   isCaliforniaRoadIncident,
   californiaRoadStatusOrNull,
   isNevadaRoadClosed,
   isNevadaRoadOpen,
-  isNevadaRoadIncident,
   nevadaRoadStatusOrNull,
 } from '../roadUtil';
 

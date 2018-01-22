@@ -2,9 +2,12 @@
   "extends": "airbnb-base",
   "rules": {
     "object-shorthand": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "import/prefer-default-export": "off"
   },
   "env": {
-    "node": true
+    "node": true,
+    "browser": true,
+    "jest": true
   }
 }

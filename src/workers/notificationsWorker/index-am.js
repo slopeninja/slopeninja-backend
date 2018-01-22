@@ -28,7 +28,8 @@ const generateMessage = (userDevice, freshSnow = false) => {
   return message;
 };
 
-export const run = async (metadata) => {
+/* eslint-disable no-console */
+export const run = async () => {
   console.log('notificationsWroker-am starts');
 
   const resortService = new ResortService();
@@ -63,7 +64,6 @@ export const run = async (metadata) => {
     const receipts = await notificationService.broadcast(notifications);
 
     console.log(receipts);
-
-    return receipts;
   }
 };
+/* eslint-enable */

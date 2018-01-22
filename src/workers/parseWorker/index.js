@@ -1,5 +1,4 @@
 import crypto from 'crypto';
-import client from '../../db/client';
 import fetch from 'isomorphic-fetch';
 import performanceNow from 'performance-now';
 import Raven from 'raven';
@@ -102,14 +101,14 @@ import {
   createJSONParser,
   createTextParser,
   decodeEntities,
-  removeBackSlashes,
 } from './parserFactory';
+
 import { parseWeather } from './parseWeather';
 
 // FIXME: verify if heavenly/kirkwood/northstar/boreal 'BASE DEPTH' is summit or base depth
 // currently using summit depth as 'BASE DEPTH'
 
-const WUNDERGROUND_API_KEY = process.env.WUNDERGROUND_API_KEY;
+const { WUNDERGROUND_API_KEY } = process.env;
 
 const resortsConfig = {
   'sierra-at-tahoe': [
@@ -696,10 +695,11 @@ const resortsConfig = {
 
 const hash = str => crypto.createHash('md5').update(str).digest('hex');
 
-const RESPONSE_BODY_CACHE = {
+let RESPONSE_BODY_CACHE = {
   // hashedUrl: response,
 };
 
+/* eslint-disable no-console */
 const lookUpOrFetch = async (url) => {
   const hashedUrl = hash(url);
 
@@ -718,6 +718,7 @@ const lookUpOrFetch = async (url) => {
 
   return text;
 };
+/* eslint-enable */
 
 const fetchResort = async (resortName) => {
   const fnConfigs = resortsConfig[resortName];
@@ -725,9 +726,10 @@ const fetchResort = async (resortName) => {
   // user `for` over `map` to wait before queuing the next fn call
   // so we can hit the cache
   const arrayOfResults = [];
-  for (let i = 0; i < fnConfigs.length; i++) {
+  for (let i = 0; i < fnConfigs.length; i += 1) {
     const fnConfig = fnConfigs[i];
 
+    /* eslint-disable no-await-in-loop, no-console */
     const text = await lookUpOrFetch(fnConfig.url);
 
     const parser = fnConfig.fn;
@@ -738,6 +740,7 @@ const fetchResort = async (resortName) => {
       console.log(error);
       Raven.captureException(error);
     }
+    /* eslint-enable */
   }
 
   // flatten the array
@@ -784,9 +787,11 @@ const fetchResorts = async () => {
   const arrayOfResortData = [];
   // user `for` over `map` to wait before queuing the next fn call
   // so we can hit the cache
-  for (let i = 0; i < resorts.length; i++) {
+  for (let i = 0; i < resorts.length; i += 1) {
     const resortName = resorts[i];
+    /* eslint-disable no-await-in-loop */
     const resortData = await fetchResort(resortName);
+    /* eslint-enable */
     arrayOfResortData.push(resortData);
   }
 
@@ -804,6 +809,7 @@ const fetchResorts = async () => {
 const MILLISECONDS = 1000;
 
 export const run = async () => {
+  /* eslint-disable no-console */
   const start = performanceNow();
   console.log('parseWorker starts');
 
@@ -830,4 +836,5 @@ export const run = async () => {
 
   console.log(((end - start) / MILLISECONDS).toFixed(3), 'seconds');
   console.log('Worker quits');
+  /* eslint-enable */
 };

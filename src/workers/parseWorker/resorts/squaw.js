@@ -1,4 +1,3 @@
-import cheerio from 'cheerio';
 import {
   degreeOrNull,
   inchOrNull,
@@ -49,9 +48,12 @@ export const parseSquawSnow = async ($) => {
   };
 };
 
-
 export const parseSquawLiftCounts = async ($) => {
-  const open = numberOrNull(Number.parseInt($('#squaw-report .global-stats .cell.open-lifts .value').text().trim()));
+  const open = numberOrNull(Number.parseInt(
+    $('#squaw-report .global-stats .cell.open-lifts .value').text().trim(),
+    10,
+  ));
+
   return {
     ...initialLifts,
     open: numberOrNull(open),
@@ -59,7 +61,11 @@ export const parseSquawLiftCounts = async ($) => {
 };
 
 export const parseSquawTrailCounts = async ($) => {
-  const open = numberOrNull(Number.parseInt($('#squaw-report .global-stats .cell.open-trails .value').text().trim()));
+  const open = numberOrNull(Number.parseInt(
+    $('#squaw-report .global-stats .cell.open-trails .value').text().trim(),
+    10,
+  ));
+
   return {
     ...initialTrails,
     open: numberOrNull(open),
@@ -70,7 +76,7 @@ export const parseSquawTrailCounts = async ($) => {
 export const parseSquawLifts = async ($) => {
   const list = [];
 
-  $('#squaw-report .lift').map((index, rowElement) => {
+  $('#squaw-report .lift').each((index, rowElement) => {
     // squaw messed up their lifts list by including a shuttle in it
     // we need to make sure we exclude that from the list
     const isShuttle = $(rowElement).text().trim().toLowerCase()
@@ -81,7 +87,7 @@ export const parseSquawLifts = async ($) => {
 
     const columnElements = $(rowElement).find('.cell');
     const nameElement = columnElements[0];
-    const statusContainerElement = columnElements[3];
+    // const statusContainerElement = columnElements[3];
 
     const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
 
@@ -106,11 +112,11 @@ export const parseSquawLifts = async ($) => {
 export const parseSquawTrails = async ($) => {
   const list = [];
 
-  $('#squaw-report .runs .trail').map((index, rowElement) => {
+  $('#squaw-report .runs .trail').each((index, rowElement) => {
     const columnElements = $(rowElement).find('.cell');
     const nameElement = columnElements[0];
     const levelElement = columnElements[1];
-    const statusContainerElement = columnElements[3];
+    // const statusContainerElement = columnElements[3];
 
     const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
 

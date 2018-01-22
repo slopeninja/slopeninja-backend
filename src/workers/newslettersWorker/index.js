@@ -1,13 +1,13 @@
-import React from 'react';
 import { mjml2html } from 'mjml';
 import fetch from 'isomorphic-fetch';
+import moment from 'moment';
+
 import ResortService from '../../services/ResortService';
 import NewsletterService from '../../services/NewsletterService';
 
 import generateEmail from './generateTemplate';
-import moment from 'moment';
 
-const MAILCHIMP_PRIVATE_KEY = process.env.MAILCHIMP_PRIVATE_KEY;
+const { MAILCHIMP_PRIVATE_KEY } = process.env;
 
 const EMAIL_ASSETS_BASE_URL = 'http://www.slope.ninja/emailAssets';
 
@@ -47,6 +47,7 @@ const COLOR_PALETTE = [
 
 const makeMailchimpHappy = rawHtml => rawHtml.replace('@import url(https://fonts.googleapis.com/css?family=Lato:300,400);', '').replace('@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);', '');
 
+/* eslint-disable no-console */
 export const run = async () => {
   console.log('newslettersWorker starts');
 
@@ -108,7 +109,7 @@ export const run = async () => {
   await newsletterService.setNewsletterSample(rawHtml);
 
   // Forward the post reqest to MailChimp api
-  const token = new Buffer(`anystring:${MAILCHIMP_PRIVATE_KEY}`).toString('base64');
+  const token = Buffer.from(`anystring:${MAILCHIMP_PRIVATE_KEY}`).toString('base64');
 
   const TEMPLATE_FOLDER_ID = 'd01c23837c'; /* Daily Snow Update Templates */
   const CAMPAIGN_FOLDER_ID = '37045c44fa'; /* Daily Snow Update */
@@ -123,7 +124,7 @@ export const run = async () => {
     body: JSON.stringify({
       name: SUBJECT_LINE,
       folder_id: TEMPLATE_FOLDER_ID,
-    	html: rawHtml,
+      html: rawHtml,
     }),
   });
 
@@ -137,33 +138,33 @@ export const run = async () => {
       'content-type': 'application/json',
     }),
     body: JSON.stringify({
-    	type: 'regular',
-    	recipients: {
-    		list_id: LIST_ID,
-    	},
-    	settings: {
-    		subject_line: SUBJECT_LINE,
-    		preview_text: '',
-    		title: SUBJECT_LINE,
-    		from_name: 'Slope Ninja',
-    		reply_to: 'donotreply@slope.ninja',
-    		use_conversation: false,
-    		to_name: '',
-    		folder_id: CAMPAIGN_FOLDER_ID,
-    		authenticate: true,
-    		auto_footer: false,
-    		inline_css: false,
-    		auto_tweet: false,
-    		fb_comments: false,
-    		template_id: templateId,
-    	},
-    	tracking: {
-    		opens: true,
-    		html_clicks: true,
-    		text_clicks: false,
-    		goal_tracking: false,
-    		ecomm360: false,
-    	},
+      type: 'regular',
+      recipients: {
+        list_id: LIST_ID,
+      },
+      settings: {
+        subject_line: SUBJECT_LINE,
+        preview_text: '',
+        title: SUBJECT_LINE,
+        from_name: 'Slope Ninja',
+        reply_to: 'donotreply@slope.ninja',
+        use_conversation: false,
+        to_name: '',
+        folder_id: CAMPAIGN_FOLDER_ID,
+        authenticate: true,
+        auto_footer: false,
+        inline_css: false,
+        auto_tweet: false,
+        fb_comments: false,
+        template_id: templateId,
+      },
+      tracking: {
+        opens: true,
+        html_clicks: true,
+        text_clicks: false,
+        goal_tracking: false,
+        ecomm360: false,
+      },
     }),
   });
 
@@ -182,3 +183,4 @@ export const run = async () => {
 
   console.log(`Campaign Sent ${campaignId}:${templateId}`);
 };
+/* eslint-enable */

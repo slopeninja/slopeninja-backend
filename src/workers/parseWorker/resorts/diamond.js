@@ -1,5 +1,3 @@
-import cheerio from 'cheerio';
-
 import {
   degreeOrNull,
   inchOrNull,
@@ -50,13 +48,13 @@ export const parseDiamondSnow = async ($) => {
   };
 };
 
-export const parseDiamondLiftCounts = async ($) => {
+export const parseDiamondLiftCounts = async () => {
   return {
     ...initialLifts,
   };
 };
 
-export const parseDiamondTrailCounts = async ($) => {
+export const parseDiamondTrailCounts = async () => {
   return {
     ...initialTrails,
   };
@@ -65,7 +63,7 @@ export const parseDiamondTrailCounts = async ($) => {
 export const parseDiamondLifts = async ($) => {
   const list = [];
 
-  $('.lift-trail-conditions .lift-header').map((index, rowElement) => {
+  $('.lift-trail-conditions .lift-header').each((index, rowElement) => {
     const h1Elements = $(rowElement).find('h1');
     const spanElements = $(rowElement).find('span');
 
@@ -88,7 +86,7 @@ export const parseDiamondLifts = async ($) => {
 export const parseDiamondTrails = async ($) => {
   const list = [];
 
-  $('.trail').map((index, rowElement) => {
+  $('.trail').each((index, rowElement) => {
     const spanElements = $(rowElement).find('span');
 
     const spanElementName = spanElements[1];

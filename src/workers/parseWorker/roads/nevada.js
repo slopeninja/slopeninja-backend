@@ -1,9 +1,6 @@
-import cheerio from 'cheerio';
-
 import {
   nevadaRoadStatusOrNull,
   nevadaChainStatusOrNull,
-  finalizeNevadaRoadStatus,
 } from '../roadUtil';
 
 const parseNVRoadConditionList = (
@@ -12,7 +9,7 @@ const parseNVRoadConditionList = (
 ) => {
   const nevadaRoadList = {};
 
-  $('table.gvIncidentList tr').map((index, trElement) => {
+  $('table.gvIncidentList tr').each((index, trElement) => {
     const highwayElements = $(trElement).find('td:nth-child(2)');
     const highwayNameText = $(highwayElements).text().trim().split('-')
       .join('');

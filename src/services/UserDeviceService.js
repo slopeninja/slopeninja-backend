@@ -1,5 +1,9 @@
-import client, { SLOPE_NINJA_DB_SCHEMA } from '../db/client';
 import uuid from 'uuid';
+
+import client, { SLOPE_NINJA_DB_SCHEMA } from '../db/client';
+
+// Temporarily disable class-methods-use-this before we fix it across the project
+/* eslint-disable class-methods-use-this */
 
 class UserDeviceService {
   async getUserDevices() {

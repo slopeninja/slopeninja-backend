@@ -1,8 +1,12 @@
+import Raven from 'raven';
 import client, {
   SLOPE_NINJA_DB_SCHEMA,
 } from '../db/client';
 
 import redisClient from '../db/redisClient';
+
+// Temporarily disable class-methods-use-this before we fix it across the project
+/* eslint-disable class-methods-use-this */
 
 class ResortService {
   async getResorts() {
@@ -22,7 +26,7 @@ class ResortService {
       .where('id', resortId);
 
     if (!resort) {
-      return;
+      return null;
     }
 
     const { id, metaData, shortName } = resort;
@@ -37,7 +41,7 @@ class ResortService {
       .where('shortName', shortName);
 
     if (!resort) {
-      return;
+      return null;
     }
 
     const { id, metaData } = resort;
@@ -59,7 +63,10 @@ class ResortService {
     try {
       lastSnow = JSON.parse(lastSnowRaw);
     } catch (error) {
+      Raven.captureException(error);
+      /* eslint-disable no-console */
       console.log('Error parsing last snow metadata');
+      /* eslint-enable */
     }
 
     return lastSnow;

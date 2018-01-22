@@ -139,7 +139,8 @@ export const nevadaRoadStatusOrNull = (text) => {
   if (!text) {
     return null;
   }
-  const isOpen = isNevadaRoadOpen(text);
+
+  // const isOpen = isNevadaRoadOpen(text);
   const isClosed = isNevadaRoadClosed(text);
   const isIncident = isNevadaRoadIncident(text);
 

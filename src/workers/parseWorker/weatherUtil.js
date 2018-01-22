@@ -95,15 +95,15 @@ export const parseResortStatus = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
-  const status = RESORT_STATUS.find(status => string.includes(status));
-  const OPEN_STATUS = ['open', 'opened', 'yes', 'true'];
-  const CLOSED_STATUS = ['close', 'closed', 'no', 'false'];
+  const status = RESORT_STATUS.find(s => string.includes(s));
+  const openStatus = ['open', 'opened', 'yes', 'true'];
+  const closedStatus = ['close', 'closed', 'no', 'false'];
   if (status) {
     let parsedStatus = null;
-    if (OPEN_STATUS.find(status => string.includes(status))) {
+    if (openStatus.find(s => string.includes(s))) {
       parsedStatus = 'open';
     }
-    if (CLOSED_STATUS.find(status => string.includes(status))) {
+    if (closedStatus.find(s => string.includes(s))) {
       parsedStatus = 'closed';
     }
     return parsedStatus;
@@ -115,7 +115,7 @@ export const parseWeatherStatus = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
-  const status = WEATHER_STATUS.find(status => string.includes(status));
+  const status = WEATHER_STATUS.find(s => string.includes(s));
   return status;
 };
 
@@ -124,7 +124,7 @@ export const parseDegreeNumber = (value) => {
     return NaN;
   }
 
-  const symbol = DEGREE_SYMBOLS.find(symbol => value.split(symbol).length === 2);
+  const symbol = DEGREE_SYMBOLS.find(sym => value.split(sym).length === 2);
 
   const arr = value.split(symbol);
 
@@ -132,7 +132,7 @@ export const parseDegreeNumber = (value) => {
     return NaN;
   }
 
-  return Number.parseInt(arr[0]);
+  return Number.parseInt(arr[0], 10);
 };
 
 export const parseInchNumber = (value) => {
@@ -140,7 +140,7 @@ export const parseInchNumber = (value) => {
     return NaN;
   }
 
-  const symbol = INCH_SYMBOLS.find(symbol => value.split(symbol).length === 2);
+  const symbol = INCH_SYMBOLS.find(sym => value.split(sym).length === 2);
 
   const arr = value.split(symbol);
 
@@ -148,7 +148,7 @@ export const parseInchNumber = (value) => {
     return NaN;
   }
 
-  return Number.parseInt(arr[0]);
+  return Number.parseInt(arr[0], 10);
 };
 
 export const trailLevelOrNull = (string) => {
@@ -244,10 +244,10 @@ export const boralLiftTrailStatusOrNull = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
-  const lift_status = {
+  const liftStatus = {
     0: 'closed',
     1: 'open',
   };
 
-  return lift_status[string] || null;
+  return liftStatus[string] || null;
 };

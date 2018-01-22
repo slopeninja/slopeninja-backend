@@ -6,7 +6,9 @@ class NotificationService {
   }
 
   async broadcast(notifications) {
-    const validNotifications = notifications.filter(notification => Expo.isExpoPushToken(notification.to));
+    // const validNotifications = notifications.filter(
+    //   notification => Expo.isExpoPushToken(notification.to),
+    // );
 
     // The Expo push notification service accepts batches of notifications so
     // that you don't need to send 1000 requests to send 1000 notifications. We
@@ -19,6 +21,7 @@ class NotificationService {
     // different strategies you could use. A simple one is to send one chunk at a
     // time, which nicely spreads the load out over time:
     let receipts = [];
+    /* eslint-disable no-restricted-syntax, no-await-in-loop, no-console */
     for (const chunk of chunks) {
       try {
         const receiptsChunk = await this.expo.sendPushNotificationsAsync(chunk);
@@ -29,6 +32,7 @@ class NotificationService {
         console.error(error);
       }
     }
+    /* eslint-enable */
 
     return receipts;
   }

@@ -1,13 +1,6 @@
-import cheerio from 'cheerio';
-
 import {
-  degreeOrNull,
-  inchOrNull,
-  numberOrNull,
-  weatherStatusOrNull,
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
-  trailLevelOrNull,
 } from '../weatherUtil';
 
 const initialWeather = {
@@ -30,7 +23,7 @@ const initialTrails = {
   open: null,
 };
 
-export const parseDonnerSnow = async ($) => {
+export const parseDonnerSnow = async () => {
   // const temperature =
   // 24 Hours
   // const newSnow24Hr =
@@ -46,13 +39,13 @@ export const parseDonnerSnow = async ($) => {
   };
 };
 
-export const parseDonnerLiftCounts = async ($) => {
+export const parseDonnerLiftCounts = async () => {
   return {
     ...initialLifts,
   };
 };
 
-export const parseDonnerTrailCounts = async ($) => {
+export const parseDonnerTrailCounts = async () => {
   return {
     ...initialTrails,
   };
@@ -61,7 +54,7 @@ export const parseDonnerTrailCounts = async ($) => {
 export const parseDonnerLifts = async ($) => {
   const list = [];
 
-  $('.sqs-block-content p').slice(4, 12).map((index, rowElement) => {
+  $('.sqs-block-content p').slice(4, 12).each((index, rowElement) => {
     const rowText = $(rowElement).text().trim();
     const nameText = rowText.split(':')[0];
     const statusText = rowText.split(':')[1];
@@ -78,10 +71,11 @@ export const parseDonnerLifts = async ($) => {
 
     list.push(lift);
   });
+
   return list;
 };
 
-export const parseDonnerTrails = async ($) => {
+export const parseDonnerTrails = async () => {
   const list = [];
 
   return list;

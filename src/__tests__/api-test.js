@@ -1,9 +1,9 @@
 import fetch from 'isomorphic-fetch';
-import api from '../api';
 import Promise from 'bluebird';
-import client from '../db/client';
 import uuid from 'uuid';
 import statuses from 'statuses';
+
+import api from '../api';
 
 let server;
 let port;
@@ -14,9 +14,11 @@ beforeAll(async () => {
   // convention of accepting a callback as last argument and calling that
   // callback with error as the first argument and success value on the
   // second argument.
-  const listen = Promise.promisify(api.listen, { context: api });
+  // const listen = Promise.promisify(api.listen, { context: api });
   server = await api.listen();
+  /* eslint-disable prefer-destructuring */
   port = server.address().port;
+  /* eslint-enable */
 });
 
 // tear down our tests
@@ -36,7 +38,7 @@ test.skip('returns 12 resorts, one of which is Squaw', async () => {
 
   expect(data.resorts).toHaveLength(12);
 
-  const resort = data.resorts.find(resort => resort.shortName === 'squaw-valley');
+  const resort = data.resorts.find(r => r.shortName === 'squaw-valley');
 
   expect(resort).toBeDefined();
 });

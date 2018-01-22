@@ -1,12 +1,6 @@
-import cheerio from 'cheerio';
-
 import {
-  degreeOrNull,
   inchOrNull,
-  resortStatusOrNull,
-  weatherStatusOrNull,
   liftTrailStatusOrNull,
-  notEmptyStringOrNull,
   trailLevelOrNull,
   numberOrNull,
 } from '../weatherUtil';
@@ -61,7 +55,9 @@ export const extractJSONFromScriptElement = (
       .split(jsonStartCue)[1]
       .split(jsonEndCue)[0];
     jsonDataRaw = JSON.parse(`${bracket[0]} ${jsonBodyRaw} ${bracket[1]}`);
+  /* eslint-disable no-empty */
   } catch (error) {}
+  /* eslint-enable */
 
   return jsonDataRaw;
 };
@@ -98,13 +94,14 @@ export const parseHeavenlySnow = async ($) => {
 };
 
 export const parseHeavenlyLiftCounts = async ($) => {
-  const openLifts = Number.parseInt($('.c118__number1--v1')
-    .first()
-    .text());
-  const totalLifts = Number.parseInt($('.c118__number2--v1')
-    .first()
-    .text()
-    .replace('/', ''));
+  const openLifts = Number.parseInt(
+    $('.c118__number1--v1').first().text(),
+    10,
+  );
+  const totalLifts = Number.parseInt(
+    $('.c118__number2--v1').first().text().replace('/', ''),
+    10,
+  );
 
   return {
     ...initialLifts,
@@ -114,13 +111,15 @@ export const parseHeavenlyLiftCounts = async ($) => {
 };
 
 export const parseHeavenlyTrailCounts = async ($) => {
-  const openTrails = Number.parseInt($('.c118__number1--v1')
-    .slice(1, 2)
-    .text());
-  const totalTrails = Number.parseInt($('.c118__number2--v1')
-    .slice(1, 2)
-    .text()
-    .replace('/', ''));
+  const openTrails = Number.parseInt(
+    $('.c118__number1--v1').slice(1, 2).text(),
+    10,
+  );
+  const totalTrails = Number.parseInt(
+    $('.c118__number2--v1').slice(1, 2).text().replace('/', ''),
+    10,
+  );
+
   return {
     ...initialTrails,
     total: numberOrNull(totalTrails),
@@ -160,7 +159,7 @@ export const parseHeavenlyTrails = async ($) => {
   let allTrails = [];
   if (trailsReportData) {
     allTrails = trailsReportData.GroomingAreas.reduce((trails, category) => {
-      category.Runs.map((run) => {
+      category.Runs.forEach((run) => {
         const trail = {
           name: run.Name,
           status: liftTrailStatusOrNull(`${run.IsOpen}`),
@@ -169,6 +168,7 @@ export const parseHeavenlyTrails = async ($) => {
         };
         trails.push(trail);
       });
+
       return trails;
     }, []);
 

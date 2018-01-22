@@ -6,7 +6,7 @@ import {
   parseHeavenlyTrails,
   parseHeavenlyTrailCounts,
 } from '../heavenly';
-import { createHtmlParser, removeBackSlashes } from '../../parserFactory';
+import { createHtmlParser } from '../../parserFactory';
 
 test('fetches Heavenly snow data correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/heavenly-weather.html.input`);

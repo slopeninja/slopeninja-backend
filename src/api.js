@@ -3,7 +3,6 @@ import Koa from 'koa';
 import koaCors from 'kcors';
 import KoaRouter from 'koa-router';
 import koaBodyParser from 'koa-bodyparser';
-import basicAuth from 'basic-auth';
 import statuses from 'statuses';
 
 import Joi from 'joi';
@@ -12,7 +11,7 @@ import ResortService from './services/ResortService';
 import UserDeviceService from './services/UserDeviceService';
 import NewsletterService from './services/NewsletterService';
 
-const MAILCHIMP_PRIVATE_KEY = process.env.MAILCHIMP_PRIVATE_KEY;
+const { MAILCHIMP_PRIVATE_KEY } = process.env;
 
 const koaApp = new Koa();
 const router = new KoaRouter();
@@ -28,7 +27,7 @@ router.get('/resorts', async (ctx) => {
 });
 
 router.get('/resorts/:shortName', async (ctx) => {
-  const shortName = ctx.params.shortName;
+  const { shortName } = ctx.params;
 
   const resortService = new ResortService();
 
@@ -67,7 +66,7 @@ router.post('/subscribers', async (ctx) => {
     email: Joi.string().email({ minDomainAtoms: 2 }).required(),
   });
 
-  const { error, value } = Joi.validate({
+  const { error } = Joi.validate({
     email: ctx.request.body.email,
   }, schema);
 
@@ -80,7 +79,7 @@ router.post('/subscribers', async (ctx) => {
   }
 
   // Forward the post reqest to MailChimp api
-  const token = new Buffer(`anystring:${MAILCHIMP_PRIVATE_KEY}`).toString('base64');
+  const token = Buffer.from(`anystring:${MAILCHIMP_PRIVATE_KEY}`).toString('base64');
 
   const mailchimpResponse = await fetch('http://us15.api.mailchimp.com/3.0/lists/b56b3d32c5/members', {
     method: 'POST',
@@ -98,7 +97,7 @@ router.post('/subscribers', async (ctx) => {
   const mailchimpResponseBody = await mailchimpResponse.json();
 
   if (mailchimpResponse.status !== statuses('OK')) {
-    if (mailchimpResponse.status == statuses('Bad Request')) {
+    if (mailchimpResponse.status === statuses('Bad Request')) {
       ctx.status = statuses('Bad Request');
       ctx.body = {
         error: mailchimpResponseBody.title,
@@ -125,7 +124,7 @@ router.post('/user-devices', async (ctx) => {
     notificationToken: Joi.string().required(),
   });
 
-  const { error, value } = Joi.validate({
+  const { error } = Joi.validate({
     deviceName: ctx.request.body.deviceName,
     notificationToken: ctx.request.body.notificationToken,
   }, schema);
@@ -142,7 +141,7 @@ router.post('/user-devices', async (ctx) => {
 
   try {
     await userDeviceService.create(ctx.request.body.deviceName, ctx.request.body.notificationToken);
-  } catch (error) {
+  } catch (e) {
     ctx.status = statuses('Internal Server Error');
     ctx.body = {
       error: 'Opps. Something\'s not right.',
