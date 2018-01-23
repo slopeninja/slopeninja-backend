@@ -103,7 +103,7 @@ const generateStatuses = (resorts) => {
   const statuses = [];
 
   const separator = ', ';
-  const tweetPrefix = '24-hour Tahoe snow report: ';
+  const tweetPrefix = '24-hour snow update: ';
 
   let tweet = tweetPrefix;
   for (let i = 0; i < snowedResorts.length; i += 1) {
@@ -144,11 +144,11 @@ export const run = async () => {
 
     /* eslint-disable no-await-in-loop */
     const tweet = await updateTwitter(status, prevTweetId);
-    /* eslint-enable */
 
     if (tweet) {
+      console.log(`Tweet ID ${tweet.id_str}: ${status}`);
       prevTweetId = tweet.id_str;
     }
   }
 };
-/* eslint-enable no-console */
+/* eslint-enable */
