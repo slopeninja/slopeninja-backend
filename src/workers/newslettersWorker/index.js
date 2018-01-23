@@ -58,6 +58,28 @@ export const run = async () => {
     return;
   }
 
+  resorts.sort((a, b) => {
+    if (a.weather.snowDepth < b.weather.snowDepth) {
+      return 1;
+    }
+    if (a.weather.snowDepth > b.weather.snowDepth) {
+      return -1;
+    }
+
+    return 0;
+  });
+
+  resorts.sort((a, b) => {
+    if (a.weather.newSnow < b.weather.newSnow) {
+      return 1;
+    }
+    if (a.weather.newSnow > b.weather.newSnow) {
+      return -1;
+    }
+
+    return 0;
+  });
+
   const resortRows = resorts.map((resort) => {
     return {
       resortName: resort.name,
@@ -67,28 +89,6 @@ export const run = async () => {
       weatherIconUrl: WEATHER_ICONS[resort.weather.condition],
       resortLogoUrl: RESORT_LOGOS[resort.shortName],
     };
-  });
-
-  resortRows.sort((a, b) => {
-    if (a.snowDepth < b.snowDepth) {
-      return 1;
-    }
-    if (a.snowDepth > b.snowDepth) {
-      return -1;
-    }
-
-    return 0;
-  });
-
-  resortRows.sort((a, b) => {
-    if (a.newSnow < b.newSnow) {
-      return 1;
-    }
-    if (a.newSnow > b.newSnow) {
-      return -1;
-    }
-
-    return 0;
   });
 
   const now = moment();
