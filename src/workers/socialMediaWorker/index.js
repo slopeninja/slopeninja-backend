@@ -98,6 +98,16 @@ const updateTwitter = async (status, replyToId) => {
 
 const generateStatuses = (resorts) => {
   const snowedResorts = resorts
+    .sort((a, b) => {
+      if (a.weather.newSnow < b.weather.newSnow) {
+        return 1;
+      }
+      if (a.weather.newSnow > b.weather.newSnow) {
+        return -1;
+      }
+
+      return 0;
+    })
     .map(resort => `${RESORT_TWITTER_USERNAMES[resort.shortName]} ${resort.weather.newSnow}"`);
 
   const statuses = [];
