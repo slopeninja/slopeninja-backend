@@ -45,7 +45,7 @@ const updateTwitter = async (status, replyToId) => {
   const url = 'https://api.twitter.com/1.1/statuses/update.json';
 
   const parameters = {
-    oauth_key: TWITTER_APP_KEY,
+    oauth_consumer_key: TWITTER_APP_KEY,
     oauth_nonce: nonce,
     oauth_signature_method: 'HMAC-SHA1',
     oauth_timestamp: timeStamp,
