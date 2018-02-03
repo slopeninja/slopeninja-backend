@@ -1045,7 +1045,7 @@ const SQUAW_OUTPUT_DATA_SAMPLE = {
     weather: {
       base: null,
       newSnow: null,
-      condition: 'sunny',
+      condition: 'clear',
       snowDepth: null,
       temperature: 61,
     },
