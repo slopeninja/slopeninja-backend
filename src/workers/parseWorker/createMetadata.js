@@ -1,3 +1,5 @@
+import idx from 'idx';
+
 const metadata = {
   'sierra-at-tahoe': {
     name: 'Sierra-at-Tahoe',
@@ -74,8 +76,13 @@ const metadata = {
 };
 
 const createMetadata = (shortName, resort) => {
-  const weatherIcon = resort.snow.weatherIcon || resort.weather.weatherIcon || 'cloudy';
-  const temperature = resort.weather.temperature || resort.snow.temperature;
+  const weatherIcon =
+    idx(resort, _ => _.weather.weatherIcon) ||
+    idx(resort, _ => _.snow.weatherIcon);
+
+  const temperature =
+    idx(resort, _ => _.weather.temperature) ||
+    idx(resort, _ => _.snow.temperature);
 
   const openLifts = resort.lifts.filter(lift => lift.status === 'open');
   let openLiftCounts = openLifts.length;
