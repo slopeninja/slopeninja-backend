@@ -701,12 +701,14 @@ let RESPONSE_BODY_CACHE = {
 
 /* eslint-disable no-console */
 const lookUpOrFetch = async (url) => {
+  console.log('Cache lookup for', url);
+
   const hashedUrl = hash(url);
 
   const cachedText = RESPONSE_BODY_CACHE[hashedUrl];
 
   if (cachedText) {
-    console.log('Cache hit for', url, hashedUrl);
+    console.log('> Cache hit for', url, hashedUrl);
     return cachedText;
   }
 
@@ -714,7 +716,7 @@ const lookUpOrFetch = async (url) => {
   const text = await response.text();
 
   RESPONSE_BODY_CACHE[hashedUrl] = text;
-  console.log('Cache miss', url, hashedUrl);
+  console.log('> Cache miss', url, hashedUrl);
 
   return text;
 };
@@ -726,17 +728,31 @@ const fetchResort = async (resortName) => {
   // user `for` over `map` to wait before queuing the next fn call
   // so we can hit the cache
   const arrayOfResults = [];
+  let stale = false;
+
   for (let i = 0; i < fnConfigs.length; i += 1) {
     const fnConfig = fnConfigs[i];
 
     /* eslint-disable no-await-in-loop, no-console */
-    const text = await lookUpOrFetch(fnConfig.url);
+    let text;
+    try {
+      text = await lookUpOrFetch(fnConfig.url);
+    } catch (error) {
+      stale = true;
+      console.log(error);
+      Raven.captureException(error);
+    }
 
+    // Run the parser regardless of lookupOrFetch failures above (e.g. network
+    // failures) so we get at least the defaults in there instead of, let's say,
+    // a highway disappearing completely. Hence the duplicate catch blocks.
+    // Ugly, but in this case necessary.
     const parser = fnConfig.fn;
     try {
       const result = await parser(text, fnConfig.url);
       arrayOfResults.push(result);
     } catch (error) {
+      stale = true;
       console.log(error);
       Raven.captureException(error);
     }
@@ -776,8 +792,20 @@ const fetchResort = async (resortName) => {
     };
   }, {});
 
+  // { 'sierra-at-tahoe':
+  //      { weather: [Object],
+  //        snow: [Object],
+  //        liftCounts: [Object],
+  //        trailCounts: [Object],
+  //        lifts: [Array],
+  //        trails: [Array],
+  //        roads: [Array],
+  //        stale: false } }
   return {
-    [resortName]: resortData,
+    [resortName]: {
+      ...resortData,
+      stale,
+    },
   };
 };
 

@@ -136,6 +136,7 @@ const createMetadata = (shortName, resort) => {
       total: totalTrailCounts,
     },
     roads,
+    stale: resort.stale,
   };
 };
 
