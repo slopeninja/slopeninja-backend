@@ -15,8 +15,8 @@ let port;
 beforeAll(async () => {
   // For promisify to work, the callback function should conform to node.js
   // convention of accepting a callback as last argument and calling that
-  // callback with error as the first argument and success value on the
-  // second argument.
+  // callback with error as the first argument and success value on the second
+  // argument.
   // const listen = Promise.promisify(api.listen, { context: api });
   server = await api.listen();
   /* eslint-disable prefer-destructuring */
@@ -29,7 +29,12 @@ afterAll(async () => {
   const close = Promise.promisify(server.close, { context: server });
   await close();
   await client.destroy();
-  await redisClient.end();
+
+  // CI doesn't have access to services, so it ends up failing to connect so
+  // check if the connection is closed before attempting to close it
+  if (redisClient.status !== 'end') {
+    await redisClient.end();
+  }
 });
 
 test('passes the sanity check', () => {
