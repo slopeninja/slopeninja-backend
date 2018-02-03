@@ -813,27 +813,29 @@ export const run = async () => {
   const start = performanceNow();
   console.log('parseWorker starts');
 
-  const resortsData = await fetchResorts();
+  try {
+    const resortsData = await fetchResorts();
 
-  const resortKeys = Object.keys(resortsData);
+    const resortKeys = Object.keys(resortsData);
 
-  const arrayOfPromises = resortKeys.map(async (shortName) => {
-    const metadatum = createMetadata(shortName, resortsData[shortName]);
+    const arrayOfPromises = resortKeys.map(async (shortName) => {
+      const metadatum = createMetadata(shortName, resortsData[shortName]);
 
-    await updateResort(shortName, metadatum);
+      await updateResort(shortName, metadatum);
 
-    return metadatum;
-  });
+      return metadatum;
+    });
 
-  const metadata = await Promise.all(arrayOfPromises);
-  await updateSnowLastSeen(metadata);
+    const metadata = await Promise.all(arrayOfPromises);
+    await updateSnowLastSeen(metadata);
 
-  console.log(JSON.stringify(metadata, null, 2));
+    console.log(JSON.stringify(metadata, null, 2));
+  } finally {
+    // reset the cache for next run
+    RESPONSE_BODY_CACHE = {};
+  }
+
   const end = performanceNow();
-
-  // reset the cache for next run
-  RESPONSE_BODY_CACHE = {};
-
   console.log(((end - start) / MILLISECONDS).toFixed(3), 'seconds');
   console.log('Worker quits');
   /* eslint-enable */
