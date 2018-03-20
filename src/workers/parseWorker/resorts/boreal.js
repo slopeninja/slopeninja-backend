@@ -1,11 +1,9 @@
 import {
   inchOrNull,
-  resortStatusOrNull,
   numberOrNull,
-  weatherStatusOrNull,
-  boralLiftTrailStatusOrNull,
   notEmptyStringOrNull,
   trailLevelOrNull,
+  liftTrailStatusOrNull,
 } from '../weatherUtil';
 
 const initialSnow = {
@@ -30,42 +28,36 @@ const initialTrails = {
 
 
 export const parseBorealSnow = async (data) => {
-  if (!data.default_data) {
+  if (!data.snowReport) {
     return {
       ...initialSnow,
     };
   }
 
-  /* eslint-disable max-len */
-  const weatherIcon = data.default_data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].conditions;
-  const status = data.default_data[10].wrapper_content[0].items[5].body;
-  const temperature = data.default_data[2].weather_report.forecast.forecast.simpleforecast.forecastday[0].high.fahrenheit;
-  /* eslint-enable */
   // 24 Hours
-  const newSnow24Hr = data.default_data[0].snow_report['24_hour'][0];
+  const newSnow24Hr = data.snowReport[0].items.find(i => i.duration === '24 Hours').amount;
   // Base
-  // const snowDepthBase =
+  const snowDepthBase = data.snowReport[0].items.find(i => i.duration === 'base-depth').amount;
 
-  const snowDepthSummit = data.default_data[0].snow_report.season.Base.base;
+  const snowDepthSummit = data.snowReport[0].items.find(i => i.duration === 'upper-base-depth').amount;
+
   return {
     ...initialSnow,
-    weatherIcon: weatherStatusOrNull(weatherIcon),
-    status: resortStatusOrNull(status),
-    temperature: Number.parseInt(temperature, 10),
-    newSnow: inchOrNull(newSnow24Hr),
-    // snowDepthBase: inchOrNull(snowDepthBase),
+    newSnow: inchOrNull(`${newSnow24Hr}"`),
+    snowDepthBase: Number.parseInt(snowDepthBase, 10),
     snowDepthSummit: Number.parseInt(snowDepthSummit, 10),
   };
 };
 
 export const parseBorealLiftCounts = async (data) => {
-  if (!data.default_data) {
+  if (!data.liftReport) {
     return {
       ...initialLifts,
     };
   }
-  const openLifts = data.default_data[3].trail_open_report.lifts.open;
-  const totalLifts = data.default_data[3].trail_open_report.lifts.total;
+
+  const openLifts = data.liftReport.open;
+  const totalLifts = data.liftReport.total;
   return {
     ...initialLifts,
     total: numberOrNull(totalLifts),
@@ -74,13 +66,13 @@ export const parseBorealLiftCounts = async (data) => {
 };
 
 export const parseBorealTrailCounts = async (data) => {
-  if (!data.default_data) {
+  if (!data.trailReport) {
     return {
       ...initialTrails,
     };
   }
-  const openTrails = data.default_data[3].trail_open_report.trails.open;
-  const totalTrails = data.default_data[3].trail_open_report.trails.total;
+  const openTrails = data.trailReport.open;
+  const totalTrails = data.trailReport.total;
   return {
     ...initialTrails,
     total: numberOrNull(totalTrails),
@@ -89,19 +81,21 @@ export const parseBorealTrailCounts = async (data) => {
 };
 
 export const parseBorealLifts = async (data) => {
-  if (!data.level_3) {
+  if (!data.length) {
     return [];
   }
 
-  const list = data.level_3.field_dynamic_content.items.map((liftItem) => {
-    const name = liftItem.title;
-    const status = boralLiftTrailStatusOrNull(liftItem.field_lift_open);
-    const category = notEmptyStringOrNull(liftItem.field_area);
+  const list = data.filter(item => item.type === 'trail').map((trailItem) => {
+    const { name } = trailItem.properties;
+    const status = liftTrailStatusOrNull(trailItem.status.find(s =>
+      s.status_name === 'opening').status_value);
+    const category = notEmptyStringOrNull(trailItem.sector);
     const lift = {
       name,
       status,
       category,
     };
+
     return lift;
   });
 
@@ -109,14 +103,16 @@ export const parseBorealLifts = async (data) => {
 };
 
 export const parseBorealTrails = async (data) => {
-  if (!data.level_3) {
+  if (!data.length) {
     return [];
   }
-  const list = data.level_3.field_dynamic_content.items.map((trailItem) => {
-    const name = trailItem.title;
-    const status = boralLiftTrailStatusOrNull(trailItem.field_trail_open);
-    const category = notEmptyStringOrNull(trailItem.field_area);
-    const level = trailLevelOrNull(trailItem.field_participant_level);
+
+  const list = data.filter(item => item.type === 'trail').map((trailItem) => {
+    const { name } = trailItem.properties;
+    const status = liftTrailStatusOrNull(trailItem.status.find(s =>
+      s.status_name === 'opening').status_value);
+    const category = notEmptyStringOrNull(trailItem.sector);
+    const level = trailLevelOrNull(trailItem.properties.subtype);
     const trail = {
       name,
       status,

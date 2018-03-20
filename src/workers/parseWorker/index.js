@@ -646,17 +646,17 @@ const resortsConfig = {
     },
     {
       // fnConfig
-      url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
+      url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json?time=1521572151',
       fn: createJSONParser('snow', parseBorealSnow),
     },
     {
       // fnConfig
-      url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
+      url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json?time=1521572151',
       fn: createJSONParser('liftCounts', parseBorealLiftCounts, decodeEntities),
     },
     {
       // fnConfig
-      url: 'http://api.rideboreal.com/api/v2?location=/&level=0',
+      url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json?time=1521572151',
       fn: createJSONParser(
         'trailCounts',
         parseBorealTrailCounts,
@@ -666,13 +666,13 @@ const resortsConfig = {
     {
       // fnConfig
       url:
-        'http://api.rideboreal.com/api/v2?location=/the-mountain/trail-lift-info/lifts-hours&level=1',
+        'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/status.json?time=1521572151',
       fn: createJSONParser('lifts', parseBorealLifts, decodeEntities),
     },
     {
       // fnConfig
       url:
-        'http://api.rideboreal.com/api/v2?location=/the-mountain/trail-lift-info/full-trail-report&level=1',
+        'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/status.json?time=1521572151',
       fn: createJSONParser('trails', parseBorealTrails, decodeEntities),
     },
     {

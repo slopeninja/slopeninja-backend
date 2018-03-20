@@ -239,15 +239,3 @@ export const removeNumberInFrontOfName = (string) => {
   const constructedString = splitedStringArr.slice(1).join(' ');
   return constructedString;
 };
-
-export const boralLiftTrailStatusOrNull = (string) => {
-  if (!string || typeof string !== 'string') {
-    return null;
-  }
-  const liftStatus = {
-    0: 'closed',
-    1: 'open',
-  };
-
-  return liftStatus[string] || null;
-};
