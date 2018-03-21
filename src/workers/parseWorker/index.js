@@ -836,6 +836,32 @@ const fetchResorts = async () => {
 
 const MILLISECONDS = 1000;
 
+const updateMetadata = async (resortsData) => {
+  const resortKeys = Object.keys(resortsData);
+
+  const arrayOfPromises = resortKeys.map(async (shortName) => {
+    let metadatum;
+    try {
+      metadatum = createMetadata(shortName, resortsData[shortName]);
+
+      await updateResort(shortName, metadatum);
+    } catch (error) {
+      /* eslint-disable no-console */
+      console.log(`Resort [${shortName}] failed to parse`);
+      console.log(error);
+      /* eslint-enable */
+      Raven.captureException(error);
+    }
+
+    return metadatum;
+  });
+
+  const metadata = await Promise.all(arrayOfPromises);
+
+  // get rid of failed resorts (undefined values)
+  return metadata.filter(metadatum => !!metadatum);
+};
+
 export const run = async () => {
   /* eslint-disable no-console */
   const start = performanceNow();
@@ -844,20 +870,14 @@ export const run = async () => {
   try {
     const resortsData = await fetchResorts();
 
-    const resortKeys = Object.keys(resortsData);
+    const metadata = await updateMetadata(resortsData);
 
-    const arrayOfPromises = resortKeys.map(async (shortName) => {
-      const metadatum = createMetadata(shortName, resortsData[shortName]);
-
-      await updateResort(shortName, metadatum);
-
-      return metadatum;
-    });
-
-    const metadata = await Promise.all(arrayOfPromises);
     await updateSnowLastSeen(metadata);
 
     console.log(JSON.stringify(metadata, null, 2));
+  } catch (error) {
+    console.log(error);
+    Raven.captureException(error);
   } finally {
     // reset the cache for next run
     RESPONSE_BODY_CACHE = {};
