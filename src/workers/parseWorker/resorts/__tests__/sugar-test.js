@@ -14,13 +14,13 @@ test('fetches Sugar snow data correctly', async () => {
   const resortData = await createHtmlParser('snow', parseSugarSnow)(htmlText);
   expect(resortData).toEqual({
     snow: {
-      status: 'closed',
-      weatherIcon: 'snow',
-      temperature: 32,
+      status: 'open',
+      weatherIcon: 'cloudy',
+      temperature: 30,
       baseCondition: null,
-      newSnow: 7,
-      snowDepthBase: 87,
-      snowDepthSummit: 195,
+      newSnow: 0,
+      snowDepthBase: 57,
+      snowDepthSummit: 122,
     },
   });
 });
@@ -46,7 +46,7 @@ test('fetches Sugar lifts data correctly', async () => {
   expect(resortData).toEqual({
     liftCounts: {
       total: null,
-      open: 0,
+      open: 1,
     },
   });
 });
