@@ -77,6 +77,7 @@ export const parseSugarTrailCounts = async ($) => {
   const open = numberOrNull(Number.parseInt(
     $('#conditions_status_col_left_schedlifts')
       .children('b')
+      .first()
       .text()
       .trim(),
     10,
@@ -773,8 +774,8 @@ const SUGAR_BOWL_TRAIL_LIST = [
 
 export const parseSugarTrails = async ($) => {
   const list = SUGAR_BOWL_TRAIL_LIST.map((trail) => {
-    const item = $('#tabs_01_mobile div').filter(() => {
-      return $(this).text().trim() === trail.name;
+    const item = $('#tabs_01_mobile div').filter((ii, elem) => {
+      return $(elem).text().trim() === trail.name;
     });
 
     const status = liftTrailStatusOrNull($(item).prev().find('img').attr('alt'));

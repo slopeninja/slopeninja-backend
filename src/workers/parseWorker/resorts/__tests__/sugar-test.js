@@ -62,12 +62,12 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Sugar trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/sierra-lifts.html.input`);
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/sugar-weather.html.input`);
   const resortData = await createHtmlParser('trailCounts', parseSugarTrailCounts)(htmlText);
   expect(resortData).toEqual({
     trailCounts: {
       total: null,
-      open: null,
+      open: 78,
     },
   });
 });
