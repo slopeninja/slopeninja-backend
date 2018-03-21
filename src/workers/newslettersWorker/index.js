@@ -33,6 +33,7 @@ const WEATHER_ICONS = {
   thunderstorm: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/thunderstorm.png`,
   rain: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/rain.png`,
   snow: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/snow.png`,
+  sleet: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/sleet.png`,
 };
 
 const COLOR_PALETTE = [
