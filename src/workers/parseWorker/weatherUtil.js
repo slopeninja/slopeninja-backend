@@ -7,7 +7,7 @@ const OPEN_STATUS = ['open', 'opened', 'yes', 'groomed', 'status_1', 'o', 'g', '
 const CLOSED_STATUS = ['close', 'closed', 'no', 'status_0', 'c', 'false'];
 const ON_HOLD_STATUS = ['pending', 'scheduled', 'on hold'];
 
-const WEATHER_STATUS = ['sunny', 'clear', 'snow', 'rain', 'cloudy', 'thunderstorm'];
+const WEATHER_STATUS = ['sunny', 'clear', 'snow', 'rain', 'cloudy', 'thunderstorm', 'sleet'];
 
 const BEGINNER_LEVEL = ['green', 'beginner', 'easier', 'easiest', 'circle', 'type_1'];
 const IMTERNEDIATE_LEVEL = ['blue', 'intermediate', 'square', 'moredifficult', 'type_2'];

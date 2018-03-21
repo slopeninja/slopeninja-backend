@@ -161,6 +161,7 @@ test('returns a not emprty string or null', () => {
   expect(notEmptyStringOrNull('rain')).toBe('rain');
   expect(notEmptyStringOrNull('sunny')).toBe('sunny');
   expect(notEmptyStringOrNull('open')).toBe('open');
+  expect(notEmptyStringOrNull('sleet')).toBe('sleet');
   expect(notEmptyStringOrNull('')).toBe(null);
   expect(notEmptyStringOrNull(-100)).toBe(null);
 });
