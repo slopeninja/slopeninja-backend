@@ -9,7 +9,7 @@ import generateEmail from './generateTemplate';
 
 const { MAILCHIMP_PRIVATE_KEY } = process.env;
 
-const EMAIL_ASSETS_BASE_URL = 'http://www.slope.ninja/emailAssets';
+const EMAIL_ASSETS_BASE_URL = 'https://slope.ninja/emailAssets';
 
 const RESORT_LOGOS = {
   'squaw-valley': `${EMAIL_ASSETS_BASE_URL}/resortLogos/squaw.png`,
@@ -115,7 +115,7 @@ export const run = async () => {
   const CAMPAIGN_FOLDER_ID = '37045c44fa'; /* Daily Snow Update */
   const LIST_ID = 'b56b3d32c5';
 
-  const templateCreationRequest = await fetch('http://us15.api.mailchimp.com/3.0/templates', {
+  const templateCreationRequest = await fetch('https://us15.api.mailchimp.com/3.0/templates', {
     method: 'POST',
     headers: new Headers({
       authorization: `Basic ${token}`,
@@ -131,7 +131,7 @@ export const run = async () => {
   const templateCreationResponseBody = await templateCreationRequest.json();
   const templateId = templateCreationResponseBody.id;
 
-  const campaignCreationRequest = await fetch('http://us15.api.mailchimp.com/3.0/campaigns', {
+  const campaignCreationRequest = await fetch('https://us15.api.mailchimp.com/3.0/campaigns', {
     method: 'POST',
     headers: new Headers({
       authorization: `Basic ${token}`,
@@ -171,7 +171,7 @@ export const run = async () => {
   const campaignCreationResponseBody = await campaignCreationRequest.json();
   const campaignId = campaignCreationResponseBody.id;
 
-  const campaignDeliveryRequest = await fetch(`http://us15.api.mailchimp.com/3.0/campaigns/${campaignId}/actions/send`, {
+  const campaignDeliveryRequest = await fetch(`https://us15.api.mailchimp.com/3.0/campaigns/${campaignId}/actions/send`, {
     method: 'POST',
     headers: new Headers({
       authorization: `Basic ${token}`,

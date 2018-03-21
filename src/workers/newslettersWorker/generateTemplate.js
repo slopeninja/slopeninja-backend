@@ -15,7 +15,7 @@ const generateHeader = dateTime => `
     </mj-column>
 
     <mj-column width="20%">
-      <mj-image  align="right" padding="18px 6px 0 0" width="32px" src="http://www.slope.ninja/emailAssets/logo.png"></mj-image>
+      <mj-image  align="right" padding="18px 6px 0 0" width="32px" src="https://slope.ninja/emailAssets/logo.png"></mj-image>
     </mj-column>
 
   </mj-group>
@@ -28,12 +28,12 @@ const generateFooter = () => `
 
   <mj-group width="100%">
     <mj-column>
-      <mj-image align="right" padding="24px 10px 0 0" width="110px" height="36px" src="http://www.slope.ninja/emailAssets/appStore.png" href="https://itunes.apple.com/us/app/slope-ninja/id1297809634?ls=1&mt=8">
+      <mj-image align="right" padding="24px 10px 0 0" width="110px" height="36px" src="https://slope.ninja/emailAssets/appStore.png" href="https://itunes.apple.com/us/app/slope-ninja/id1297809634?ls=1&mt=8">
       </mj-image>
 
     </mj-column>
      <mj-column>
-      <mj-image align="left" padding="24px 0 0 10px" width="110px" height="36px" src="http://www.slope.ninja/emailAssets/playStore.png" href="https://play.google.com/store/apps/details?id=ninja.slope.app"></mj-image>
+      <mj-image align="left" padding="24px 0 0 10px" width="110px" height="36px" src="https://slope.ninja/emailAssets/playStore.png" href="https://play.google.com/store/apps/details?id=ninja.slope.app"></mj-image>
     </mj-column>
   </mj-group>
 
@@ -53,7 +53,7 @@ const generateFooter = () => `
 
    <mj-group width="100%">
     <mj-column>
-      <mj-image align="right" padding="0 0 0 0" width="110px" src="http://www.slope.ninja/emailAssets/moutains.png"></mj-image>
+      <mj-image align="right" padding="0 0 0 0" width="110px" src="https://slope.ninja/emailAssets/moutains.png"></mj-image>
     </mj-column>
   </mj-group>
 
