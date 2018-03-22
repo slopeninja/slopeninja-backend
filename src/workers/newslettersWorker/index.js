@@ -61,10 +61,10 @@ export const run = async () => {
 
   resorts.sort((a, b) => {
     if (a.weather.newSnow === b.weather.newSnow) {
-      return a.weather.snowDepth - b.weather.snowDepth;
+      return b.weather.snowDepth - a.weather.snowDepth;
     }
 
-    return a.weather.newSnow - b.weather.newSnow;
+    return b.weather.newSnow - a.weather.newSnow;
   });
 
   const resortRows = resorts.map((resort) => {
