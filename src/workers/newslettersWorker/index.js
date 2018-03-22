@@ -60,25 +60,11 @@ export const run = async () => {
   }
 
   resorts.sort((a, b) => {
-    if (a.weather.snowDepth < b.weather.snowDepth) {
-      return 1;
-    }
-    if (a.weather.snowDepth > b.weather.snowDepth) {
-      return -1;
+    if (a.weather.newSnow === b.weather.newSnow) {
+      return a.weather.snowDepth - b.weather.snowDepth;
     }
 
-    return 0;
-  });
-
-  resorts.sort((a, b) => {
-    if (a.weather.newSnow < b.weather.newSnow) {
-      return 1;
-    }
-    if (a.weather.newSnow > b.weather.newSnow) {
-      return -1;
-    }
-
-    return 0;
+    return a.weather.newSnow - b.weather.newSnow;
   });
 
   const resortRows = resorts.map((resort) => {
