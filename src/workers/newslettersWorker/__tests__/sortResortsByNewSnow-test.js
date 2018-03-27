@@ -1,6 +1,6 @@
-import { sortResortsByNewSnowOrSnowDepth } from '../sortResortsByNewSnow';
+import { sortResortsByNewSnowOrSnowDepth } from '../sortResortsByNewSnowOrSnowDepth';
 
-test('sorts resorts by new snow', () => {
+test('sorts resorts by new snow or snow depth', () => {
   const SORTING_INPUT_DATA_SAMPLE = [
     {
       name: 'Diamond Peak',
@@ -133,20 +133,20 @@ test('sorts resorts by new snow', () => {
       status: 'closed',
     },
     {
-      name: 'Diamond Peak',
-      weather: {
-        newSnow: null,
-        snowDepth: null,
-      },
-      status: 'open',
-    },
-    {
       name: 'Heavenly',
       weather: {
         newSnow: null,
         snowDepth: null,
       },
       status: 'closed',
+    },
+    {
+      name: 'Diamond Peak',
+      weather: {
+        newSnow: null,
+        snowDepth: null,
+      },
+      status: 'open',
     },
   ];
 
