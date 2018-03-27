@@ -151,6 +151,5 @@ test('sorts resorts by new snow', () => {
   ];
 
   const sortedResorts = sortResortsByNewSnowOrSnowDepth(SORTING_INPUT_DATA_SAMPLE);
-  sortedResorts.map(resort => console.log(resort.name))
   expect(sortedResorts).toEqual(SORTING_OUTPUT_DATA_SAMPLE);
 });
