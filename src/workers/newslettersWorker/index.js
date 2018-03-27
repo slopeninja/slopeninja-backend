@@ -7,6 +7,8 @@ import NewsletterService from '../../services/NewsletterService';
 
 import generateEmail from './generateTemplate';
 
+import { sortResortsByNewSnowOrSnowDepth } from './sortResortsByNewSnowOrSnowDepth';
+
 const { MAILCHIMP_PRIVATE_KEY } = process.env;
 
 const EMAIL_ASSETS_BASE_URL = 'https://slope.ninja/emailAssets';
@@ -59,13 +61,8 @@ export const run = async () => {
     return;
   }
 
-  resorts.sort((a, b) => {
-    if (a.weather.newSnow === b.weather.newSnow) {
-      return b.weather.snowDepth - a.weather.snowDepth;
-    }
-
-    return b.weather.newSnow - a.weather.newSnow;
-  });
+  // modifies resorts in place
+  sortResortsByNewSnowOrSnowDepth(resorts);
 
   const resortRows = resorts.map((resort) => {
     return {
