@@ -6,11 +6,16 @@ export const generateMetadataWithSnapshot = (metadata, snapshot) => {
     .utc()
     .startOf('day')
     .subtract(1, 'days');
-  const snapshopIsFromYesterday = moment(snapshot.dateTime)
+  const snapShotDateTimeUnix = Math.floor(snapshot.dateTime / 1000);
+  const isSnapshotFromYesterday = moment
+    .unix(snapShotDateTimeUnix)
     .utc()
     .isSame(yesterday, 'd');
 
-  if (snapshopIsFromYesterday) {
+  if (isSnapshotFromYesterday) {
+    /* eslint-disable no-console */
+    console.log(`Found yesterday's snapshot for ${metadata.name}`);
+    /* eslint-enable */
     const snapshotNewSnow = idx(snapshot, _ => _.metadata.weather.newSnow);
     const newSnow = idx(metadata, _ => _.weather.newSnow);
 
@@ -20,6 +25,9 @@ export const generateMetadataWithSnapshot = (metadata, snapshot) => {
     const outdated = snapshotNewSnow === newSnow && snapshotSnowDepth === snowDepth;
 
     if (outdated) {
+      /* eslint-disable no-console */
+      console.log(`Metdata is outdated for ${metadata.name}. Fixing it`);
+      /* eslint-enable */
       return {
         ...metadata,
         weather: {
@@ -28,6 +36,14 @@ export const generateMetadataWithSnapshot = (metadata, snapshot) => {
         },
       };
     }
+
+    /* eslint-disable no-console */
+    console.log(`Metdata is up-to-date for ${metadata.name}`);
+    /* eslint-enable */
+  } else {
+    /* eslint-disable no-console */
+    console.log(`No recent snapshot found for ${metadata.name}`);
+    /* eslint-enable */
   }
 
   return metadata;
