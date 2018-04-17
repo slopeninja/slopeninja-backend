@@ -49,7 +49,15 @@ class SnapshotService {
     const result = await query(params);
 
     if (result.Count > 0) {
-      return JSON.parse(result.Items[0].data.S);
+      const metadata = JSON.parse(result.Items[0].data.S);
+      const dateTime = result.Items[0].dateTime.N;
+
+      const snapshot = {
+        metadata,
+        dateTime,
+      };
+
+      return snapshot;
     }
 
     return null;
