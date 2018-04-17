@@ -1,7 +1,7 @@
+import moment from 'moment';
 import { generateMetadataWithSnapshot } from '../generateMetadataWithSnapshot';
 
 const SAMPLE_VALID_SNAPSHOT = {
-  dateTime: 1523836800000,
   metadata: {
     id: 'b5f852fd-aae0-4ac2-9cca-0ddea17df2aa',
     shortName: 'boreal',
@@ -216,7 +216,11 @@ const SAMPLE_OUTPUT = {
 };
 
 test('compares data from snapshot from yesterday and updates newSnow accordingly', async () => {
-  expect(generateMetadataWithSnapshot(SAMPLE_METADATA_STALE, SAMPLE_VALID_SNAPSHOT))
+  const yesterday = moment()
+    .utc()
+    .startOf('day')
+    .subtract(1, 'days');
+  expect(generateMetadataWithSnapshot(SAMPLE_METADATA_STALE, SAMPLE_VALID_SNAPSHOT, yesterday))
     .toEqual(SAMPLE_OUTPUT);
 });
 

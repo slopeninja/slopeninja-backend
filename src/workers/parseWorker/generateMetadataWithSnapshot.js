@@ -1,12 +1,12 @@
 import moment from 'moment';
 import idx from 'idx';
 
-export const generateMetadataWithSnapshot = (metadata, snapshot) => {
+export const generateMetadataWithSnapshot = (metadata, snapshot, snapshotTime) => {
   const yesterday = moment()
     .utc()
     .startOf('day')
     .subtract(1, 'days');
-  const snapShotDateTimeUnix = Math.floor(snapshot.dateTime / 1000);
+  const snapShotDateTimeUnix = Math.floor(snapshot.dateTime || snapshotTime / 1000);
   const isSnapshotFromYesterday = moment
     .unix(snapShotDateTimeUnix)
     .utc()
