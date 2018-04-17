@@ -7,6 +7,7 @@ import { run as runNewslettersWorker } from './newslettersWorker';
 import { run as runNotificationsWorkerAM } from './notificationsWorker/index-am';
 import { run as runNotificationsWorkerPM } from './notificationsWorker/index-pm';
 import { run as runSocialMediaWorker } from './socialMediaWorker';
+import { run as snapshotWorker } from './snapshotWorker';
 
 const TIMEZONE = 'America/Los_Angeles';
 // const EVERY_SECOND = '* * * * * *';
@@ -101,10 +102,28 @@ const notificationsPMJob = new CronJob(
   TIMEZONE,
 );
 
+const snapshotJob = new CronJob(
+  EVERYDAY_AT_1_PM,
+  async () => {
+    try {
+      await snapshotWorker();
+    } catch (error) {
+      /* eslint-disable no-console */
+      console.log(error);
+      /* eslint-enable */
+      Raven.captureException(error);
+    }
+  },
+  null,
+  false,
+  TIMEZONE,
+);
+
 export const run = () => {
   parserJob.start();
   newslettersJob.start();
   socialMediaJob.start();
   notificationsAMJob.start();
   notificationsPMJob.start();
+  snapshotJob.start();
 };
