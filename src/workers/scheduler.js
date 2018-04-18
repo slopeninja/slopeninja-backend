@@ -9,14 +9,19 @@ import { run as runNotificationsWorkerPM } from './notificationsWorker/index-pm'
 import { run as runSocialMediaWorker } from './socialMediaWorker';
 import { run as snapshotWorker } from './snapshotWorker';
 
-const TIMEZONE = 'America/Los_Angeles';
+const TIMEZONE = 'Etc/UTC';
 // const EVERY_SECOND = '* * * * * *';
 const EVERY_HALF_HOUR = '*/30 * * * *';
 // const EVERY_HOUR = '0 * * * *';
-const EVERYDAY_AT_1_PM = '0 13 * * *';
-const EVERYDAY_AT_5_AM = '0 5 * * *';
-const EVERYDAY_AT_5_PM = '0 17 * * *';
-const EVERYDAY_AT_11_45_PM = '45 23 * * *';
+
+// 1 PM PST
+const EVERYDAY_AT_8_PM = '0 20 * * *';
+// 5 AM PST
+const EVERYDAY_AT_12_PM = '0 12 * * *';
+// 5 PM PST
+const EVERYDAY_AT_12_AM = '0 0 * * *';
+// 11:45 PM PST
+const EVERYDAY_AT_6_45_AM = '45 6 * * *';
 
 const parserJob = new CronJob(
   EVERY_HALF_HOUR,
@@ -36,7 +41,7 @@ const parserJob = new CronJob(
 );
 
 const newslettersJob = new CronJob(
-  EVERYDAY_AT_1_PM,
+  EVERYDAY_AT_8_PM,
   async () => {
     try {
       await runNewslettersWorker();
@@ -53,7 +58,7 @@ const newslettersJob = new CronJob(
 );
 
 const socialMediaJob = new CronJob(
-  EVERYDAY_AT_1_PM,
+  EVERYDAY_AT_8_PM,
   async () => {
     try {
       await runSocialMediaWorker();
@@ -70,7 +75,7 @@ const socialMediaJob = new CronJob(
 );
 
 const notificationsAMJob = new CronJob(
-  EVERYDAY_AT_5_AM,
+  EVERYDAY_AT_12_PM,
   async () => {
     try {
       await runNotificationsWorkerAM();
@@ -87,7 +92,7 @@ const notificationsAMJob = new CronJob(
 );
 
 const notificationsPMJob = new CronJob(
-  EVERYDAY_AT_5_PM,
+  EVERYDAY_AT_12_AM,
   async () => {
     try {
       await runNotificationsWorkerPM();
@@ -104,7 +109,7 @@ const notificationsPMJob = new CronJob(
 );
 
 const snapshotJob = new CronJob(
-  EVERYDAY_AT_11_45_PM,
+  EVERYDAY_AT_6_45_AM,
   async () => {
     try {
       await snapshotWorker();
