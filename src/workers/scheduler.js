@@ -21,7 +21,7 @@ const EVERYDAY_AT_12_PM = '0 12 * * *';
 // 5 PM PST
 const EVERYDAY_AT_12_AM = '0 0 * * *';
 // 11:45 PM PST
-const EVERYDAY_AT_6_45_AM = '45 6 * * *';
+const EVERYDAY_AT_11_45_PM = '45 23 * * *';
 
 const parserJob = new CronJob(
   EVERY_HALF_HOUR,
@@ -109,7 +109,7 @@ const notificationsPMJob = new CronJob(
 );
 
 const snapshotJob = new CronJob(
-  EVERYDAY_AT_6_45_AM,
+  EVERYDAY_AT_11_45_PM,
   async () => {
     try {
       await snapshotWorker();
