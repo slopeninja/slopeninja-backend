@@ -46,6 +46,51 @@ const SAMPLE_VALID_SNAPSHOT = {
   },
 };
 
+const SAMPLE_VALID_SNAPSHOT_WITH_UPDATED_METADATA = {
+  metadata: {
+    id: 'b5f852fd-aae0-4ac2-9cca-0ddea17df2aa',
+    shortName: 'boreal',
+    logo: '/images/resorts/boreal.svg',
+    name: 'Boreal',
+    roads: [
+      {
+        number: '80',
+        prefix: 'I',
+        status: 'open',
+        sourceUrl: 'http://www.dot.ca.gov/hq/roadinfo/i80',
+        chainStatus: null,
+      },
+      {
+        number: '89',
+        prefix: 'CA',
+        status: 'closed',
+        sourceUrl: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
+        chainStatus: null,
+      },
+      {
+        number: '267',
+        prefix: 'CA',
+        status: 'open',
+        sourceUrl: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
+        chainStatus: null,
+      },
+    ],
+    stale: false,
+    coords: { lat: 39.332769, lng: -120.347075 },
+    status: 'open',
+    weather: {
+      base: null,
+      newSnow: 0,
+      condition: 'cloudy',
+      snowDepth: 120,
+      temperature: 30,
+    },
+    location: 'Soda Springs, CA 95728',
+    liftCounts: { open: 28, total: 34 },
+    trailCounts: { open: 28, total: 34 },
+  },
+};
+
 const SAMPLE_INVALID_SNAPSHOT = {
   dateTime: 1522836800000,
   metadata: {
@@ -221,6 +266,12 @@ test('compares data from snapshot from yesterday and updates newSnow accordingly
     .startOf('day')
     .subtract(1, 'days');
   expect(generateMetadataWithSnapshot(SAMPLE_METADATA_STALE, SAMPLE_VALID_SNAPSHOT, yesterday))
+    .toEqual(SAMPLE_OUTPUT);
+  expect(generateMetadataWithSnapshot(
+    SAMPLE_METADATA_STALE,
+    SAMPLE_VALID_SNAPSHOT_WITH_UPDATED_METADATA,
+    yesterday,
+  ))
     .toEqual(SAMPLE_OUTPUT);
 });
 

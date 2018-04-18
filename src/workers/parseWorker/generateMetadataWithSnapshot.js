@@ -16,13 +16,11 @@ export const generateMetadataWithSnapshot = (metadata, snapshot, snapshotTime) =
     /* eslint-disable no-console */
     console.log(`Found yesterday's snapshot for ${metadata.name}`);
     /* eslint-enable */
-    const snapshotNewSnow = idx(snapshot, _ => _.metadata.weather.newSnow);
-    const newSnow = idx(metadata, _ => _.weather.newSnow);
 
     const snapshotSnowDepth = idx(snapshot, _ => _.metadata.weather.snowDepth);
     const snowDepth = idx(metadata, _ => _.weather.snowDepth);
 
-    const outdated = snapshotNewSnow === newSnow && snapshotSnowDepth === snowDepth;
+    const outdated = snapshotSnowDepth === snowDepth;
 
     if (outdated) {
       /* eslint-disable no-console */
