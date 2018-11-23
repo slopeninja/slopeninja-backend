@@ -6,7 +6,7 @@ Object {
     Object {
       "category": null,
       "name": "Tamarack",
-      "status": "open",
+      "status": "closed",
     },
     Object {
       "category": null,
@@ -56,7 +56,7 @@ Object {
     Object {
       "category": null,
       "name": "Gondola",
-      "status": "open",
+      "status": "closed",
     },
     Object {
       "category": null,
@@ -146,7 +146,7 @@ Object {
     Object {
       "category": null,
       "name": "Tubing Lift",
-      "status": "open",
+      "status": "closed",
     },
   ],
 }
@@ -183,7 +183,7 @@ Object {
       "category": "Top Of Gondola",
       "level": "intermediate",
       "name": "California Trail",
-      "status": "open",
+      "status": "closed",
     },
     Object {
       "category": "Top Of Gondola",
@@ -213,7 +213,7 @@ Object {
       "category": "Top Of Gondola",
       "level": "intermediate",
       "name": "Tamarack Return",
-      "status": "open",
+      "status": "closed",
     },
     Object {
       "category": "Top Of Gondola",
@@ -734,7 +734,7 @@ Object {
     Object {
       "category": "Nevada",
       "level": "intermediate",
-      "name": "Orion's",
+      "name": "Orion",
       "status": "closed",
     },
     Object {
