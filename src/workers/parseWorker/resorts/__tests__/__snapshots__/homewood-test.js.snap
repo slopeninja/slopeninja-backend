@@ -25,7 +25,12 @@ Object {
     },
     Object {
       "category": null,
-      "name": "South Carpet Surface Lift",
+      "name": "South Carpet",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Magic Carpet",
       "status": "closed",
     },
     Object {
@@ -36,11 +41,6 @@ Object {
     Object {
       "category": null,
       "name": "Alpine Platter",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Magic Carpet",
       "status": "closed",
     },
   ],
@@ -125,19 +125,13 @@ Object {
     Object {
       "category": "Quail Chair",
       "level": "beginner",
-      "name": "Overload",
-      "status": "open",
-    },
-    Object {
-      "category": "Quail Chair",
-      "level": "beginner",
-      "name": "Homeward Bound",
+      "name": "Homewood Bound",
       "status": "closed",
     },
     Object {
       "category": "Quail Chair",
-      "level": "intermediate",
-      "name": "Short Cut",
+      "level": "beginner",
+      "name": "Overload",
       "status": "closed",
     },
     Object {
@@ -168,6 +162,12 @@ Object {
       "category": "Quail Chair",
       "level": "intermediate",
       "name": "Prospector",
+      "status": "closed",
+    },
+    Object {
+      "category": "Quail Chair",
+      "level": "intermediate",
+      "name": "Short Cut",
       "status": "closed",
     },
     Object {
@@ -208,8 +208,8 @@ Object {
     },
     Object {
       "category": "Ellis Chair",
-      "level": "intermediate",
-      "name": "Smooth Cruise",
+      "level": "beginner",
+      "name": "Upper Homewood Bound",
       "status": "closed",
     },
     Object {
@@ -227,12 +227,6 @@ Object {
     Object {
       "category": "Ellis Chair",
       "level": "intermediate",
-      "name": "Upper Homeward Bound",
-      "status": "closed",
-    },
-    Object {
-      "category": "Ellis Chair",
-      "level": "intermediate",
       "name": "Hidden Vein",
       "status": "closed",
     },
@@ -240,6 +234,12 @@ Object {
       "category": "Ellis Chair",
       "level": "intermediate",
       "name": "High Grade",
+      "status": "closed",
+    },
+    Object {
+      "category": "Ellis Chair",
+      "level": "intermediate",
+      "name": "Hoop's",
       "status": "closed",
     },
     Object {
@@ -263,6 +263,12 @@ Object {
     Object {
       "category": "Ellis Chair",
       "level": "intermediate",
+      "name": "Smooth Cruise",
+      "status": "closed",
+    },
+    Object {
+      "category": "Ellis Chair",
+      "level": "intermediate",
       "name": "The Glades",
       "status": "closed",
     },
@@ -270,12 +276,6 @@ Object {
       "category": "Ellis Chair",
       "level": "intermediate",
       "name": "Third Creek",
-      "status": "closed",
-    },
-    Object {
-      "category": "Ellis Chair",
-      "level": "advanced",
-      "name": "Little Dipper",
       "status": "closed",
     },
     Object {
@@ -304,8 +304,8 @@ Object {
     },
     Object {
       "category": "Ellis Chair",
-      "level": "expert",
-      "name": "Quail Face",
+      "level": "advanced",
+      "name": "Hobbit Land",
       "status": "closed",
     },
     Object {
@@ -316,20 +316,8 @@ Object {
     },
     Object {
       "category": "Ellis Chair",
-      "level": "expert",
-      "name": "The Shoulder",
-      "status": "closed",
-    },
-    Object {
-      "category": "Ellis Chair",
       "level": "advanced",
-      "name": "Hobbit Land",
-      "status": "closed",
-    },
-    Object {
-      "category": "Ellis Chair",
-      "level": "expert",
-      "name": "Wally's Folly",
+      "name": "Little Dipper",
       "status": "closed",
     },
     Object {
@@ -340,8 +328,8 @@ Object {
     },
     Object {
       "category": "Ellis Chair",
-      "level": "expert",
-      "name": "55' Chutes",
+      "level": "advanced",
+      "name": "The Shoulder",
       "status": "closed",
     },
     Object {
@@ -353,13 +341,31 @@ Object {
     Object {
       "category": "Ellis Chair",
       "level": "expert",
+      "name": "55' Chutes",
+      "status": "closed",
+    },
+    Object {
+      "category": "Ellis Chair",
+      "level": "expert",
       "name": "Main Cirque",
+      "status": "closed",
+    },
+    Object {
+      "category": "Ellis Chair",
+      "level": "expert",
+      "name": "Wally's Folly",
       "status": "closed",
     },
     Object {
       "category": "Old Homewood Express",
       "level": "intermediate",
       "name": "Bonanza",
+      "status": "closed",
+    },
+    Object {
+      "category": "Old Homewood Express",
+      "level": "intermediate",
+      "name": "Kolby's Escape",
       "status": "closed",
     },
     Object {
@@ -382,8 +388,14 @@ Object {
     },
     Object {
       "category": "Old Homewood Express",
-      "level": "advanced",
+      "level": "intermediate",
       "name": "Wash Pan",
+      "status": "closed",
+    },
+    Object {
+      "category": "Old Homewood Express",
+      "level": "advanced",
+      "name": "Gilbert's Gulch",
       "status": "closed",
     },
     Object {
@@ -395,7 +407,7 @@ Object {
     Object {
       "category": "Old Homewood Express",
       "level": "advanced",
-      "name": "Gilbert's Gulch",
+      "name": "Lasky Lane",
       "status": "closed",
     },
     Object {
@@ -417,15 +429,15 @@ Object {
       "status": "closed",
     },
     Object {
-      "category": "Old Homewood Express",
-      "level": "advanced",
-      "name": "Lasky Lane",
+      "category": "South Carpet",
+      "level": "beginner",
+      "name": "Children's Center",
       "status": "closed",
     },
     Object {
-      "category": "South Carpet Surface Lift",
+      "category": "Magic Carpet",
       "level": "beginner",
-      "name": "Children's Center",
+      "name": "Easy Slider",
       "status": "closed",
     },
     Object {
@@ -435,21 +447,9 @@ Object {
       "status": "closed",
     },
     Object {
-      "category": "Happy Platter",
-      "level": "beginner",
-      "name": "Park Place",
-      "status": "closed",
-    },
-    Object {
       "category": "Alpine Platter",
       "level": "beginner",
       "name": "Smooth Ride",
-      "status": "closed",
-    },
-    Object {
-      "category": "Magic Carpet",
-      "level": "beginner",
-      "name": "Easy Slider",
       "status": "closed",
     },
   ],

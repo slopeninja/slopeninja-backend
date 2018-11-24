@@ -1,9 +1,9 @@
 import {
-  degreeOrNull,
   inchOrNull,
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
   trailLevelOrNull,
+  numberOrNull,
 } from '../weatherUtil';
 
 const initialSnow = {
@@ -27,40 +27,68 @@ const initialTrails = {
 };
 
 export const parseHomewoodSnow = async ($) => {
-  const temperature = $('#current_temp_hi').text().trim();
+  // const temperature = $('.time_temperature').text().trim();
   // 24 Hours
-  const newSnow24Hr = $('#current_snow_conditions table tr td').slice(4, 5).text().trim();
+  const newSnow24Hr = $('.snow-24-hr').slice(2, 3).text();
   // Base
-  const snowDepthBase = $('#current_snow_conditions table tr td').slice(1, 2).text().trim();
+  const snowDepthBase = $('.season-total ')
+    .slice(0, 1)
+    .text()
+    .trim()
+    .slice(12, 14);
 
-  const snowDepthSummit = $('#current_snow_conditions table tr td').slice(2, 3).text().trim();
+  const snowDepthSummit = $('.season-total ').slice(2, 3).text().trim();
   return {
     ...initialSnow,
-    temperature: degreeOrNull(temperature),
+    // temperature: degreeOrNull(temperature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),
   };
 };
 
-export const parseHomewoodLiftCounts = async () => {
+export const parseHomewoodLiftCounts = async ($) => {
+  const open = Number.parseInt($('#lift-stats-wrapper .numerator').first().text().trim(), 10);
+  const total = Number.parseInt(
+    $('#lift-stats-wrapper .denominator')
+      .first()
+      .text()
+      .trim()
+      .replace('/', ''),
+    10,
+  );
+
   return {
     ...initialLifts,
+    open: numberOrNull(open),
+    total: numberOrNull(total),
   };
 };
 
-export const parseHomewoodTrailCounts = async () => {
+export const parseHomewoodTrailCounts = async ($) => {
+  const open = Number.parseInt($('#lift-stats-wrapper .numerator').slice(1, 2).text().trim(), 10);
+  const total = Number.parseInt(
+    $('#lift-stats-wrapper .denominator')
+      .slice(1, 2)
+      .text()
+      .trim()
+      .replace('/', ''),
+    10,
+  );
+
   return {
     ...initialTrails,
+    open: numberOrNull(open),
+    total: numberOrNull(total),
   };
 };
 
 export const parseHomewoodLifts = async ($) => {
   const list = [];
 
-  $('.lifts_table .lift_header').each((index, liftHeaderElement) => {
-    const nameElements = $(liftHeaderElement).find('h4');
-    const statusElements = $(liftHeaderElement).find('div');
+  $('.chair-header').each((index, liftHeaderElement) => {
+    const nameElements = $(liftHeaderElement).find('h2');
+    const statusElements = $(liftHeaderElement).find('span.chair-details');
 
     const name = notEmptyStringOrNull($(nameElements).text().trim());
     const status = liftTrailStatusOrNull($(statusElements).text().trim());
@@ -81,28 +109,25 @@ export const parseHomewoodLifts = async ($) => {
 export const parseHomewoodTrails = async ($) => {
   const list = [];
 
-  $('#lifts_wrapper .lifts_table tbody').each((index, tableElement) => {
-    $(tableElement).find('td.beginner, td.intermediate, td.advanced, td.expert').each((i, tdElement) => {
-      const statusElement = $(tdElement).next();
-      const nameElement = $(tdElement);
-      const levelElement = $(tdElement);
-      const categoryElement = $(tdElement.parent).siblings().first().find('h4');
+  $('.runs-wrapper').find('.run').each((index, rowElement) => {
+    const nameElement = $(rowElement).find('.run-name');
+    const levelElement = $(rowElement).find('.run-level img');
+    const statusElement = $(rowElement).find('.run-status img');
+    const categoryElement = $(rowElement.parent.parent).prev('.chair-header').find('h2').first();
 
-      const name = notEmptyStringOrNull($(nameElement).text().trim());
-      const status = liftTrailStatusOrNull($(statusElement).text().trim());
-      const level = trailLevelOrNull(levelElement.attr('class'));
-      const category = notEmptyStringOrNull($(categoryElement).text().trim());
+    const name = notEmptyStringOrNull($(nameElement).text().trim());
+    const status = liftTrailStatusOrNull($(statusElement).attr('alt'));
+    const level = trailLevelOrNull($(levelElement).attr('alt'));
+    const category = notEmptyStringOrNull($(categoryElement).text().trim());
 
+    const trail = {
+      name,
+      status,
+      category,
+      level,
+    };
 
-      const trail = {
-        name,
-        status,
-        category,
-        level,
-      };
-
-      list.push(trail);
-    });
+    list.push(trail);
   });
 
   return list;
