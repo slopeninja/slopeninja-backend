@@ -18,9 +18,9 @@ test('fetches Alpine snow data correctly', async () => {
       weatherIcon: null,
       temperature: null,
       baseCondition: null,
-      newSnow: 0,
-      snowDepthBase: null,
-      snowDepthSummit: 161,
+      newSnow: 2,
+      snowDepthBase: 18,
+      snowDepthSummit: 18,
     },
   });
 });

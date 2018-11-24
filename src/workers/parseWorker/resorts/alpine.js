@@ -1,8 +1,8 @@
 import {
-  degreeOrNull,
+  // degreeOrNull,
   inchOrNull,
   numberOrNull,
-  weatherStatusOrNull,
+  // weatherStatusOrNull,
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
   trailLevelOrNull,
@@ -29,22 +29,27 @@ const initialTrails = {
 };
 
 export const parseAlpineSnow = async ($) => {
-  const weatherIcon = $('#alpine-report .row.current .cellwrapper .cell h6').first().text().trim();
-  const temperature = $('#alpine-report .row.current .cellwrapper .cell .value').first().text().trim();
+  // const weather = $('#alpine-elevation-1 .row.current .cellwrapper .cell h6')
+  //   .first()
+  //   .text()
+  //   .trim();
+  // const temperature = $('#alpine-elevation-1 .row.current .cellwrapper .cell .value')
+  //   .first()
+  //   .text()
+  //   .trim();
   // 24
-  const newSnow24Hr = $('.row.snow .cellwrapper .cell .value').slice(1, 2).text().trim();
+  const newSnow24Hr = $('#alpine-elevation-1 .row.snow .cellwrapper .cell p.value').slice(1, 2).text().trim();
   // //Base
   const snowDepthBase = $('#alpine-elevation-2 .row.snow .cellwrapper .cell .value').slice(3, 4).text().trim();
-  const snowDepthSummit = $('#alpine-elevation-1 .row.snow .cellwrapper .cell .value').slice(3, 4).text().trim();
+  const snowDepthSummit = $('#alpine-elevation-1 .row.snow .cellwrapper .cell p.value').slice(3, 4).text().trim();
 
   return {
     ...initialSnow,
-    weatherIcon: weatherStatusOrNull(weatherIcon),
-    temperature: degreeOrNull(temperature),
+    // weatherIcon: weatherStatusOrNull(weather),
+    // temperature: degreeOrNull(temperature),
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),
-
   };
 };
 

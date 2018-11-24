@@ -16,11 +16,11 @@ test('fetches Squaw snow data correctly', async () => {
     snow: {
       status: null,
       weatherIcon: 'sunny',
-      temperature: 52,
+      temperature: 32,
       baseCondition: null,
-      newSnow: 0,
-      snowDepthBase: null,
-      snowDepthSummit: 161,
+      newSnow: 7,
+      snowDepthBase: 18,
+      snowDepthSummit: 23,
     },
   });
 });
