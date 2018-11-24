@@ -14,13 +14,13 @@ test('fetches MtRose snow data correctly', async () => {
   const resortData = await createHtmlParser('snow', parseMtRoseSnow)(htmlText);
   expect(resortData).toEqual({
     snow: {
-      status: 'closed',
-      weatherIcon: 'cloudy',
-      temperature: 25,
+      status: null,
+      weatherIcon: null,
+      temperature: 32,
       baseCondition: null,
-      newSnow: 0,
-      snowDepthBase: 12,
-      snowDepthSummit: 18,
+      newSnow: 2,
+      snowDepthBase: 14,
+      snowDepthSummit: 20,
     },
   });
 });
