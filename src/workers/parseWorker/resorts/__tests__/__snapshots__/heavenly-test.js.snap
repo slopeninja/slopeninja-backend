@@ -177,13 +177,13 @@ Object {
       "category": "Top Of Gondola",
       "level": "beginner",
       "name": "Black Bear Hollow",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Top Of Gondola",
       "level": "intermediate",
       "name": "California Trail",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Top Of Gondola",
@@ -213,7 +213,7 @@ Object {
       "category": "Top Of Gondola",
       "level": "intermediate",
       "name": "Tamarack Return",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Top Of Gondola",

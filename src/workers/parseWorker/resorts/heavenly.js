@@ -95,11 +95,11 @@ export const parseHeavenlySnow = async ($) => {
 
 export const parseHeavenlyLiftCounts = async ($) => {
   const openLifts = Number.parseInt(
-    $('.c118__number1--v1').slice(2, 3).text(),
+    $('.c118__number1--v1').slice(1, 2).text(),
     10,
   );
   const totalLifts = Number.parseInt(
-    $('.c118__number2--v1').slice(2, 3).text().replace('/', ''),
+    $('.c118__number2--v1').slice(1, 2).text().replace('/', ''),
     10,
   );
 
