@@ -81,7 +81,7 @@ router.post('/subscribers', async (ctx) => {
   // Forward the post reqest to MailChimp api
   const token = Buffer.from(`anystring:${MAILCHIMP_PRIVATE_KEY}`).toString('base64');
 
-  const mailchimpResponse = await fetch('http://us15.api.mailchimp.com/3.0/lists/b56b3d32c5/members', {
+  const mailchimpResponse = await fetch('https://us15.api.mailchimp.com/3.0/lists/b56b3d32c5/members', {
     method: 'POST',
     headers:
     new Headers({
