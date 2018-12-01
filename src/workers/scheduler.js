@@ -15,13 +15,13 @@ const EVERY_HALF_HOUR = '*/30 * * * *';
 // const EVERY_HOUR = '0 * * * *';
 
 // 1 PM PST
-const EVERYDAY_AT_8_PM = '0 20 * * *';
+const EVERYDAY_AT_9_PM = '0 21 * * *';
 // 5 AM PST
-const EVERYDAY_AT_12_PM = '0 12 * * *';
+const EVERYDAY_AT_1_PM = '0 13 * * *';
 // 5 PM PST
-const EVERYDAY_AT_12_AM = '0 0 * * *';
+const EVERYDAY_AT_1_AM = '0 1 * * *';
 // 11:45 PM PST
-const EVERYDAY_AT_11_45_PM = '45 23 * * *';
+const EVERYDAY_AT_7_45_AM = '45 7 * * *';
 
 const parserJob = new CronJob(
   EVERY_HALF_HOUR,
@@ -41,7 +41,7 @@ const parserJob = new CronJob(
 );
 
 const newslettersJob = new CronJob(
-  EVERYDAY_AT_8_PM,
+  EVERYDAY_AT_9_PM,
   async () => {
     try {
       await runNewslettersWorker();
@@ -58,7 +58,7 @@ const newslettersJob = new CronJob(
 );
 
 const socialMediaJob = new CronJob(
-  EVERYDAY_AT_8_PM,
+  EVERYDAY_AT_9_PM,
   async () => {
     try {
       await runSocialMediaWorker();
@@ -75,7 +75,7 @@ const socialMediaJob = new CronJob(
 );
 
 const notificationsAMJob = new CronJob(
-  EVERYDAY_AT_12_PM,
+  EVERYDAY_AT_1_PM,
   async () => {
     try {
       await runNotificationsWorkerAM();
@@ -92,7 +92,7 @@ const notificationsAMJob = new CronJob(
 );
 
 const notificationsPMJob = new CronJob(
-  EVERYDAY_AT_12_AM,
+  EVERYDAY_AT_1_AM,
   async () => {
     try {
       await runNotificationsWorkerPM();
@@ -109,7 +109,7 @@ const notificationsPMJob = new CronJob(
 );
 
 const snapshotJob = new CronJob(
-  EVERYDAY_AT_11_45_PM,
+  EVERYDAY_AT_7_45_AM,
   async () => {
     try {
       await snapshotWorker();
