@@ -46,7 +46,7 @@ test('fetches Kirkwood lifts data correctly', async () => {
   expect(resortData).toEqual({
     liftCounts: {
       total: 15,
-      open: 0,
+      open: null,
     },
   });
 });

@@ -52,10 +52,10 @@ export const parseKirkwoodSnow = async ($) => {
 };
 
 export const parseKirkwoodLiftCounts = async ($) => {
-  const openLifts = Number.parseInt(
-    $('.c118__number1--v1').first().text(),
-    10,
-  );
+  // const openLifts = Number.parseInt(
+  //   $('.c118__number1--v1').first().text(),
+  //   10,
+  // );
   const totalLifts = Number.parseInt(
     $('.c118__number2--v1').first().text().replace('/', ''),
     10,
@@ -64,7 +64,7 @@ export const parseKirkwoodLiftCounts = async ($) => {
   return {
     ...initialLifts,
     total: numberOrNull(totalLifts),
-    open: numberOrNull(openLifts),
+    // open: numberOrNull(openLifts),
   };
 };
 
