@@ -1,0 +1,199 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "slope ninja",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GetSnowConditionsIntent",
+                    "slots": [
+                        {
+                            "name": "resort",
+                            "type": "ResortType",
+                            "samples": [
+                                "for {resort}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "what about {resort}",
+                        "how about {resort}",
+                        "for conditions at {resort}",
+                        "for {resort} conditions",
+                        "{resort} conditions",
+                        "conditions at {resort}",
+                        "conditions {resort}",
+                        "snow conditions",
+                        "conditions",
+                        "for {resort}",
+                        "{resort}",
+                        "snow conditions {resort}",
+                        "snow conditions at {resort}",
+                        "{resort} snow conditions",
+                        "for {resort} snow conditions",
+                        "for snow conditions at {resort}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "ResortType",
+                    "values": [
+                        {
+                            "id": "alpine-meadows",
+                            "name": {
+                                "value": "Alpine Meadows",
+                                "synonyms": [
+                                    "alpine"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "boreal",
+                            "name": {
+                                "value": "Boreal"
+                            }
+                        },
+                        {
+                            "id": "diamond-peak",
+                            "name": {
+                                "value": "Diamond Peak"
+                            }
+                        },
+                        {
+                            "id": "donner-ski-ranch",
+                            "name": {
+                                "value": "Donner Ski Ranch",
+                                "synonyms": [
+                                    "donner"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "heavenly",
+                            "name": {
+                                "value": "Heavenly"
+                            }
+                        },
+                        {
+                            "id": "homewood",
+                            "name": {
+                                "value": "Homewood"
+                            }
+                        },
+                        {
+                            "id": "kirkwood",
+                            "name": {
+                                "value": "Kirkwood"
+                            }
+                        },
+                        {
+                            "id": "mt-rose",
+                            "name": {
+                                "value": "Mt Rose"
+                            }
+                        },
+                        {
+                            "id": "northstar",
+                            "name": {
+                                "value": "Northstar"
+                            }
+                        },
+                        {
+                            "id": "sierra-at-tahoe",
+                            "name": {
+                                "value": "Sierra at Tahoe",
+                                "synonyms": [
+                                    "sierra"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "squaw-valley",
+                            "name": {
+                                "value": "Squaw Valley",
+                                "synonyms": [
+                                    "squaw"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "sugar-bowl",
+                            "name": {
+                                "value": "Sugar Bowl",
+                                "synonyms": [
+                                    "sugar"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "GetSnowConditionsIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "resort",
+                            "type": "ResortType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.863179880131.1226512242671"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.269974999767.737932256922.790591844937"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.863179880131.1226512242671",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "now tell me what resort you want it for?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.269974999767.737932256922.790591844937",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Hmm. I do not believe {resort} is in Tahoe. Currently, Slope Ninja only knows about Tahoe resorts. For which Tahoe resort would you like snow conditions?"
+                    }
+                ]
+            }
+        ]
+    }
+}

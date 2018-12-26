@@ -3,6 +3,8 @@ import Koa from 'koa';
 import koaCors from 'kcors';
 import KoaRouter from 'koa-router';
 import koaBodyParser from 'koa-bodyparser';
+import koaAlexa from 'koa-alexa';
+import koaMount from 'koa-mount';
 import statuses from 'statuses';
 
 import Joi from 'joi';
@@ -10,6 +12,7 @@ import Joi from 'joi';
 import ResortService from './services/ResortService';
 import UserDeviceService from './services/UserDeviceService';
 import NewsletterService from './services/NewsletterService';
+import AlexaService from './services/AlexaService/AlexaService';
 
 const { MAILCHIMP_PRIVATE_KEY } = process.env;
 
@@ -165,6 +168,17 @@ router.get('/newsletters/latest', async (ctx) => {
 
 koaApp.use(koaCors());
 koaApp.use(koaBodyParser());
+koaApp.use(koaMount('/alexa', async (ctx) => {
+  const resortService = new ResortService();
+  const resorts = await resortService.getResorts();
+  const alexaService = new AlexaService(resorts);
+  const skill = alexaService.getSkill();
+
+  return koaAlexa({
+    skill,
+    validate: true,
+  })(ctx);
+}));
 koaApp.use(router.routes());
 
 export default koaApp;
