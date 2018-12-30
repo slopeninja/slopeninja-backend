@@ -18,9 +18,9 @@ test('fetches Boreal snow data correctly', async () => {
       weatherIcon: null,
       temperature: null,
       baseCondition: null,
-      newSnow: 8,
-      snowDepthBase: 130,
-      snowDepthSummit: 135,
+      newSnow: 0,
+      snowDepthBase: 70,
+      snowDepthSummit: 70,
     },
   });
 });
@@ -61,7 +61,7 @@ test('fetches Boreal lifts data correctly', async () => {
   expect(resortData).toEqual({
     liftCounts: {
       total: 8,
-      open: 7,
+      open: 8,
     },
   });
 });
@@ -81,8 +81,8 @@ test('fetches Boreal trails data correctly', async () => {
   const resortData = await createJSONParser('trailCounts', parseBorealTrailCounts, decodeEntities)(jsonText);
   expect(resortData).toEqual({
     trailCounts: {
-      total: 34,
-      open: 28,
+      total: 33,
+      open: 33,
     },
   });
 });

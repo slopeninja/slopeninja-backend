@@ -85,11 +85,11 @@ export const parseBorealLifts = async (data) => {
     return [];
   }
 
-  const list = data.filter(item => item.type === 'trail').map((trailItem) => {
-    const { name } = trailItem.properties;
-    const status = liftTrailStatusOrNull(trailItem.status.find(s =>
+  const list = data.filter(item => item.type === 'lift').map((liftItem) => {
+    const { name } = liftItem.properties;
+    const status = liftTrailStatusOrNull(liftItem.status.find(s =>
       s.status_name === 'opening').status_value);
-    const category = notEmptyStringOrNull(trailItem.sector);
+    const category = notEmptyStringOrNull(liftItem.sector);
     const lift = {
       name,
       status,
