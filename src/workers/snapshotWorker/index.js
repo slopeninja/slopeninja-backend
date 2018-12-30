@@ -21,7 +21,7 @@ export const run = async () => {
     .map(resort => snapshotService
       .storeSnapshot(resort.shortName, now, resort)));
 
-  console.log(`Took snapshorts for ${results.length} resorts`);
+  console.log(`Took snapshots for ${results.length} resorts`);
   console.log('snapshotWorker quits');
 };
 /* eslint-enable */

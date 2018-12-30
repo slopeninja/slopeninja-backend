@@ -261,18 +261,24 @@ const SAMPLE_OUTPUT = {
 };
 
 test('compares data from snapshot from yesterday and updates newSnow accordingly', async () => {
-  const yesterday = moment()
+  const twoHoursAgo = moment()
     .utc()
-    .startOf('day')
-    .subtract(1, 'days');
-  expect(generateMetadataWithSnapshot(SAMPLE_METADATA_STALE, SAMPLE_VALID_SNAPSHOT, yesterday))
-    .toEqual(SAMPLE_OUTPUT);
+    .subtract(2, 'hours');
+
+  const validSnapshot = {
+    ...SAMPLE_VALID_SNAPSHOT,
+    dateTime: twoHoursAgo,
+  };
+  expect(generateMetadataWithSnapshot(SAMPLE_METADATA_STALE, validSnapshot)).toEqual(SAMPLE_OUTPUT);
+
+  const validSnapshotWithUpdatedMetadata = {
+    ...SAMPLE_VALID_SNAPSHOT_WITH_UPDATED_METADATA,
+    dateTime: twoHoursAgo,
+  };
   expect(generateMetadataWithSnapshot(
     SAMPLE_METADATA_STALE,
-    SAMPLE_VALID_SNAPSHOT_WITH_UPDATED_METADATA,
-    yesterday,
-  ))
-    .toEqual(SAMPLE_OUTPUT);
+    validSnapshotWithUpdatedMetadata,
+  )).toEqual(SAMPLE_OUTPUT);
 });
 
 test('returns the original metadata if snapshot is outdated', async () => {
