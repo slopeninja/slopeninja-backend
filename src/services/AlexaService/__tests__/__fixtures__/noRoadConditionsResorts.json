@@ -1,0 +1,598 @@
+[
+   {
+      "id": "fe624acf-b920-4dc5-9cda-e30b4b3a60d8",
+      "shortName": "mt-rose",
+      "logo": "/images/resorts/mt-rose.svg",
+      "name": "Mt Rose",
+      "roads": [
+         {
+            "number": "28",
+            "prefix": "NV",
+            "status": "open",
+            "sourceUrl": "http://nvroads.com/icx/pages/incidentlist.aspx",
+            "chainStatus": null
+         },
+         {
+            "number": "431",
+            "prefix": "NV",
+            "status": "open",
+            "sourceUrl": "http://nvroads.com/icx/pages/incidentlist.aspx",
+            "chainStatus": null
+         },
+         {
+            "number": "580",
+            "prefix": "I",
+            "status": "open",
+            "sourceUrl": "http://nvroads.com/icx/pages/incidentlist.aspx",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 39.314905,
+         "lng": -119.881005
+      },
+      "status": "closed",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "cloudy",
+         "snowDepth": 36,
+         "temperature": 29
+      },
+      "location": "Reno, NV 89511",
+      "resortUrl": "https://skirose.com/",
+      "liftCounts": {
+         "open": 0,
+         "total": null
+      },
+      "trailCounts": {
+         "open": 0,
+         "total": null
+      }
+   },
+   {
+      "id": "7d7a9dfc-8419-47bf-9dc6-95704786e1f7",
+      "shortName": "donner-ski-ranch",
+      "logo": "/images/resorts/donner.svg",
+      "name": "Donner Ski Ranch",
+      "roads": [
+         {
+            "number": "80",
+            "prefix": "I",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/i80",
+            "chainStatus": null
+         },
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         },
+         {
+            "number": "267",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr267",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 39.318255,
+         "lng": -120.330083
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "clear",
+         "snowDepth": null,
+         "temperature": 19
+      },
+      "location": "Norden, CA 95724",
+      "resortUrl": "https://www.donnerskiranch.com/",
+      "liftCounts": {
+         "open": 7,
+         "total": 8
+      },
+      "trailCounts": {
+         "open": 0,
+         "total": null
+      }
+   },
+   {
+      "id": "890fbd96-cd1e-473f-a44a-9fc3520acd1f",
+      "shortName": "homewood",
+      "logo": "/images/resorts/homewood.svg",
+      "name": "Homewood",
+      "roads": [
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 39.077952,
+         "lng": -120.171985
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "clear",
+         "snowDepth": 73,
+         "temperature": 25
+      },
+      "location": "Homewood, CA 96141",
+      "resortUrl": "https://www.skihomewood.com/",
+      "liftCounts": {
+         "open": 7,
+         "total": 8
+      },
+      "trailCounts": {
+         "open": 53,
+         "total": 67
+      }
+   },
+   {
+      "id": "b5f852fd-aae0-4ac2-9cca-0ddea17df2aa",
+      "shortName": "boreal",
+      "logo": "/images/resorts/boreal.svg",
+      "name": "Boreal",
+      "roads": [
+         {
+            "number": "80",
+            "prefix": "I",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/i80",
+            "chainStatus": null
+         },
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         },
+         {
+            "number": "267",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr267",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 39.332769,
+         "lng": -120.347075
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "clear",
+         "snowDepth": 70,
+         "temperature": 19
+      },
+      "location": "Soda Springs, CA 95728",
+      "resortUrl": "https://www.rideboreal.com/",
+      "liftCounts": {
+         "open": 5,
+         "total": 8
+      },
+      "trailCounts": {
+         "open": 34,
+         "total": 34
+      }
+   },
+   {
+      "id": "81e32949-79e7-43ff-a677-38c1c27c1fe6",
+      "shortName": "squaw-valley",
+      "logo": "/images/resorts/squaw.svg",
+      "name": "Squaw Valley",
+      "roads": [
+         {
+            "number": "80",
+            "prefix": "I",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/i80",
+            "chainStatus": null
+         },
+         {
+            "number": "28",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr28",
+            "chainStatus": null
+         },
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 39.1969822,
+         "lng": -120.2431388
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "cloudy",
+         "snowDepth": 47,
+         "temperature": 21
+      },
+      "location": "Olympic Valley, CA 96146",
+      "resortUrl": "https://squawalpine.com/",
+      "liftCounts": {
+         "open": 24,
+         "total": 29
+      },
+      "trailCounts": {
+         "open": 88,
+         "total": 141
+      }
+   },
+   {
+      "id": "3177d479-739c-4773-ba17-46d804518da6",
+      "shortName": "northstar",
+      "logo": "/images/resorts/northstar.svg",
+      "name": "Northstar",
+      "roads": [
+         {
+            "number": "267",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr267",
+            "chainStatus": null
+         },
+         {
+            "number": "28",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr28",
+            "chainStatus": null
+         },
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 39.258638,
+         "lng": -120.133293
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "clear",
+         "snowDepth": 32,
+         "temperature": 19
+      },
+      "location": "Truckee, CA 96161",
+      "resortUrl": "https://www.northstarcalifornia.com/",
+      "liftCounts": {
+         "open": 18,
+         "total": 20
+      },
+      "trailCounts": {
+         "open": 75,
+         "total": 104
+      }
+   },
+   {
+      "id": "b9be629b-2fba-48c0-8aa0-5b7cf1a0f9c4",
+      "shortName": "alpine-meadows",
+      "logo": "/images/resorts/squaw.svg",
+      "name": "Alpine Meadows",
+      "roads": [
+         {
+            "number": "80",
+            "prefix": "I",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/i80",
+            "chainStatus": null
+         },
+         {
+            "number": "28",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr28",
+            "chainStatus": null
+         },
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 39.154969,
+         "lng": -120.238209
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "cloudy",
+         "snowDepth": 47,
+         "temperature": 21
+      },
+      "location": "Alpine Meadows, CA 96146",
+      "resortUrl": "https://squawalpine.com/",
+      "liftCounts": {
+         "open": 13,
+         "total": 13
+      },
+      "trailCounts": {
+         "open": 83,
+         "total": 103
+      }
+   },
+   {
+      "id": "577e7dde-7bf5-47d8-bd1c-89609be33a6d",
+      "shortName": "diamond-peak",
+      "logo": "/images/resorts/diamond.svg",
+      "name": "Diamond Peak",
+      "roads": [
+         {
+            "number": "28",
+            "prefix": "NV",
+            "status": "open",
+            "sourceUrl": "http://nvroads.com/icx/pages/incidentlist.aspx",
+            "chainStatus": null
+         },
+         {
+            "number": "431",
+            "prefix": "NV",
+            "status": "open",
+            "sourceUrl": "http://nvroads.com/icx/pages/incidentlist.aspx",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 39.253813,
+         "lng": -119.92171
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "clear",
+         "snowDepth": 36,
+         "temperature": 29
+      },
+      "location": "Incline Village, NV 89451",
+      "resortUrl": "https://www.diamondpeak.com/",
+      "liftCounts": {
+         "open": 6,
+         "total": 7
+      },
+      "trailCounts": {
+         "open": 24,
+         "total": 34
+      }
+   },
+   {
+      "id": "c2e11f52-5d76-4d12-a314-2c590e45e9eb",
+      "shortName": "heavenly",
+      "logo": "/images/resorts/heavenly.svg",
+      "name": "Heavenly",
+      "roads": [
+         {
+            "number": "50",
+            "prefix": "US",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/us50",
+            "chainStatus": null
+         },
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         },
+         {
+            "number": "207",
+            "prefix": "NV",
+            "status": "open",
+            "sourceUrl": "http://nvroads.com/icx/pages/incidentlist.aspx",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 38.929011,
+         "lng": -119.906233
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "clear",
+         "snowDepth": 27,
+         "temperature": 24
+      },
+      "location": "Stateline, NV 89449",
+      "resortUrl": "https://www.skiheavenly.com/",
+      "liftCounts": {
+         "open": 23,
+         "total": 27
+      },
+      "trailCounts": {
+         "open": 67,
+         "total": 94
+      }
+   },
+   {
+      "id": "9d4a6c60-a670-4a4d-8fce-6ea87f36031f",
+      "shortName": "sugar-bowl",
+      "logo": "/images/resorts/sugarbowl.svg",
+      "name": "Sugar Bowl",
+      "roads": [
+         {
+            "number": "80",
+            "prefix": "I",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/i80",
+            "chainStatus": null
+         },
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 39.3000277,
+         "lng": -120.3437774
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "clear",
+         "snowDepth": 48,
+         "temperature": 19
+      },
+      "location": "Norden, CA 95724",
+      "resortUrl": "https://www.sugarbowl.com/",
+      "liftCounts": {
+         "open": 1,
+         "total": 10
+      },
+      "trailCounts": {
+         "open": 89,
+         "total": 105
+      }
+   },
+   {
+      "id": "71af0d53-fac0-4ca1-a45c-d5857ed17cd2",
+      "shortName": "kirkwood",
+      "logo": "/images/resorts/kirkwood.svg",
+      "name": "Kirkwood",
+      "roads": [
+         {
+            "number": "50",
+            "prefix": "US",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/us50",
+            "chainStatus": null
+         },
+         {
+            "number": "88",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr88",
+            "chainStatus": null
+         },
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 38.678233,
+         "lng": -120.063198
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "cloudy",
+         "snowDepth": 35,
+         "temperature": 26
+      },
+      "location": "Kirkwood, CA 95646",
+      "resortUrl": "https://www.kirkwood.com/",
+      "liftCounts": {
+         "open": 0,
+         "total": 15
+      },
+      "trailCounts": {
+         "open": 83,
+         "total": 84
+      }
+   },
+   {
+      "id": "934f7f62-76d7-4b0c-81e1-c35770abad1f",
+      "shortName": "sierra-at-tahoe",
+      "logo": "/images/resorts/sierra.svg",
+      "name": "Sierra-at-Tahoe",
+      "roads": [
+         {
+            "number": "50",
+            "prefix": "US",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/us50",
+            "chainStatus": null
+         },
+         {
+            "number": "88",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr88",
+            "chainStatus": null
+         },
+         {
+            "number": "89",
+            "prefix": "CA",
+            "status": "open",
+            "sourceUrl": "http://www.dot.ca.gov/hq/roadinfo/sr89",
+            "chainStatus": null
+         }
+      ],
+      "stale": false,
+      "coords": {
+         "lat": 38.79935,
+         "lng": -120.080906
+      },
+      "status": "open",
+      "weather": {
+         "base": null,
+         "newSnow": 0,
+         "condition": "clear",
+         "snowDepth": 52,
+         "temperature": 33
+      },
+      "location": "Twin Bridges, CA 95735",
+      "resortUrl": "https://www.sierraattahoe.com/",
+      "liftCounts": {
+         "open": 8,
+         "total": 14
+      },
+      "trailCounts": {
+         "open": 41,
+         "total": 46
+      }
+   }
+]

@@ -2,7 +2,7 @@ import { SkillBuilders, Skill } from 'ask-sdk-core';
 import i18n from 'i18next';
 import sprintf from 'i18next-sprintf-postprocessor';
 
-import { generateLaunchSpeech } from './speechUtils';
+import { generateLaunchSpeech, generateSnowConditionsSpeech } from './speechUtils';
 import { extractFirstResolvedValue } from './alexaUtils';
 
 const en = {
@@ -67,11 +67,7 @@ const launchHandler = {
     const { request: { locale } } = handlerInput.requestEnvelope;
     const { resorts } = handlerInput.data;
 
-    const condition = generateLaunchSpeech({
-      locale,
-      resorts,
-    });
-    const speakOutput = `${handlerInput.t('WELCOME_MESSAGE')} ${condition} Anything else?`;
+    const speakOutput = generateLaunchSpeech({ locale, resorts });
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
@@ -108,15 +104,18 @@ const getSnowConditionsHandler = {
   },
   handle(handlerInput) {
     const { request } = handlerInput.requestEnvelope;
+    const { resorts } = handlerInput.data;
     const { slots } = request.intent;
     const { resolutions } = slots.resort;
 
     const value = extractFirstResolvedValue(resolutions);
-    const resort = value.name;
-    // const shortName = value.id;
+    // const resort = value.name;
+    const resortShortName = value.id;
 
-    const condition = `It's snowing at ${resort}.`;
-    const speakOutput = handlerInput.t('GET_FACT_MESSAGE') + condition;
+    const { locale } = request;
+
+    const speakOutput = generateSnowConditionsSpeech({ locale, resorts, resortShortName });
+    // const speakOutput = handlerInput.t('GET_FACT_MESSAGE') + condition;
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
