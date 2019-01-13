@@ -173,7 +173,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "delegationStrategy": "SKILL_RESPONSE"
         },
         "prompts": [
             {
