@@ -4,6 +4,9 @@ import sprintf from 'i18next-sprintf-postprocessor';
 
 import { generateLaunchSpeech, generateSnowConditionsSpeech } from './speechUtils';
 import { extractFirstResolvedValue } from './alexaUtils';
+import { generateDatasources } from './aplUtils';
+
+import mainApl from './apl/main.json';
 
 const en = {
   translation: {
@@ -69,11 +72,21 @@ const launchHandler = {
 
     const speakOutput = generateLaunchSpeech({ locale, resorts });
 
+    const data = generateDatasources({ resorts });
+
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt()
       // .withShouldEndSession(false)
-      .withSimpleCard(handlerInput.t('SKILL_NAME'), speakOutput)
+      // .withSimpleCard(handlerInput.t('SKILL_NAME'), speakOutput)
+      .addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        version: '1.0',
+        datasources: {
+          data,
+        },
+        document: mainApl.document,
+      })
       .getResponse();
   },
 };
