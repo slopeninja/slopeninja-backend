@@ -4,9 +4,10 @@ import sprintf from 'i18next-sprintf-postprocessor';
 
 import { generateLaunchSpeech, generateSnowConditionsSpeech } from './speechUtils';
 import { extractFirstResolvedValue } from './alexaUtils';
-import { generateDatasources } from './aplUtils';
+import { generateMainDatasources, generateResortDatasources } from './aplUtils';
 
 import mainApl from './apl/main.json';
+import resortApl from './apl/resort.json';
 
 const en = {
   translation: {
@@ -72,7 +73,7 @@ const launchHandler = {
 
     const speakOutput = generateLaunchSpeech({ locale, resorts });
 
-    const data = generateDatasources({ resorts });
+    const data = generateMainDatasources({ resorts });
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
@@ -130,9 +131,19 @@ const getSnowConditionsHandler = {
     const speakOutput = generateSnowConditionsSpeech({ locale, resorts, resortShortName });
     // const speakOutput = handlerInput.t('GET_FACT_MESSAGE') + condition;
 
+    const data = generateResortDatasources({ resorts, resortShortName });
+
     return handlerInput.responseBuilder
       .speak(speakOutput)
-      .withSimpleCard(handlerInput.t('SKILL_NAME'), speakOutput)
+      // .withSimpleCard(handlerInput.t('SKILL_NAME'), speakOutput)
+      .addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        version: '1.0',
+        datasources: {
+          data,
+        },
+        document: resortApl.document,
+      })
       .getResponse();
   },
 };

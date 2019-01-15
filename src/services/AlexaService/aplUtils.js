@@ -1,6 +1,6 @@
 const SLOPE_NINJA_URL_PREFIX = 'https://slope.ninja';
 
-export const generateDatasources = ({ resorts }) => {
+export const generateMainDatasources = ({ resorts }) => {
   if (!resorts || !resorts.length) {
     return null;
   }
@@ -73,7 +73,7 @@ export const generateDatasources = ({ resorts }) => {
   }));
 
   return {
-    hintText: 'Try, \"Alexa, select Sierra at Tahoe\"',
+    hintText: 'Try, "Alexa, select Sierra at Tahoe"',
     listTemplate1Metadata: {
       type: 'object',
       objectId: 'lt1Metadata',
@@ -88,5 +88,114 @@ export const generateDatasources = ({ resorts }) => {
         listItems,
       },
     },
+  };
+};
+
+/* eslint-disable no-param-reassign */
+const getRouteCondition = (roads) => {
+  const roadConditions = roads.reduce(
+    (accum, road) => {
+      if (road.status === 'open') {
+        accum.openRoutes.open = accum.openRoutes.open
+          ? `${accum.openRoutes.open} ${road.prefix}-${road.number}`
+          : `${road.prefix}-${road.number}`;
+      } else {
+        accum.openRoutes.closed = accum.openRoutes.closed
+          ? `${accum.openRoutes.closed} ${road.prefix}-${road.number}`
+          : `${road.prefix}-${road.number}`;
+      }
+
+      if (road.chainStatus === 'R1') {
+        accum.chains.r1 = `${accum.chains.r1 ? accum.chains.r1 : 'R1'} ${
+          road.prefix
+        }-${road.number}`;
+      } else if (road.chainStatus === 'R2') {
+        accum.chains.r2 = `${accum.chains.r2 ? accum.chains.r1 : 'R2'} ${
+          road.prefix
+        }-${road.number}`;
+      }
+
+      return accum;
+    },
+    {
+      openRoutes: {
+        open: '',
+        closed: '',
+      },
+      chains: {
+        r1: '',
+        r2: '',
+      },
+    },
+  );
+  /* eslint-enble */
+
+  roadConditions.openRoutes.open = roadConditions.openRoutes.open
+    ? roadConditions.openRoutes.open
+    : '';
+  roadConditions.openRoutes.closed = roadConditions.openRoutes.closed
+    ? roadConditions.openRoutes.closed
+    : '';
+  roadConditions.chains.r1 =
+    roadConditions.chains.r1
+      ? roadConditions.chains.r1
+      : '';
+  roadConditions.chains.r2 =
+    roadConditions.chains.r1 && roadConditions.chains.r2
+      ? roadConditions.chains.r2
+      : '';
+
+  if (!roadConditions.openRoutes.closed) {
+    roadConditions.openRoutes.open = 'All Routes are Open';
+    roadConditions.openRoutes.closed = '';
+  }
+
+  if (!roadConditions.chains.r1 && !roadConditions.chains.r2) {
+    roadConditions.chains.r1 = 'No Chain Controls';
+    roadConditions.chains.r2 = '';
+  }
+
+  return roadConditions;
+};
+
+export const generateResortDatasources = ({ resorts, resortShortName }) => {
+  const resort = resorts.find(r => r.shortName === resortShortName);
+
+  if (!resort) {
+    return null;
+  }
+
+  const roadConditions = getRouteCondition(resort.roads);
+
+  const resortDetails = {
+    temperature: `${resort.weather.temperature}°`,
+    newSnow: `${resort.weather.newSnow}"`,
+    snowDepth: `${resort.weather.snowDepth}"`,
+    resortLogo: `${SLOPE_NINJA_URL_PREFIX}${resort.logo}`,
+    resortName: resort.name,
+    resortStatus: resort.status,
+    weatherIcon: `${SLOPE_NINJA_URL_PREFIX}/emailAssets/weatherIcons/${
+      resort.weather.condition
+    }.png`,
+    ...roadConditions,
+    openLifts:
+      resort.liftCounts.open && resort.liftCounts.total
+        ? `${resort.liftCounts.open} / ${resort.liftCounts.total}`
+        : '-',
+    openTrails:
+      resort.trailCounts.open && resort.trailCounts.total
+        ? `${resort.trailCounts.open} / ${resort.trailCounts.total}`
+        : '-',
+  };
+
+  return {
+    hintText: 'Try, "Alexa, select Sierra at Tahoe"',
+    listTemplate1Metadata: {
+      type: 'object',
+      objectId: 'lt1Metadata',
+      title: 'Slope Ninja',
+      logoUrl: 'https://slope.ninja/static/media/logo.658ad4d9.svg',
+    },
+    resortDetails,
   };
 };
