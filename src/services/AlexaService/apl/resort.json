@@ -210,13 +210,32 @@
                         "items": [
                             {
                                 "type": "Container",
+                                "when": "${viewport.shape == 'round'}",
+                                "height": "auto",
+                                "width": "100%",
+                                "paddingTop": 30,
+                                "justifyContent": "center",
+                                "alignItems": "center",
+                                "item": [
+                                    {
+                                        "type": "Image",
+                                        "when": "${logo}",
+                                        "source": "${logo}",
+                                        "width": 48,
+                                        "height": 48
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Container",
+                                "when": "${viewport.shape == 'rectangle'}",
                                 "direction": "row",
                                 "height": "auto",
                                 "width": "100%",
                                 "separator": true,
                                 "paddingLeft": "@marginLeft",
                                 "paddingRight": "@marginRight",
-                                "spacing": 100,
+                                "spacing": 60,
                                 "justifyContent": "spaceBetween",
                                 "items": [
                                     {
@@ -252,7 +271,8 @@
                             },
                             {
                                 "type": "AlexaFooter",
-                                "footerHint": "${payload.data.hintText}"
+                                "footerHint": "${payload.data.hintText}",
+                                "spacing": 60
                             }
                         ]
                     }
@@ -277,65 +297,114 @@
                     {
                         "when": "${viewport.shape == 'round'}",
                         "type": "Container",
-                        "direction": "row",
-                        "height": 200,
+                        "direction": "column",
                         "width": "100%",
-                        "separator": true,
                         "alignItems": "center",
+                        "justifyContent": "spaceBetween",
                         "items": [
                             {
-                                "type": "Image",
-                                "when": "${image}",
-                                "source": "${image}",
-                                "height": 150,
-                                "width": 150,
-                                "spacing": 15,
-                                "scale": "best-fit",
-                                "align": "top"
-                            },
-                            {
-                                "type": "Text",
-                                "text": "${ordinal}",
-                                "paddingBottom": "20dp",
-                                "color": "white",
-                                "spacing": "5dp"
-                            },
-                            {
                                 "type": "Container",
-                                "direction": "column",
-                                "spacing": 25,
+                                "direction": "row",
+                                "width": "100%",
+                                "alignItems": "center",
+                                "justifyContent": "center",
                                 "items": [
                                     {
-                                        "type": "Text",
-                                        "text": "${primaryText}",
-                                        "style": "textStyleDetail",
-                                        "grow": 1,
-                                        "shrink": 1,
-                                        "fontWeight": "300",
-                                        "maxLines": 1
+                                        "type": "Image",
+                                        "when": "${image}",
+                                        "source": "${image}",
+                                        "height": 70,
+                                        "width": 70,
+                                        "scale": "best-fit",
+                                        "align": "top"
                                     },
                                     {
                                         "type": "Text",
-                                        "text": "${secondaryText}",
-                                        "style": "textStyleCaption",
-                                        "fontWeight": "300",
-                                        "grow": 1,
-                                        "shrink": 1,
-                                        "maxLines": 1
-                                    },
-                                    {
-                                        "type": "Text",
-                                        "text": "${resortLiftTrailStatus}",
-                                        "style": "textStyleDetails",
-                                        "fontWeight": "300",
-                                        "grow": 1,
-                                        "shrink": 1,
-                                        "maxLines": 1
+                                        "text": "${resortName}",
+                                        "style": "headerText",
+                                        "spacing": 12
                                     }
                                 ]
                             },
                             {
-                                "type": "Container"
+                                "type": "Container",
+                                "direction": "row",
+                                "spacing": 12,
+                                "justifyContent": "center",
+                                "alignItems": "center",
+                                "items": [
+                                    {
+                                        "type": "Text",
+                                        "text": "${temperature}",
+                                        "style": "detaiText",
+                                        "grow": 1,
+                                        "shrink": 1,
+                                        "fontWeight": "300",
+                                        "maxLines": 1
+                                    },
+                                    {
+                                        "type": "Image",
+                                        "when": "${weatherIcon}",
+                                        "source": "${weatherIcon}",
+                                        "width": 48,
+                                        "height": 48,
+                                        "spacing": 25
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Container",
+                                "direction": "row",
+                                "paddingTop": 12,
+                                "items": [
+                                    {
+                                        "type": "Container",
+                                        "items": [
+                                            {
+                                                "type": "Text",
+                                                "text": "New Snow",
+                                                "style": "textStyleAddress",
+                                                "fontWeight": "300",
+                                                "grow": 1,
+                                                "shrink": 1,
+                                                "maxLines": 1
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "text": "${newSnow}",
+                                                "style": "detaiText",
+                                                "fontWeight": "300",
+                                                "grow": 1,
+                                                "shrink": 1,
+                                                "maxLines": 1
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "Container",
+                                        "spacing": 30,
+                                        "items": [
+                                            {
+                                                "type": "Text",
+                                                "text": "Snow Depth",
+                                                "style": "textStyleAddress",
+                                                "fontWeight": "300",
+                                                "grow": 1,
+                                                "shrink": 1,
+                                                "maxLines": 1
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "text": "${snowDepth}",
+                                                "style": "detaiText",
+                                                "fontWeight": "300",
+                                                "grow": 1,
+                                                "shrink": 1,
+                                                "maxLines": 1
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -389,7 +458,7 @@
                                 "type": "Container",
                                 "direction": "row",
                                 "justifyContent": "spaceBetween",
-                                "spacing": 60,
+                                "spacing": 30,
                                 "height": 80,
                                 "items": [
                                     {
@@ -493,7 +562,7 @@
                                 "type": "Container",
                                 "direction": "row",
                                 "justifyContent": "spaceBetween",
-                                "spacing": 60,
+                                "spacing": 30,
                                 "items": [
                                     {
                                         "type": "Container",
@@ -599,7 +668,7 @@
                                     {
                                         "type": "Container",
                                         "width": "25%",
-                                        "height": 82,
+                                        "height": 80,
                                         "items": [
                                             {
                                                 "type": "Text",
