@@ -6,8 +6,8 @@ import { generateLaunchSpeech, generateSnowConditionsSpeech } from './speechUtil
 import { extractFirstResolvedValue } from './alexaUtils';
 import { generateMainDatasources, generateResortDatasources } from './aplUtils';
 
-import mainApl from './apl/main.json';
-import resortApl from './apl/resort.json';
+import mainApl from './apl/main';
+import resortApl from './apl/resort';
 
 const en = {
   translation: {
@@ -77,7 +77,7 @@ const launchHandler = {
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
-      .reprompt()
+      .reprompt(handlerInput.t('HELP_REPROMPT'))
       // .withShouldEndSession(false)
       // .withSimpleCard(handlerInput.t('SKILL_NAME'), speakOutput)
       .addDirective({

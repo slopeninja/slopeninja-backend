@@ -74,19 +74,11 @@ export const generateMainDatasources = ({ resorts }) => {
 
   return {
     hintText: 'Try, "Alexa, select Sierra at Tahoe"',
-    listTemplate1Metadata: {
-      type: 'object',
-      objectId: 'lt1Metadata',
-      title: 'Slope Ninja',
-      logoUrl: 'https://slope.ninja/static/media/logo.658ad4d9.svg',
-    },
-    listTemplate1ListData: {
-      type: 'list',
-      listId: 'lt1Sample',
-      totalNumberOfItems: listItems.length,
-      listPage: {
-        listItems,
-      },
+    title: 'Slope Ninja',
+    logoUrl: 'https://slope.ninja/static/media/logo.658ad4d9.svg',
+    totalNumberOfItems: 12,
+    listPage: {
+      listItems,
     },
   };
 };
@@ -95,13 +87,13 @@ export const generateMainDatasources = ({ resorts }) => {
 const getRouteCondition = (roads) => {
   const roadConditions = roads.reduce(
     (accum, road) => {
-      if (road.status === 'open') {
-        accum.openRoutes.open = accum.openRoutes.open
-          ? `${accum.openRoutes.open} ${road.prefix}-${road.number}`
-          : `${road.prefix}-${road.number}`;
-      } else {
+      if (road.status === 'closed' || road.status === 'ambiguous') {
         accum.openRoutes.closed = accum.openRoutes.closed
           ? `${accum.openRoutes.closed} ${road.prefix}-${road.number}`
+          : `${road.prefix}-${road.number}`;
+      } else {
+        accum.openRoutes.open = accum.openRoutes.open
+          ? `${accum.openRoutes.open} ${road.prefix}-${road.number}`
           : `${road.prefix}-${road.number}`;
       }
 
@@ -110,7 +102,7 @@ const getRouteCondition = (roads) => {
           road.prefix
         }-${road.number}`;
       } else if (road.chainStatus === 'R2') {
-        accum.chains.r2 = `${accum.chains.r2 ? accum.chains.r1 : 'R2'} ${
+        accum.chains.r2 = `${accum.chains.r2 ? accum.chains.r2 : 'R2'} ${
           road.prefix
         }-${road.number}`;
       }
@@ -132,18 +124,17 @@ const getRouteCondition = (roads) => {
 
   roadConditions.openRoutes.open = roadConditions.openRoutes.open
     ? roadConditions.openRoutes.open
-    : '';
+    : undefined;
   roadConditions.openRoutes.closed = roadConditions.openRoutes.closed
     ? roadConditions.openRoutes.closed
-    : '';
-  roadConditions.chains.r1 =
-    roadConditions.chains.r1
-      ? roadConditions.chains.r1
-      : '';
+    : undefined;
+  roadConditions.chains.r1 = roadConditions.chains.r1
+    ? roadConditions.chains.r1
+    : undefined;
   roadConditions.chains.r2 =
-    roadConditions.chains.r1 && roadConditions.chains.r2
+    roadConditions.chains.r2 && roadConditions.chains.r2
       ? roadConditions.chains.r2
-      : '';
+      : undefined;
 
   if (!roadConditions.openRoutes.closed) {
     roadConditions.openRoutes.open = 'All Routes are Open';
@@ -190,12 +181,8 @@ export const generateResortDatasources = ({ resorts, resortShortName }) => {
 
   return {
     hintText: 'Try, "Alexa, select Sierra at Tahoe"',
-    listTemplate1Metadata: {
-      type: 'object',
-      objectId: 'lt1Metadata',
-      title: 'Slope Ninja',
-      logoUrl: 'https://slope.ninja/static/media/logo.658ad4d9.svg',
-    },
+    title: 'Slope Ninja',
+    logoUrl: 'https://slope.ninja/static/media/logo.658ad4d9.svg',
     resortDetails,
   };
 };
