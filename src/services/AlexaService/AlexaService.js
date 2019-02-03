@@ -16,10 +16,10 @@ const en = {
     WELCOME_MESSAGE: 'Welcome to Slope Ninja!',
     HELP_MESSAGE:
       'You can say tell me snow conditions near Squaw Valley, or, you can say exit... What can I help you with?',
-    HELP_REPROMPT: 'What can I help you with?',
+    HELP_REPROMPT: 'You can say tell me snow conditions near Squaw Valley, or, you can say exit... What can I help you with?',
     FALLBACK_MESSAGE:
-      "Slope Ninja can't help you with that. It can help you discover snow conditions at Lake Tahoe ski resorts. What can I help you with?",
-    FALLBACK_REPROMPT: 'What can I help you with?',
+      "Slope Ninja can't help you with that. It can help you discover snow conditions at Lake Tahoe ski resorts. You can say tell me snow conditions near Squaw Valley, or, you can say exit... What can I help you with?",
+    FALLBACK_REPROMPT: 'You can say tell me snow conditions near Squaw Valley, or, you can say exit... What can I help you with?',
     ERROR_MESSAGE: 'Sorry, an error occurred.',
     STOP_MESSAGE: 'Goodbye!',
   },
@@ -126,6 +126,13 @@ const getSnowConditionsHandler = {
     // const resort = value.name;
     const resortShortName = value.id;
 
+    if (!resortShortName) {
+      return handlerInput.responseBuilder
+        .speak(handlerInput.t('FALLBACK_MESSAGE'))
+        .withSimpleCard(handlerInput.t('SKILL_NAME'), 'FALLBACK_MESSAGE')
+        .getResponse();
+    }
+
     const { locale } = request;
 
     const speakOutput = generateSnowConditionsSpeech({ locale, resorts, resortShortName });
@@ -176,9 +183,24 @@ const fallbackHandler = {
     );
   },
   handle(handlerInput) {
+    const { request: { locale } } = handlerInput.requestEnvelope;
+    const { resorts } = handlerInput.data;
+
+    const speakOutput = generateLaunchSpeech({ locale, resorts });
+
+    const data = generateMainDatasources({ resorts });
+
     return handlerInput.responseBuilder
-      .speak(handlerInput.t('FALLBACK_MESSAGE'))
-      .reprompt(handlerInput.t('FALLBACK_REPROMPT'))
+      .speak(speakOutput)
+      .reprompt(handlerInput.t('HELP_REPROMPT'))
+      .addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        version: '1.0',
+        datasources: {
+          data,
+        },
+        document: mainApl.document,
+      })
       .getResponse();
   },
 };
