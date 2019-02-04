@@ -15,12 +15,12 @@ test('fetches Alpine snow data correctly', async () => {
   expect(resortData).toEqual({
     snow: {
       status: null,
-      weatherIcon: null,
-      temperature: null,
+      weatherIcon: 'snow',
+      temperature: 25,
       baseCondition: null,
-      newSnow: 2,
-      snowDepthBase: 18,
-      snowDepthSummit: 18,
+      newSnow: 14,
+      snowDepthBase: 75,
+      snowDepthSummit: 102,
     },
   });
 });

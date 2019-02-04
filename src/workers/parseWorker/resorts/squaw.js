@@ -29,13 +29,13 @@ const initialTrails = {
 };
 
 export const parseSquawSnow = async ($) => {
-  const weatherIcon = $('#squaw-elevation-0 .row.current .cellwrapper .cell h6').first().text().trim();
-  const temperature = $('#squaw-elevation-0 .row.current .cellwrapper .cell .value').first().text().trim();
+  const weatherIcon = $('#squaw-elevation-0 .row .cellwrapper .cell h6').first().text().trim();
+  const temperature = $('#squaw-elevation-0 .row .cellwrapper .cell .value').first().text().trim();
   // 24
-  const newSnow24Hr = $('.row.snow .cellwrapper .cell .value').slice(1, 2).text().trim();
+  const newSnow24Hr = $('#squaw-elevation-1 .row.snow .cellwrapper .cell .value').slice(5, 6).text().trim();
   // //Base
-  const snowDepthBase = $('#squaw-elevation-2 .row.snow .cellwrapper .cell .value').slice(3, 4).text().trim();
-  const snowDepthSummit = $('#squaw-elevation-1 .row.snow .cellwrapper .cell .value').slice(3, 4).text().trim();
+  const snowDepthBase = $('#squaw-elevation-2 .row.snow .cellwrapper .cell .value').slice(7, 8).text().trim();
+  const snowDepthSummit = $('#squaw-elevation-1 .row.snow .cellwrapper .cell .value').slice(7, 8).text().trim();
 
   return {
     ...initialWeather,

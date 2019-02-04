@@ -15,12 +15,12 @@ test('fetches Squaw snow data correctly', async () => {
   expect(resortData).toEqual({
     snow: {
       status: null,
-      weatherIcon: 'sunny',
-      temperature: 32,
+      weatherIcon: 'snow',
+      temperature: 23,
       baseCondition: null,
-      newSnow: 7,
-      snowDepthBase: 18,
-      snowDepthSummit: 23,
+      newSnow: 15,
+      snowDepthBase: 65,
+      snowDepthSummit: 130,
     },
   });
 });
