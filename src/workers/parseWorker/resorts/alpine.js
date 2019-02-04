@@ -79,7 +79,7 @@ export const parseAlpineTrailCounts = async ($) => {
 
 export const parseAlpineLifts = async ($) => {
   const list = [];
-  $('#alpine-report .lift').each((index, rowElement) => {
+  $('#alpine-summary #alpine-lifts-trails .area .lift-trails-list.lifts .row').each((index, rowElement) => {
     // alpine messed up their lifts list by including a shuttle in it
     // we need to make sure we exclude that from the list
     const isShuttle = $(rowElement).text().trim().toLowerCase()
@@ -94,11 +94,12 @@ export const parseAlpineLifts = async ($) => {
 
     const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
 
-    // const prevSubheaderCategories = $(rowElement).prevAll('.subheader');
+    const prevSubheaderCategories = $(rowElement).parent().parent().prevAll('.subheader');
+    const subheaderCategory = prevSubheaderCategories.get(0);
 
     const status = liftTrailStatusOrNull(statusElement.attr('class'));
     const name = notEmptyStringOrNull($(nameElement).text().trim());
-    const category = null;
+    const category = notEmptyStringOrNull($(subheaderCategory).text().trim());
 
     const lift = {
       name,
@@ -114,21 +115,27 @@ export const parseAlpineLifts = async ($) => {
 export const parseAlpineTrails = async ($) => {
   const list = [];
 
-  $('#alpine-report .runs .trail').each((index, rowElement) => {
+  $('#alpine-summary #alpine-lifts-trails .area .lift-wrapper .trails-content .lift-trails-list.trails .row').each((index, rowElement) => {
     const columnElements = $(rowElement).find('.cell');
     const nameElement = columnElements[0];
-    const levelElement = columnElements[1];
+    const levelElement = $(columnElements[0]).find('span span');
     // const statusContainerElement = columnElements[3];
 
-    const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
-
-    const prevSubheaderCategories = $(rowElement).prevAll('.area').find('h4');
-    const subheaderCategory = prevSubheaderCategories.get(0);
+    const statusElement = $(columnElements[3]).find('span span');
 
     const status = liftTrailStatusOrNull(statusElement.attr('class'));
+
+    const prevSubheaderCategories = $(rowElement)
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .prevAll('.subheader')
+      .slice(0, 1);
+
     const name = notEmptyStringOrNull($(nameElement).text().trim());
-    const level = trailLevelOrNull($(levelElement).text().trim());
-    const category = notEmptyStringOrNull($(subheaderCategory).text().trim());
+    const level = trailLevelOrNull($(levelElement).attr('class'));
+    const category = notEmptyStringOrNull($(prevSubheaderCategories).text().trim());
 
     if (!level) {
       return;

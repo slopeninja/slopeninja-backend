@@ -46,7 +46,7 @@ test('fetches Squaw lifts data correctly', async () => {
   expect(resortData).toEqual({
     liftCounts: {
       total: null,
-      open: 1,
+      open: 20,
     },
   });
 });
@@ -55,6 +55,27 @@ test('fetches all null for nonexisting lift values', async () => {
   const resortData = await createHtmlParser('liftCounts', parseSquawLiftCounts)('<html></html>');
   expect(resortData).toEqual({
     liftCounts: {
+      total: null,
+      open: null,
+    },
+  });
+});
+
+test('fetches Squaw trails data correctly', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
+  const resortData = await createHtmlParser('trailCounts', parseSquawTrailCounts)(htmlText);
+  expect(resortData).toEqual({
+    trailCounts: {
+      total: null,
+      open: 44,
+    },
+  });
+});
+
+test('fetches all null for nonexisting trails values', async () => {
+  const resortData = await createHtmlParser('trailCounts', parseSquawTrailCounts)('<html></html>');
+  expect(resortData).toEqual({
+    trailCounts: {
       total: null,
       open: null,
     },
@@ -81,26 +102,4 @@ test('fetches Squaw trail list correctly', async () => {
 test('fetches all null for nonexisting lift list values', async () => {
   const resortData = await createHtmlParser('trails', parseSquawTrails)('<html></html>');
   expect(resortData).toMatchObject({ trails: [] });
-});
-
-
-test('fetches Squaw trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
-  const resortData = await createHtmlParser('trailCounts', parseSquawTrailCounts)(htmlText);
-  expect(resortData).toEqual({
-    trailCounts: {
-      total: null,
-      open: 0,
-    },
-  });
-});
-
-test('fetches all null for nonexisting trails values', async () => {
-  const resortData = await createHtmlParser('trailCounts', parseSquawTrailCounts)('<html></html>');
-  expect(resortData).toEqual({
-    trailCounts: {
-      total: null,
-      open: null,
-    },
-  });
 });

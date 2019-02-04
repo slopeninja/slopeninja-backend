@@ -46,7 +46,7 @@ test('fetches Alpine lifts data correctly', async () => {
   expect(resortData).toEqual({
     liftCounts: {
       total: null,
-      open: 0,
+      open: 13,
     },
   });
 });
@@ -67,7 +67,7 @@ test('fetches Alpine trails data correctly', async () => {
   expect(resortData).toEqual({
     trailCounts: {
       total: null,
-      open: 0,
+      open: 29,
     },
   });
 });
