@@ -256,7 +256,7 @@ const resort = {
               {
                 type: 'AlexaFooter',
                 footerHint: '${payload.data.hintText}',
-                spacing: 60,
+                spacing: 30,
               },
             ],
           },

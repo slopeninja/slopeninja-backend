@@ -31,6 +31,12 @@ const enUS = {
   },
 };
 
+const supportsAPL = (handlerInput) => {
+  const { supportedInterfaces } = handlerInput.requestEnvelope.context.System.device;
+  const aplInterface = supportedInterfaces['Alexa.Presentation.APL'];
+  return aplInterface !== null && aplInterface !== undefined;
+};
+
 /* interceptors */
 const dataInterceptor = resorts => ({
   process(handlerInput) {
@@ -75,19 +81,26 @@ const launchHandler = {
 
     const data = generateMainDatasources({ resorts });
 
+    if (supportsAPL(handlerInput)) {
+      return handlerInput.responseBuilder
+        .speak(speakOutput)
+        .reprompt(handlerInput.t('HELP_REPROMPT'))
+        .addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          version: '1.0',
+          datasources: {
+            data,
+          },
+          document: mainApl.document,
+        })
+        .getResponse();
+    }
+
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(handlerInput.t('HELP_REPROMPT'))
-      // .withShouldEndSession(false)
-      // .withSimpleCard(handlerInput.t('SKILL_NAME'), speakOutput)
-      .addDirective({
-        type: 'Alexa.Presentation.APL.RenderDocument',
-        version: '1.0',
-        datasources: {
-          data,
-        },
-        document: mainApl.document,
-      })
+      .withShouldEndSession(false)
+      .withSimpleCard(handlerInput.t('SKILL_NAME'), speakOutput)
       .getResponse();
   },
 };
@@ -140,17 +153,23 @@ const getSnowConditionsHandler = {
 
     const data = generateResortDatasources({ resorts, resortShortName });
 
+    if (supportsAPL(handlerInput)) {
+      return handlerInput.responseBuilder
+        .speak(speakOutput)
+        .addDirective({
+          type: 'Alexa.Presentation.APL.RenderDocument',
+          version: '1.0',
+          datasources: {
+            data,
+          },
+          document: resortApl.document,
+        })
+        .getResponse();
+    }
+
     return handlerInput.responseBuilder
       .speak(speakOutput)
-      // .withSimpleCard(handlerInput.t('SKILL_NAME'), speakOutput)
-      .addDirective({
-        type: 'Alexa.Presentation.APL.RenderDocument',
-        version: '1.0',
-        datasources: {
-          data,
-        },
-        document: resortApl.document,
-      })
+      .withSimpleCard(handlerInput.t('SKILL_NAME'), speakOutput)
       .getResponse();
   },
 };
