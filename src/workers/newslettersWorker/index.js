@@ -29,13 +29,18 @@ const RESORT_LOGOS = {
 };
 
 const WEATHER_ICONS = {
-  sunny: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/sunny.png`,
-  clear: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/clear.png`,
-  cloudy: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/cloudy.png`,
-  thunderstorm: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/thunderstorm.png`,
-  rain: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/rain.png`,
-  snow: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/snow.png`,
-  sleet: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/sleet.png`,
+  'clear-day': `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/clear-day.png`,
+  'clear-night': `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/clear-night.png`,
+  rain: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/rain.png`,
+  snow: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/snow.png`,
+  sleet: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/sleet.png`,
+  wind: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/wind.png`,
+  fog: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/fog.png`,
+  cloudy: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/cloudy.png`,
+  'partly-cloudy-day': `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/partly-cloudy-day.png`,
+  hail: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/hail.png`,
+  thunderstorm: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/thunderstorm.png`,
+  tornado: `${EMAIL_ASSETS_BASE_URL}/weatherIcons/v2/tornado.png`,
 };
 
 const COLOR_PALETTE = [

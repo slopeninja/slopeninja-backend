@@ -15,7 +15,7 @@ test('fetches Diamond snow data correctly', async () => {
   expect(resortData).toEqual({
     snow: {
       status: 'closed',
-      weatherIcon: 'clear',
+      weatherIcon: null,
       temperature: 66,
       baseCondition: null,
       newSnow: 0,

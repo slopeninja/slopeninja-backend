@@ -147,7 +147,7 @@ test('returns valid resort status or null', () => {
 test('returns valid weather status or null', () => {
   expect(weatherStatusOrNull()).toBe(null);
   expect(weatherStatusOrNull('rain')).toBe('rain');
-  expect(weatherStatusOrNull('sunny')).toBe('sunny');
+  expect(weatherStatusOrNull('clear-day')).toBe('clear-day');
   expect(weatherStatusOrNull('open')).toBe(null);
   expect(weatherStatusOrNull('closed')).toBe(null);
   expect(weatherStatusOrNull('close')).toBe(null);
@@ -159,7 +159,7 @@ test('returns valid weather status or null', () => {
 test('returns a not emprty string or null', () => {
   expect(notEmptyStringOrNull()).toBe(null);
   expect(notEmptyStringOrNull('rain')).toBe('rain');
-  expect(notEmptyStringOrNull('sunny')).toBe('sunny');
+  expect(notEmptyStringOrNull('clear-day')).toBe('clear-day');
   expect(notEmptyStringOrNull('open')).toBe('open');
   expect(notEmptyStringOrNull('sleet')).toBe('sleet');
   expect(notEmptyStringOrNull('')).toBe(null);
@@ -169,7 +169,7 @@ test('returns a not emprty string or null', () => {
 test('removes the first index and returns a string or null', () => {
   expect(removeNumberInFrontOfName()).toBe(null);
   expect(removeNumberInFrontOfName('1 rain')).toBe('rain');
-  expect(removeNumberInFrontOfName('567 sunny')).toBe('sunny');
+  expect(removeNumberInFrontOfName('567 clear-day')).toBe('clear-day');
   expect(removeNumberInFrontOfName('')).toBe(null);
   expect(removeNumberInFrontOfName(-100)).toBe(null);
 });

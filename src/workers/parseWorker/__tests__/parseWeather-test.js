@@ -2,14 +2,14 @@ import fs from 'fs';
 import { parseWeather } from '../parseWeather';
 import { createJSONParser } from '../parserFactory';
 
-test('fetches weather data from wunderground correctly', async () => {
-  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/sierra-wg.json.input`);
+test('fetches weather data from darksky correctly', async () => {
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/darksky.json.input`);
 
   const resortData = await createJSONParser('weather', parseWeather)(jsonText);
   expect(resortData).toEqual({
     weather: {
-      weatherIcon: 'clear',
-      temperature: 72,
+      weatherIcon: 'clear-night',
+      temperature: 30,
     },
   });
 });

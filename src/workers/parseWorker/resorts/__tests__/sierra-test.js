@@ -15,7 +15,7 @@ test('fetches Sierra snow data correctly', async () => {
   expect(resortData).toEqual({
     snow: {
       status: null,
-      weatherIcon: 'sunny',
+      weatherIcon: 'wind',
       temperature: 43,
       baseCondition: null,
       newSnow: 0,

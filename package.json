@@ -45,7 +45,7 @@
     "start-dev": "node_modules/.bin/babel-node src/server.js",
     "now-start": "NODE_ENV='production' node build/src/server.js",
     "postinstall": "node_modules/.bin/babel 'src/**/*.js' -d build/ --ignore 'test.js'",
-    "deploy": "npm test && now -e DATABASE_URL=@sn_backend_database_url -e MAILCHIMP_PRIVATE_KEY=@sn_backend_mailchimp_private_key -e REDIS_URL=@sn_backend_redis_url -e WUNDERGROUND_API_KEY=@sn_backend_wunderground_api_key -e SENTRY_URL=@sn_backend_sentry_url -e TWITTER_APP_KEY=@sn_twitter_app_key -e TWITTER_APP_SECRET=@sn_twitter_app_secret -e TWITTER_USER_TOKEN=@sn_twitter_user_token -e TWITTER_USER_TOKEN_SECRET=@sn_twitter_user_token_secret -e AWS_ACCESS_KEY_ID=@sn_aws_access_key_id -e AWS_SECRET_ACCESS_KEY=@sn_aws_secret_access_key",
+    "deploy": "npm test && now -e DATABASE_URL=@sn_backend_database_url -e MAILCHIMP_PRIVATE_KEY=@sn_backend_mailchimp_private_key -e REDIS_URL=@sn_backend_redis_url -e DARKSKY_API_KEY=@sn_backend_darksky_api_key -e SENTRY_URL=@sn_backend_sentry_url -e TWITTER_APP_KEY=@sn_twitter_app_key -e TWITTER_APP_SECRET=@sn_twitter_app_secret -e TWITTER_USER_TOKEN=@sn_twitter_user_token -e TWITTER_USER_TOKEN_SECRET=@sn_twitter_user_token_secret -e AWS_ACCESS_KEY_ID=@sn_aws_access_key_id -e AWS_SECRET_ACCESS_KEY=@sn_aws_secret_access_key",
     "test": "npm run lint && jest",
     "test-watch": "jest --watch",
     "lint": "node_modules/.bin/eslint src/"

@@ -2,12 +2,11 @@ const DEGREE_SYMBOLS = ['°', 'deg', 'degree', 'degrees'];
 const INCH_SYMBOLS = ['"', '”', 'in', 'inch', 'inches'];
 const RESORT_STATUS = ['open', 'opened', 'true', 'yes', 'close', 'closed', 'false', 'no'];
 
-
 const OPEN_STATUS = ['open', 'opened', 'yes', 'groomed', 'status_1', 'o', 'g', 'true'];
 const CLOSED_STATUS = ['close', 'closed', 'no', 'status_0', 'c', 'false'];
 const ON_HOLD_STATUS = ['pending', 'scheduled', 'on hold'];
 
-const WEATHER_STATUS = ['sunny', 'clear', 'snow', 'rain', 'cloudy', 'thunderstorm', 'sleet'];
+const WEATHER_STATUS = ['clear-day', 'clear-night', 'rain', 'snow', 'sleet', 'wind', 'fog', 'cloudy', 'partly-cloudy-day', 'partly-cloudy-night', 'hail', 'thunderstorm', 'tornado'];
 
 const BEGINNER_LEVEL = ['green', 'beginner', 'easier', 'easiest', 'circle', 'type_1'];
 const IMTERNEDIATE_LEVEL = ['blue', 'intermediate', 'square', 'moredifficult', 'type_2'];
@@ -179,24 +178,32 @@ export const resortStatusOrNull = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
+
   const lowerCaseString = string.toLocaleLowerCase();
   const status = parseResortStatus(lowerCaseString);
+
   if (status) {
     return status;
   }
+
   return null;
 };
+
 export const weatherStatusOrNull = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
   }
+
   const lowerCaseString = string.toLocaleLowerCase();
   const status = parseWeatherStatus(lowerCaseString);
+
   if (status) {
     return status;
   }
+
   return null;
 };
+
 export const degreeOrNull = (value) => {
   const degreeNumber = parseDegreeNumber(value);
   if (!Number.isNaN(degreeNumber)) {
