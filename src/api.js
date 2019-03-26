@@ -176,7 +176,7 @@ koaApp.use(koaMount('/alexa', async (ctx) => {
 
   return koaAlexa({
     skill,
-    validate: true,
+    validate: false, // process.env.NODE_ENV === 'production',
   })(ctx);
 }));
 koaApp.use(router.routes());
