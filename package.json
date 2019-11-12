@@ -23,7 +23,7 @@
     "isomorphic-fetch": "^2.2.1",
     "joi": "^10.5.0",
     "kcors": "2",
-    "knex": "^0.13.0",
+    "knex": "^0.19.5",
     "koa": "2",
     "koa-alexa": "^0.0.2",
     "koa-bodyparser": "next",
