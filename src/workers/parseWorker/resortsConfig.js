@@ -189,56 +189,45 @@ const getResortCoords = resortName => `${resortConstants[resortName].coords.lat}
 
 export const resortsConfig = {
   'sierra-at-tahoe': [
-    // fnConfigs
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('sierra-at-tahoe')}`,
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      // fnConfig
       url: 'https://www.sierraattahoe.com/weather-snow-report/',
       fn: createHtmlParser('snow', parseSierraSnow),
     },
     {
-      // fnConfig
       url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
       fn: createHtmlParser('liftCounts', parseSierraLiftCounts),
     },
     {
-      // fnConfig
       url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
       fn: createHtmlParser('trailCounts', parseSierraTrailCounts),
     },
     {
-      // fnConfig
       url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
       fn: createHtmlParser('lifts', parseSierraLifts),
     },
     {
-      // fnConfig
       url: 'https://www.sierraattahoe.com/lifts-trails-grooming/',
       fn: createHtmlParser('trails', parseSierraTrails),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
       fn: createTextParser('roads', parseCARoadCondition('US', '50')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
       fn: createTextParser('roads', parseCARoadCondition('CA', '88')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'squaw-valley': [
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('squaw-valley')}`,
       fn: createJSONParser('weather', parseWeather),
     },
@@ -248,48 +237,40 @@ export const resortsConfig = {
       fn: createHtmlParser('snow', parseSquawSnow),
     },
     {
-      // fnConfig
       url:
         'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('liftCounts', parseSquawLiftCounts),
     },
     {
-      // fnConfig
       url:
         'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('trailCounts', parseSquawTrailCounts),
     },
     {
-      // fnConfig
       url:
         'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('lifts', parseSquawLifts),
     },
     {
-      // fnConfig
       url:
         'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('trails', parseSquawTrails),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
       fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
       fn: createTextParser('roads', parseCARoadCondition('CA', '28')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'alpine-meadows': [
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('alpine-meadows')}`,
       fn: createJSONParser('weather', parseWeather),
     },
@@ -299,48 +280,40 @@ export const resortsConfig = {
       fn: createHtmlParser('snow', parseAlpineSnow),
     },
     {
-      // fnConfig
       url:
         'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('liftCounts', parseAlpineLiftCounts),
     },
     {
-      // fnConfig
       url:
         'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('trailCounts', parseAlpineTrailCounts),
     },
     {
-      // fnConfig
       url:
         'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('lifts', parseAlpineLifts),
     },
     {
-      // fnConfig
       url:
         'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
       fn: createHtmlParser('trails', parseAlpineTrails),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
       fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
       fn: createTextParser('roads', parseCARoadCondition('CA', '28')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'diamond-peak': [
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('diamond-peak')}`,
       fn: createJSONParser('weather', parseWeather),
     },
@@ -349,39 +322,32 @@ export const resortsConfig = {
       fn: createHtmlParser('snow', parseDiamondSnow),
     },
     {
-      // fnConfig
       url: 'http://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('liftCounts', parseDiamondLiftCounts),
     },
     {
-      // fnConfig
       url: 'http://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('trailCounts', parseDiamondTrailCounts),
     },
     {
-      // fnConfig
       url: 'http://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('lifts', parseDiamondLifts),
     },
     {
-      // fnConfig
       url: 'http://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('trails', parseDiamondTrails),
     },
     {
-      // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '28')),
     },
     {
-      // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '431')),
     },
   ],
   heavenly: [
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('heavenly')}`,
       fn: createJSONParser('weather', parseWeather),
     },
@@ -391,48 +357,40 @@ export const resortsConfig = {
       fn: createHtmlParser('snow', parseHeavenlySnow),
     },
     {
-      // fnConfig
       url:
         'https://www.skiheavenly.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('liftCounts', parseHeavenlyLiftCounts),
     },
     {
-      // fnConfig
       url:
         'https://www.skiheavenly.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trailCounts', parseHeavenlyTrailCounts),
     },
     {
-      // fnConfig
       url:
         'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
       fn: createHtmlParser('lifts', parseHeavenlyLifts),
     },
     {
-      // fnConfig
       url:
         'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
       fn: createHtmlParser('trails', parseHeavenlyTrails),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
       fn: createTextParser('roads', parseCARoadCondition('US', '50')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
     {
-      // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '207')),
     },
   ],
   kirkwood: [
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('kirkwood')}`,
       fn: createJSONParser('weather', parseWeather),
     },
@@ -441,44 +399,36 @@ export const resortsConfig = {
       fn: createHtmlParser('snow', parseKirkwoodSnow),
     },
     {
-      // fnConfig
       url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('liftCounts', parseKirkwoodLiftCounts),
     },
     {
-      // fnConfig
       url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trailCounts', parseKirkwoodTrailCounts),
     },
     {
-      // fnConfig
       url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('lifts', parseKirkwoodLifts),
     },
     {
-      // fnConfig
       url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trails', parseKirkwoodTrails),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
       fn: createTextParser('roads', parseCARoadCondition('US', '50')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
       fn: createTextParser('roads', parseCARoadCondition('CA', '88')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   northstar: [
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('northstar')}`,
       fn: createJSONParser('weather', parseWeather),
     },
@@ -488,48 +438,40 @@ export const resortsConfig = {
       fn: createHtmlParser('snow', parseNorthstarSnow),
     },
     {
-      // fnConfig
       url:
         'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('liftCounts', parseNorthstarLiftCounts),
     },
     {
-      // fnConfig
       url:
         'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trailCounts', parseNorthstarTrailCounts),
     },
     {
-      // fnConfig
       url:
         'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('lifts', parseNorthstarLifts),
     },
     {
-      // fnConfig
       url:
         'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trails', parseNorthstarTrails),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
       fn: createTextParser('roads', parseCARoadCondition('CA', '267')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
       fn: createTextParser('roads', parseCARoadCondition('CA', '28')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   homewood: [
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('homewood')}`,
       fn: createJSONParser('weather', parseWeather),
     },
@@ -538,189 +480,150 @@ export const resortsConfig = {
       fn: createHtmlParser('snow', parseHomewoodSnow),
     },
     {
-      // fnConfig
       url: 'http://www.skihomewood.com/mountain/snow-report',
       fn: createHtmlParser('liftCounts', parseHomewoodLiftCounts),
     },
     {
-      // fnConfig
       url: 'http://www.skihomewood.com/mountain/snow-report',
       fn: createHtmlParser('trailCounts', parseHomewoodTrailCounts),
     },
     {
-      // fnConfig
       url: 'http://www.skihomewood.com/mountain/snow-report',
       fn: createHtmlParser('lifts', parseHomewoodLifts),
     },
     {
-      // fnConfig
       url: 'http://www.skihomewood.com/mountain/snow-report',
       fn: createHtmlParser('trails', parseHomewoodTrails),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'sugar-bowl': [
-    // fnConfigs
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('sugar-bowl')}`,
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
       fn: createHtmlParser('snow', parseSugarSnow),
     },
     {
-      // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
       fn: createHtmlParser('liftCounts', parseSugarLiftCounts),
     },
     {
-      // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
       fn: createHtmlParser('trailCounts', parseSugarTrailCounts),
     },
     {
-      // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
       fn: createHtmlParser('lifts', parseSugarLifts),
     },
     {
-      // fnConfig
       url: 'http://www.sugarbowl.com/conditions',
       fn: createHtmlParser('trails', parseSugarTrails),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
       fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'donner-ski-ranch': [
-    // fnConfigs
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('donner-ski-ranch')}`,
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      // fnConfig
       url: 'https://www.donnerskiranch.com/snow-report/',
       fn: createHtmlParser('snow', parseDonnerSnow),
     },
     {
-      // fnConfig
       url: 'https://www.donnerskiranch.com/snow-report/',
       fn: createHtmlParser('liftCounts', parseDonnerLiftCounts),
     },
     {
-      // fnConfig
       url: 'https://www.donnerskiranch.com/snow-report/',
       fn: createHtmlParser('trailCounts', parseDonnerTrailCounts),
     },
     {
-      // fnConfig
       url: 'https://www.donnerskiranch.com/snow-report/',
       fn: createHtmlParser('lifts', parseDonnerLifts),
     },
     {
-      // fnConfig
       url: 'https://www.donnerskiranch.com/snow-report/',
       fn: createHtmlParser('trails', parseDonnerTrails),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
       fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
       fn: createTextParser('roads', parseCARoadCondition('CA', '267')),
     },
   ],
   'mt-rose': [
-    // fnConfigs
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('mt-rose')}`,
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      // fnConfig
       url: 'http://skirose.com/the-mountain/snow-report/',
       fn: createHtmlParser('snow', parseMtRoseSnow),
     },
     {
-      // fnConfig
       url: 'http://skirose.com/the-mountain/snow-report/',
       fn: createHtmlParser('liftCounts', parseMtRoseLiftCounts),
     },
     {
-      // fnConfig
       url: 'http://skirose.com/the-mountain/snow-report/',
       fn: createHtmlParser('trailCounts', parseMtRoseTrailCounts),
     },
     {
-      // fnConfig
       url: 'http://skirose.com/the-mountain/snow-report/',
       fn: createHtmlParser('lifts', parseMtRoseLifts),
     },
     {
-      // fnConfig
       url: 'http://skirose.com/the-mountain/snow-report/',
       fn: createHtmlParser('trails', parseMtRoseTrails),
     },
     {
-      // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '28')),
     },
     {
-      // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '431')),
     },
     {
-      // fnConfig
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('I', '580')),
     },
   ],
   boreal: [
-    // fnConfigs
     {
-      // fnConfig
       url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('boreal')}`,
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      // fnConfig
       url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json?time=1521572151',
       fn: createJSONParser('snow', parseBorealSnow),
     },
     {
-      // fnConfig
       url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json?time=1521572151',
       fn: createJSONParser('liftCounts', parseBorealLiftCounts, decodeEntities),
     },
     {
-      // fnConfig
       url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json?time=1521572151',
       fn: createJSONParser(
         'trailCounts',
@@ -729,29 +632,24 @@ export const resortsConfig = {
       ),
     },
     {
-      // fnConfig
       url:
         'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/status.json?time=1521572151',
       fn: createJSONParser('lifts', parseBorealLifts, decodeEntities),
     },
     {
-      // fnConfig
       url:
         'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/status.json?time=1521572151',
       fn: createJSONParser('trails', parseBorealTrails, decodeEntities),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
       fn: createTextParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
       fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
     },
     {
-      // fnConfig
       url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
       fn: createTextParser('roads', parseCARoadCondition('CA', '267')),
     },
