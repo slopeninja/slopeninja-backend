@@ -79,7 +79,7 @@ export const parseAlpineTrailCounts = async ($) => {
 
 export const parseAlpineLifts = async ($) => {
   const list = [];
-  $('#alpine-summary #alpine-lifts-trails .area .lift-trails-list.lifts .row').each((index, rowElement) => {
+  $('#alpine-lifts .lift-wrapper .lift-trails-list.lifts .row').each((index, rowElement) => {
     // alpine messed up their lifts list by including a shuttle in it
     // we need to make sure we exclude that from the list
     const isShuttle = $(rowElement).text().trim().toLowerCase()
@@ -115,13 +115,13 @@ export const parseAlpineLifts = async ($) => {
 export const parseAlpineTrails = async ($) => {
   const list = [];
 
-  $('#alpine-summary #alpine-lifts-trails .area .lift-wrapper .trails-content .lift-trails-list.trails .row').each((index, rowElement) => {
+  $('#alpine-trails .area .lift-wrapper .lift-trails-list.trails .row').each((index, rowElement) => {
     const columnElements = $(rowElement).find('.cell');
     const nameElement = columnElements[0];
     const levelElement = $(columnElements[0]).find('span span');
     // const statusContainerElement = columnElements[3];
 
-    const statusElement = $(columnElements[3]).find('span span');
+    const statusElement = $(columnElements[2]).find('span span');
 
     const status = liftTrailStatusOrNull(statusElement.attr('class'));
 

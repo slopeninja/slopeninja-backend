@@ -44,7 +44,6 @@ export const parseSquawSnow = async ($) => {
     newSnow: inchOrNull(newSnow24Hr),
     snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowDepthSummit),
-
   };
 };
 
@@ -76,7 +75,7 @@ export const parseSquawTrailCounts = async ($) => {
 export const parseSquawLifts = async ($) => {
   const list = [];
 
-  $('#squaw-summary #squaw-lifts-trails .area .lift-trails-list.lifts .row').each((index, rowElement) => {
+  $('#squaw-summary .lift-trail-tabs .area .lift-trails-list.lifts .row').each((index, rowElement) => {
     // squaw messed up their lifts list by including a shuttle in it
     // we need to make sure we exclude that from the list
     const isShuttle = $(rowElement).text().trim().toLowerCase()
@@ -112,13 +111,13 @@ export const parseSquawLifts = async ($) => {
 export const parseSquawTrails = async ($) => {
   const list = [];
 
-  $('#squaw-summary #squaw-lifts-trails .area .lift-wrapper .trails-content .lift-trails-list.trails .row').each((index, rowElement) => {
+  $('#squaw-trails .area .lift-trails-list.trails .row').each((index, rowElement) => {
     const columnElements = $(rowElement).find('.cell');
     const nameElement = columnElements[0];
     const levelElement = $(columnElements[0]).find('span span');
     // const statusContainerElement = columnElements[3];
 
-    const statusElement = $(columnElements[3]).find('span span');
+    const statusElement = $(columnElements[2]).find('span span');
 
     const status = liftTrailStatusOrNull(statusElement.attr('class'));
 
