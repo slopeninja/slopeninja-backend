@@ -38,7 +38,7 @@
     "uuid": "^3.2.1"
   },
   "engines": {
-    "node": "8.11.4"
+    "node": "8.11.3"
   },
   "scripts": {
     "start-prod": "npm run postinstall && node build/src/server.js",
