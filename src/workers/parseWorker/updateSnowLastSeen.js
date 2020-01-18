@@ -1,3 +1,4 @@
+import Raven from 'raven';
 import ResortService from '../../services/ResortService';
 
 const updateSnowLastSeen = async (metadata) => {
@@ -10,8 +11,17 @@ const updateSnowLastSeen = async (metadata) => {
       snowLastSeen: epoch,
     };
 
-    const resortService = new ResortService();
-    resortService.setSnowMetadata(lastSnow);
+    const config = {
+      dynamoDbTableName: 'slopeNinjaMetadata',
+      dynamoDbPartitionKey: 'id',
+    };
+    const resortService = new ResortService(config);
+
+    try {
+      resortService.storeLastSnow(lastSnow);
+    } catch (error) {
+      Raven.captureException(error);
+    }
   }
 };
 

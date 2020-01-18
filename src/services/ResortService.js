@@ -1,12 +1,24 @@
 import Raven from 'raven';
-import client, { SLOPE_NINJA_DB_SCHEMA } from '../db/client';
+import Promise from 'bluebird';
 
-import redisClient from '../db/redisClient';
+import client, { SLOPE_NINJA_DB_SCHEMA } from '../db/client';
+import dynamoDBClient from '../db/dynamoDBClient';
+
+const putItem = Promise.promisify(dynamoDBClient.putItem, {
+  context: dynamoDBClient,
+});
+
+const query = Promise.promisify(dynamoDBClient.query, {
+  context: dynamoDBClient,
+});
 
 // Temporarily disable class-methods-use-this before we fix it across the project
 /* eslint-disable class-methods-use-this */
-
 class ResortService {
+  constructor(config) {
+    this.config = config;
+  }
+
   async getResorts() {
     const resorts = await client
       .withSchema(SLOPE_NINJA_DB_SCHEMA)
@@ -46,28 +58,53 @@ class ResortService {
     return { id, shortName, ...metaData };
   }
 
-  async setSnowMetadata(lastSnow) {
-    const lastSnowRaw = JSON.stringify(lastSnow);
-    const result = await redisClient.set('snow-metadata:lastSnow', lastSnowRaw);
+  async storeLastSnow(lastSnow) {
+    const lastSnowString = JSON.stringify(lastSnow);
 
-    return result;
+    const params = {
+      Item: {
+        [this.config.dynamoDbPartitionKey]: {
+          S: 'lastSnow',
+        },
+        data: {
+          S: lastSnowString || 'null',
+        },
+      },
+      TableName: this.config.dynamoDbTableName,
+    };
+
+    return putItem(params);
   }
 
-  async getSnowMetadata() {
-    const lastSnowRaw = await redisClient.get('snow-metadata:lastSnow');
+  async retrieveLastSnow() {
+    const params = {
+      ExpressionAttributeValues: {
+        ':id': {
+          S: 'lastSnow',
+        },
+      },
+      KeyConditionExpression: `${this.config.dynamoDbPartitionKey} = :id`,
+      ScanIndexForward: false, // descending
+      Limit: 1,
+      TableName: this.config.dynamoDbTableName,
+    };
 
-    let lastSnow;
+    const result = await query(params);
 
-    try {
-      lastSnow = JSON.parse(lastSnowRaw);
-    } catch (error) {
-      Raven.captureException(error);
-      /* eslint-disable no-console */
-      console.log('Error parsing last snow metadata');
-      /* eslint-enable */
+    if (result.Count > 0) {
+      const lastSnowString = result.Items[0].data.S;
+
+      try {
+        const lastSnow = JSON.parse(lastSnowString);
+        if (lastSnow && lastSnow !== 'null') {
+          return lastSnow;
+        }
+      } catch (error) {
+        Raven.captureException(error);
+      }
     }
 
-    return lastSnow;
+    return null;
   }
 }
 

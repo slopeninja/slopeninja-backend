@@ -94,8 +94,12 @@ export const run = async () => {
 
   const rawHtml = makeMailchimpHappy(html.html);
 
-  const newsletterService = new NewsletterService();
-  await newsletterService.setNewsletterSample(rawHtml);
+  const config = {
+    tableName: 'slopeNinjaMetadata',
+    partitionKey: 'id',
+  };
+  const newsletterService = new NewsletterService(config);
+  await newsletterService.storeNewsletterSample(rawHtml);
 
   // Forward the post reqest to MailChimp api
   const token = Buffer.from(`anystring:${MAILCHIMP_PRIVATE_KEY}`).toString('base64');

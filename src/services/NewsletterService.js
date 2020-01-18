@@ -1,20 +1,63 @@
-import redisClient from '../db/redisClient';
+import Promise from 'bluebird';
+import dynamoDBClient from '../db/dynamoDBClient';
 
-// Temporarily disable class-methods-use-this before we fix it across the project
-/* eslint-disable class-methods-use-this */
+const putItem = Promise.promisify(dynamoDBClient.putItem, {
+  context: dynamoDBClient,
+});
+
+const query = Promise.promisify(dynamoDBClient.query, {
+  context: dynamoDBClient,
+});
 
 class NewsletterService {
-  async setNewsletterSample(emailHtml) {
-    const result = await redisClient.set('emailHtml:lastCampaign', emailHtml);
-    return result;
+  constructor(config) {
+    this.config = config;
   }
 
-  async getNewsletterSample() {
-    const lastCampaignText = await redisClient.get('emailHtml:lastCampaign');
+  async storeNewsletterSample(emailHtml) {
+    if (!emailHtml) {
+      throw new Error('unknown email content');
+    }
 
-    return lastCampaignText
-      .replace('{subject}', 'Latest Snow Update - Slope Ninja')
-      .replace('*|UNSUB|*', 'http://slope.ninja');
+    const params = {
+      Item: {
+        [this.config.partitionKey]: {
+          S: 'lastCampaign',
+        },
+        data: {
+          S: emailHtml,
+        },
+      },
+      TableName: this.config.tableName,
+    };
+
+    return putItem(params);
+  }
+
+  async retrieveNewsletterSample() {
+    const params = {
+      ExpressionAttributeValues: {
+        ':id': {
+          S: 'lastCampaign',
+        },
+      },
+      KeyConditionExpression: `${this.config.partitionKey} = :id`,
+      ScanIndexForward: false, // descending
+      Limit: 1,
+      TableName: this.config.tableName,
+    };
+
+    const result = await query(params);
+
+    if (result.Count > 0) {
+      const lastCampaignText = result.Items[0].data.S;
+
+      return lastCampaignText
+        .replace('{subject}', 'Latest Snow Update - Slope Ninja')
+        .replace('*|UNSUB|*', 'http://slope.ninja');
+    }
+
+    return null;
   }
 }
 

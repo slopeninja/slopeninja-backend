@@ -32,13 +32,16 @@ const generateMessage = (userDevice, freshSnow = false) => {
 export const run = async () => {
   console.log('notificationsWroker-pm starts');
 
-  const resortService = new ResortService();
-  const lastSnow = await resortService.getSnowMetadata();
+  const config = {
+    dynamoDbTableName: 'slopeNinjaMetadata',
+    dynamoDbPartitionKey: 'id',
+  };
 
-  if (lastSnow.snowLastSeen) {
-    await resortService.setSnowMetadata({
-      snowLastSeen: null,
-    });
+  const resortService = new ResortService(config);
+  const lastSnow = await resortService.retrieveLastSnow();
+
+  if (lastSnow && lastSnow.snowLastSeen) {
+    await resortService.storeLastSnow(null);
 
     const userDeviceService = new UserDeviceService();
     const userDevices = await userDeviceService.getUserDevices();

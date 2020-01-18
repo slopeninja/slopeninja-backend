@@ -160,8 +160,13 @@ router.post('/user-devices', async (ctx) => {
 });
 
 router.get('/newsletters/latest', async (ctx) => {
-  const newsletterService = new NewsletterService();
-  const newsletterSample = await newsletterService.getNewsletterSample();
+  const config = {
+    tableName: 'slopeNinjaMetadata',
+    partitionKey: 'id',
+  };
+
+  const newsletterService = new NewsletterService(config);
+  const newsletterSample = await newsletterService.retrieveNewsletterSample();
   ctx.status = statuses('OK');
   ctx.body = newsletterSample;
 });
