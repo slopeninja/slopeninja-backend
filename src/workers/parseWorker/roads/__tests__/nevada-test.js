@@ -1,7 +1,5 @@
 import fs from 'fs';
-import {
-  parseNVRoadCondition,
-} from '../nevada';
+import { parseNVRoadCondition } from '../nevada';
 import { createHtmlParser } from '../../parserFactory';
 
 const SOURCE_URL = 'http://remotehost/some/source';

@@ -1,7 +1,5 @@
 import Raven from 'raven';
-import client, {
-  SLOPE_NINJA_DB_SCHEMA,
-} from '../db/client';
+import client, { SLOPE_NINJA_DB_SCHEMA } from '../db/client';
 
 import redisClient from '../db/redisClient';
 

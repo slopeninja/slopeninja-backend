@@ -1,7 +1,5 @@
 import fs from 'fs';
-import {
-  parseCARoadCondition,
-} from '../california';
+import { parseCARoadCondition } from '../california';
 import { createTextParser } from '../../parserFactory';
 
 const SOURCE_URL = 'http://remotehost/some/source';
