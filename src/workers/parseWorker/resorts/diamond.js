@@ -33,10 +33,10 @@ export const parseDiamondSnow = async ($) => {
   const weatherIcon = $('.weather-condition .weather-condition-wrapper .weather-forecast').first().text().trim();
   const temperature = $('.conditions-overlay .row.weather-row .large-4.columns').first().text().trim();
   // 24 Hours
-  const newSnow24Hr = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(3, 4).text().trim();
+  const newSnow24Hr = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1, 2).text().trim();
   // Base
-  const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(1, 2).text().trim();
-  const snowDepthSummit = $('.conditions-overlay .row.weather-row .peak-depth.large-4.columns .weather-data').first().text().trim();
+  const snowDepthBase = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(3, 4).text().trim();
+  const snowDepthSummit = $('.conditions-overlay .row.weather-row .large-4.columns .weather-data').slice(4, 5).text().trim();
   return {
     ...initialWeather,
     weatherIcon: weatherStatusOrNull(weatherIcon),

@@ -14,13 +14,13 @@ test('fetches Diamond snow data correctly', async () => {
   const resortData = await createHtmlParser('snow', parseDiamondSnow)(htmlText);
   expect(resortData).toEqual({
     snow: {
-      status: 'closed',
+      status: null,
       weatherIcon: null,
-      temperature: 66,
+      temperature: null,
       baseCondition: null,
-      newSnow: 0,
-      snowDepthBase: 84,
-      snowDepthSummit: 132,
+      newSnow: 1,
+      snowDepthBase: 68,
+      snowDepthSummit: 82,
     },
   });
 });
