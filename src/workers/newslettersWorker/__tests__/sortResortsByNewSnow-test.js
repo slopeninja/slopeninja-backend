@@ -133,20 +133,20 @@ test('sorts resorts by new snow or snow depth', () => {
       status: 'closed',
     },
     {
-      name: 'Diamond Peak',
-      weather: {
-        newSnow: null,
-        snowDepth: null,
-      },
-      status: 'open',
-    },
-    {
       name: 'Heavenly',
       weather: {
         newSnow: null,
         snowDepth: null,
       },
       status: 'closed',
+    },
+    {
+      name: 'Diamond Peak',
+      weather: {
+        newSnow: null,
+        snowDepth: null,
+      },
+      status: 'open',
     },
   ];
 
