@@ -19,6 +19,16 @@ const { MAILCHIMP_PRIVATE_KEY } = process.env;
 const koaApp = new Koa();
 const router = new KoaRouter();
 
+router.get('/health', async (ctx) => {
+  ctx.status = statuses('OK');
+
+  ctx.body = {
+    NODE_ENV: process.env.NODE_ENV,
+    now: Date.now(),
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+  };
+});
+
 router.get('/resorts', async (ctx) => {
   const resortService = new ResortService();
   const resorts = await resortService.getResorts();
