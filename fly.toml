@@ -1,7 +1,7 @@
 app = "slope-ninja-api"
 
 [[services]]
-  internal_port = 3001
+  internal_port = 8080
   protocol = "tcp"
 
   [services.concurrency]
