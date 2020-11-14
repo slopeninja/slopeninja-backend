@@ -29,13 +29,13 @@ const initialTrails = {
 };
 
 export const parseSierraSnow = async ($) => {
-  const weatherIcon = $('.weather-stat-wrapper .weather-stat p').first().text().trim();
+  const weatherIcon = $('.snow-report-weather .weather-icon svg').attr('class');
   const temperature = $('.weather-block .value').first().text().trim();
   // 24 Hours
   const newSnow24Hr = $('.weather-block.weather-block-special .value').first().text().trim();
   // Base
-  const snowDepthBase = $('.weather-block.weather-block-small.table-column .value').last().text().trim();
-  const snowDepthSummit = $('.weather-block.weather-block-small.table-column .value').slice(8, 9).text().trim();
+  const snowDepthBase = $('.weather-sub .sub-data .value').slice(1, 2).text().trim();
+  const snowDepthSummit = $('.weather-sub .sub-data .value').first().text().trim();
   return {
     ...initialWeather,
     weatherIcon: weatherStatusOrNull(weatherIcon),

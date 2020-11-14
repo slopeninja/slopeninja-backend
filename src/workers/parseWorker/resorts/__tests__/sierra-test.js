@@ -15,12 +15,12 @@ test('fetches Sierra snow data correctly', async () => {
   expect(resortData).toEqual({
     snow: {
       status: null,
-      weatherIcon: 'wind',
-      temperature: 43,
+      weatherIcon: 'cloudy',
+      temperature: 32,
       baseCondition: null,
       newSnow: 0,
-      snowDepthBase: 110,
-      snowDepthSummit: 211,
+      snowDepthBase: 17,
+      snowDepthSummit: 20,
     },
   });
 });
