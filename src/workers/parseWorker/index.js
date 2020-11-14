@@ -115,14 +115,16 @@ const fetchResort = async (resortName) => {
   }, {});
 
   // { 'sierra-at-tahoe':
-  //      { weather: [Object],
-  //        snow: [Object],
-  //        liftCounts: [Object],
-  //        trailCounts: [Object],
-  //        lifts: [Array],
-  //        trails: [Array],
-  //        roads: [Array],
-  //        stale: false } }
+  //   { weather: [Object],
+  //     snow: [Object],
+  //     liftCounts: [Object],
+  //     trailCounts: [Object],
+  //     lifts: [Array],
+  //     trails: [Array],
+  //     roads: [Array],
+  //     stale: false
+  //   }
+  // }
   return {
     [resortName]: {
       ...resortData,

@@ -3,6 +3,7 @@ import {
   liftTrailStatusOrNull,
   trailLevelOrNull,
   numberOrNull,
+  notEmptyStringOrNull,
 } from '../weatherUtil';
 
 const initialSnow = {
@@ -95,11 +96,11 @@ export const parseHeavenlySnow = async ($) => {
 
 export const parseHeavenlyLiftCounts = async ($) => {
   const openLifts = Number.parseInt(
-    $('.c118__number1--v1').slice(1, 2).text(),
+    $('.c118__number1--v1').slice(0, 1).text(),
     10,
   );
   const totalLifts = Number.parseInt(
-    $('.c118__number2--v1').slice(1, 2).text().replace('/', ''),
+    $('.c118__number2--v1').slice(0, 1).text().replace('/', ''),
     10,
   );
 
@@ -112,11 +113,11 @@ export const parseHeavenlyLiftCounts = async ($) => {
 
 export const parseHeavenlyTrailCounts = async ($) => {
   const openTrails = Number.parseInt(
-    $('.c118__number1--v1').slice(3, 4).text(),
+    $('.c118__number1--v1').slice(2, 3).text(),
     10,
   );
   const totalTrails = Number.parseInt(
-    $('.c118__number2--v1').slice(3, 4).text().replace('/', ''),
+    $('.c118__number2--v1').slice(2, 3).text().replace('/', ''),
     10,
   );
 
@@ -140,7 +141,7 @@ export const parseHeavenlyLifts = async ($) => {
   if (liftsReportData) {
     allLifts = liftsReportData.Lifts.map(lift => ({
       name: lift.Name,
-      category: lift.Mountain,
+      category: notEmptyStringOrNull(lift.Mountain),
       status: liftTrailStatusOrNull(`${lift.Status}`),
     }));
   }

@@ -46,7 +46,7 @@ test('fetches Heavenly lifts data correctly', async () => {
   expect(resortData).toEqual({
     liftCounts: {
       total: 27,
-      open: 2,
+      open: 0,
     },
   });
 });
@@ -66,8 +66,8 @@ test('fetches Heavenly trails data correctly', async () => {
   const resortData = await createHtmlParser('trailCounts', parseHeavenlyTrailCounts)(htmlText);
   expect(resortData).toEqual({
     trailCounts: {
-      total: 94,
-      open: 2,
+      total: 111,
+      open: 0,
     },
   });
 });

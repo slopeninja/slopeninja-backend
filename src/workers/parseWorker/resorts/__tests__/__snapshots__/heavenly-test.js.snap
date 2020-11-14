@@ -5,7 +5,12 @@ Object {
   "lifts": Array [
     Object {
       "category": null,
-      "name": "Tamarack",
+      "name": "Aerial Tram",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Bear Cave Carpet",
       "status": "closed",
     },
     Object {
@@ -15,52 +20,12 @@ Object {
     },
     Object {
       "category": null,
-      "name": "Dipper",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Comet",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Mott",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Galaxy",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Olympic",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "North Bowl",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
       "name": "Boulder",
       "status": "closed",
     },
     Object {
       "category": null,
-      "name": "Stagecoach",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Gondola",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Sky",
+      "name": "Boulder Carpet",
       "status": "closed",
     },
     Object {
@@ -70,37 +35,12 @@ Object {
     },
     Object {
       "category": null,
-      "name": "Powderbowl",
+      "name": "Comet",
       "status": "closed",
     },
     Object {
       "category": null,
-      "name": "Groove",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Patsy's",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "World Cup",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "First Ride",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Gunbarrel",
-      "status": "closed",
-    },
-    Object {
-      "category": null,
-      "name": "Aerial Tram",
+      "name": "Dipper",
       "status": "closed",
     },
     Object {
@@ -115,22 +55,57 @@ Object {
     },
     Object {
       "category": null,
-      "name": "Mitey Mite 1",
+      "name": "First Ride",
       "status": "closed",
     },
     Object {
       "category": null,
-      "name": "Mitey Mite 2",
+      "name": "Galaxy",
       "status": "closed",
     },
     Object {
       "category": null,
-      "name": "Pioneer Mitey-Mite",
+      "name": "Gondola",
       "status": "closed",
     },
     Object {
       "category": null,
-      "name": "Boulder Carpet",
+      "name": "Groove",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Gunbarrel",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Mott",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "North Bowl",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Olympic",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Patsy's",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Pioneer Mitey Mite",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Powderbowl",
       "status": "closed",
     },
     Object {
@@ -140,12 +115,27 @@ Object {
     },
     Object {
       "category": null,
-      "name": "Bear Cave Carpet",
+      "name": "Sky",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Stagecoach",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Tamarack",
       "status": "closed",
     },
     Object {
       "category": null,
       "name": "Tubing Lift",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "World Cup",
       "status": "closed",
     },
   ],
@@ -156,75 +146,21 @@ exports[`fetches Heavenly trail list correctly 1`] = `
 Object {
   "trails": Array [
     Object {
-      "category": "Top Of Gondola",
-      "level": "intermediate",
-      "name": "49er",
-      "status": "closed",
-    },
-    Object {
-      "category": "Top Of Gondola",
+      "category": "California",
       "level": "expert",
-      "name": "Aries Woods",
-      "status": "closed",
-    },
-    Object {
-      "category": "Top Of Gondola",
-      "level": "beginner",
-      "name": "Big Easy",
-      "status": "closed",
-    },
-    Object {
-      "category": "Top Of Gondola",
-      "level": "beginner",
-      "name": "Black Bear Hollow",
-      "status": "open",
-    },
-    Object {
-      "category": "Top Of Gondola",
-      "level": "intermediate",
-      "name": "California Trail",
-      "status": "open",
-    },
-    Object {
-      "category": "Top Of Gondola",
-      "level": "intermediate",
-      "name": "California Trail -Lower",
-      "status": "closed",
-    },
-    Object {
-      "category": "Top Of Gondola",
-      "level": "beginner",
-      "name": "Easy Street",
-      "status": "closed",
-    },
-    Object {
-      "category": "Top Of Gondola",
-      "level": "intermediate",
-      "name": "Sam’s Dream",
-      "status": "closed",
-    },
-    Object {
-      "category": "Top Of Gondola",
-      "level": "intermediate",
-      "name": "Silver Spur",
-      "status": "closed",
-    },
-    Object {
-      "category": "Top Of Gondola",
-      "level": "intermediate",
-      "name": "Tamarack Return",
-      "status": "open",
-    },
-    Object {
-      "category": "Top Of Gondola",
-      "level": "intermediate",
-      "name": "VonSchmidt's",
+      "name": "Advanced Round a Bout",
       "status": "closed",
     },
     Object {
       "category": "California",
       "level": "intermediate",
-      "name": "Advanced Round-a-bout",
+      "name": "California Trail Lower",
+      "status": "closed",
+    },
+    Object {
+      "category": "California",
+      "level": "intermediate",
+      "name": "Canyonland",
       "status": "closed",
     },
     Object {
@@ -248,25 +184,19 @@ Object {
     Object {
       "category": "California",
       "level": "expert",
+      "name": "Ellie's Lower",
+      "status": "closed",
+    },
+    Object {
+      "category": "California",
+      "level": "expert",
       "name": "Ellie's Swing",
       "status": "closed",
     },
     Object {
       "category": "California",
       "level": "expert",
-      "name": "Ellie's-Lower ",
-      "status": "closed",
-    },
-    Object {
-      "category": "California",
-      "level": "expert",
-      "name": "Ellie's-Upper ",
-      "status": "closed",
-    },
-    Object {
-      "category": "California",
-      "level": "intermediate",
-      "name": "EpicMix Racing",
+      "name": "Ellie's Upper",
       "status": "closed",
     },
     Object {
@@ -283,26 +213,14 @@ Object {
     },
     Object {
       "category": "California",
-      "level": "beginner",
-      "name": "First Ride Run",
-      "status": "closed",
-    },
-    Object {
-      "category": "California",
-      "level": null,
-      "name": "Groove Park",
+      "level": "advanced",
+      "name": "Gunbarrel Lower",
       "status": "closed",
     },
     Object {
       "category": "California",
       "level": "advanced",
-      "name": "Gunbarrel-Lower ",
-      "status": "closed",
-    },
-    Object {
-      "category": "California",
-      "level": "advanced",
-      "name": "Gunbarrel-Upper",
+      "name": "Gunbarrel Upper",
       "status": "closed",
     },
     Object {
@@ -314,25 +232,13 @@ Object {
     Object {
       "category": "California",
       "level": "intermediate",
-      "name": "High Roller Left",
+      "name": "Liz's Lower",
       "status": "closed",
     },
     Object {
       "category": "California",
       "level": "intermediate",
-      "name": "High Roller Right",
-      "status": "closed",
-    },
-    Object {
-      "category": "California",
-      "level": "intermediate",
-      "name": "Liz's-Lower",
-      "status": "closed",
-    },
-    Object {
-      "category": "California",
-      "level": "intermediate",
-      "name": "Liz's-Upper",
+      "name": "Liz's Upper",
       "status": "closed",
     },
     Object {
@@ -379,6 +285,12 @@ Object {
     },
     Object {
       "category": "California",
+      "level": "beginner",
+      "name": "Poma Trail",
+      "status": "closed",
+    },
+    Object {
+      "category": "California",
       "level": "expert",
       "name": "Powder Line",
       "status": "closed",
@@ -404,7 +316,7 @@ Object {
     Object {
       "category": "California",
       "level": "intermediate",
-      "name": "Ridge Run  ",
+      "name": "Ridge Run",
       "status": "closed",
     },
     Object {
@@ -416,19 +328,19 @@ Object {
     Object {
       "category": "California",
       "level": "intermediate",
-      "name": "Round-a-bout",
+      "name": "Round a-bout",
       "status": "closed",
     },
     Object {
       "category": "California",
       "level": "intermediate",
-      "name": "Round-a-bout Swing",
+      "name": "Round a-bout Swing",
       "status": "closed",
     },
     Object {
       "category": "California",
       "level": "expert",
-      "name": "Ski Way glades",
+      "name": "Ski Way Glades",
       "status": "closed",
     },
     Object {
@@ -446,7 +358,7 @@ Object {
     Object {
       "category": "California",
       "level": "intermediate",
-      "name": "Skyline Trail",
+      "name": "Skyline trail",
       "status": "closed",
     },
     Object {
@@ -505,14 +417,20 @@ Object {
     },
     Object {
       "category": "Nevada",
-      "level": "intermediate",
-      "name": "Big Dipper-Lower",
+      "level": "expert",
+      "name": "Aries Woods",
       "status": "closed",
     },
     Object {
       "category": "Nevada",
       "level": "intermediate",
-      "name": "Big Dipper-Upper",
+      "name": "Big Dipper Lower",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nevada",
+      "level": "intermediate",
+      "name": "Big Dipper Upper",
       "status": "closed",
     },
     Object {
@@ -537,18 +455,6 @@ Object {
       "category": "Nevada",
       "level": "intermediate",
       "name": "Boulder Chute",
-      "status": "closed",
-    },
-    Object {
-      "category": "Nevada",
-      "level": "intermediate",
-      "name": "California Tr.-Up",
-      "status": "closed",
-    },
-    Object {
-      "category": "Nevada",
-      "level": "intermediate",
-      "name": "California Trail – Lower",
       "status": "closed",
     },
     Object {
@@ -650,7 +556,7 @@ Object {
     Object {
       "category": "Nevada",
       "level": "intermediate",
-      "name": "Lower Dipper Rtn. ",
+      "name": "Lower Dipper Return",
       "status": "closed",
     },
     Object {
@@ -692,7 +598,7 @@ Object {
     Object {
       "category": "Nevada",
       "level": "intermediate",
-      "name": "Nevada Trail Lower",
+      "name": "Nevada Lower Trail",
       "status": "closed",
     },
     Object {
@@ -704,7 +610,13 @@ Object {
     Object {
       "category": "Nevada",
       "level": "expert",
-      "name": "North  Bowl",
+      "name": "Nevada Woods",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nevada",
+      "level": "expert",
+      "name": "North Bowl",
       "status": "closed",
     },
     Object {
@@ -716,19 +628,19 @@ Object {
     Object {
       "category": "Nevada",
       "level": "intermediate",
-      "name": "Olympic DH-Lower ",
+      "name": "Olympic Down Hill Lower",
       "status": "closed",
     },
     Object {
       "category": "Nevada",
       "level": "intermediate",
-      "name": "Olympic DH-Mid",
+      "name": "Olympic Down Hill Mid",
       "status": "closed",
     },
     Object {
       "category": "Nevada",
       "level": "intermediate",
-      "name": "Olympic DH-Upper ",
+      "name": "Olympic Down Hill Upper",
       "status": "closed",
     },
     Object {
@@ -746,7 +658,7 @@ Object {
     Object {
       "category": "Nevada",
       "level": "intermediate",
-      "name": "Outlaw ",
+      "name": "Outlaw",
       "status": "closed",
     },
     Object {
@@ -776,6 +688,18 @@ Object {
     Object {
       "category": "Nevada",
       "level": "intermediate",
+      "name": "Stagecoach Lower",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nevada",
+      "level": "intermediate",
+      "name": "Stagecoach Middle",
+      "status": "closed",
+    },
+    Object {
+      "category": "Nevada",
+      "level": "intermediate",
       "name": "Stagecoach Return",
       "status": "closed",
     },
@@ -788,19 +712,7 @@ Object {
     Object {
       "category": "Nevada",
       "level": "expert",
-      "name": "Stagecoach woods",
-      "status": "closed",
-    },
-    Object {
-      "category": "Nevada",
-      "level": "intermediate",
-      "name": "Stagecoach-Lower ",
-      "status": "closed",
-    },
-    Object {
-      "category": "Nevada",
-      "level": "intermediate",
-      "name": "Stagecoach-Middle ",
+      "name": "Stagecoach Woods",
       "status": "closed",
     },
     Object {
@@ -831,6 +743,60 @@ Object {
       "category": "Nevada",
       "level": "intermediate",
       "name": "Upper Perimeter",
+      "status": "closed",
+    },
+    Object {
+      "category": "Top of Gondola",
+      "level": "intermediate",
+      "name": "49er",
+      "status": "closed",
+    },
+    Object {
+      "category": "Top of Gondola",
+      "level": "beginner",
+      "name": "Big Easy",
+      "status": "closed",
+    },
+    Object {
+      "category": "Top of Gondola",
+      "level": "beginner",
+      "name": "Black Bear Hollow",
+      "status": "closed",
+    },
+    Object {
+      "category": "Top of Gondola",
+      "level": "intermediate",
+      "name": "California Trail Upper",
+      "status": "closed",
+    },
+    Object {
+      "category": "Top of Gondola",
+      "level": "beginner",
+      "name": "Easy Street",
+      "status": "closed",
+    },
+    Object {
+      "category": "Top of Gondola",
+      "level": "intermediate",
+      "name": "Sam's Dream",
+      "status": "closed",
+    },
+    Object {
+      "category": "Top of Gondola",
+      "level": "intermediate",
+      "name": "Silver Spur",
+      "status": "closed",
+    },
+    Object {
+      "category": "Top of Gondola",
+      "level": "intermediate",
+      "name": "Tamarack Return",
+      "status": "closed",
+    },
+    Object {
+      "category": "Top of Gondola",
+      "level": "intermediate",
+      "name": "VonSchmidt's",
       "status": "closed",
     },
   ],
