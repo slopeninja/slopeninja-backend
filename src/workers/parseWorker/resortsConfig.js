@@ -318,23 +318,23 @@ export const resortsConfig = {
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      url: 'http://www.diamondpeak.com/mountain/conditions',
+      url: 'https://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('snow', parseDiamondSnow),
     },
     {
-      url: 'http://www.diamondpeak.com/mountain/conditions',
+      url: 'https://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('liftCounts', parseDiamondLiftCounts),
     },
     {
-      url: 'http://www.diamondpeak.com/mountain/conditions',
+      url: 'https://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('trailCounts', parseDiamondTrailCounts),
     },
     {
-      url: 'http://www.diamondpeak.com/mountain/conditions',
+      url: 'https://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('lifts', parseDiamondLifts),
     },
     {
-      url: 'http://www.diamondpeak.com/mountain/conditions',
+      url: 'https://www.diamondpeak.com/mountain/conditions',
       fn: createHtmlParser('trails', parseDiamondTrails),
     },
     {

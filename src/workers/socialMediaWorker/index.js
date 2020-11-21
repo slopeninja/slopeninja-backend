@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import crypto from 'crypto';
 import fetch from 'isomorphic-fetch';
 import ResortService from '../../services/ResortService';
@@ -40,7 +40,7 @@ const createSignature = (method, url, params, consumerSecret, accessTokenSecret)
 };
 
 const updateTwitter = async (status, replyToId) => {
-  const nonce = Buffer.from(uuid.v4()).toString('base64');
+  const nonce = Buffer.from(uuidv4()).toString('base64');
   const timeStamp = Math.floor(Date.now() / 1000);
   const url = 'https://api.twitter.com/1.1/statuses/update.json';
 

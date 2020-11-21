@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 import client, { SLOPE_NINJA_DB_SCHEMA } from '../db/client';
 
@@ -20,7 +20,7 @@ class UserDeviceService {
       .table('userDevices')
       .withSchema(SLOPE_NINJA_DB_SCHEMA)
       .insert({
-        id: uuid.v4(),
+        id: uuidv4(),
         deviceName,
         notificationToken,
       });
