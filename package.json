@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
+    "@babel/preset-env": "^7.12.7",
     "ask-sdk-core": "^2.3.0",
     "aws-sdk": "^2.224.1",
-    "babel-cli": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-env": "^1.4.0",
     "basic-auth": "^1.1.0",
     "bluebird": "^3.5.0",
     "cheerio": "^1.0.0-rc.1",
@@ -42,16 +44,17 @@
   "scripts": {
     "dev": "node_modules/.bin/babel-node src/dev.js",
     "start": "node build/src/server.js",
-    "build": "node_modules/.bin/babel 'src/**/*.js' -d build/ --ignore 'test.js'",
+    "build": "NODE_ENV=production node_modules/.bin/babel src/ -d build/src --ignore 'test.js'",
     "lint": "node_modules/.bin/eslint src/",
     "test": "npm run lint && jest",
     "set-secrets": "cat .env.prod | tr '\n' ' ' | xargs flyctl secrets set"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
     "dotenv": "^2.0.0",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "jest": "^20.0.3"
+    "jest": "^24.8.0"
   }
 }

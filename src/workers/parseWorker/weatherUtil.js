@@ -6,7 +6,7 @@ const OPEN_STATUS = ['open', 'opened', 'yes', 'groomed', 'status_1', 'o', 'g', '
 const CLOSED_STATUS = ['close', 'closed', 'no', 'status_0', 'c', 'false'];
 const ON_HOLD_STATUS = ['pending', 'scheduled', 'on hold'];
 
-const WEATHER_STATUS = ['clear-day', 'clear-night', 'rain', 'snow', 'sleet', 'wind', 'fog', 'cloudy', 'partly-cloudy-day', 'partly-cloudy-night', 'hail', 'thunderstorm', 'tornado'];
+const WEATHER_STATUS = ['clear-day', 'clear-night', 'clear', 'rain', 'snow', 'sleet', 'wind', 'fog', 'cloudy', 'partly-cloudy-day', 'partly-cloudy-night', 'hail', 'thunderstorm', 'tornado'];
 
 const BEGINNER_LEVEL = ['green', 'beginner', 'easier', 'easiest', 'circle', 'type_1'];
 const IMTERNEDIATE_LEVEL = ['blue', 'intermediate', 'square', 'moredifficult', 'type_2'];
@@ -134,7 +134,7 @@ export const parseDegreeNumber = (value) => {
   return Number.parseInt(arr[0], 10);
 };
 
-export const parseInchNumber = (value) => {
+export const parseInchNumberFromString = (value) => {
   if (!value || typeof value !== 'string') {
     return NaN;
   }
@@ -148,6 +148,14 @@ export const parseInchNumber = (value) => {
   }
 
   return Number.parseInt(arr[0], 10);
+};
+
+export const parseInchNumberFromFloat = (value) => {
+  if ((!value && value !== 0) || Number.isNaN(Number.parseInt(value, 10))) {
+    return NaN;
+  }
+
+  return Number.parseInt(value, 10);
 };
 
 export const trailLevelOrNull = (string) => {
@@ -204,19 +212,31 @@ export const weatherStatusOrNull = (string) => {
   return null;
 };
 
-export const degreeOrNull = (value) => {
-  const degreeNumber = parseDegreeNumber(value);
+export const degreeOrNull = (value, options = { omitUnitSign: false }) => {
+  let degreeNumber = parseDegreeNumber(value);
+
+  if (options?.omitUnitSign) {
+    degreeNumber = parseInchNumberFromFloat(value);
+  }
+
   if (!Number.isNaN(degreeNumber)) {
     return degreeNumber;
   }
+
   return null;
 };
 
-export const inchOrNull = (value) => {
-  const inchNumber = parseInchNumber(value);
+export const inchOrNull = (value, options = { omitUnitSign: false }) => {
+  let inchNumber = parseInchNumberFromString(value);
+
+  if (options?.omitUnitSign) {
+    inchNumber = parseInchNumberFromFloat(value);
+  }
+
   if (!Number.isNaN(inchNumber)) {
     return inchNumber;
   }
+
   return null;
 };
 

@@ -22,7 +22,7 @@ let RESPONSE_BODY_CACHE = { /* hashedUrl: response */ };
 const hash = str => crypto.createHash('md5').update(str).digest('hex');
 
 /* eslint-disable no-console */
-const lookUpOrFetch = async (url) => {
+const lookUpOrFetch = async (url, headers) => {
   console.log('Cache lookup for', url);
 
   const hashedUrl = hash(url);
@@ -34,7 +34,9 @@ const lookUpOrFetch = async (url) => {
     return cachedText;
   }
 
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    headers,
+  });
   const text = await response.text();
 
   RESPONSE_BODY_CACHE[hashedUrl] = text;
@@ -58,7 +60,7 @@ const fetchResort = async (resortName) => {
     /* eslint-disable no-await-in-loop, no-console */
     let text;
     try {
-      text = await lookUpOrFetch(fnConfig.url);
+      text = await lookUpOrFetch(fnConfig.url, fnConfig.headers);
     } catch (error) {
       stale = true;
       console.log(error);
@@ -222,3 +224,5 @@ export const run = async () => {
   console.log('Worker quits');
   /* eslint-enable */
 };
+
+run();

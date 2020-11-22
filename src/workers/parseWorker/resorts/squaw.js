@@ -28,123 +28,77 @@ const initialTrails = {
   open: null,
 };
 
-export const parseSquawSnow = async ($) => {
-  const weatherIcon = $('#squaw-elevation-0 .row .cellwrapper .cell h6').first().text().trim();
-  const temperature = $('#squaw-elevation-0 .row .cellwrapper .cell .value').first().text().trim();
+export const parseSquawSnow = async (data) => {
+  const baseCondition = data?.SnowReport?.BaseConditions;
+  const weatherIcon = data?.CurrentConditions?.Base?.Conditions;
+  const temperature = data?.CurrentConditions?.Base?.TemperatureF;
   // 24
-  const newSnow24Hr = $('#squaw-elevation-1 .row.snow .cellwrapper .cell .value').slice(5, 6).text().trim();
+  const newSnow24Hr = data?.SnowReport?.MidMountainArea?.Last24HoursIn;
   // //Base
-  const snowDepthBase = $('#squaw-elevation-2 .row.snow .cellwrapper .cell .value').slice(7, 8).text().trim();
-  const snowDepthSummit = $('#squaw-elevation-1 .row.snow .cellwrapper .cell .value').slice(7, 8).text().trim();
+  const snowDepthBase = data?.SnowReport?.BaseArea?.BaseIn;
+  const snowDepthSummit = data?.SnowReport?.MidMountainArea?.BaseIn;
 
   return {
     ...initialWeather,
+    baseCondition: notEmptyStringOrNull(baseCondition),
     weatherIcon: weatherStatusOrNull(weatherIcon),
-    temperature: degreeOrNull(temperature),
-    newSnow: inchOrNull(newSnow24Hr),
-    snowDepthBase: inchOrNull(snowDepthBase),
-    snowDepthSummit: inchOrNull(snowDepthSummit),
+    temperature: degreeOrNull(temperature, { omitUnitSign: true }),
+    newSnow: inchOrNull(newSnow24Hr, { omitUnitSign: true }),
+    snowDepthBase: inchOrNull(snowDepthBase, { omitUnitSign: true }),
+    snowDepthSummit: inchOrNull(snowDepthSummit, { omitUnitSign: true }),
   };
 };
 
-export const parseSquawLiftCounts = async ($) => {
-  const open = numberOrNull(Number.parseInt(
-    $('#squaw-report .global-stats .cell.open-lifts .value').text().trim(),
-    10,
-  ));
+export const parseSquawLiftCounts = async (data) => {
+  const open = data?.SnowReport?.TotalOpenLifts;
+  const total = data?.SnowReport?.TotalLifts;
 
   return {
     ...initialLifts,
     open: numberOrNull(open),
+    total: numberOrNull(total),
   };
 };
 
-export const parseSquawTrailCounts = async ($) => {
-  const open = numberOrNull(Number.parseInt(
-    $('#squaw-report .global-stats .cell.open-trails .value').text().trim(),
-    10,
-  ));
+export const parseSquawTrailCounts = async (data) => {
+  const open = data?.SnowReport?.TotalOpenTrails;
+  const total = data?.SnowReport?.TotalTrails;
 
   return {
     ...initialTrails,
     open: numberOrNull(open),
+    total: numberOrNull(total),
   };
 };
 
 
-export const parseSquawLifts = async ($) => {
-  const list = [];
+export const parseSquawLifts = async (data) => {
+  return data?.MountainAreas?.reduce((accum, area) => {
+    const lifts = area.Lifts?.map(lift => ({
+      name: notEmptyStringOrNull(lift.Name),
+      status: liftTrailStatusOrNull(lift.Status),
+      category: notEmptyStringOrNull(area),
+    }));
 
-  $('#squaw-summary .lift-trail-tabs .area .lift-trails-list.lifts .row').each((index, rowElement) => {
-    // squaw messed up their lifts list by including a shuttle in it
-    // we need to make sure we exclude that from the list
-    const isShuttle = $(rowElement).text().trim().toLowerCase()
-      .includes('shuttle');
-    if (isShuttle) {
-      return;
-    }
-
-    const columnElements = $(rowElement).find('.cell');
-    const nameElement = columnElements[0];
-    // const statusContainerElement = columnElements[3];
-
-    const statusElement = $(columnElements[3]).find('span[class^="icon-status"]');
-
-    const prevSubheaderCategories = $(rowElement).parent().parent().prevAll('.subheader');
-    const subheaderCategory = prevSubheaderCategories.get(0);
-
-    const status = liftTrailStatusOrNull(statusElement.attr('class'));
-    const name = notEmptyStringOrNull($(nameElement).text().trim());
-    const category = notEmptyStringOrNull($(subheaderCategory).text().trim());
-
-    const lift = {
-      name,
-      status,
-      category,
-    };
-    list.push(lift);
-  });
-
-  return list;
+    return [
+      ...accum,
+      ...lifts,
+    ];
+  }, []) || [];
 };
 
-export const parseSquawTrails = async ($) => {
-  const list = [];
+export const parseSquawTrails = async (data) => {
+  return data?.MountainAreas?.reduce((accum, area) => {
+    const trails = area.Trails?.map(trail => ({
+      name: notEmptyStringOrNull(trail.Name),
+      status: liftTrailStatusOrNull(trail.Status),
+      category: notEmptyStringOrNull(area.Name),
+      level: trailLevelOrNull(trail.TrailIcon),
+    }));
 
-  $('#squaw-trails .area .lift-trails-list.trails .row').each((index, rowElement) => {
-    const columnElements = $(rowElement).find('.cell');
-    const nameElement = columnElements[0];
-    const levelElement = $(columnElements[0]).find('span span');
-    // const statusContainerElement = columnElements[3];
-
-    const statusElement = $(columnElements[2]).find('span span');
-
-    const status = liftTrailStatusOrNull(statusElement.attr('class'));
-
-    const prevSubheaderCategories = $(rowElement)
-      .parent()
-      .parent()
-      .parent()
-      .parent()
-      .prevAll('.subheader')
-      .slice(0, 1);
-
-    const name = notEmptyStringOrNull($(nameElement).text().trim());
-    const level = trailLevelOrNull($(levelElement).attr('class'));
-    const category = notEmptyStringOrNull($(prevSubheaderCategories).text().trim());
-
-    if (!level) {
-      return;
-    }
-
-    const trail = {
-      name,
-      status,
-      category,
-      level,
-    };
-    list.push(trail);
-  });
-
-  return list;
+    return [
+      ...accum,
+      ...trails,
+    ];
+  }, []) || [];
 };

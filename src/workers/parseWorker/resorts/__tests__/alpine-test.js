@@ -6,27 +6,27 @@ import {
   parseAlpineTrails,
   parseAlpineTrailCounts,
 } from '../alpine';
-import { createHtmlParser } from '../../parserFactory';
+import { createJSONParser } from '../../parserFactory';
 
 test('fetches Alpine snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-weather.html.input`);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/alpine-lifts.json.input`);
+  const resortData = await createJSONParser('snow', parseAlpineSnow)(jsonText);
 
-  const resortData = await createHtmlParser('snow', parseAlpineSnow)(htmlText);
   expect(resortData).toEqual({
     snow: {
       status: null,
-      weatherIcon: 'snow',
-      temperature: 25,
-      baseCondition: null,
-      newSnow: 14,
-      snowDepthBase: 75,
-      snowDepthSummit: 102,
+      weatherIcon: 'cloudy',
+      temperature: 43,
+      baseCondition: 'Corn snow',
+      newSnow: 0,
+      snowDepthBase: 19,
+      snowDepthSummit: 27,
     },
   });
 });
 
 test('fetches all null for nonexisting snow values', async () => {
-  const resortData = await createHtmlParser('snow', parseAlpineSnow)('<html></html>');
+  const resortData = await createJSONParser('snow', parseAlpineSnow)('{}');
   expect(resortData).toEqual({
     snow: {
       status: null,
@@ -41,18 +41,19 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Alpine lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
-  const resortData = await createHtmlParser('liftCounts', parseAlpineLiftCounts)(htmlText);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/alpine-lifts.json.input`);
+  const resortData = await createJSONParser('liftCounts', parseAlpineLiftCounts)(jsonText);
+
   expect(resortData).toEqual({
     liftCounts: {
-      total: null,
-      open: 13,
+      total: 12,
+      open: 0,
     },
   });
 });
 
 test('fetches all null for nonexisting lift values', async () => {
-  const resortData = await createHtmlParser('liftCounts', parseAlpineLiftCounts)('<html></html>');
+  const resortData = await createJSONParser('liftCounts', parseAlpineLiftCounts)('{}');
   expect(resortData).toEqual({
     liftCounts: {
       total: null,
@@ -62,18 +63,19 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Alpine trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
-  const resortData = await createHtmlParser('trailCounts', parseAlpineTrailCounts)(htmlText);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/alpine-lifts.json.input`);
+  const resortData = await createJSONParser('trailCounts', parseAlpineTrailCounts)(jsonText);
+
   expect(resortData).toEqual({
     trailCounts: {
-      total: null,
-      open: 29,
+      total: 115,
+      open: 0,
     },
   });
 });
 
 test('fetches all null for nonexisting trails values', async () => {
-  const resortData = await createHtmlParser('trailCounts', parseAlpineTrailCounts)('<html></html>');
+  const resortData = await createJSONParser('trailCounts', parseAlpineTrailCounts)('{}');
   expect(resortData).toEqual({
     trailCounts: {
       total: null,
@@ -83,23 +85,24 @@ test('fetches all null for nonexisting trails values', async () => {
 });
 
 test('fetches Alpine lift list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
-  const resortData = await createHtmlParser('lifts', parseAlpineLifts)(htmlText);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/alpine-lifts.json.input`);
+  const resortData = await createJSONParser('lifts', parseAlpineLifts)(jsonText);
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('lifts', parseAlpineLifts)('<html></html>');
+  const resortData = await createJSONParser('lifts', parseAlpineLifts)('{}');
+
   expect(resortData).toMatchObject({ lifts: [] });
 });
 
 test('fetches Alpine trail list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
-  const resortData = await createHtmlParser('trails', parseAlpineTrails)(htmlText);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/alpine-lifts.json.input`);
+  const resortData = await createJSONParser('trails', parseAlpineTrails)(jsonText);
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('trails', parseAlpineTrails)('<html></html>');
+  const resortData = await createJSONParser('trails', parseAlpineTrails)('{}');
   expect(resortData).toMatchObject({ trails: [] });
 });

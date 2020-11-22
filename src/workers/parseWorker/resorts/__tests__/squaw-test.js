@@ -6,27 +6,27 @@ import {
   parseSquawTrails,
   parseSquawTrailCounts,
 } from '../squaw';
-import { createHtmlParser } from '../../parserFactory';
+import { createJSONParser } from '../../parserFactory';
 
 test('fetches Squaw snow data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-weather.html.input`);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.json.input`);
 
-  const resortData = await createHtmlParser('snow', parseSquawSnow)(htmlText);
+  const resortData = await createJSONParser('snow', parseSquawSnow)(jsonText);
   expect(resortData).toEqual({
     snow: {
       status: null,
-      weatherIcon: 'snow',
-      temperature: 23,
-      baseCondition: null,
-      newSnow: 15,
-      snowDepthBase: 65,
-      snowDepthSummit: 130,
+      weatherIcon: 'clear',
+      temperature: 38,
+      baseCondition: 'Corn snow',
+      newSnow: 0,
+      snowDepthBase: 18,
+      snowDepthSummit: 27,
     },
   });
 });
 
 test('fetches all null for nonexisting snow values', async () => {
-  const resortData = await createHtmlParser('snow', parseSquawSnow)('<html></html>');
+  const resortData = await createJSONParser('snow', parseSquawSnow)('{}');
   expect(resortData).toEqual({
     snow: {
       status: null,
@@ -41,18 +41,18 @@ test('fetches all null for nonexisting snow values', async () => {
 });
 
 test('fetches Squaw lifts data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
-  const resortData = await createHtmlParser('liftCounts', parseSquawLiftCounts)(htmlText);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.json.input`);
+  const resortData = await createJSONParser('liftCounts', parseSquawLiftCounts)(jsonText);
   expect(resortData).toEqual({
     liftCounts: {
-      total: null,
-      open: 20,
+      total: 27,
+      open: 0,
     },
   });
 });
 
 test('fetches all null for nonexisting lift values', async () => {
-  const resortData = await createHtmlParser('liftCounts', parseSquawLiftCounts)('<html></html>');
+  const resortData = await createJSONParser('liftCounts', parseSquawLiftCounts)('{}');
   expect(resortData).toEqual({
     liftCounts: {
       total: null,
@@ -62,18 +62,19 @@ test('fetches all null for nonexisting lift values', async () => {
 });
 
 test('fetches Squaw trails data correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
-  const resortData = await createHtmlParser('trailCounts', parseSquawTrailCounts)(htmlText);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.json.input`);
+  const resortData = await createJSONParser('trailCounts', parseSquawTrailCounts)(jsonText);
+
   expect(resortData).toEqual({
     trailCounts: {
-      total: null,
-      open: 44,
+      total: 177,
+      open: 0,
     },
   });
 });
 
 test('fetches all null for nonexisting trails values', async () => {
-  const resortData = await createHtmlParser('trailCounts', parseSquawTrailCounts)('<html></html>');
+  const resortData = await createJSONParser('trailCounts', parseSquawTrailCounts)('{}');
   expect(resortData).toEqual({
     trailCounts: {
       total: null,
@@ -83,23 +84,25 @@ test('fetches all null for nonexisting trails values', async () => {
 });
 
 test('fetches Squaw lift list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
-  const resortData = await createHtmlParser('lifts', parseSquawLifts)(htmlText);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.json.input`);
+  const resortData = await createJSONParser('lifts', parseSquawLifts)(jsonText);
+
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('lifts', parseSquawLifts)('<html></html>');
+  const resortData = await createJSONParser('lifts', parseSquawLifts)('{}');
   expect(resortData).toMatchObject({ lifts: [] });
 });
 
 test('fetches Squaw trail list correctly', async () => {
-  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.html.input`);
-  const resortData = await createHtmlParser('trails', parseSquawTrails)(htmlText);
+  const jsonText = fs.readFileSync(`${__dirname}/__fixtures__/squaw-lifts.json.input`);
+  const resortData = await createJSONParser('trails', parseSquawTrails)(jsonText);
+
   expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
-  const resortData = await createHtmlParser('trails', parseSquawTrails)('<html></html>');
+  const resortData = await createJSONParser('trails', parseSquawTrails)('{}');
   expect(resortData).toMatchObject({ trails: [] });
 });

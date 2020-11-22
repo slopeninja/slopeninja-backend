@@ -232,29 +232,28 @@ export const resortsConfig = {
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
-      fn: createHtmlParser('snow', parseSquawSnow),
+      url: 'https://mtnpowder.com/feed?resortId=61',
+      fn: createJSONParser('snow', parseSquawSnow),
     },
     {
       url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('liftCounts', parseSquawLiftCounts),
+        'https://mtnpowder.com/feed?resortId=61',
+      fn: createJSONParser('liftCounts', parseSquawLiftCounts),
     },
     {
       url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trailCounts', parseSquawTrailCounts),
+        'https://mtnpowder.com/feed?resortId=61',
+      fn: createJSONParser('trailCounts', parseSquawTrailCounts),
     },
     {
       url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('lifts', parseSquawLifts),
+        'https://mtnpowder.com/feed?resortId=61',
+      fn: createJSONParser('lifts', parseSquawLifts),
     },
     {
       url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trails', parseSquawTrails),
+        'https://mtnpowder.com/feed?resortId=61',
+      fn: createJSONParser('trails', parseSquawTrails),
     },
     {
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
@@ -276,28 +275,28 @@ export const resortsConfig = {
     },
     {
       url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/snow-weather-reports-lake-tahoe?resort=squaw',
-      fn: createHtmlParser('snow', parseAlpineSnow),
+        'https://mtnpowder.com/feed?resortId=62',
+      fn: createJSONParser('snow', parseAlpineSnow),
     },
     {
       url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('liftCounts', parseAlpineLiftCounts),
+        'https://mtnpowder.com/feed?resortId=62',
+      fn: createJSONParser('liftCounts', parseAlpineLiftCounts),
     },
     {
       url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trailCounts', parseAlpineTrailCounts),
+        'https://mtnpowder.com/feed?resortId=62',
+      fn: createJSONParser('trailCounts', parseAlpineTrailCounts),
     },
     {
       url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('lifts', parseAlpineLifts),
+        'https://mtnpowder.com/feed?resortId=62',
+      fn: createJSONParser('lifts', parseAlpineLifts),
     },
     {
       url:
-        'http://squawalpine.com/skiing-riding/weather-conditions-webcams/lift-grooming-status',
-      fn: createHtmlParser('trails', parseAlpineTrails),
+        'https://mtnpowder.com/feed?resortId=62',
+      fn: createJSONParser('trails', parseAlpineTrails),
     },
     {
       url: 'http://www.dot.ca.gov/hq/roadinfo/i80',

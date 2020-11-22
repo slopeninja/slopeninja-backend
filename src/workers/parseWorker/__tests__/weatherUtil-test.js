@@ -1,7 +1,8 @@
 import {
   isNumber,
   parseDegreeNumber,
-  parseInchNumber,
+  parseInchNumberFromString,
+  parseInchNumberFromFloat,
   degreeOrNull,
   inchOrNull,
   numberOrNull,
@@ -32,20 +33,32 @@ test('tests if valid degree number', () => {
 });
 
 test('tests if valid inch number', () => {
-  expect(parseInchNumber('a"')).toBeNaN();
-  expect(parseInchNumber('100"')).toBe(100);
-  expect(parseInchNumber('100in')).toBe(100);
-  expect(parseInchNumber('100inch')).toBe(100);
-  expect(parseInchNumber('100inches')).toBe(100);
-  expect(parseInchNumber('100 in')).toBe(100);
-  expect(parseInchNumber('100 inch')).toBe(100);
-  expect(parseInchNumber('100 inches')).toBe(100);
-  expect(parseInchNumber('100 deg')).toBeNaN();
-  expect(parseInchNumber('100deg')).toBeNaN();
-  expect(parseInchNumber('abc')).toBeNaN();
-  expect(parseInchNumber('')).toBeNaN();
-  expect(parseInchNumber()).toBeNaN();
-  expect(parseInchNumber(100)).toBeNaN();
+  expect(parseInchNumberFromString('a"')).toBeNaN();
+  expect(parseInchNumberFromString('100"')).toBe(100);
+  expect(parseInchNumberFromString('100in')).toBe(100);
+  expect(parseInchNumberFromString('100inch')).toBe(100);
+  expect(parseInchNumberFromString('100inches')).toBe(100);
+  expect(parseInchNumberFromString('100 in')).toBe(100);
+  expect(parseInchNumberFromString('100 inch')).toBe(100);
+  expect(parseInchNumberFromString('100 inches')).toBe(100);
+  expect(parseInchNumberFromString('100 deg')).toBeNaN();
+  expect(parseInchNumberFromString('100deg')).toBeNaN();
+  expect(parseInchNumberFromString('abc')).toBeNaN();
+  expect(parseInchNumberFromString('')).toBeNaN();
+  expect(parseInchNumberFromString()).toBeNaN();
+  expect(parseInchNumberFromString(100)).toBeNaN();
+});
+
+test('tests if valid inch number', () => {
+  expect(parseInchNumberFromFloat('a"')).toBeNaN();
+  expect(parseInchNumberFromFloat('100"')).toBe(100);
+  expect(parseInchNumberFromFloat('100.0')).toBe(100);
+  expect(parseInchNumberFromFloat('')).toBeNaN();
+  expect(parseInchNumberFromFloat()).toBeNaN();
+  expect(parseInchNumberFromFloat(100)).toBe(100);
+  expect(parseInchNumberFromFloat(100.00)).toBe(100);
+  expect(parseInchNumberFromFloat(0.00)).toBe(0);
+  expect(parseInchNumberFromFloat(0.0)).toBe(0);
 });
 
 test('returns valid degree value or null', () => {
