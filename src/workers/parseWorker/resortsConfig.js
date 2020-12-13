@@ -90,7 +90,6 @@ import {
 import {
   createHtmlParser,
   createJSONParser,
-  createTextParser,
   decodeEntities,
 } from './parserFactory';
 
@@ -187,6 +186,8 @@ export const resortConstants = {
 
 const getResortCoords = resortName => `${resortConstants[resortName].coords.lat},${resortConstants[resortName].coords.lng}`;
 
+const qs = (params, joinWith = '&') => Object.keys(params).sort().map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`).join(joinWith);
+
 export const resortsConfig = {
   'sierra-at-tahoe': [
     {
@@ -214,16 +215,46 @@ export const resortsConfig = {
       fn: createHtmlParser('trails', parseSierraTrails),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
-      fn: createTextParser('roads', parseCARoadCondition('US', '50')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=50',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '50',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('US', '50')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '88')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=88',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '88',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '88')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'squaw-valley': [
@@ -256,16 +287,46 @@ export const resortsConfig = {
       fn: createJSONParser('trails', parseSquawTrails),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=80',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '80',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '28')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=28',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '28',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '28')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'alpine-meadows': [
@@ -299,16 +360,46 @@ export const resortsConfig = {
       fn: createJSONParser('trails', parseAlpineTrails),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=80',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '80',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '28')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=28',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '28',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '28')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'diamond-peak': [
@@ -376,12 +467,32 @@ export const resortsConfig = {
       fn: createHtmlParser('trails', parseHeavenlyTrails),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
-      fn: createTextParser('roads', parseCARoadCondition('US', '50')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=50',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '50',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('US', '50')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
     {
       url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
@@ -414,16 +525,46 @@ export const resortsConfig = {
       fn: createHtmlParser('trails', parseKirkwoodTrails),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/us50',
-      fn: createTextParser('roads', parseCARoadCondition('US', '50')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=50',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '50',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('US', '50')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr88',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '88')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=88',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '88',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '88')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   northstar: [
@@ -457,16 +598,46 @@ export const resortsConfig = {
       fn: createHtmlParser('trails', parseNorthstarTrails),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '267')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=267',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '267',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '267')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr28',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '28')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=28',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '28',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '28')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   homewood: [
@@ -495,8 +666,18 @@ export const resortsConfig = {
       fn: createHtmlParser('trails', parseHomewoodTrails),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'sugar-bowl': [
@@ -525,12 +706,32 @@ export const resortsConfig = {
       fn: createHtmlParser('trails', parseSugarTrails),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=80',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '80',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
   'donner-ski-ranch': [
@@ -559,16 +760,46 @@ export const resortsConfig = {
       fn: createHtmlParser('trails', parseDonnerTrails),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=80',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '80',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '267')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=267',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '267',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '267')),
     },
   ],
   'mt-rose': [
@@ -641,16 +872,46 @@ export const resortsConfig = {
       fn: createJSONParser('trails', parseBorealTrails, decodeEntities),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/i80',
-      fn: createTextParser('roads', parseCARoadCondition('I', '80')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=80',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '80',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('I', '80')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr89',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '89')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=89',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '89',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
     {
-      url: 'http://www.dot.ca.gov/hq/roadinfo/sr267',
-      fn: createTextParser('roads', parseCARoadCondition('CA', '267')),
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=267',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '267',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('CA', '267')),
     },
   ],
 };

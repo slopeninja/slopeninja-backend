@@ -50,6 +50,7 @@
     "set-secrets": "cat .env.prod | tr '\n' ' ' | xargs flyctl secrets set"
   },
   "devDependencies": {
+    "@babel/node": "^7.9.0",
     "babel-eslint": "^8.2.6",
     "dotenv": "^2.0.0",
     "eslint": "^4.18.2",
