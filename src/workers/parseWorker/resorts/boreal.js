@@ -88,7 +88,8 @@ export const parseBorealLifts = async (data) => {
   const list = data.filter(item => item.type === 'lift').map((liftItem) => {
     const { name } = liftItem.properties;
     const status = liftTrailStatusOrNull(liftItem.status.find(s =>
-      s.status_name === 'opening').status_value);
+      // eslint-disable-next-line camelcase
+      s.status_name === 'opening')?.status_value);
     const category = notEmptyStringOrNull(liftItem.sector);
     const lift = {
       name,
@@ -110,7 +111,8 @@ export const parseBorealTrails = async (data) => {
   const list = data.filter(item => item.type === 'trail').map((trailItem) => {
     const { name } = trailItem.properties;
     const status = liftTrailStatusOrNull(trailItem.status.find(s =>
-      s.status_name === 'opening').status_value);
+      // eslint-disable-next-line camelcase
+      s.status_name === 'opening')?.status_value);
     const category = notEmptyStringOrNull(trailItem.sector);
     const level = trailLevelOrNull(trailItem.properties.subtype);
     const trail = {

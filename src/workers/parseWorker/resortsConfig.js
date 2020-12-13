@@ -846,15 +846,15 @@ export const resortsConfig = {
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json?time=1521572151',
+      url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json',
       fn: createJSONParser('snow', parseBorealSnow),
     },
     {
-      url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json?time=1521572151',
+      url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json',
       fn: createJSONParser('liftCounts', parseBorealLiftCounts, decodeEntities),
     },
     {
-      url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json?time=1521572151',
+      url: 'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/conditions.json',
       fn: createJSONParser(
         'trailCounts',
         parseBorealTrailCounts,
@@ -863,12 +863,12 @@ export const resortsConfig = {
     },
     {
       url:
-        'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/status.json?time=1521572151',
+        'https://www.rideboreal.com/api/v1/dor/status',
       fn: createJSONParser('lifts', parseBorealLifts, decodeEntities),
     },
     {
       url:
-        'https://s3.us-east-2.amazonaws.com/tech4snow/feeds/9/status.json?time=1521572151',
+        'https://www.rideboreal.com/api/v1/dor/status',
       fn: createJSONParser('trails', parseBorealTrails, decodeEntities),
     },
     {
