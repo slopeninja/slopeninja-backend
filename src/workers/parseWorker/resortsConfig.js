@@ -428,11 +428,11 @@ export const resortsConfig = {
       fn: createHtmlParser('trails', parseDiamondTrails),
     },
     {
-      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      url: 'https://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '28')),
     },
     {
-      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      url: 'https://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '431')),
     },
   ],
@@ -495,7 +495,7 @@ export const resortsConfig = {
       fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
     {
-      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      url: 'https://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '207')),
     },
   ],
@@ -828,15 +828,15 @@ export const resortsConfig = {
       fn: createHtmlParser('trails', parseMtRoseTrails),
     },
     {
-      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      url: 'https://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '28')),
     },
     {
-      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      url: 'https://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('NV', '431')),
     },
     {
-      url: 'http://nvroads.com/icx/pages/incidentlist.aspx',
+      url: 'https://nvroads.com/icx/pages/incidentlist.aspx',
       fn: createHtmlParser('roads', parseNVRoadCondition('I', '580')),
     },
   ],

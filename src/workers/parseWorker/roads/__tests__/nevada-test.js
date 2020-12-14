@@ -13,13 +13,13 @@ test('parses road and chain condition correctly I80', async () => {
       prefix: 'I',
       number: '80',
       sourceUrl: SOURCE_URL,
-      status: 'incident',
-      chainStatus: null,
+      status: 'open',
+      chainStatus: 'R2',
     },
   });
 });
 
-test('parses road and chain condition correctly SR289', async () => {
+test('parses road and chain condition correctly NV289', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/NVIncidents.html.input`);
 
   const resortData = await createHtmlParser('highway289', parseNVRoadCondition('NV', '289'))(htmlText, SOURCE_URL);
@@ -28,7 +28,7 @@ test('parses road and chain condition correctly SR289', async () => {
       prefix: 'NV',
       number: '289',
       sourceUrl: SOURCE_URL,
-      status: 'closed',
+      status: 'open',
       chainStatus: null,
     },
   });
@@ -45,6 +45,21 @@ test('parses road and chain condition correctly for highways that have no report
       sourceUrl: SOURCE_URL,
       status: 'open',
       chainStatus: null,
+    },
+  });
+});
+
+test('parses road and chain condition correctly for highways that have no reported incidents', async () => {
+  const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/NVIncidents.html.input`);
+
+  const resortData = await createHtmlParser('highway431', parseNVRoadCondition('NV', '431'))(htmlText, SOURCE_URL);
+  expect(resortData).toEqual({
+    highway431: {
+      prefix: 'NV',
+      number: '431',
+      sourceUrl: SOURCE_URL,
+      status: 'open',
+      chainStatus: 'R2',
     },
   });
 });

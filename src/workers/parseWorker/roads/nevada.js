@@ -9,7 +9,7 @@ const parseNVRoadConditionList = (
 ) => {
   const nevadaRoadList = {};
 
-  $('table.gvIncidentList tr').each((index, trElement) => {
+  $('.gvIncidentList tr').each((index, trElement) => {
     const highwayElements = $(trElement).find('td:nth-child(2)');
     const highwayNameText = $(highwayElements).text().trim().split('-')
       .join('');

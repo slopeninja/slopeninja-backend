@@ -10,10 +10,12 @@ const CA_ROAD_CLOSED = ['IS CLOSED'];
 const CHAIN_R1 = [
   'R1',
   'CHAINS OR SNOW TIRES ARE REQUIRED',
+  'CHAINS OR SNOW TIRES REQUIRED',
 ];
 const CHAIN_R2 = [
   'R2',
   'CHAINS ARE REQUIRED ON ALL VEHICLES EXCEPT 4-WHEEL-DRIVE VEHICLES WITH SNOW',
+  'CHAINS REQUIRED, ALL VEHICLES EXCEPT 4-WHEEL DRIVE WITH SNOW TIRES',
 // CHAINS ARE REQUIRED ON ALL VEHICLES EXCEPT 4-WHEEL-DRIVE VEHICLES WITH SNOW
 // TIRES ON ALL 4 WHEELS
 // unicode break between SNOW and TIRES
@@ -23,6 +25,7 @@ const CHAIN_R3 = 'R3';
 const NV_ROAD_INCIDENT = [
   'construction',
   'incident',
+  'Roadwork',
 ];
 const NV_ROAD_CLOSED = ['Road Closed'];
 
@@ -156,15 +159,15 @@ export const nevadaRoadStatusOrNull = (text) => {
     return 'closed';
   }
 
-  return null;
+  return 'open';
 };
 
 export const isNevadaChainR1 = (text) => {
-  return !!text.includes(CHAIN_R1);
+  return !!CHAIN_R1.find(r1 => text.includes(r1));
 };
 
 export const isNevadaChainR2 = (text) => {
-  return !!text.includes(CHAIN_R2);
+  return !!CHAIN_R2.find(r2 => text.includes(r2));
 };
 
 export const isNevadaChainR3 = (text) => {
