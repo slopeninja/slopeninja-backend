@@ -445,26 +445,51 @@ export const resortsConfig = {
       url:
         'https://www.skiheavenly.com/the-mountain/mountain-conditions/snow-and-weather-report.aspx',
       fn: createHtmlParser('snow', parseHeavenlySnow),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url:
         'https://www.skiheavenly.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('liftCounts', parseHeavenlyLiftCounts),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url:
         'https://www.skiheavenly.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trailCounts', parseHeavenlyTrailCounts),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url:
-        'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
+        'https://www.skiheavenly.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('lifts', parseHeavenlyLifts),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url:
-        'http://m.skiheavenly.com/x4/website/content_vri_grooming.php?avs=1sl&cI=9017&lat=0&lon=0&accState=1',
+        'https://www.skiheavenly.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trails', parseHeavenlyTrails),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=50',
@@ -507,22 +532,47 @@ export const resortsConfig = {
     {
       url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/snow-and-weather-report.aspx',
       fn: createHtmlParser('snow', parseKirkwoodSnow),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('liftCounts', parseKirkwoodLiftCounts),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trailCounts', parseKirkwoodTrailCounts),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('lifts', parseKirkwoodLifts),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url: 'https://www.kirkwood.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trails', parseKirkwoodTrails),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=50',
@@ -576,26 +626,51 @@ export const resortsConfig = {
       url:
         'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/snow-and-weather-report.aspx',
       fn: createHtmlParser('snow', parseNorthstarSnow),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url:
         'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('liftCounts', parseNorthstarLiftCounts),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url:
         'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trailCounts', parseNorthstarTrailCounts),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url:
         'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('lifts', parseNorthstarLifts),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url:
         'https://www.northstarcalifornia.com/the-mountain/mountain-conditions/terrain-and-lift-status.aspx',
       fn: createHtmlParser('trails', parseNorthstarTrails),
+      fetchConfig: {
+        headers: {
+          'user-agent': 'Googlebot/2.1',
+        },
+      },
     },
     {
       url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=267',

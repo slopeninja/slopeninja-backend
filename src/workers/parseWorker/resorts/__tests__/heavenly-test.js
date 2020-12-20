@@ -18,9 +18,9 @@ test('fetches Heavenly snow data correctly', async () => {
       weatherIcon: null,
       temperature: null,
       baseCondition: null,
-      newSnow: 1,
+      newSnow: 0,
       snowDepthBase: null,
-      snowDepthSummit: 29,
+      snowDepthSummit: 25,
     },
   });
 });
@@ -46,7 +46,7 @@ test('fetches Heavenly lifts data correctly', async () => {
   expect(resortData).toEqual({
     liftCounts: {
       total: 27,
-      open: 0,
+      open: 16,
     },
   });
 });
@@ -66,8 +66,8 @@ test('fetches Heavenly trails data correctly', async () => {
   const resortData = await createHtmlParser('trailCounts', parseHeavenlyTrailCounts)(htmlText);
   expect(resortData).toEqual({
     trailCounts: {
-      total: 111,
-      open: 0,
+      total: 110,
+      open: 59,
     },
   });
 });
