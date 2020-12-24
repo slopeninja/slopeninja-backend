@@ -883,23 +883,23 @@ export const resortsConfig = {
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      url: 'http://skirose.com/the-mountain/snow-report/',
+      url: 'https://skirose.com/snow-report/',
       fn: createHtmlParser('snow', parseMtRoseSnow),
     },
     {
-      url: 'http://skirose.com/the-mountain/snow-report/',
+      url: 'https://skirose.com/snow-report/',
       fn: createHtmlParser('liftCounts', parseMtRoseLiftCounts),
     },
     {
-      url: 'http://skirose.com/the-mountain/snow-report/',
+      url: 'https://skirose.com/snow-report/',
       fn: createHtmlParser('trailCounts', parseMtRoseTrailCounts),
     },
     {
-      url: 'http://skirose.com/the-mountain/snow-report/',
+      url: 'https://skirose.com/snow-report/',
       fn: createHtmlParser('lifts', parseMtRoseLifts),
     },
     {
-      url: 'http://skirose.com/the-mountain/snow-report/',
+      url: 'https://skirose.com/snow-report/',
       fn: createHtmlParser('trails', parseMtRoseTrails),
     },
     {

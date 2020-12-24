@@ -2,6 +2,348 @@
 
 exports[`fetches MtRose lift list correctly 1`] = `
 Object {
-  "lifts": Array [],
+  "lifts": Array [
+    Object {
+      "category": null,
+      "name": "Northwest Express",
+      "status": "open",
+    },
+    Object {
+      "category": null,
+      "name": "Zephyr Express",
+      "status": "open",
+    },
+    Object {
+      "category": null,
+      "name": "Lakeview",
+      "status": "open",
+    },
+    Object {
+      "category": null,
+      "name": "Wizard",
+      "status": "open",
+    },
+    Object {
+      "category": null,
+      "name": "Magic East",
+      "status": "open",
+    },
+    Object {
+      "category": null,
+      "name": "Magic West",
+      "status": "open",
+    },
+    Object {
+      "category": null,
+      "name": "Galena",
+      "status": "open",
+    },
+    Object {
+      "category": null,
+      "name": "Chuter",
+      "status": "closed",
+    },
+  ],
+}
+`;
+
+exports[`fetches MtRose trail list correctly 1`] = `
+Object {
+  "trails": Array [
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "AIDA’S",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "BULLWHIP",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "EXPRESS",
+      "status": "closed",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "GREG’S GAMBLE",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "JETTA",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "NORTHWEST PASSAGE",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "SIX GUN",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "SUNSET",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "UPPER RAMSEY’S",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "advanced",
+      "name": "WATERFALL",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "intermediate",
+      "name": "KIT CARSON BOWL",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "intermediate",
+      "name": "KIT CARSON TRAVERSE",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "intermediate",
+      "name": "LOWER LAKEVIEW",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "intermediate",
+      "name": "PONDEROSA",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "intermediate",
+      "name": "RAMSEY’S",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "intermediate",
+      "name": "UPPER LAKEVIEW",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "intermediate",
+      "name": "UPPER NORTHWEST",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "ADVENTURE TRAIL",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "AROUND THE WORLD",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "BROOMSTICK",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "DRAGON’S TAIL",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "EASY STREET",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "GALENA",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "MERLIN",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "MAGIC POTION",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "MYSTIC",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "NORTH RIM",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "OLD SCHOOL",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "RELAY",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "SHOW OFF",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "SPELLBOUND",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "SWITCHBACK",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "WARLOCK",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "WITCHES BREW",
+      "status": "open",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "advanced",
+      "name": "CENTRAL PACIFIC",
+      "status": "closed",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "advanced",
+      "name": "GOLD RUN",
+      "status": "closed",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "advanced",
+      "name": "OUTLAW",
+      "status": "closed",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "advanced",
+      "name": "WASHOE ZEPHYR",
+      "status": "closed",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "advanced",
+      "name": "WILD CARD",
+      "status": "closed",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "BADLANDS",
+      "status": "closed",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "BIG BONANZA",
+      "status": "open",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "BONANZA TRAVERSE",
+      "status": "open",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "BRUCE’S",
+      "status": "closed",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "HIGH TRAVERSE",
+      "status": "closed",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "LOG FLUME",
+      "status": "closed",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "MINE TRAIN",
+      "status": "open",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "SILVER DOLLAR",
+      "status": "open",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "SLIDE BOWL",
+      "status": "open",
+    },
+    Object {
+      "category": "Slide Bowl",
+      "level": "intermediate",
+      "name": "SUNRISE BOWL",
+      "status": "closed",
+    },
+  ],
 }
 `;

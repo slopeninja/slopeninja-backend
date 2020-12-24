@@ -15,12 +15,12 @@ test('fetches MtRose snow data correctly', async () => {
   expect(resortData).toEqual({
     snow: {
       status: null,
-      weatherIcon: null,
-      temperature: 32,
+      weatherIcon: 'cloudy',
+      temperature: 35,
       baseCondition: null,
-      newSnow: 2,
-      snowDepthBase: 14,
-      snowDepthSummit: 20,
+      newSnow: null,
+      snowDepthBase: 18,
+      snowDepthSummit: 28,
     },
   });
 });
@@ -96,7 +96,7 @@ test('fetches all null for nonexisting lift list values', async () => {
 test('fetches MtRose trail list correctly', async () => {
   const htmlText = fs.readFileSync(`${__dirname}/__fixtures__/mtRose-weather.html.input`);
   const resortData = await createHtmlParser('trails', parseMtRoseTrails)(htmlText);
-  expect(resortData).toMatchObject({ trails: [] });
+  expect(resortData).toMatchSnapshot();
 });
 
 test('fetches all null for nonexisting lift list values', async () => {
