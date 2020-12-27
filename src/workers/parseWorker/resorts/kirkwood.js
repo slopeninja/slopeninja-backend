@@ -4,6 +4,7 @@ import {
   trailLevelOrNull,
   numberOrNull,
   removeNumberInFrontOfName,
+  notEmptyStringOrNull,
 } from '../weatherUtil';
 
 import { extractJSONFromScriptElement } from './heavenly';
@@ -47,6 +48,9 @@ export const parseKirkwoodSnow = async ($) => {
     // snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowReportData ?
       `${snowReportData.BaseDepth.Inches} inches` :
+      null),
+    baseCondition: notEmptyStringOrNull(snowReportData ?
+      snowReportData.OverallSnowConditions :
       null),
   };
 };

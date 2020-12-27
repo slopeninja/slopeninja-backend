@@ -17,10 +17,10 @@ test('fetches Northstar snow data correctly', async () => {
       status: null,
       weatherIcon: null,
       temperature: null,
-      baseCondition: null,
-      newSnow: 2,
+      baseCondition: 'Packed Powder',
+      newSnow: 0,
       snowDepthBase: null,
-      snowDepthSummit: 0,
+      snowDepthSummit: 35,
     },
   });
 });

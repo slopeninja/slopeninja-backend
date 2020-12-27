@@ -17,7 +17,7 @@ test('fetches Heavenly snow data correctly', async () => {
       status: null,
       weatherIcon: null,
       temperature: null,
-      baseCondition: null,
+      baseCondition: 'Packed Powder',
       newSnow: 0,
       snowDepthBase: null,
       snowDepthSummit: 25,

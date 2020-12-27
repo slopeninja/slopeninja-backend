@@ -91,6 +91,9 @@ export const parseHeavenlySnow = async ($) => {
     snowDepthSummit: inchOrNull(snowReportData ?
       `${snowReportData.BaseDepth.Inches} inches` :
       null),
+    baseCondition: notEmptyStringOrNull(snowReportData ?
+      snowReportData.OverallSnowConditions :
+      null),
   };
 };
 

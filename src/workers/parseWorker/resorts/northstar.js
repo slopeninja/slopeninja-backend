@@ -3,6 +3,7 @@ import {
   liftTrailStatusOrNull,
   trailLevelOrNull,
   numberOrNull,
+  notEmptyStringOrNull,
 } from '../weatherUtil';
 
 import { extractJSONFromScriptElement } from './heavenly';
@@ -46,6 +47,9 @@ export const parseNorthstarSnow = async ($) => {
     // snowDepthBase: inchOrNull(snowDepthBase),
     snowDepthSummit: inchOrNull(snowReportData ?
       `${snowReportData.BaseDepth.Inches} inches` :
+      null),
+    baseCondition: notEmptyStringOrNull(snowReportData ?
+      snowReportData.OverallSnowConditions :
       null),
   };
 };

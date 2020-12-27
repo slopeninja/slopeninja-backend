@@ -17,10 +17,10 @@ test('fetches Kirkwood snow data correctly', async () => {
       status: null,
       weatherIcon: null,
       temperature: null,
-      baseCondition: null,
-      newSnow: 0,
+      baseCondition: 'Packed Powder',
+      newSnow: 4,
       snowDepthBase: null,
-      snowDepthSummit: 0,
+      snowDepthSummit: 30,
     },
   });
 });
