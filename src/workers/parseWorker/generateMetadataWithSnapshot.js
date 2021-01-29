@@ -16,7 +16,12 @@ export const generateMetadataWithSnapshot = (metadata, snapshot) => {
     const snapshotSnowDepth = idx(snapshot, _ => _.metadata.weather.snowDepth);
     const snowDepth = idx(metadata, _ => _.weather.snowDepth);
 
-    const outdated = snapshotSnowDepth === snowDepth;
+    const snapshotNewSnow = idx(snapshot, _ => _.metadata.weather.newSnow);
+    const newSnow = idx(metadata, _ => _.weather.newSnow);
+
+    // Somtimes resorts forget to update their snow data
+    // here we're trying to rectify their lack of attention
+    const outdated = snapshotSnowDepth === snowDepth && snapshotNewSnow === newSnow;
 
     if (outdated) {
       /* eslint-disable no-console */

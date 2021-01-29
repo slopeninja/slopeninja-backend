@@ -35,7 +35,7 @@ const SAMPLE_VALID_SNAPSHOT = {
     status: 'open',
     weather: {
       base: null,
-      newSnow: 7,
+      newSnow: 2,
       condition: 'cloudy',
       snowDepth: 120,
       temperature: 30,
@@ -250,7 +250,7 @@ const SAMPLE_OUTPUT = {
   status: 'open',
   weather: {
     base: null,
-    newSnow: 0,
+    newSnow: 7,
     condition: 'cloudy',
     snowDepth: 120,
     temperature: 29,
