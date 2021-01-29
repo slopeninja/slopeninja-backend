@@ -673,6 +673,20 @@ export const resortsConfig = {
       },
     },
     {
+      url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=80',
+      fetchConfig: {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs({
+          roadnumber: '80',
+          submit: 'Search',
+        }),
+      },
+      fn: createHtmlParser('roads', parseCARoadCondition('I', '80')),
+    },
+    {
       url: 'https://roads.dot.ca.gov?SLOPE_NINJA_CACHE_BUST=267',
       fetchConfig: {
         method: 'post',
