@@ -6,10 +6,29 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
         <!-- OneTrust Cookies Consent Notice start -->
-        <script type="text/javascript" src="/ruxitagentjs_ICA2SVfhqru_10205201116183137.js" data-dtconfig="rid=RID_-312796552|rpid=-171237837|domain=skiheavenly.com|reportUrl=/rb_bf89404baq|app=0d20c77a5fc281dd|featureHash=ICA2SVfhqru|vcv=2|rdnt=1|uxrgce=1|bp=3|cuc=cohvrpsd|dpvc=1|md=mdcc1=a#mainNavInner ^rb div.main_nav__utility ^rb ul ^rb li.main_nav__utility_item.hidden-md.hidden-sm.hidden-xs ^rb a ^rb div.main_nav__utility_item_label|lastModification=1608322058126|dtVersion=10205201116183137|tp=500,50,0,1|uxdcw=1500|vs=2|agentUri=/ruxitagentjs_ICA2SVfhqru_10205201116183137.js"></script><script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+        <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
                 type="text/javascript" charset="UTF-8"
                 data-domain-script="e30393a1-a953-4d0d-abc7-f06fe1e9e7a6"></script>
         <!-- OneTrust Cookies Consent Notice end -->
+
+    
+
+
+    <!-- PerimeterX start -->
+    <script type="text/javascript">
+        (function () {
+            window._pxAppId = 'PXCoRS1AgG';
+            // Custom parameters
+            // window._pxParam1 = "<param1>";
+            var p = document.getElementsByTagName('script')[0],
+                s = document.createElement('script');
+            s.async = 1;
+            s.src = '//client.px-cloud.net/PXCoRS1AgG/main.min.js';
+            p.parentNode.insertBefore(s, p);
+        }());
+    </script>
+    <!-- PerimeterX end -->
+
 
     <!-- BEGIN HEAD Delivery -->
     <title>Heavenly Snow Report | Lake Tahoe Snow Report and  | Heavenly Ski Resort</title>
@@ -29,7 +48,7 @@
     
 
     
-    <script src="/assets/bundles/core?v=lLWbsv27SH1kY2ZZ7ibgTSijHSWg_RJUbsJ6jtFqOpU1"></script>
+    <script src="/assets/bundles/core?v=UsjlVM5Gs39MGwhRoO0VzrHjP9F_o4-cNvt_zRy6E2M1"></script>
     <script>var my_jquery = jQuery;</script>
 
             <script id="navis-fusion-loader" src="https://assets.navisperformance.com/NWRC/Fusion/navis-fusion-loader.js" data-accountid="15853" data-secret="rebm6wrjqmwjrp9t9lno"></script>
@@ -64,6 +83,7 @@
 <link href="/Assets/css/sites/heavenly/components/tabbedBookingWidgetLiftTickets.css" type="text/css" rel="stylesheet"/>
 <link href="/Assets/css/sites/heavenly/components/tabbedBookingWidgetLodging.css" type="text/css" rel="stylesheet"/>
 <link href="/Assets/css/sites/heavenly/components/tabbedBookingWidgetSeasonPasses.css" type="text/css" rel="stylesheet"/>
+<link href="/Assets/css/sites/heavenly/components/rentalsTabbedBookingWidget.css" type="text/css" rel="stylesheet"/>
 <link href="/Assets/css/sites/heavenly/components/singleProductBookingWidget.css" type="text/css" rel="stylesheet"/>
 <link href="/Assets/css/sites/heavenly/components/nonBookableProductWidget.css" type="text/css" rel="stylesheet"/>
 <link href="/Assets/css/sites/heavenly/components/faqAccordion.css" type="text/css" rel="stylesheet"/>
@@ -83,16 +103,15 @@
 <link href="/Assets/css/sites/heavenly/components/snowReport.css" type="text/css" rel="stylesheet"/>
 <link href="/Assets/css/sites/heavenly/components/tabbedContainer.css" type="text/css" rel="stylesheet"/>
 <link href="/Assets/css/sites/heavenly/components/forecast.css" type="text/css" rel="stylesheet"/>
-<link href="/Assets/css/sites/heavenly/components/rentalsTabbedBookingWidget.css" type="text/css" rel="stylesheet"/>
 
 
     <!-- END HEAD Delivery -->
 
   <script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false"}]);</script>
-  <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="CBZXR-88838-45Y37-EY349-HXDK7",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"CBZXR-88838-45Y37-EY349-HXDK7",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="ramb7dyxg62c6x67ukva-f-8fa0bd43b-clientnsv4-s.akamaihd.net",i={"ak.v":"29","ak.cp":"607092","ak.ai":parseInt("395541",10),"ak.ol":"0","ak.cr":16,"ak.ipv":4,"ak.proto":"h2","ak.rid":"5b2fa5c9","ak.r":13679,"ak.a2":e,"ak.m":"a","ak.n":"essl","ak.bpcip":"136.24.31.0","ak.cport":61660,"ak.gh":"128.241.220.25","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1608491690","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==UuSLY+tffaJHpo6vXaF9nxCPuLoVuNQJhx3u1c/fnUnXQN172JvbK25Lu5U2ojxGIM9l+ULPW6K/yFzZf4ylRuePaGV6zgZnfg1sr5yjAHbR77CJc/uESPc+lNDHMVQ83wkTXX6PJ/zO1UYA7UJIJMphEiHhYo8l/uXjhhHhESbLMgoQ2X2t7m7dvnKwdhCG5k1qT14fJ+nOwAxbyq5gDrOoWGkfOxPaWEozHhHyKmtuVG7dCd9Us2fv3u5ddWMM2g3JKsBzyLMkefwCDGKdR6ibSrE27He9nW30ULxDypu2cnktEt171P1E4EhxdUrz8+MOSN33wdoyKDQOSMFB5kzV03u71jEnke3Wb2onqBtE+aCPP63Y+OWFa8cbmpe1HKKV0cYRN+jJU4SJtQFXcOu8fMDLeRzmNEDV5K4ZtEE=","ak.pv":"65","ak.dpoabenc":""};if(""!==t)i["ak.ruds"]=t;var _={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))i["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:n,init:function(){if(!_.i){var a=BOOMR.subscribe;a("before_beacon",_.av,null,null),a("onbeacon",_.rv,null,null),_.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+                          <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="CBZXR-88838-45Y37-EY349-HXDK7",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"CBZXR-88838-45Y37-EY349-HXDK7",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="ramb7dyx2vx46yatogba-f-b668e6843-clientnsv4-s.akamaihd.net",i={"ak.v":"30","ak.cp":"607092","ak.ai":parseInt("395541",10),"ak.ol":"0","ak.cr":15,"ak.ipv":4,"ak.proto":"h2","ak.rid":"1b905436","ak.r":30949,"ak.a2":e,"ak.m":"a","ak.n":"essl","ak.bpcip":"136.24.31.0","ak.cport":49903,"ak.gh":"140.174.25.13","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1611886978","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==va6uBFwIhGCeg+GcUenJ9YM4aYRZC0RBQCiGrqth1ifhVkoQhumr1MGcGV/jYDr27k/mk3SIsvjr6DcSsctvnlp/kavUADlw+yMv1QjpGyYHdcCbEsZLTuCb52hqryUbstVmfoSJB5KGjUOYl164aRlsOqYd5rRgrzIXwvsMDxKr9uGRoSRKTfXlkVLLfY94q24kUu0hu6FTXlNi9OhDw16lrWBwJGmrogWzU0VX4ARzd+6BQUgL8LVJbi0UdUjSVzZVYwHD18adTW3idCHWRndsaZhQ6J+laZlTjEzGv19E37bpeX/L+w1piE/Jig+HVyhI/Bca6DHk8AFSgMraIS11xCMh93FNocZWcSq6C8aEb1IeJ2ZADRjtotuwJ1065uQ0z+7uDKAE5s72+S5vUPyejEBW38eAnyvrneY63rs=","ak.pv":"71","ak.dpoabenc":""};if(""!==t)i["ak.ruds"]=t;var _={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))i["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:n,init:function(){if(!_.i){var a=BOOMR.subscribe;a("before_beacon",_.av,null,null),a("onbeacon",_.rv,null,null),_.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
 <body class="personality_canvas personality_canvas--textured-grey-on-black "
       style="opacity: 0;"
-      data-serverdatetime="12/20/2020 12:14:49 PM"
+      data-serverdatetime="1/28/2021 7:23:02 PM"
       data-resort="heavenly"
       data-user-ecid=""
       data-user-rposid="0"
@@ -546,9 +565,6 @@ Our Commitment to Safety |&nbsp;Know Before You Arrive
                                                 Activities
                                             </h2>
                                             <ul class="main_nav__level3_list">
-                                                    <div class="main_nav__level3_item">
-                                                        <a href="/explore-the-resort/activities/summer-activities.aspx" class="level3" title="" data-track="click" data-component-element="hdrMenuL3" >Summer Activities</a>
-                                                    </div>
                                                     <div class="main_nav__level3_item">
                                                         <a href="/explore-the-resort/activities/winter-activities.aspx" class="level3" title="" data-track="click" data-component-element="hdrMenuL3" >Winter Activities</a>
                                                     </div>
@@ -1122,7 +1138,7 @@ Our Commitment to Safety |&nbsp;Know Before You Arrive
         
 
 
-<input name="__RequestVerificationToken" type="hidden" value="jcnHMJfH-k5WD7bBv409tC-k1welHprLRT4XIv3bTXt1_qChPBOu4_fLDYHNUPNWVT3a7hvl_isBUq9rHLfPSCffGU01" />
+<input name="__RequestVerificationToken" type="hidden" value="15pneK5bHmzWrTiChoHKtiJREOGiAlRIeOlCL_ZCRgDNr3pKtoIcoBj0vHLSP_mAJD07NiucUJVmjhns41fK8O34gTU1" />
 
 
 <form id="returningCustomerForm_1" class="returningCustomerFormId" data-component-element="signInForm" data-login-page="False" data-track="shown signInSuccessful">
@@ -1400,9 +1416,6 @@ Our Commitment to Safety |&nbsp;Know Before You Arrive
                                     <div class="nav_mobile__level3_content">
                                         <ul class="nav_mobile__level2_list col-xs-10 col-xs-offset-1">
                                             <!-- L3 -->
-                                                <li class="nav_mobile__level2_item">
-                                                    <a href="/explore-the-resort/activities/summer-activities.aspx" class="level2 nav_mobile__level2_link" data-track="click" tabindex="0" data-component-element="hdrMenuL3" >Summer Activities</a>
-                                                </li>
                                                 <li class="nav_mobile__level2_item">
                                                     <a href="/explore-the-resort/activities/winter-activities.aspx" class="level2 nav_mobile__level2_link" data-track="click" tabindex="0" data-component-element="hdrMenuL3" >Winter Activities</a>
                                                 </li>
@@ -1730,7 +1743,7 @@ Our Commitment to Safety |&nbsp;Know Before You Arrive
         
 
 
-<input name="__RequestVerificationToken" type="hidden" value="zXWJE3UJFmKzZ7bk0A3Q4XVu7znsBptjRF-HTGnMEWkQbbkGLLOQkequRgkioBvfJnARnoy4bGftluJFh1b0tEIhwrg1" />
+<input name="__RequestVerificationToken" type="hidden" value="CGmM4b2gvfgNz9Mc_c3Wmqr78XW2QQpN6y7goJjSOjPiS_cYPYpoSXKZE_A57i9tH2yd9GeaW-V47Le10SR-3pOQx4A1" />
 
 
 <form id="returningCustomerForm_2" class="returningCustomerFormId" data-component-element="signInForm" data-login-page="False" data-track="shown signInSuccessful">
@@ -2023,7 +2036,7 @@ Our Commitment to Safety |&nbsp;Know Before You Arrive
         </ul>
         <p class="snow_report__metrics__timestamp c78__timestamp--v1 col-xs-12">
             <span class="snow_report__metrics__timestamp_clock icon-booking-clock"></span>
-            Updated December 20, 2020 at 6:26 AM PST
+            Updated January 28, 2021 at 6:29 AM PST
         </p>
     </div>
     <% }; %>
@@ -2032,7 +2045,7 @@ Our Commitment to Safety |&nbsp;Know Before You Arrive
 <script type="text/javascript">
         require(['FR'], function (FR) {
             FR.snowReportSettings = {"Show12Hr":true,"TwelveHrSnowfallLabel":"12 Hr <br> Snowfall","Show24Hr":true,"Show48Hr":true,"Show7Day":true,"BaseDepth":true,"ShowTotalSeasonSnowfall":true,"ShowNumberofLiftsOpen":false,"ShowNumberofAcresOpen":false,"ShowNumberofRunsOpen":false,"UseSummitSnowReadings":false,"HideSnowReport":false,"SnowAndWebcamResortId":50,"TerrainStatusFeedResortId":50,"SnowReportDescription":"","SplitLiftsByMountain":false,"Id":"81304d79-bb8e-43b3-b448-011e719e42c5","Name":"Snow Report Settings","SortOrder":0};
-            FR.snowReportData = {"OverallSnowConditions":"Packed Powder","OvernightSnowfall":{"Inches":"0","Centimeters":"0"},"TwentyFourHourSnowfall":{"Inches":"0","Centimeters":"0"},"FortyEightHourSnowfall":{"Inches":"0","Centimeters":"0"},"SevenDaySnowfall":{"Inches":"20","Centimeters":"50"},"BaseDepth":{"Inches":"25","Centimeters":"63"},"CurrentSeason":{"Inches":"55","Centimeters":"139"},"LastUpdatedText":"Updated December 20, 2020 at 6:26 AM PST"};
+            FR.snowReportData = {"OverallSnowConditions":"Powder","OvernightSnowfall":{"Inches":"22","Centimeters":"55"},"TwentyFourHourSnowfall":{"Inches":"22","Centimeters":"55"},"FortyEightHourSnowfall":{"Inches":"34","Centimeters":"86"},"SevenDaySnowfall":{"Inches":"45","Centimeters":"114"},"BaseDepth":{"Inches":"36","Centimeters":"91"},"CurrentSeason":{"Inches":"113","Centimeters":"287"},"LastUpdatedText":"Updated January 28, 2021 at 6:29 AM PST"};
             FR.unitsOfMeasurement = 1;
             FR.snowReportContext = {
                 OverallSnowConditions: 'Overall Snow Conditions',
@@ -2043,7 +2056,7 @@ Our Commitment to Safety |&nbsp;Know Before You Arrive
                 BaseDepth: 'Base<br/>Depth',
                 CurrentSeason: 'Current<br/>Season'
             };
-            $(window).trigger('snow-report-fr-loaded');
+            FR.$el.window.trigger('snow-report-fr-loaded');
         });
 </script>
 
@@ -2445,10 +2458,10 @@ Our Commitment to Safety |&nbsp;Know Before You Arrive
 <script type="text/javascript">
     require(['FR'], function (FR) {
         FR.weatherReportSettings = {"HideDaytimeAndNighttimeSnow":false,"WeatherServiceDowntimeMessage":"Weather is currently offline. We are working to resolve this issue, and apologize for the inconvenience.","OpenSnowLocationId":135,"Id":"3a49c15e-cc70-4544-a064-964e8e88093c","Name":"Weather Report Settings","SortOrder":0};
-        FR.forecasts = [{"CurrentTempStandard":36.0,"CurrentTempMetric":2.0,"CurrentUpdated":null,"NextUpdated":null,"ForecastData":[{"HighTempStandard":45.0,"HighTempMetric":7.0,"LowTempStandard":26.0,"LowTempMetric":-4.0,"WeatherIconStatus":"clear-day","WeatherLongDescription":"Clear throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":2.31,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"0","SnowFallDayMetric":"0","SnowFallNightStandard":"0","SnowFallNightMetric":"0","Date":"2020-12-20T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":46.0,"HighTempMetric":7.0,"LowTempStandard":31.0,"LowTempMetric":-1.0,"WeatherIconStatus":"clear-day","WeatherLongDescription":"Clear throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":7.32,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"0","SnowFallDayMetric":"0","SnowFallNightStandard":"0-1","SnowFallNightMetric":"0-2","Date":"2020-12-21T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":34.0,"HighTempMetric":1.0,"LowTempStandard":22.0,"LowTempMetric":-6.0,"WeatherIconStatus":"clear-day","WeatherLongDescription":"Clear throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":6.99,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"0-1","SnowFallDayMetric":"0-2","SnowFallNightStandard":"0","SnowFallNightMetric":"0","Date":"2020-12-22T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":37.0,"HighTempMetric":3.0,"LowTempStandard":19.0,"LowTempMetric":-8.0,"WeatherIconStatus":"clear-day","WeatherLongDescription":"Clear throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":5.52,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"0","SnowFallDayMetric":"0","SnowFallNightStandard":"0","SnowFallNightMetric":"0","Date":"2020-12-23T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":36.0,"HighTempMetric":2.0,"LowTempStandard":23.0,"LowTempMetric":-5.0,"WeatherIconStatus":"clear-day","WeatherLongDescription":"Clear throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":2.46,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"0","SnowFallDayMetric":"0","SnowFallNightStandard":"0","SnowFallNightMetric":"0","Date":"2020-12-24T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":39.0,"HighTempMetric":4.0,"LowTempStandard":23.0,"LowTempMetric":-5.0,"WeatherIconStatus":"fog","WeatherLongDescription":"Foggy overnight.","WeatherShortDescription":null,"Wind":null,"WindSpeed":5.4,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":null,"SnowFallDayMetric":null,"SnowFallNightStandard":null,"SnowFallNightMetric":null,"Date":"2020-12-25T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":35.0,"HighTempMetric":1.0,"LowTempStandard":25.0,"LowTempMetric":-4.0,"WeatherIconStatus":"snow","WeatherLongDescription":"Snow (2–4 in.) in the morning.","WeatherShortDescription":null,"Wind":null,"WindSpeed":7.49,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":null,"SnowFallDayMetric":null,"SnowFallNightStandard":null,"SnowFallNightMetric":null,"Date":"2020-12-26T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":31.0,"HighTempMetric":-1.0,"LowTempStandard":20.0,"LowTempMetric":-7.0,"WeatherIconStatus":"fog","WeatherLongDescription":"Foggy in the morning and overnight.","WeatherShortDescription":null,"Wind":null,"WindSpeed":3.6,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":null,"SnowFallDayMetric":null,"SnowFallNightStandard":null,"SnowFallNightMetric":null,"Date":"2020-12-27T00:00:00","LastCached":"0001-01-01T00:00:00"}],"HighTempStandard":45.0,"HighTempMetric":7.0,"LowTempStandard":26.0,"LowTempMetric":-4.0,"WeatherIconStatus":"clear-day","WeatherLongDescription":"Clear throughout the day.","WeatherShortDescription":"Clear","Wind":null,"WindSpeed":0.5,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"0","SnowFallDayMetric":"0","SnowFallNightStandard":"0","SnowFallNightMetric":"0","Date":"2020-12-20T11:13:12","LastCached":"0001-01-01T00:00:00"}];
+        FR.forecasts = [{"CurrentTempStandard":20.0,"CurrentTempMetric":-7.0,"CurrentUpdated":null,"NextUpdated":null,"ForecastData":[{"HighTempStandard":23.0,"HighTempMetric":-5.0,"LowTempStandard":19.0,"LowTempMetric":-8.0,"WeatherIconStatus":"snow","WeatherLongDescription":"Heavy snow (12–18 in.) in the morning and afternoon.","WeatherShortDescription":null,"Wind":null,"WindSpeed":3.46,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"7-11","SnowFallDayMetric":"17-27","SnowFallNightStandard":"3-7","SnowFallNightMetric":"7-17","Date":"2021-01-28T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":23.0,"HighTempMetric":-5.0,"LowTempStandard":12.0,"LowTempMetric":-11.0,"WeatherIconStatus":"snow","WeatherLongDescription":"Partly cloudy throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":6.77,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"0-1","SnowFallDayMetric":"0-2","SnowFallNightStandard":"0","SnowFallNightMetric":"0","Date":"2021-01-29T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":31.0,"HighTempMetric":-1.0,"LowTempStandard":15.0,"LowTempMetric":-10.0,"WeatherIconStatus":"clear-day","WeatherLongDescription":"Clear throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":6.11,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"0","SnowFallDayMetric":"0","SnowFallNightStandard":"0","SnowFallNightMetric":"0","Date":"2021-01-30T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":32.0,"HighTempMetric":0.0,"LowTempStandard":19.0,"LowTempMetric":-7.0,"WeatherIconStatus":"partly-cloudy-day","WeatherLongDescription":"Mostly cloudy throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":8.0,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"0","SnowFallDayMetric":"0","SnowFallNightStandard":"0","SnowFallNightMetric":"0","Date":"2021-01-31T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":33.0,"HighTempMetric":0.0,"LowTempStandard":25.0,"LowTempMetric":-4.0,"WeatherIconStatus":"snow","WeatherLongDescription":"Foggy throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":11.31,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":null,"SnowFallDayMetric":null,"SnowFallNightStandard":null,"SnowFallNightMetric":null,"Date":"2021-02-01T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":26.0,"HighTempMetric":-4.0,"LowTempStandard":8.0,"LowTempMetric":-14.0,"WeatherIconStatus":"fog","WeatherLongDescription":"Partly cloudy throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":11.24,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":null,"SnowFallDayMetric":null,"SnowFallNightStandard":null,"SnowFallNightMetric":null,"Date":"2021-02-02T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":20.0,"HighTempMetric":-7.0,"LowTempStandard":7.0,"LowTempMetric":-14.0,"WeatherIconStatus":"clear-day","WeatherLongDescription":"Clear throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":5.96,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":null,"SnowFallDayMetric":null,"SnowFallNightStandard":null,"SnowFallNightMetric":null,"Date":"2021-02-03T00:00:00","LastCached":"0001-01-01T00:00:00"},{"HighTempStandard":28.0,"HighTempMetric":-2.0,"LowTempStandard":9.0,"LowTempMetric":-13.0,"WeatherIconStatus":"clear-day","WeatherLongDescription":"Clear throughout the day.","WeatherShortDescription":null,"Wind":null,"WindSpeed":5.4,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":null,"SnowFallDayMetric":null,"SnowFallNightStandard":null,"SnowFallNightMetric":null,"Date":"2021-02-04T00:00:00","LastCached":"0001-01-01T00:00:00"}],"HighTempStandard":23.0,"HighTempMetric":-5.0,"LowTempStandard":19.0,"LowTempMetric":-8.0,"WeatherIconStatus":"cloudy","WeatherLongDescription":"Heavy snow (12–18 in.) in the morning and afternoon.","WeatherShortDescription":"Overcast","Wind":null,"WindSpeed":3.24,"FreezingLevelMetric":null,"FreezingLevelStandard":null,"SnowFallDayStandard":"7-11","SnowFallDayMetric":"17-27","SnowFallNightStandard":"3-7","SnowFallNightMetric":"7-17","Date":"2021-01-28T18:13:11","LastCached":"0001-01-01T00:00:00"}];
         FR.locations = [{"SponsorImageCloudinaryPublicId":null,"SponsorImageAltText":null,"SponsorImageUrl":null,"SponsorCopy":"","ElevationText":"","ElevationMetric":null,"ElevationStandard":""}];
         FR.unitsOfMeasurement = 1;
-        $(window).trigger('forecast-fr-loaded');
+        FR.$el.window.trigger('forecast-fr-loaded');
     });
 </script>
             </div>
@@ -2629,8 +2642,10 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
                     </div>
                     <div class="tabbed_booking_widget__title_section tabbed_booking_widget__product--3 hidden col-md-3 col-sm-12 col-xs-12"
                          data-product="3">
-                                                    <div class="tabbed_booking_widget__title c109__title--v1">Don't wait, book in advance</div>
-                                                    <div class="tabbed_booking_widget__body sctexteditor hidden-xs">Find a lesson that works best for you - whether you prefer to learn 1:1 or in a small group setting, your best day on the mountain is waiting!</div>
+                            <div class="tabbed_booking_widget__subtitle c109__subtitle--v1">Don't wait, book in advance</div>
+                                                    <div class="tabbed_booking_widget__title c109__title--v1">Lessons</div>
+                                                    <div class="tabbed_booking_widget__body sctexteditor hidden-xs"><p>Find a lesson that works best for you - whether you prefer to learn 1:1 or in a small group setting, your best day on the mountain is waiting!</p>
+<p><strong>A mountain access reservation is included with the purchase of a lesson.</strong> </p></div>
                     </div>
                     <div class="tabbed_booking_widget__title_section tabbed_booking_widget__product--4 hidden col-md-3 col-sm-12 col-xs-12"
                          data-product="4">
@@ -2713,9 +2728,9 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
     <div id="calendar_c109_tabbed_booking_widget_lift_tickets_1" class="input-group date"
          data-component-element="bdyBookingWidget_StartDate"
          data-track="dp.change"
-         data-min-date="12/20/2020"
+         data-min-date="01/28/2021"
          data-max-date="04/11/2021"
-         data-default-date="12/20/2020"
+         data-default-date="01/28/2021"
          
          
          data-isinline="false"
@@ -2846,9 +2861,9 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
     <div id="check_in_c109_tabbed_booking_widget_lodging_1" class="input-group date"
          data-component-element="bdyBookingWidget_StartDate"
          
-         data-min-date="12/20/2020"
-         data-max-date="12/20/2022"
-         data-default-date="12/20/2020"
+         data-min-date="01/28/2021"
+         data-max-date="01/28/2023"
+         data-default-date="01/28/2021"
          
          
          data-isinline="false"
@@ -2889,9 +2904,9 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
     <div id="check_out_c109_tabbed_booking_widget_lodging_1" class="input-group date"
          data-component-element="bdyBookingWidget_EndDate"
          
-         data-min-date="12/21/2020"
-         data-max-date="01/17/2023"
-         data-default-date="12/21/2020"
+         data-min-date="01/29/2021"
+         data-max-date="02/25/2023"
+         data-default-date="01/29/2021"
          
          
          data-isinline="false"
@@ -3176,9 +3191,9 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
     <div id="start_date_c109_tabbed_booking_widget_lessons_1" class="input-group date"
          data-component-element="bdyBookingWidget_StartDate"
          data-track="dp.change"
-         data-min-date="12/22/2020"
+         data-min-date="01/30/2021"
          data-max-date="04/30/2021"
-         data-default-date="12/22/2020"
+         data-default-date="01/30/2021"
          
          
          data-isinline="false"
@@ -3227,7 +3242,6 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
 
 
 
-
 <div class="container component_container">
     <div class="row">
         <div class="col-lg-12">
@@ -3250,7 +3264,7 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
 <script type="text/javascript">
     // Init Data
     require(['FR'], function (FR) {
-        FR.rentalsEquipmentTabbedBookingWidgetViewModel = {"EquipmentRentals":{"SetDeliveryOptionAsDefault":false,"ActionLink":{"Anchor":"","Class":"","Text":"RENT NOW","Query":"","Title":"RENT NOW","Url":"/plan-your-trip/rentals/winter-equipment.aspx","Target":"","TargetId":"f01fb0d9-9070-48d0-9c62-b4e5589a75b5","Type":4,"Style":""},"BaseProductSetting":{"WinterSeasonOnSaleDate":"2020-07-10T00:00:00","WinterSeasonOffSaleDate":"2021-04-01T00:00:00","SummerSeasonOnSaleDate":"2020-07-15T00:00:00","SummerSeasonOffSaleDate":"2020-10-30T00:00:00","DamageWaiverSelected":true,"IsValueStoreLocationsOnly":false,"HideDeliveryOptionOverride":false,"SearchRadius":0,"OnSaleDate":null,"OffSaleDate":null,"OffSaleTitle":null,"OffSaleMessage":null,"OffSaleLink":null,"Id":"50ebeba0-b23f-43bc-b510-dfdcb5f54cb3","Name":"Rentals Settings","SortOrder":0,"IsWinterInSeason":true,"IsSummerInSeason":false,"IsSaleable":true},"ProductName":"RENTALS","Icon":{"CssClass":"icon-rentals-winter","Id":"19f298da-b61d-43ba-8e1e-fe530597fe1d","Name":"Winter Rentals","SortOrder":0},"Body":"Maximize your mountain time and save when you book in advance.","Title":"SEAMLESS SKI RENTALS","SubTitle":"SAVE TIME","Id":"7f70b64e-4ce0-45bd-9ce7-307e0936f0a2","Name":"Winter Equipment Rentals","SortOrder":0},"RentalsEquipmentSelector":{"Step1Label":"Pickup or Delivery","Step2Label":"Find Your Best Location","Step3Label":"Find Your Best Equipment","ReturnOnTooltip":"Return your rentals on this day. Or, drop off before 9 AM the next day to avoid being charged for that day. If you’re having your equipment delivered, ask us during your appointment about how to return your gear.","PickUpAfter3":"I'll pick up after 3 PM","PickUpAfter3Disclaimer":"If you pick up or choose delivery after 3 PM, you won’t be charged for that day.","IsPickUpOnly":false,"PickUpOnlyTitle":"Convenient Pickup Locations","PickUpOnlyCopy":"Explore locations near your lodging, near the lift or near ski school.","RentalsEquipmentSelector":{"PickUpButtonLabel":null,"DeliveryButtonLabel":null,"RentalSeason":{"Key":"2","Phrase":null,"Id":"00000000-0000-0000-0000-000000000000","Name":null,"SortOrder":0},"RentalAddOns":null,"SetDeliveryOptionAsDefault":false,"MapZoomLevelOverride":null,"BannerImage":null,"BannerTitle":null,"BannerSubtitle":null,"CenterLatitudeOverride":null,"CenterLongitudeOverride":null,"EmrBannerContent":null,"EmrBannerIsTransparent":false,"ResortCode":0,"BannerImageCloudinaryPublicId":"","Id":"00000000-0000-0000-0000-000000000000","Name":null,"SortOrder":0},"FullDayCalendarDatesGroup":{"StartDate":"12/20/2020","EndDate":"05/05/2021","BlackoutDates":[]},"HalfDayMorningCalendarDatesGroup":{"StartDate":"12/31/9999","EndDate":"01/01/0001","BlackoutDates":[]},"HalfDayAfternoonCalendarDatesGroup":{"StartDate":"12/31/9999","EndDate":"01/01/0001","BlackoutDates":[]},"DeliveryCalendarDatesGroup":{"StartDate":"12/22/2020","EndDate":"04/14/2021","BlackoutDates":[]},"QuerystringStartDate":null,"QuerystringEndDate":null,"QuerystringIsDelivery":null,"QuerystringDeliveryTime":null,"QuerystringPickUpAfter3":null,"QuerystringDayType":0,"IsSeasonOpen":true,"WinterOffSaleMessage":"<p>We&rsquo;re also dreaming about fresh pow. Check back later to reserve your winter rentals.</p>","SummerOffSaleMessage":"We&rsquo;re also waiting for the trails to thaw. Check back later to reserve your summer rentals.","DeliveryLabel":"Complimentary Delivery","DeliveryTooltip":"Our expert rental team will fit you with equipment in the comfort of your hotel or rental home in Vail, Beaver Creek, Whistler Blackcomb, Breckenridge, Park City, Keystone, Crested Butte, Heavenly, Northstar, or Telluride.","DeliveryTimeTooltip":"Estimated window. We'll call you to confirm your time.","DeliveryTimeDisclaimer":"Estimated window. We'll call you to confirm your time.","LocationSelectorInstructionText":"To view your best rental location, enter your address or use the filters below.","LocationSelectorFilters":[{"FilterName":"Slopeside","FilterCode":6133,"TooltipText":"Shops located on or near the snow and closest to the lift."},{"FilterName":"Nearest Ski School","FilterCode":6138,"TooltipText":"The nearest pickup location to the Ski & Snowboard School in this base area. There may be multiple Ski & Snowboard School locations in the resort."},{"FilterName":"In Resort Village","FilterCode":6134,"TooltipText":"Shops located among the stores and hotels around the resort village."},{"FilterName":"In Town","FilterCode":6135,"TooltipText":"Shops located within the town outside of  the village."},{"FilterName":"In Hotel","FilterCode":6137,"TooltipText":""}],"OfferMorningPartialDayRental":false,"OfferAfternoonPartialDayRental":false,"FullDayRentalTitle":"Full Day Rental Title","FullDayRentalCopy":"Full Day Rental Copy. This is a test only - UAT please change. This is test text only. Full Day Rental Copy. This is a test only - UAT please change. This is test text only.","ViewEquipmentCtaTitle":"View Equipment","IsImageRight":false,"UrgencyMessage":"MAXIMIZE YOUR MOUNTAIN TIME BY BOOKING NOW","DeliveryTimes":["7:00 AM","7:30 AM","8:00 AM","8:30 AM","9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM","12:30 PM","1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM","5:00 PM","5:30 PM","6:00 PM","6:30 PM","7:00 PM","7:30 PM","8:00 PM","8:30 PM","9:00 PM","9:30 PM","10:00 PM","10:30 PM","11:00 PM"],"HasDelivery":true,"MapSettings":{"CenterLatitude":"38.95607165271837","CenterLongitude":"-119.94070529937744","ZoomLevel":"15","MapInstructions":"This resort map has been designed to help you in your vacation planning process.&nbsp; You can filter and sort by the things that are most important to you.&nbsp; Locate activities, lodging, mountain services and dining options.&nbsp;&nbsp;Be sure to map your step by step directions.<br />","GoogleMapsApiKeyEnabled":true,"GoogleMapsApiKey":"AIzaSyDEIJJ52pudOry-kTtUUL_IeGtig4ilauo","Id":"eca81014-ecaa-4e10-a792-7131118bc7b5","Name":"Map Settings","SortOrder":0,"GoogleMapsApiUrl":"https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDEIJJ52pudOry-kTtUUL_IeGtig4ilauo"},"LocationSearchRadius":0,"LocationSearchPlaceholder":"Ex: Ski Inn or 1 Ski St.","ResortCode":0,"EmrBannerContent":null,"EmrBannerIsTransparent":false,"IsUserOrHouseHoldEmrEligibleInCookie":false},"SitecoreItemName":"Tabbed Booking Widget 1"};
+        FR.rentalsEquipmentTabbedBookingWidgetViewModel = {"EquipmentRentals":{"SetDeliveryOptionAsDefault":false,"ActionLink":{"Anchor":"","Class":"","Text":"RENT NOW","Query":"","Title":"RENT NOW","Url":"/plan-your-trip/rentals/winter-equipment.aspx","Target":"","TargetId":"f01fb0d9-9070-48d0-9c62-b4e5589a75b5","Type":4,"Style":""},"BaseProductSetting":{"WinterSeasonOnSaleDate":"2020-07-10T00:00:00","WinterSeasonOffSaleDate":"2021-04-01T00:00:00","SummerSeasonOnSaleDate":"2020-07-15T00:00:00","SummerSeasonOffSaleDate":"2020-10-30T00:00:00","DamageWaiverSelected":true,"IsValueStoreLocationsOnly":false,"HideDeliveryOptionOverride":false,"SearchRadius":0,"OnSaleDate":null,"OffSaleDate":null,"OffSaleTitle":null,"OffSaleMessage":null,"OffSaleLink":null,"Id":"50ebeba0-b23f-43bc-b510-dfdcb5f54cb3","Name":"Rentals Settings","SortOrder":0,"IsWinterInSeason":true,"IsSummerInSeason":false,"IsSaleable":true},"ProductName":"RENTALS","Icon":{"CssClass":"icon-rentals-winter","Id":"19f298da-b61d-43ba-8e1e-fe530597fe1d","Name":"Winter Rentals","SortOrder":0},"Body":"Maximize your mountain time and save when you book in advance.","Title":"SEAMLESS SKI RENTALS","SubTitle":"SAVE TIME","Id":"7f70b64e-4ce0-45bd-9ce7-307e0936f0a2","Name":"Winter Equipment Rentals","SortOrder":0},"RentalsEquipmentSelector":{"Step1Label":"Pickup or Delivery","Step2Label":"Find Your Best Location","Step3Label":"Find Your Best Equipment","ReturnOnTooltip":"Return your rentals on this day. Or, drop off before 9 AM the next day to avoid being charged for that day. If you’re having your equipment delivered, ask us during your appointment about how to return your gear.","PickUpAfter3":"I'll pick up after 3 PM","PickUpAfter3Disclaimer":"If you pick up or choose delivery after 3 PM, you won’t be charged for that day.","IsPickUpOnly":false,"PickUpOnlyTitle":"Convenient Pickup Locations","PickUpOnlyCopy":"Explore locations near your lodging, near the lift or near ski school.","RentalsEquipmentSelector":{"PickUpButtonLabel":null,"DeliveryButtonLabel":null,"RentalSeason":{"Key":"2","Phrase":null,"Id":"00000000-0000-0000-0000-000000000000","Name":null,"SortOrder":0},"RentalAddOns":null,"SetDeliveryOptionAsDefault":false,"MapZoomLevelOverride":null,"BannerImage":null,"BannerTitle":null,"BannerSubtitle":null,"CenterLatitudeOverride":null,"CenterLongitudeOverride":null,"EmrBannerContent":null,"EmrBannerIsTransparent":false,"ResortCode":0,"BannerImageCloudinaryPublicId":"","Id":"00000000-0000-0000-0000-000000000000","Name":null,"SortOrder":0},"FullDayCalendarDatesGroup":{"StartDate":"01/28/2021","EndDate":"04/19/2021","BlackoutDates":[]},"HalfDayMorningCalendarDatesGroup":{"StartDate":"12/31/9999","EndDate":"01/01/0001","BlackoutDates":[]},"HalfDayAfternoonCalendarDatesGroup":{"StartDate":"12/31/9999","EndDate":"01/01/0001","BlackoutDates":[]},"DeliveryCalendarDatesGroup":{"StartDate":"01/30/2021","EndDate":"04/11/2021","BlackoutDates":[]},"QuerystringStartDate":null,"QuerystringEndDate":null,"QuerystringIsDelivery":null,"QuerystringDeliveryTime":null,"QuerystringPickUpAfter3":null,"QuerystringDayType":0,"IsSeasonOpen":true,"WinterOffSaleMessage":"<p>We&rsquo;re also dreaming about fresh pow. Check back later to reserve your winter rentals.</p>","SummerOffSaleMessage":"We&rsquo;re also waiting for the trails to thaw. Check back later to reserve your summer rentals.","DeliveryLabel":"Complimentary Delivery","DeliveryTooltip":"Our expert rental team will fit you with equipment in the comfort of your hotel or rental home in Vail, Beaver Creek, Whistler Blackcomb, Breckenridge, Park City, Keystone, Crested Butte, Heavenly, Northstar, or Telluride.","DeliveryTimeTooltip":"Estimated window. We'll call you to confirm your time.","DeliveryTimeDisclaimer":"Estimated window. We'll call you to confirm your time.","LocationSelectorInstructionText":"To view your best rental location, enter your address or use the filters below.","LocationSelectorFilters":[{"FilterName":"Slopeside","FilterCode":6133,"TooltipText":"Shops located on or near the snow and closest to the lift."},{"FilterName":"Nearest Ski School","FilterCode":6138,"TooltipText":"The nearest pickup location to the Ski & Snowboard School in this base area. There may be multiple Ski & Snowboard School locations in the resort."},{"FilterName":"In Resort Village","FilterCode":6134,"TooltipText":"Shops located among the stores and hotels around the resort village."},{"FilterName":"In Town","FilterCode":6135,"TooltipText":"Shops located within the town outside of  the village."},{"FilterName":"In Hotel","FilterCode":6137,"TooltipText":""}],"OfferMorningPartialDayRental":false,"OfferAfternoonPartialDayRental":false,"FullDayRentalTitle":"Full Day Rental Title","FullDayRentalCopy":"Full Day Rental Copy. This is a test only - UAT please change. This is test text only. Full Day Rental Copy. This is a test only - UAT please change. This is test text only.","ViewEquipmentCtaTitle":"View Equipment","IsImageRight":false,"UrgencyMessage":"MAXIMIZE YOUR MOUNTAIN TIME BY BOOKING NOW","DeliveryTimes":["7:00 AM","7:30 AM","8:00 AM","8:30 AM","9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM","12:30 PM","1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM","5:00 PM","5:30 PM","6:00 PM","6:30 PM","7:00 PM","7:30 PM","8:00 PM","8:30 PM","9:00 PM","9:30 PM","10:00 PM","10:30 PM","11:00 PM"],"HasDelivery":true,"MapSettings":{"CenterLatitude":"38.95607165271837","CenterLongitude":"-119.94070529937744","ZoomLevel":"15","MapInstructions":"This resort map has been designed to help you in your vacation planning process.&nbsp; You can filter and sort by the things that are most important to you.&nbsp; Locate activities, lodging, mountain services and dining options.&nbsp;&nbsp;Be sure to map your step by step directions.<br />","GoogleMapsApiKeyEnabled":true,"GoogleMapsApiKey":"AIzaSyDEIJJ52pudOry-kTtUUL_IeGtig4ilauo","Id":"eca81014-ecaa-4e10-a792-7131118bc7b5","Name":"Map Settings","SortOrder":0,"GoogleMapsApiUrl":"https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDEIJJ52pudOry-kTtUUL_IeGtig4ilauo"},"LocationSearchRadius":0,"LocationSearchPlaceholder":"Ex: Ski Inn or 1 Ski St.","ResortCode":0,"EmrBannerContent":null,"EmrBannerIsTransparent":false,"IsUserOrHouseHoldEmrEligibleInCookie":false},"SitecoreItemName":"Tabbed Booking Widget 1"};
         FR.rentalsEquipmentTabbedBookingWidgetViewModel.Season = 'Winter';
     });
 </script></div>
@@ -3312,9 +3326,9 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
     <div id="calendar_c109_tabbed_booking_widget_lift_tickets_2" class="input-group date"
          data-component-element="bdyBookingWidget_StartDate"
          data-track="dp.change"
-         data-min-date="12/20/2020"
+         data-min-date="01/28/2021"
          data-max-date="04/11/2021"
-         data-default-date="12/20/2020"
+         data-default-date="01/28/2021"
          
          
          data-isinline="false"
@@ -3467,9 +3481,9 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
     <div id="check_in_c109_tabbed_booking_widget_lodging_2" class="input-group date"
          data-component-element="bdyBookingWidget_StartDate"
          
-         data-min-date="12/20/2020"
-         data-max-date="12/20/2022"
-         data-default-date="12/20/2020"
+         data-min-date="01/28/2021"
+         data-max-date="01/28/2023"
+         data-default-date="01/28/2021"
          
          
          data-isinline="false"
@@ -3510,9 +3524,9 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
     <div id="check_out_c109_tabbed_booking_widget_lodging_2" class="input-group date"
          data-component-element="bdyBookingWidget_EndDate"
          
-         data-min-date="12/21/2020"
-         data-max-date="01/17/2023"
-         data-default-date="12/21/2020"
+         data-min-date="01/29/2021"
+         data-max-date="02/25/2023"
+         data-default-date="01/29/2021"
          
          
          data-isinline="false"
@@ -3819,9 +3833,9 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
     <div id="start_date_c109_tabbed_booking_widget_lessons_2" class="input-group date"
          data-component-element="bdyBookingWidget_StartDate"
          data-track="dp.change"
-         data-min-date="12/22/2020"
+         data-min-date="01/30/2021"
          data-max-date="04/30/2021"
-         data-default-date="12/22/2020"
+         data-default-date="01/30/2021"
          
          
          data-isinline="false"
@@ -3892,7 +3906,6 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
 
 
 
-
 <div class="container component_container">
     <div class="row">
         <div class="col-lg-12">
@@ -3915,7 +3928,7 @@ Measuring snowfall in multiple locations spread out across the mountain, as we d
 <script type="text/javascript">
     // Init Data
     require(['FR'], function (FR) {
-        FR.rentalsEquipmentTabbedBookingWidgetViewModel = {"EquipmentRentals":{"SetDeliveryOptionAsDefault":false,"ActionLink":{"Anchor":"","Class":"","Text":"RENT NOW","Query":"","Title":"RENT NOW","Url":"/plan-your-trip/rentals/winter-equipment.aspx","Target":"","TargetId":"f01fb0d9-9070-48d0-9c62-b4e5589a75b5","Type":4,"Style":""},"BaseProductSetting":{"WinterSeasonOnSaleDate":"2020-07-10T00:00:00","WinterSeasonOffSaleDate":"2021-04-01T00:00:00","SummerSeasonOnSaleDate":"2020-07-15T00:00:00","SummerSeasonOffSaleDate":"2020-10-30T00:00:00","DamageWaiverSelected":true,"IsValueStoreLocationsOnly":false,"HideDeliveryOptionOverride":false,"SearchRadius":0,"OnSaleDate":null,"OffSaleDate":null,"OffSaleTitle":null,"OffSaleMessage":null,"OffSaleLink":null,"Id":"50ebeba0-b23f-43bc-b510-dfdcb5f54cb3","Name":"Rentals Settings","SortOrder":0,"IsWinterInSeason":true,"IsSummerInSeason":false,"IsSaleable":true},"ProductName":"RENTALS","Icon":{"CssClass":"icon-rentals-winter","Id":"19f298da-b61d-43ba-8e1e-fe530597fe1d","Name":"Winter Rentals","SortOrder":0},"Body":"Maximize your mountain time and save when you book in advance.","Title":"SEAMLESS SKI RENTALS","SubTitle":"SAVE TIME","Id":"7f70b64e-4ce0-45bd-9ce7-307e0936f0a2","Name":"Winter Equipment Rentals","SortOrder":0},"RentalsEquipmentSelector":{"Step1Label":"Pickup or Delivery","Step2Label":"Find Your Best Location","Step3Label":"Find Your Best Equipment","ReturnOnTooltip":"Return your rentals on this day. Or, drop off before 9 AM the next day to avoid being charged for that day. If you’re having your equipment delivered, ask us during your appointment about how to return your gear.","PickUpAfter3":"I'll pick up after 3 PM","PickUpAfter3Disclaimer":"If you pick up or choose delivery after 3 PM, you won’t be charged for that day.","IsPickUpOnly":false,"PickUpOnlyTitle":"Convenient Pickup Locations","PickUpOnlyCopy":"Explore locations near your lodging, near the lift or near ski school.","RentalsEquipmentSelector":{"PickUpButtonLabel":null,"DeliveryButtonLabel":null,"RentalSeason":{"Key":"2","Phrase":null,"Id":"00000000-0000-0000-0000-000000000000","Name":null,"SortOrder":0},"RentalAddOns":null,"SetDeliveryOptionAsDefault":false,"MapZoomLevelOverride":null,"BannerImage":null,"BannerTitle":null,"BannerSubtitle":null,"CenterLatitudeOverride":null,"CenterLongitudeOverride":null,"EmrBannerContent":null,"EmrBannerIsTransparent":false,"ResortCode":0,"BannerImageCloudinaryPublicId":"","Id":"00000000-0000-0000-0000-000000000000","Name":null,"SortOrder":0},"FullDayCalendarDatesGroup":{"StartDate":"12/20/2020","EndDate":"05/05/2021","BlackoutDates":[]},"HalfDayMorningCalendarDatesGroup":{"StartDate":"12/31/9999","EndDate":"01/01/0001","BlackoutDates":[]},"HalfDayAfternoonCalendarDatesGroup":{"StartDate":"12/31/9999","EndDate":"01/01/0001","BlackoutDates":[]},"DeliveryCalendarDatesGroup":{"StartDate":"12/22/2020","EndDate":"04/14/2021","BlackoutDates":[]},"QuerystringStartDate":null,"QuerystringEndDate":null,"QuerystringIsDelivery":null,"QuerystringDeliveryTime":null,"QuerystringPickUpAfter3":null,"QuerystringDayType":0,"IsSeasonOpen":true,"WinterOffSaleMessage":"<p>We&rsquo;re also dreaming about fresh pow. Check back later to reserve your winter rentals.</p>","SummerOffSaleMessage":"We&rsquo;re also waiting for the trails to thaw. Check back later to reserve your summer rentals.","DeliveryLabel":"Complimentary Delivery","DeliveryTooltip":"Our expert rental team will fit you with equipment in the comfort of your hotel or rental home in Vail, Beaver Creek, Whistler Blackcomb, Breckenridge, Park City, Keystone, Crested Butte, Heavenly, Northstar, or Telluride.","DeliveryTimeTooltip":"Estimated window. We'll call you to confirm your time.","DeliveryTimeDisclaimer":"Estimated window. We'll call you to confirm your time.","LocationSelectorInstructionText":"To view your best rental location, enter your address or use the filters below.","LocationSelectorFilters":[{"FilterName":"Slopeside","FilterCode":6133,"TooltipText":"Shops located on or near the snow and closest to the lift."},{"FilterName":"Nearest Ski School","FilterCode":6138,"TooltipText":"The nearest pickup location to the Ski & Snowboard School in this base area. There may be multiple Ski & Snowboard School locations in the resort."},{"FilterName":"In Resort Village","FilterCode":6134,"TooltipText":"Shops located among the stores and hotels around the resort village."},{"FilterName":"In Town","FilterCode":6135,"TooltipText":"Shops located within the town outside of  the village."},{"FilterName":"In Hotel","FilterCode":6137,"TooltipText":""}],"OfferMorningPartialDayRental":false,"OfferAfternoonPartialDayRental":false,"FullDayRentalTitle":"Full Day Rental Title","FullDayRentalCopy":"Full Day Rental Copy. This is a test only - UAT please change. This is test text only. Full Day Rental Copy. This is a test only - UAT please change. This is test text only.","ViewEquipmentCtaTitle":"View Equipment","IsImageRight":false,"UrgencyMessage":"MAXIMIZE YOUR MOUNTAIN TIME BY BOOKING NOW","DeliveryTimes":["7:00 AM","7:30 AM","8:00 AM","8:30 AM","9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM","12:30 PM","1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM","5:00 PM","5:30 PM","6:00 PM","6:30 PM","7:00 PM","7:30 PM","8:00 PM","8:30 PM","9:00 PM","9:30 PM","10:00 PM","10:30 PM","11:00 PM"],"HasDelivery":true,"MapSettings":{"CenterLatitude":"38.95607165271837","CenterLongitude":"-119.94070529937744","ZoomLevel":"15","MapInstructions":"This resort map has been designed to help you in your vacation planning process.&nbsp; You can filter and sort by the things that are most important to you.&nbsp; Locate activities, lodging, mountain services and dining options.&nbsp;&nbsp;Be sure to map your step by step directions.<br />","GoogleMapsApiKeyEnabled":true,"GoogleMapsApiKey":"AIzaSyDEIJJ52pudOry-kTtUUL_IeGtig4ilauo","Id":"eca81014-ecaa-4e10-a792-7131118bc7b5","Name":"Map Settings","SortOrder":0,"GoogleMapsApiUrl":"https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDEIJJ52pudOry-kTtUUL_IeGtig4ilauo"},"LocationSearchRadius":0,"LocationSearchPlaceholder":"Ex: Ski Inn or 1 Ski St.","ResortCode":0,"EmrBannerContent":null,"EmrBannerIsTransparent":false,"IsUserOrHouseHoldEmrEligibleInCookie":false},"SitecoreItemName":"Tabbed Booking Widget 1"};
+        FR.rentalsEquipmentTabbedBookingWidgetViewModel = {"EquipmentRentals":{"SetDeliveryOptionAsDefault":false,"ActionLink":{"Anchor":"","Class":"","Text":"RENT NOW","Query":"","Title":"RENT NOW","Url":"/plan-your-trip/rentals/winter-equipment.aspx","Target":"","TargetId":"f01fb0d9-9070-48d0-9c62-b4e5589a75b5","Type":4,"Style":""},"BaseProductSetting":{"WinterSeasonOnSaleDate":"2020-07-10T00:00:00","WinterSeasonOffSaleDate":"2021-04-01T00:00:00","SummerSeasonOnSaleDate":"2020-07-15T00:00:00","SummerSeasonOffSaleDate":"2020-10-30T00:00:00","DamageWaiverSelected":true,"IsValueStoreLocationsOnly":false,"HideDeliveryOptionOverride":false,"SearchRadius":0,"OnSaleDate":null,"OffSaleDate":null,"OffSaleTitle":null,"OffSaleMessage":null,"OffSaleLink":null,"Id":"50ebeba0-b23f-43bc-b510-dfdcb5f54cb3","Name":"Rentals Settings","SortOrder":0,"IsWinterInSeason":true,"IsSummerInSeason":false,"IsSaleable":true},"ProductName":"RENTALS","Icon":{"CssClass":"icon-rentals-winter","Id":"19f298da-b61d-43ba-8e1e-fe530597fe1d","Name":"Winter Rentals","SortOrder":0},"Body":"Maximize your mountain time and save when you book in advance.","Title":"SEAMLESS SKI RENTALS","SubTitle":"SAVE TIME","Id":"7f70b64e-4ce0-45bd-9ce7-307e0936f0a2","Name":"Winter Equipment Rentals","SortOrder":0},"RentalsEquipmentSelector":{"Step1Label":"Pickup or Delivery","Step2Label":"Find Your Best Location","Step3Label":"Find Your Best Equipment","ReturnOnTooltip":"Return your rentals on this day. Or, drop off before 9 AM the next day to avoid being charged for that day. If you’re having your equipment delivered, ask us during your appointment about how to return your gear.","PickUpAfter3":"I'll pick up after 3 PM","PickUpAfter3Disclaimer":"If you pick up or choose delivery after 3 PM, you won’t be charged for that day.","IsPickUpOnly":false,"PickUpOnlyTitle":"Convenient Pickup Locations","PickUpOnlyCopy":"Explore locations near your lodging, near the lift or near ski school.","RentalsEquipmentSelector":{"PickUpButtonLabel":null,"DeliveryButtonLabel":null,"RentalSeason":{"Key":"2","Phrase":null,"Id":"00000000-0000-0000-0000-000000000000","Name":null,"SortOrder":0},"RentalAddOns":null,"SetDeliveryOptionAsDefault":false,"MapZoomLevelOverride":null,"BannerImage":null,"BannerTitle":null,"BannerSubtitle":null,"CenterLatitudeOverride":null,"CenterLongitudeOverride":null,"EmrBannerContent":null,"EmrBannerIsTransparent":false,"ResortCode":0,"BannerImageCloudinaryPublicId":"","Id":"00000000-0000-0000-0000-000000000000","Name":null,"SortOrder":0},"FullDayCalendarDatesGroup":{"StartDate":"01/28/2021","EndDate":"04/19/2021","BlackoutDates":[]},"HalfDayMorningCalendarDatesGroup":{"StartDate":"12/31/9999","EndDate":"01/01/0001","BlackoutDates":[]},"HalfDayAfternoonCalendarDatesGroup":{"StartDate":"12/31/9999","EndDate":"01/01/0001","BlackoutDates":[]},"DeliveryCalendarDatesGroup":{"StartDate":"01/30/2021","EndDate":"04/11/2021","BlackoutDates":[]},"QuerystringStartDate":null,"QuerystringEndDate":null,"QuerystringIsDelivery":null,"QuerystringDeliveryTime":null,"QuerystringPickUpAfter3":null,"QuerystringDayType":0,"IsSeasonOpen":true,"WinterOffSaleMessage":"<p>We&rsquo;re also dreaming about fresh pow. Check back later to reserve your winter rentals.</p>","SummerOffSaleMessage":"We&rsquo;re also waiting for the trails to thaw. Check back later to reserve your summer rentals.","DeliveryLabel":"Complimentary Delivery","DeliveryTooltip":"Our expert rental team will fit you with equipment in the comfort of your hotel or rental home in Vail, Beaver Creek, Whistler Blackcomb, Breckenridge, Park City, Keystone, Crested Butte, Heavenly, Northstar, or Telluride.","DeliveryTimeTooltip":"Estimated window. We'll call you to confirm your time.","DeliveryTimeDisclaimer":"Estimated window. We'll call you to confirm your time.","LocationSelectorInstructionText":"To view your best rental location, enter your address or use the filters below.","LocationSelectorFilters":[{"FilterName":"Slopeside","FilterCode":6133,"TooltipText":"Shops located on or near the snow and closest to the lift."},{"FilterName":"Nearest Ski School","FilterCode":6138,"TooltipText":"The nearest pickup location to the Ski & Snowboard School in this base area. There may be multiple Ski & Snowboard School locations in the resort."},{"FilterName":"In Resort Village","FilterCode":6134,"TooltipText":"Shops located among the stores and hotels around the resort village."},{"FilterName":"In Town","FilterCode":6135,"TooltipText":"Shops located within the town outside of  the village."},{"FilterName":"In Hotel","FilterCode":6137,"TooltipText":""}],"OfferMorningPartialDayRental":false,"OfferAfternoonPartialDayRental":false,"FullDayRentalTitle":"Full Day Rental Title","FullDayRentalCopy":"Full Day Rental Copy. This is a test only - UAT please change. This is test text only. Full Day Rental Copy. This is a test only - UAT please change. This is test text only.","ViewEquipmentCtaTitle":"View Equipment","IsImageRight":false,"UrgencyMessage":"MAXIMIZE YOUR MOUNTAIN TIME BY BOOKING NOW","DeliveryTimes":["7:00 AM","7:30 AM","8:00 AM","8:30 AM","9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM","12:30 PM","1:00 PM","1:30 PM","2:00 PM","2:30 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM","5:00 PM","5:30 PM","6:00 PM","6:30 PM","7:00 PM","7:30 PM","8:00 PM","8:30 PM","9:00 PM","9:30 PM","10:00 PM","10:30 PM","11:00 PM"],"HasDelivery":true,"MapSettings":{"CenterLatitude":"38.95607165271837","CenterLongitude":"-119.94070529937744","ZoomLevel":"15","MapInstructions":"This resort map has been designed to help you in your vacation planning process.&nbsp; You can filter and sort by the things that are most important to you.&nbsp; Locate activities, lodging, mountain services and dining options.&nbsp;&nbsp;Be sure to map your step by step directions.<br />","GoogleMapsApiKeyEnabled":true,"GoogleMapsApiKey":"AIzaSyDEIJJ52pudOry-kTtUUL_IeGtig4ilauo","Id":"eca81014-ecaa-4e10-a792-7131118bc7b5","Name":"Map Settings","SortOrder":0,"GoogleMapsApiUrl":"https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDEIJJ52pudOry-kTtUUL_IeGtig4ilauo"},"LocationSearchRadius":0,"LocationSearchPlaceholder":"Ex: Ski Inn or 1 Ski St.","ResortCode":0,"EmrBannerContent":null,"EmrBannerIsTransparent":false,"IsUserOrHouseHoldEmrEligibleInCookie":false},"SitecoreItemName":"Tabbed Booking Widget 1"};
         FR.rentalsEquipmentTabbedBookingWidgetViewModel.Season = 'Winter';
     });
 </script></div>
@@ -4349,7 +4362,7 @@ Send Me Text Alerts</a>                                </div>
                         <i class="icon-resorts-logo-heavenly">
                             <span class="sr-only">heavenly Logo</span>
                         </i>
-                        <div class="sctexteditor--copyright">&copy; 2020 Vail Resorts Management Company.  All Rights Reserved.</div>
+                        <div class="sctexteditor--copyright">&copy; 2021 Vail Resorts Management Company.  All Rights Reserved.</div>
                     </div>
                 </div>
             </div>
@@ -4357,7 +4370,7 @@ Send Me Text Alerts</a>                                </div>
     </div>
 </footer>
 
-    <input type="hidden" id="csrfToken" value="7_hfl2B8rZNof3ZfV5yivLhAqijaNs4lxYvfZtVGZZrIlflbU2wqNyIOwcWvhb6brrJznIFmt5WFyTDvBM2DCysomzQ1:5JpG4IywNC-msqDApkWeDgn92__D6E_wxIpoYLrlWgy2kpMH-AZNKrXwe9HC86BYgUgpB2ZNgwaGVgVVddteuB0zEts1" />
+    <input type="hidden" id="csrfToken" value="Ac2YGc2aQhdHK7l24oDrDB2-aKXP8RKxvnRrwslMC_N5sQ_li0BmbZ8EhfLIaC-L1SsuwBa2u8MIE2F60LePZcF2UG81:wPfStcB1kYsrhTNPGfWfJLi06EcgWFaBboBi2-B-ud6j59T8VPYdKH3wQzp5qkH8UpFj174nwMOE5YEqjBGGkxRpIxA1" />
     
 
 
@@ -4539,7 +4552,7 @@ Send Me Text Alerts</a>                                </div>
 
     define('bootstrap');
 
-    define('main', ['jquery', 'underscore', 'bootstrap', 'modernizr', 'moment'].concat(["components/imagePromotion","components/articleComponent","components/mediaGallery","components/slidingCards","components/youtubeVideoModal","services/analytics","services/freerideRestApi","services/cartHelper","services/startDateHelper","components/footer","components/snowAlert","components/featuredContentElement","components/faqAccordion","services/urlHelper","components/sharedUI/numberInputSpinner","components/tabbedBookingWidget","components/tabbedBookingWidgetActivities","components/tabbedBookingWidgetGenericDropdown","components/tabbedBookingWidgetLessons","components/tabbedBookingWidgetLiftTickets","components/tabbedBookingWidgetLodging","components/tabbedBookingWidgetSeasonPasses","components/singleProductBookingWidget","components/nonBookableProductWidget","components/nonBookableProductModal","components/sharedUI/dropDown","components/sharedUI/datePicker","services/responsiveUtil","components/navigationDesktop","components/navigationMobile","components/headerSearch","components/login","components/sitewideAlert","components/headerWeather","components/sharedUI/forms","components/hero","components/heroWithPromotion","components/heroWithSecondaryNavigation","components/resortCommentary","components/snowReport","components/forecast","components/rentalsTabbedBookingWidget/TabbedBookingWidget","components/sharedUI/globalModal","components/sharedUI/loadingSpinner","components/productReminderModal","services/pageVisibilityHelper","components/sessionExpiredModal","components/sessionWarningModal"]));
+    define('main', ['jquery', 'underscore', 'bootstrap', 'modernizr', 'moment'].concat(["components/imagePromotion","components/articleComponent","components/mediaGallery","components/slidingCards","components/youtubeVideoModal","services/analytics","services/freerideRestApi","services/cartHelper","services/startDateHelper","components/footer","components/snowAlert","components/featuredContentElement","components/faqAccordion","services/urlHelper","components/sharedUI/numberInputSpinner","components/tabbedBookingWidget","components/tabbedBookingWidgetActivities","components/tabbedBookingWidgetGenericDropdown","components/tabbedBookingWidgetLessons","components/tabbedBookingWidgetLiftTickets","components/tabbedBookingWidgetLodging","components/tabbedBookingWidgetSeasonPasses","components/rentalsTabbedBookingWidget/TabbedBookingWidget","components/singleProductBookingWidget","components/nonBookableProductWidget","components/nonBookableProductModal","components/sharedUI/dropDown","components/sharedUI/datePicker","services/responsiveUtil","components/navigationDesktop","components/navigationMobile","components/headerSearch","components/login","components/sitewideAlert","components/headerWeather","components/sharedUI/forms","components/hero","components/heroWithPromotion","components/heroWithSecondaryNavigation","components/resortCommentary","components/snowReport","components/forecast","components/sharedUI/globalModal","components/sharedUI/loadingSpinner","components/productReminderModal","services/pageVisibilityHelper","components/sessionExpiredModal","components/sessionWarningModal"]));
 
     require(['main', 'FR'], function (main, FR) {
         FR.setRequireJSComplete();
@@ -4655,5 +4668,5 @@ Send Me Text Alerts</a>                                </div>
 </script>
 
     <!-- END BODY Delivery -->
-<script type="text/javascript" >var _cf = _cf || []; _cf.push(['_setFsp', true]);  _cf.push(['_setBm', true]);  _cf.push(['_setAu', '/utils/2b4dcbaa1d5ti2532a7a9a493cd50bb91']); </script><script type="text/javascript"  src="/utils/2b4dcbaa1d5ti2532a7a9a493cd50bb91"></script></body>
+<script type="text/javascript" >var _cf = _cf || []; _cf.push(['_setFsp', true]);  _cf.push(['_setBm', true]);  _cf.push(['_setAu', '/staticweb/784866a5f8dti2532a7a9a493cd50bb91']); </script><script type="text/javascript"  src="/staticweb/784866a5f8dti2532a7a9a493cd50bb91"></script></body>
 </html>

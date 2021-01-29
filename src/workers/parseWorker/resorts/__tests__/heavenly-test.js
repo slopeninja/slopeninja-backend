@@ -17,10 +17,10 @@ test('fetches Heavenly snow data correctly', async () => {
       status: null,
       weatherIcon: null,
       temperature: null,
-      baseCondition: 'Packed Powder',
-      newSnow: 0,
+      baseCondition: 'Powder',
+      newSnow: 22,
       snowDepthBase: null,
-      snowDepthSummit: 25,
+      snowDepthSummit: 36,
     },
   });
 });
