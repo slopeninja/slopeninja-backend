@@ -9,6 +9,7 @@ const RESORT_TWITTER_USERNAMES = {
   kirkwood: '@kirkwoodmtn',
   'donner-ski-ranch': '@donnerskiranch',
   'squaw-valley': '@squawalpine',
+  'palisades-tahoe': '@palisadestahoe',
   homewood: '@skihomewood',
   'sierra-at-tahoe': '@sierra_at_tahoe',
   'sugar-bowl': '@sugarbowlresort',

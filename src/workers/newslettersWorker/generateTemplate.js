@@ -23,19 +23,23 @@ const generateHeader = dateTime => `
 </mj-section>
 `;
 
-const generateFooter = () => `
-<mj-section background-color="#1ED2FF" background-repeat="repeat" padding="10px 0 0 0" text-align="center" vertical-align="top">
-
+const generateAppIcons = () => `
   <mj-group width="100%">
     <mj-column>
       <mj-image align="right" padding="24px 10px 0 0" width="110px" height="36px" src="https://slope.ninja/emailAssets/appStore.png" href="https://itunes.apple.com/us/app/slope-ninja/id1297809634?ls=1&mt=8">
       </mj-image>
 
     </mj-column>
-     <mj-column>
+    <mj-column>
       <mj-image align="left" padding="24px 0 0 10px" width="110px" height="36px" src="https://slope.ninja/emailAssets/playStore.png" href="https://play.google.com/store/apps/details?id=ninja.slope.app"></mj-image>
     </mj-column>
   </mj-group>
+`;
+
+const generateFooter = (appIcons = false) => `
+<mj-section background-color="#1ED2FF" background-repeat="repeat" padding="10px 0 0 0" text-align="center" vertical-align="top">
+
+  ${appIcons ? generateAppIcons() : ''}
 
   <mj-column width="100%">
     <mj-text align="center" color="#ffffff" font-family="Lato, Arial, sans-serif" font-size="16px" font-weight="300" line-height="22px" padding="22px 25px 10px 25px">

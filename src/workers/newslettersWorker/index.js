@@ -15,7 +15,8 @@ const EMAIL_ASSETS_BASE_URL = 'https://slope.ninja/emailAssets';
 
 const RESORT_LOGOS = {
   'squaw-valley': `${EMAIL_ASSETS_BASE_URL}/resortLogos/squaw.png`,
-  'alpine-meadows': `${EMAIL_ASSETS_BASE_URL}/resortLogos/squaw.png`,
+  'palisades-tahoe': `${EMAIL_ASSETS_BASE_URL}/resortLogos/palisades.png`,
+  'alpine-meadows': `${EMAIL_ASSETS_BASE_URL}/resortLogos/palisades.png`,
   boreal: `${EMAIL_ASSETS_BASE_URL}/resortLogos/boreal.png`,
   'diamond-peak': `${EMAIL_ASSETS_BASE_URL}/resortLogos/diamond.png`,
   'donner-ski-ranch': `${EMAIL_ASSETS_BASE_URL}/resortLogos/donner.png`,

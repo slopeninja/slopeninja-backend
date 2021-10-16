@@ -119,8 +119,9 @@ export const parseNorthstarTrails = async ($) => {
 
   let allTrails = [];
   if (trailsReportData) {
-    allTrails = trailsReportData.GroomingAreas.reduce((trails, category) => {
-      category.Runs.forEach((run) => {
+    allTrails = trailsReportData.GroomingAreas?.reduce((trails, category) => {
+      // eslint-disable-next-line no-unused-expressions
+      category?.Runs?.forEach((run) => {
         const trail = {
           name: run.Name,
           status: liftTrailStatusOrNull(`${run.IsOpen}`),

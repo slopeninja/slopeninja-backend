@@ -128,11 +128,12 @@
                             }
                         },
                         {
-                            "id": "squaw-valley",
+                            "id": "palisades-tahoe",
                             "name": {
-                                "value": "Squaw Valley",
+                                "value": "Palisades Tahoe",
                                 "synonyms": [
-                                    "squaw"
+                                    "squaw",
+                                    "palisades"
                                 ]
                             }
                         },

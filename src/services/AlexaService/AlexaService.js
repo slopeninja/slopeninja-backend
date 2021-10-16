@@ -15,11 +15,11 @@ const en = {
     GET_FACT_MESSAGE: "Here's the current conditions: ",
     WELCOME_MESSAGE: 'Welcome to Slope Ninja!',
     HELP_MESSAGE:
-      'You can say tell me snow conditions near Squaw Valley, or, you can say exit... What can I help you with?',
-    HELP_REPROMPT: 'You can say tell me snow conditions near Squaw Valley, or, you can say exit... What can I help you with?',
+      'You can say tell me snow conditions near Palisades Tahoe, or, you can say exit... What can I help you with?',
+    HELP_REPROMPT: 'You can say tell me snow conditions near Palisades Tahoe, or, you can say exit... What can I help you with?',
     FALLBACK_MESSAGE:
-      "Slope Ninja can't help you with that. It can help you discover snow conditions at Lake Tahoe ski resorts. You can say tell me snow conditions near Squaw Valley, or, you can say exit... What can I help you with?",
-    FALLBACK_REPROMPT: 'You can say tell me snow conditions near Squaw Valley, or, you can say exit... What can I help you with?',
+      "Slope Ninja can't help you with that. It can help you discover snow conditions at Lake Tahoe ski resorts. You can say tell me snow conditions near Palisades Tahoe, or, you can say exit... What can I help you with?",
+    FALLBACK_REPROMPT: 'You can say tell me snow conditions near Palisades Tahoe, or, you can say exit... What can I help you with?',
     ERROR_MESSAGE: 'Sorry, an error occurred.',
     STOP_MESSAGE: 'Goodbye!',
   },

@@ -37,20 +37,20 @@ test('generate correct road condition speech given and resorts', () => {
 
 test('generate correct launch speech given locale and resorts', () => {
   const twoSnowingResortsExpectedOutput =
-    'Welcome to Slope Ninja! Here’s your snow update: It’s currently 23 degrees Fahrenheit in Lake Tahoe, Donner Ski Ranch and Squaw Valley with reports of pow and more to come! If you’re planning to hit the mountains, currently, on NV-431, and I-580, chains, all-wheel-drive or snow tires are required, on I-80, chains or all-wheel-drive with snow tires are required, CA-89 is partially closed. For resort specific conditions, you can say "tell me snow conditions at Squaw Valley" or your favorite resort, or, you can say exit... What can I help you with?';
+    'Welcome to Slope Ninja! Here’s your snow update: It’s currently 23 degrees Fahrenheit in Lake Tahoe, Donner Ski Ranch and Palisades Tahoe with reports of pow and more to come! If you’re planning to hit the mountains, currently, on NV-431, and I-580, chains, all-wheel-drive or snow tires are required, on I-80, chains or all-wheel-drive with snow tires are required, CA-89 is partially closed. For resort specific conditions, you can say "tell me snow conditions at Palisades Tahoe" or your favorite resort, or, you can say exit... What can I help you with?';
   // eslint-disable-next-line max-len
   expect(generateLaunchSpeech({
     locale: LOCALE,
     resorts: twoSnowingComplicatedRoadConditionsWithChainControlResorts,
   })).toEqual(twoSnowingResortsExpectedOutput);
 
-  const threeSnowingResortsExpectedOutput = 'Welcome to Slope Ninja! Here’s your snow update: It’s currently 23 degrees Fahrenheit in Lake Tahoe, and it’s getting white all over! It\'s snowing at Mt Rose, Boreal and Sugar Bowl! If you’re planning to hit the mountains, currently, on NV-431, chains, all-wheel-drive or snow tires are required, CA-89 is partially closed. For resort specific conditions, you can say "tell me snow conditions at Squaw Valley" or your favorite resort, or, you can say exit... What can I help you with?';
+  const threeSnowingResortsExpectedOutput = 'Welcome to Slope Ninja! Here’s your snow update: It’s currently 23 degrees Fahrenheit in Lake Tahoe, and it’s getting white all over! It\'s snowing at Mt Rose, Boreal and Sugar Bowl! If you’re planning to hit the mountains, currently, on NV-431, chains, all-wheel-drive or snow tires are required, CA-89 is partially closed. For resort specific conditions, you can say "tell me snow conditions at Palisades Tahoe" or your favorite resort, or, you can say exit... What can I help you with?';
   expect(generateLaunchSpeech({
     locale: LOCALE,
     resorts: threeSnowingComplicatedRoadConditionsWithChainControlsResorts,
   })).toEqual(threeSnowingResortsExpectedOutput);
 
-  const noSnowingResortExpectedOutput = 'Welcome to Slope Ninja! Here’s your snow update: It’s currently 23 degrees Fahrenheit in Lake Tahoe, there are 11 resorts open. If you’re planning to hit the mountains, currently, CA-89 is partially closed. For resort specific conditions, you can say "tell me snow conditions at Squaw Valley" or your favorite resort, or, you can say exit... What can I help you with?';
+  const noSnowingResortExpectedOutput = 'Welcome to Slope Ninja! Here’s your snow update: It’s currently 23 degrees Fahrenheit in Lake Tahoe, there are 11 resorts open. If you’re planning to hit the mountains, currently, CA-89 is partially closed. For resort specific conditions, you can say "tell me snow conditions at Palisades Tahoe" or your favorite resort, or, you can say exit... What can I help you with?';
   expect(generateLaunchSpeech({
     locale: LOCALE,
     resorts: noSnowingResorts,

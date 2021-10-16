@@ -166,12 +166,12 @@ export const generateGeneralRoadSpeech = (resorts) => {
 // eslint-disable-next-line no-unused-vars
 export const generateLaunchSpeech = ({ locale, resorts }) => {
   if (!resorts.length) {
-    return 'Welcome to Slope Ninja! For resort specific conditions, you can say "tell me snow conditions at Squaw Valley" or your favorite resort, or, you can say exit... What can I help you with?';
+    return 'Welcome to Slope Ninja! For resort specific conditions, you can say "tell me snow conditions at Palisades Tahoe" or your favorite resort, or, you can say exit... What can I help you with?';
   }
 
   const tempSpeech = generateGeneralWeatherSpeech(resorts);
   const roadSpeech = generateGeneralRoadSpeech(resorts);
-  return `Welcome to Slope Ninja! Here’s your snow update: ${tempSpeech} ${roadSpeech} For resort specific conditions, you can say "tell me snow conditions at Squaw Valley" or your favorite resort, or, you can say exit... What can I help you with?`;
+  return `Welcome to Slope Ninja! Here’s your snow update: ${tempSpeech} ${roadSpeech} For resort specific conditions, you can say "tell me snow conditions at Palisades Tahoe" or your favorite resort, or, you can say exit... What can I help you with?`;
 };
 
 const findResort = (resorts, resortShortName) => {

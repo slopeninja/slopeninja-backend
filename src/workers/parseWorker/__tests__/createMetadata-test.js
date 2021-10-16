@@ -1,7 +1,7 @@
 import createMetadata from '../createMetadata';
 
 const SQUAW_INPUT_DATA_SAMPLE = {
-  'squaw-valley': {
+  'palisades-tahoe': {
     weather: {
       weatherIcon: 'clear',
       temperature: 61,
@@ -1016,9 +1016,9 @@ const SQUAW_INPUT_DATA_SAMPLE = {
 };
 
 const SQUAW_OUTPUT_DATA_SAMPLE = {
-  'squaw-valley': {
-    logo: '/images/resorts/squaw.svg',
-    name: 'Squaw Valley',
+  'palisades-tahoe': {
+    logo: '/images/resorts/palisades.svg',
+    name: 'Palisades Tahoe',
     coords: { lat: 39.1969822, lng: -120.2431388 },
     location: 'Olympic Valley, CA 96146',
     status: 'open',
@@ -1055,5 +1055,5 @@ const SQUAW_OUTPUT_DATA_SAMPLE = {
 };
 
 test('can correctly create meta data', () => {
-  expect(createMetadata('squaw-valley', SQUAW_INPUT_DATA_SAMPLE['squaw-valley'])).toMatchObject(SQUAW_OUTPUT_DATA_SAMPLE['squaw-valley']);
+  expect(createMetadata('palisades-tahoe', SQUAW_INPUT_DATA_SAMPLE['palisades-tahoe'])).toMatchObject(SQUAW_OUTPUT_DATA_SAMPLE['palisades-tahoe']);
 });

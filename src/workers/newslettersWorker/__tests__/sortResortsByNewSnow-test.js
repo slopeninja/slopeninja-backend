@@ -43,7 +43,7 @@ test('sorts resorts by new snow or snow depth', () => {
       status: 'closed',
     },
     {
-      name: 'Squaw Valley',
+      name: 'Palisades Tahoe',
       weather: {
         newSnow: 0,
         snowDepth: 149,
@@ -93,7 +93,7 @@ test('sorts resorts by new snow or snow depth', () => {
       status: 'closed',
     },
     {
-      name: 'Squaw Valley',
+      name: 'Palisades Tahoe',
       weather: {
         newSnow: 0,
         snowDepth: 149,

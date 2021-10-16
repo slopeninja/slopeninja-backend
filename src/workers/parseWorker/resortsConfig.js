@@ -105,19 +105,19 @@ export const resortConstants = {
     location: 'Twin Bridges, CA 95735',
     resortUrl: 'https://www.sierraattahoe.com/',
   },
-  'squaw-valley': {
-    name: 'Squaw Valley',
-    logo: '/images/resorts/squaw.svg',
+  'palisades-tahoe': {
+    name: 'Palisades Tahoe',
+    logo: '/images/resorts/palisades.svg',
     coords: { lat: 39.1969822, lng: -120.2431388 },
     location: 'Olympic Valley, CA 96146',
-    resortUrl: 'https://squawalpine.com/',
+    resortUrl: 'https://www.palisadestahoe.com/',
   },
   'alpine-meadows': {
     name: 'Alpine Meadows',
-    logo: '/images/resorts/squaw.svg',
+    logo: '/images/resorts/palisades.svg',
     coords: { lat: 39.154969, lng: -120.238209 },
     location: 'Alpine Meadows, CA 96146',
-    resortUrl: 'https://squawalpine.com/',
+    resortUrl: 'https://www.palisadestahoe.com/',
   },
   'diamond-peak': {
     name: 'Diamond Peak',
@@ -257,9 +257,9 @@ export const resortsConfig = {
       fn: createHtmlParser('roads', parseCARoadCondition('CA', '89')),
     },
   ],
-  'squaw-valley': [
+  'palisades-tahoe': [
     {
-      url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('squaw-valley')}`,
+      url: `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${getResortCoords('palisades-tahoe')}`,
       fn: createJSONParser('weather', parseWeather),
     },
     {
@@ -735,23 +735,23 @@ export const resortsConfig = {
       fn: createJSONParser('weather', parseWeather),
     },
     {
-      url: 'http://www.skihomewood.com/mountain/snow-report',
+      url: 'https://www.skihomewood.com/mountain/snow-report/',
       fn: createHtmlParser('snow', parseHomewoodSnow),
     },
     {
-      url: 'http://www.skihomewood.com/mountain/snow-report',
+      url: 'https://www.skihomewood.com/mountain/snow-report/',
       fn: createHtmlParser('liftCounts', parseHomewoodLiftCounts),
     },
     {
-      url: 'http://www.skihomewood.com/mountain/snow-report',
+      url: 'https://www.skihomewood.com/mountain/snow-report/',
       fn: createHtmlParser('trailCounts', parseHomewoodTrailCounts),
     },
     {
-      url: 'http://www.skihomewood.com/mountain/snow-report',
+      url: 'https://www.skihomewood.com/mountain/snow-report/',
       fn: createHtmlParser('lifts', parseHomewoodLifts),
     },
     {
-      url: 'http://www.skihomewood.com/mountain/snow-report',
+      url: 'https://www.skihomewood.com/mountain/snow-report/',
       fn: createHtmlParser('trails', parseHomewoodTrails),
     },
     {
