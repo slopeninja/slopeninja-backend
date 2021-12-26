@@ -45,7 +45,7 @@ test('fetches Kirkwood lifts data correctly', async () => {
   const resortData = await createHtmlParser('liftCounts', parseKirkwoodLiftCounts)(htmlText);
   expect(resortData).toEqual({
     liftCounts: {
-      total: 15,
+      total: 12,
       open: null,
     },
   });
@@ -66,8 +66,8 @@ test('fetches Kirkwood trails data correctly', async () => {
   const resortData = await createHtmlParser('trailCounts', parseKirkwoodTrailCounts)(htmlText);
   expect(resortData).toEqual({
     trailCounts: {
-      total: 86,
-      open: 0,
+      total: 93,
+      open: 72,
     },
   });
 });

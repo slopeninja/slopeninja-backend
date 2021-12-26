@@ -74,11 +74,11 @@ export const parseKirkwoodLiftCounts = async ($) => {
 
 export const parseKirkwoodTrailCounts = async ($) => {
   const openTrails = Number.parseInt(
-    $('.c118__number1--v1').slice(1, 2).text(),
+    $('.terrain_summary__tab_main__text .c118__number1--v1').slice(2, 3).text(),
     10,
   );
   const totalTrails = Number.parseInt(
-    $('.c118__number2--v1').slice(1, 2).text().replace('/', ''),
+    $('.terrain_summary__tab_main__text .c118__number2--v1').slice(2, 3).text().replace('/', ''),
     10,
   );
 
@@ -122,7 +122,7 @@ export const parseKirkwoodTrails = async ($) => {
   if (trailsReportData) {
     allTrails = trailsReportData.GroomingAreas?.reduce((trails, category) => {
       // eslint-disable-next-line no-unused-expressions
-      category?.Runs?.forEach((run) => {
+      category?.Trails?.forEach((run) => {
         const trail = {
           name: run.Name,
           status: liftTrailStatusOrNull(`${run.IsOpen}`),
