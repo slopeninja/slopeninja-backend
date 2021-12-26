@@ -250,7 +250,7 @@ const SAMPLE_OUTPUT = {
   status: 'open',
   weather: {
     base: null,
-    newSnow: 7,
+    newSnow: 0,
     condition: 'cloudy',
     snowDepth: 120,
     temperature: 29,
@@ -286,7 +286,9 @@ test('returns the original metadata if snapshot is outdated', async () => {
     .toEqual(SAMPLE_METADATA_STALE);
 });
 
-test('returns the original metadata if newSnow in snapshot is different from metadata in newSnow', async () => {
+// since we override newSnow, newSnow in snapshot can mislead the validation for the day after.
+// We can just rely on snowDepth for validaion. Thus skipping this test.
+test.skip('returns the original metadata if newSnow in snapshot is different from metadata in newSnow', async () => {
   expect(generateMetadataWithSnapshot(SAMPLE_METADATA_UP_TO_DATE, SAMPLE_VALID_SNAPSHOT))
     .toEqual(SAMPLE_METADATA_UP_TO_DATE);
 });

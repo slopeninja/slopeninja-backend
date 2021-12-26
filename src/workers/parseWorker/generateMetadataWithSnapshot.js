@@ -28,12 +28,14 @@ export const generateMetadataWithSnapshot = (metadata, snapshot) => {
   const snapshotSnowDepth = idx(snapshot, _ => _.metadata.weather.snowDepth);
   const snowDepth = idx(metadata, _ => _.weather.snowDepth);
 
-  const snapshotNewSnow = idx(snapshot, _ => _.metadata.weather.newSnow);
-  const newSnow = idx(metadata, _ => _.weather.newSnow);
+  // since we override newSnow, newSnow in snapshot can mislead the validation for the day after.
+  // We can just rely on snowDepth for validaion
+  // const snapshotNewSnow = idx(snapshot, _ => _.metadata.weather.newSnow);
+  // const newSnow = idx(metadata, _ => _.weather.newSnow);
 
   // Somtimes resorts forget to update their snow data
   // here we're trying to rectify their lack of attention
-  const outdated = snapshotSnowDepth === snowDepth && snapshotNewSnow === newSnow;
+  const outdated = snapshotSnowDepth === snowDepth;
 
   if (outdated) {
     /* eslint-disable-next-line no-console */
