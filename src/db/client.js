@@ -2,10 +2,10 @@ import knex from 'knex';
 
 const config = {
   client: 'pg',
-  connection: `${process.env.DATABASE_URL}?ssl=true`,
+  connection: process.env.DATABASE_URL,
 };
 
-export const SLOPE_NINJA_DB_SCHEMA = 'slopeninja';
+export const SLOPE_NINJA_DB_SCHEMA = 'public';
 
 const client = knex(config);
 
