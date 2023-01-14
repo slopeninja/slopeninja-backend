@@ -1,7 +1,7 @@
 import {
   degreeOrNull,
   inchOrNull,
-  // numberOrNull,
+  numberOrNull,
   weatherStatusOrNull,
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
@@ -42,17 +42,17 @@ export const parseMtRoseSnow = async ($) => {
   // const status = $('.sr-mountain-notes.sr-row .sr-text p').first().text().trim();
   const temperature = $('.temperatures').text().trim();
   // 24 Hours
-  // const newSnow24Hr = parseInRange($('.current-condition-2 h2').first().text().trim(), false);
+  const newSnow24Hr = parseInRange($('.snow-total').slice(1, 2).text().trim(), false);
   // Base
-  const snowDepthBase = parseInRange($('.snow-total').text().trim(), true);
-  const snowDepthSummit = parseInRange($('.snow-total').text().trim(), false);
+  const snowDepthBase = parseInRange($('.snow-total').slice(3, 4).text().trim(), true);
+  const snowDepthSummit = parseInRange($('.snow-total').slice(3, 4).text().trim(), false);
 
   return {
     ...initialSnow,
     weatherIcon: weatherStatusOrNull(weatherIcon),
     // status: resortStatusOrNull(status),
     temperature: degreeOrNull(temperature),
-    // newSnow: numberOrNull(Number.parseInt(newSnow24Hr, 10)),
+    newSnow: numberOrNull(Number.parseInt(newSnow24Hr, 10)),
     snowDepthBase: inchOrNull(`${snowDepthBase}"`),
     snowDepthSummit: inchOrNull(snowDepthSummit),
   };

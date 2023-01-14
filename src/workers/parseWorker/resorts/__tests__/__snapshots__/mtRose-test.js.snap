@@ -6,21 +6,26 @@ Object {
     Object {
       "category": null,
       "name": "Northwest Express",
+      "status": "closed",
+    },
+    Object {
+      "category": null,
+      "name": "Lakeview Express",
       "status": "open",
     },
     Object {
       "category": null,
       "name": "Zephyr Express",
-      "status": "open",
-    },
-    Object {
-      "category": null,
-      "name": "Lakeview",
-      "status": "open",
+      "status": "closed",
     },
     Object {
       "category": null,
       "name": "Wizard",
+      "status": "open",
+    },
+    Object {
+      "category": null,
+      "name": "Galena",
       "status": "open",
     },
     Object {
@@ -31,11 +36,6 @@ Object {
     Object {
       "category": null,
       "name": "Magic West",
-      "status": "open",
-    },
-    Object {
-      "category": null,
-      "name": "Galena",
       "status": "open",
     },
     Object {
@@ -66,7 +66,7 @@ Object {
       "category": "Main Side",
       "level": "advanced",
       "name": "EXPRESS",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Main Side",
@@ -101,7 +101,7 @@ Object {
     Object {
       "category": "Main Side",
       "level": "advanced",
-      "name": "UPPER RAMSEY’S",
+      "name": "TAHOE VISTA",
       "status": "open",
     },
     Object {
@@ -125,7 +125,13 @@ Object {
     Object {
       "category": "Main Side",
       "level": "intermediate",
-      "name": "LOWER LAKEVIEW",
+      "name": "BUNKER",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "intermediate",
+      "name": "LONE TREE",
       "status": "open",
     },
     Object {
@@ -138,12 +144,6 @@ Object {
       "category": "Main Side",
       "level": "intermediate",
       "name": "RAMSEY’S",
-      "status": "open",
-    },
-    Object {
-      "category": "Main Side",
-      "level": "intermediate",
-      "name": "UPPER LAKEVIEW",
       "status": "open",
     },
     Object {
@@ -173,6 +173,12 @@ Object {
     Object {
       "category": "Main Side",
       "level": "beginner",
+      "name": "BUCKBOARD",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
       "name": "DRAGON’S TAIL",
       "status": "open",
     },
@@ -186,6 +192,18 @@ Object {
       "category": "Main Side",
       "level": "beginner",
       "name": "GALENA",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "LARIAT",
+      "status": "open",
+    },
+    Object {
+      "category": "Main Side",
+      "level": "beginner",
+      "name": "LAKESIDE TRAIL",
       "status": "open",
     },
     Object {
@@ -239,12 +257,6 @@ Object {
     Object {
       "category": "Main Side",
       "level": "beginner",
-      "name": "SWITCHBACK",
-      "status": "open",
-    },
-    Object {
-      "category": "Main Side",
-      "level": "beginner",
       "name": "WARLOCK",
       "status": "open",
     },
@@ -258,37 +270,37 @@ Object {
       "category": "Slide Bowl",
       "level": "advanced",
       "name": "CENTRAL PACIFIC",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Slide Bowl",
       "level": "advanced",
       "name": "GOLD RUN",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Slide Bowl",
       "level": "advanced",
       "name": "OUTLAW",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Slide Bowl",
       "level": "advanced",
       "name": "WASHOE ZEPHYR",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Slide Bowl",
       "level": "advanced",
       "name": "WILD CARD",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Slide Bowl",
       "level": "intermediate",
       "name": "BADLANDS",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Slide Bowl",
@@ -306,19 +318,19 @@ Object {
       "category": "Slide Bowl",
       "level": "intermediate",
       "name": "BRUCE’S",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Slide Bowl",
       "level": "intermediate",
       "name": "HIGH TRAVERSE",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Slide Bowl",
       "level": "intermediate",
       "name": "LOG FLUME",
-      "status": "closed",
+      "status": "open",
     },
     Object {
       "category": "Slide Bowl",
@@ -342,7 +354,7 @@ Object {
       "category": "Slide Bowl",
       "level": "intermediate",
       "name": "SUNRISE BOWL",
-      "status": "closed",
+      "status": "open",
     },
   ],
 }
