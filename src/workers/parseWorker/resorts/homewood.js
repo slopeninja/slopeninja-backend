@@ -1,5 +1,5 @@
 import {
-  inchOrNull,
+  parseNumberFromString,
   liftTrailStatusOrNull,
   notEmptyStringOrNull,
   trailLevelOrNull,
@@ -29,21 +29,20 @@ const initialTrails = {
 export const parseHomewoodSnow = async ($) => {
   // const temperature = $('.time_temperature').text().trim();
   // 24 Hours
-  const newSnow24Hr = $('.snow-24-hr').slice(2, 3).text();
+  const newSnow24Hr = $('.snow-24-hr').slice(2, 3).text().trim();
   // Base
-  const snowDepthBase = $('.season-total ')
+  const snowDepthBase = $('.snow-depth ')
     .slice(0, 1)
     .text()
-    .trim()
-    .slice(12, 14);
+    .trim();
 
-  const snowDepthSummit = $('.season-total ').slice(2, 3).text().trim();
+  const snowDepthSummit = $('.snow-depth ').slice(2, 3).text().trim();
   return {
     ...initialSnow,
     // temperature: degreeOrNull(temperature),
-    newSnow: inchOrNull(newSnow24Hr),
-    snowDepthBase: inchOrNull(snowDepthBase),
-    snowDepthSummit: inchOrNull(snowDepthSummit),
+    newSnow: numberOrNull(parseNumberFromString(newSnow24Hr)),
+    snowDepthBase: numberOrNull(parseNumberFromString(snowDepthBase)),
+    snowDepthSummit: numberOrNull(parseNumberFromString(snowDepthSummit)),
   };
 };
 

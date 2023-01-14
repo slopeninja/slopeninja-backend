@@ -18,9 +18,9 @@ test('fetches Homewood snow data correctly', async () => {
       weatherIcon: null,
       temperature: null,
       baseCondition: null,
-      newSnow: 3,
-      snowDepthBase: 4,
-      snowDepthSummit: 8,
+      newSnow: 12,
+      snowDepthBase: 53,
+      snowDepthSummit: 96,
     },
   });
 });
@@ -46,7 +46,7 @@ test('fetches Homewood lifts data correctly', async () => {
   expect(resortData).toEqual({
     liftCounts: {
       total: 8,
-      open: 0,
+      open: 6,
     },
   });
 });
@@ -67,7 +67,7 @@ test('fetches Homewood trails data correctly', async () => {
   expect(resortData).toEqual({
     trailCounts: {
       total: 67,
-      open: 0,
+      open: 63,
     },
   });
 });

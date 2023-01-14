@@ -14,6 +14,7 @@ import {
   weatherStatusOrNull,
   notEmptyStringOrNull,
   removeNumberInFrontOfName,
+  parseNumberFromString,
 } from '../weatherUtil';
 
 test('tests if valid number', () => {
@@ -186,3 +187,13 @@ test('removes the first index and returns a string or null', () => {
   expect(removeNumberInFrontOfName('')).toBe(null);
   expect(removeNumberInFrontOfName(-100)).toBe(null);
 });
+
+
+test('extracts number from string', () => {
+  expect(parseNumberFromString()).toBeNaN();
+  expect(parseNumberFromString('1 rain')).toBe(1);
+  expect(parseNumberFromString('567 clear-day')).toBe(567);
+  expect(parseNumberFromString('')).toBeNaN();
+  expect(parseNumberFromString({})).toBeNaN();
+});
+

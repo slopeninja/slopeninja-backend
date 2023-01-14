@@ -158,6 +158,13 @@ export const parseInchNumberFromFloat = (value) => {
   return Number.parseInt(value, 10);
 };
 
+export const parseNumberFromString = (string) => {
+  if (!string || typeof string !== 'string') {
+    return NaN;
+  }
+  return Number.parseInt(string.match(/(\d+)/), 10);
+};
+
 export const trailLevelOrNull = (string) => {
   if (!string || typeof string !== 'string') {
     return null;
