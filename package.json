@@ -39,7 +39,7 @@
     "uuid": "^8.3.1"
   },
   "engines": {
-    "node": "8.11.3"
+    "node": "18.12.1"
   },
   "scripts": {
     "dev": "node_modules/.bin/babel-node src/dev.js",

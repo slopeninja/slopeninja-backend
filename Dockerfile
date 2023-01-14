@@ -1,4 +1,4 @@
-FROM node:8.11.3-alpine as builder
+FROM node:18.12.1-alpine as builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN yarn install --frozen-lockfile
 COPY . .
 RUN yarn build
 
-FROM node:8.11.3-alpine
+FROM node:18.12.1-alpine
 
 WORKDIR /app
 
