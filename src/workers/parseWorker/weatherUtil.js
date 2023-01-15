@@ -17,6 +17,7 @@ const ADVANCED_LEVEL = [
   'mostdifficult',
   'diamond',
   'type_3',
+  'tree',
 ];
 const EXPERT_LEVEL = ['expert', 'double', 'type_4'];
 

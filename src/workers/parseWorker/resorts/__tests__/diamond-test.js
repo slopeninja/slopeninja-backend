@@ -18,9 +18,9 @@ test('fetches Diamond snow data correctly', async () => {
       weatherIcon: null,
       temperature: null,
       baseCondition: null,
-      newSnow: 0,
-      snowDepthBase: 6,
-      snowDepthSummit: 8,
+      newSnow: 6,
+      snowDepthBase: 33,
+      snowDepthSummit: 66,
     },
   });
 });
